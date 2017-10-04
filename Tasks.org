@@ -1,0 +1,7 @@
+* Tasks
+
+** Emacs
+
+*** TODO Document a git workflow
+*** TODO Python setup
+
