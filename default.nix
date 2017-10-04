@@ -1,20 +1,28 @@
 { config, pkgs, ...}:
 
 {
-  programs.mosh.enable = true;
+  programs.mosh.enable = false;
+
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     bash
     exa
     git
     gnumake
+    haskellPackages.git-annex
     htop
     httpie
     jq
+    keychain
     links
     nix-prefetch-git
     php
+    python
     python27Packages.ipython
+    python27Packages.pip
+    python27Packages.setuptools
+    python27Packages.virtualenv
     ripgrep
     tig
     tmux
@@ -25,6 +33,7 @@
     (emacsWithPackages (with emacsPackagesNg; [
       ace-window
       avy
+      counsel
       elm-mode
       evil
       github-theme
@@ -35,7 +44,6 @@
       magit
       markdown-mode
       material-theme
-      moe-theme
       nix-mode
       org
       python-mode
