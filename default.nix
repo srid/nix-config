@@ -10,7 +10,6 @@
     exa
     git
     gnumake
-    haskellPackages.git-annex
     htop
     httpie
     jq
@@ -18,11 +17,6 @@
     links
     nix-prefetch-git
     php
-    python
-    python27Packages.ipython
-    python27Packages.pip
-    python27Packages.setuptools
-    python27Packages.virtualenv
     ripgrep
     tig
     tmux
