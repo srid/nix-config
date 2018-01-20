@@ -18,6 +18,7 @@
     nix-prefetch-git
     php
     ripgrep
+    stow
     tig
     tmux
     unzip
