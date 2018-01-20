@@ -27,7 +27,6 @@
 
     # Not installing any package as I use spacemacs
     (emacsWithPackages (with emacsPackagesNg; [
-    ]))    
-        
+    ]))
   ];
 }
