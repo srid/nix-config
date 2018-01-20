@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     bash
-    exa
+    # exa -- broken
     git
     gnumake
     htop
