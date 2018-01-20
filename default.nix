@@ -25,27 +25,8 @@
     vim
     wget
 
+    # Not installing any package as I use spacemacs
     (emacsWithPackages (with emacsPackagesNg; [
-      ace-window
-      avy
-      counsel
-      elm-mode
-      evil
-      github-theme
-      ivy
-      ivy-hydra
-      leuven-theme
-      lispy
-      magit
-      markdown-mode
-      material-theme
-      nix-mode
-      org
-      python-mode
-      swiper
-      worf
-      yaml-mode
-      zenburn-theme
     ]))    
         
   ];
