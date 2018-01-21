@@ -1,9 +1,29 @@
 { config, pkgs, ...}:
 
 {
-  programs.mosh.enable = false;
+  # Firewall
+  networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 80 443 3000 8080 ];
+  networking.firewall.allowPing = true;
+  
+  programs.mosh.enable = true;
+  programs.bash.enableCompletion = true;
 
-  virtualisation.docker.enable = true;
+  # Xmonad
+  # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
+  services.xserver = {
+    enable = false;
+    windowManager.xmonad = {
+      enable = false;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
+    windowManager.default = "xmonad";
+  };
 
   environment.systemPackages = with pkgs; [
     bash
