@@ -1,6 +1,8 @@
 { config, pkgs, ...}:
 
 {
+  time.timeZone = "America/New_York";
+
   # Firewall
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 80 443 3000 8080 9812 ];

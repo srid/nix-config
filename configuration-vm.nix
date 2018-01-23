@@ -15,7 +15,6 @@
   boot.cleanTmpDir = true;
 
   networking.hostName = "AppleDumbsUs";
-  time.timeZone = "America/New_York";
 
   services.openssh.enable = true;
 
