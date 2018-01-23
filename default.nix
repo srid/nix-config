@@ -3,7 +3,7 @@
 {
   # Firewall
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 80 443 3000 8080 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 3000 8080 9812 ];
   networking.firewall.allowPing = true;
   
   programs.mosh.enable = true;
@@ -12,9 +12,9 @@
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
-    enable = false;
+    enable = true;
     windowManager.xmonad = {
-      enable = false;
+      enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
         haskellPackages.xmonad-contrib
