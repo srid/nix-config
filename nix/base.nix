@@ -19,15 +19,16 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ag
     bash
     git
     gnumake
     htop
     keychain
-    # ripgrep (compiles Rust; disabling temporarily)
     stow
     tig
     tmux
+    tree
     unzip
     vim
     wget
