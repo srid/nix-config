@@ -30,17 +30,11 @@
 
   environment.systemPackages = with pkgs; [
     bash
-    # exa -- broken
     git
     gnumake
     htop
-    httpie
-    jq
     keychain
-    links
-    nix-prefetch-git
-    php
-    ripgrep
+    # ripgrep (compiles Rust; disabling temporarily)
     stow
     tig
     tmux
