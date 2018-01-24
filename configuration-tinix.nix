@@ -3,6 +3,7 @@
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/networking.nix # generated at runtime by nixos-infect
     ./nix/base.nix
+    ./nix/emacs.nix
   ];
 
   boot.cleanTmpDir = true;
