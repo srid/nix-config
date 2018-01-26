@@ -20,7 +20,8 @@
 
   environment.systemPackages = with pkgs; [
     ag
-    bash
+    bashInteractive
+    fzf
     git
     gnumake
     htop
@@ -30,7 +31,9 @@
     tmux
     tree
     unzip
-    vim
     wget
+
+    # VIM
+    neovim
   ];
 }
