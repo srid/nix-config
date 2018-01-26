@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 {
+  # I depend on Google Chrome
   nixpkgs.config.allowUnfree = true; 
 
   # Xmonad
@@ -20,8 +21,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    alacritty
     dmenu
     google-chrome
     konsole
+    rxvt_unicode
   ];
 }

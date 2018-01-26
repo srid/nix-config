@@ -16,6 +16,7 @@
 
   fonts.fonts = with pkgs; [
     google-fonts
+    powerline-fonts
   ];
 
   environment.systemPackages = with pkgs; [
