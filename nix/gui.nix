@@ -1,6 +1,8 @@
 { config, pkgs, ...}:
 
 {
+  nixpkgs.config.allowUnfree = true; 
+
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
@@ -17,4 +19,9 @@
     windowManager.default = "xmonad";
   };
 
+  environment.systemPackages = with pkgs; [
+    dmenu
+    google-chrome
+    konsole
+  ];
 }
