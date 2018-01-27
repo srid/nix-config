@@ -12,6 +12,7 @@
       enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
+        haskellPackages.xmobar
         haskellPackages.xmonad-contrib
         haskellPackages.xmonad-extras
         haskellPackages.xmonad
@@ -23,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     dmenu
+    dropbox-cli
     google-chrome
     konsole
     rxvt_unicode
