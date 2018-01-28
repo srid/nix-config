@@ -4,7 +4,7 @@ with pkgs; neovim.override {
   configure = {
     customRC = ''
       syntax enable
-      set colorcolumn=80
+      filetype plugin indent on
       imap fd <Esc>
     '';
 
@@ -20,8 +20,9 @@ with pkgs; neovim.override {
     vam.knownPlugins = pkgs.vimPlugins;
     vam.pluginDictionaries = [
       { name = "goyo"; }  # Distraction free writing
-      # { name = "vim-pandoc"; }
-      # { name = "vim-pandoc-syntax"; }
+      { name = "vim-nix"; }
+      { name = "haskell-vim"; }
+      { name = "vim-gitgutter"; }
     ]; 
   };
 }
