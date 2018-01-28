@@ -34,7 +34,6 @@
     unzip
     wget
 
-    # VIM
-    neovim
+    (import ./nvim.nix)
   ];
 }
