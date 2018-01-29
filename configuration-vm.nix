@@ -7,6 +7,7 @@
       ./nix/base.nix
       ./nix/emacs.nix
       ./nix/gui.nix
+      ./nix/dev.nix
     ];
 
   # GRUB

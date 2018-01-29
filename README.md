@@ -8,7 +8,5 @@ My NixOS configuration
 
 1. Symlink `configuration-???.nix` to `/etc/nixos/configuration.nix`
 
-1. Install nix packages using `make`
-
-1. Stow dotfiles using `make stow`
+1. Stow dotfiles, and install nix packages using `make`
 
