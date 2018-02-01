@@ -15,7 +15,10 @@
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   fonts.fonts = with pkgs; [
+    fira-code
     google-fonts
+    hasklig
+    monoid
     powerline-fonts
   ];
 
