@@ -2,12 +2,16 @@
 
 {
   # I depend on Google Chrome
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config.allowUnfree = true;
 
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
     enable = true;
+
+    layout = "us";
+    xkbOptions = "grp:alt_space_toggle, ctrl:swapcaps";
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
