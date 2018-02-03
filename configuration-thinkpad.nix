@@ -21,6 +21,17 @@
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
+  # DPI
+  services.xserver.dpi = 200;
+  # Nvidia (is it enabled in BIOS?)
+  services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.bumblebee.enable = true;
+  # hardware.bumblebee.connectDisplay = true;
+
+  # Xmonad multi monitor setup works better with Plasma.
+  # Use lightdm so I can selecet xmonad+plasma as the session.
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.srid = {

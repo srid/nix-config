@@ -18,7 +18,7 @@
         haskellPackages.xmonad
       ];
     };
-    windowManager.default = "xmonad";
+    # windowManager.default = "xmonad";
   };
 
   environment.systemPackages = with pkgs; [
