@@ -21,15 +21,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thebeast"; # Define your hostname.
-  # TODO: make wifi work
-  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+
+  # WiFi
+  # Connect to wifi using nmtui / nmcli.
+  networking.networkmanager.enable = true;
 
   services.openssh.enable = true;
+
+  sound.mediaKeys.enable = true;
 
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
-    # It sucks, and I don't use it. Trackpoint is preferable.
     libinput.enable = true;
 
     # Nvidia
