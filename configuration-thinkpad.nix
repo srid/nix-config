@@ -57,6 +57,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
 
+  # TLP Linux Advanced Power Management
+  services.tlp.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.srid = {
     isNormalUser = true;
