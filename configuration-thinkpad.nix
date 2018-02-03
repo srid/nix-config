@@ -1,3 +1,5 @@
+# NixOS on Thinkpad P71
+
 { config, pkgs, ... }:
 
 {
@@ -15,21 +17,43 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thebeast"; # Define your hostname.
+  # TODO: make wifi work
   networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
 
   services.openssh.enable = true;
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
-  # DPI
-  services.xserver.dpi = 200;
-  # Nvidia (is it enabled in BIOS?)
-  services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.bumblebee.enable = true;
-  # hardware.bumblebee.connectDisplay = true;
+  # services.xserver.
+  services.xserver = {
+    # Enable touchpad support.
+    # It sucks, and I don't use it. Trackpoint is preferable.
+    libinput.enable = true;
 
-  # Xmonad multi monitor setup works better with Plasma.
-  # Use lightdm so I can selecet xmonad+plasma as the session.
+    # DPI
+    # FIXME: doesn't propagate to Chrome and Emacs.
+    dpi = 200;
+
+    # Nvidia
+    # Note: nvidia card must be enabled in BIOS.
+    videoDrivers = [ "nvidia" ];
+
+    # Configuration for the LG UltraFine 5k monitor.
+    # Facts:
+    #  - TwinView is automatically enabled in recent nvidia drivers (no need to enable it explicitly)
+    #  - nvidiaXineramaInfo must be disabled, otherwise xmonad will treat the display as two monitors.
+    screenSection = ''
+      Option "MetaModes"           "DP-5: 2560x2880, DP-3: 2560x2880"
+      Option "ConnectedMonitor"    "DP-5, DP-3"
+      Option "MetaModeOrientation" "DP-3 RightOf DP-5"
+      Option "nvidiaXineramaInfo"  "false"
+    '';
+    # Not sure if this is still required.
+    serverFlagsSection = ''
+      Option  "Xinerama" "0"
+    '';
+  };
+  # TODO: xrandr switch? (autoxrandr)
+
+  # For occasions when xmonad is broken.
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
 
