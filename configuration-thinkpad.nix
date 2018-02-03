@@ -1,5 +1,9 @@
 # NixOS on Thinkpad P71
 
+# NixOS 17.09 works, but upgrading to nixos-unstable gets you:
+#  - Working DPI in Chrome
+#  - Trackpoint scroll
+
 { config, pkgs, ... }:
 
 {
@@ -27,10 +31,6 @@
     # Enable touchpad support.
     # It sucks, and I don't use it. Trackpoint is preferable.
     libinput.enable = true;
-
-    # DPI
-    # FIXME: doesn't propagate to Chrome and Emacs.
-    dpi = 200;
 
     # Nvidia
     # Note: nvidia card must be enabled in BIOS.
