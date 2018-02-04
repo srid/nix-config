@@ -5,15 +5,13 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Actions.SimpleDate
+import XMonad.Layout.ThreeColumns
 
 main = xmonad $ defaultConfig
     { terminal    = "konsole"
     , modMask     = mod4Mask
     , borderWidth = 2
-    -- Status bar space setup
-    , layoutHook  = avoidStruts $ layoutHook desktopConfig
-    -- , layoutHook = smartSpacing 2 $ Tall 1 (3/100) (1/2)
+    , layoutHook = ThreeColMid 1 (3/100) (1/2) ||| Full
     , manageHook  = manageHook desktopConfig <+> manageDocks
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
