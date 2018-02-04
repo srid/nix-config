@@ -1,3 +1,4 @@
+import           Data.Default               (def)
 import           XMonad
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
@@ -8,9 +9,10 @@ import           XMonad.Layout.ThreeColumns
 import           XMonad.Util.EZConfig
 
 main = do
-  xmonad $ defaultConfig
+  xmonad $ def
     { terminal    = "konsole"
     , modMask     = mod4Mask
+    , startupHook = startupCommands
     , borderWidth = 2
     , layoutHook = ThreeColMid 1 (3/100) (1/2) ||| Full
     , manageHook  = manageHook desktopConfig <+> manageDocks
@@ -27,3 +29,8 @@ takeScreenshot =
 
 lockScreen =
   spawn "i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png"
+
+startupCommands :: X ()
+startupCommands = do
+  -- Wallpaper
+  spawn "feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg"
