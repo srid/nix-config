@@ -68,8 +68,6 @@
     arandr
   ];
 
-  # For occasions when xmonad is broken.
-  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
 
   # TLP Linux Advanced Power Management
