@@ -33,6 +33,7 @@
     konsole
     rxvt_unicode
     slock
+    maim
   ];
 
   # slock needs OOM exception

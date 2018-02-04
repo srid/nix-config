@@ -7,7 +7,8 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.ThreeColumns
 
-main = xmonad $ defaultConfig
+main = do
+  xmonad $ defaultConfig
     { terminal    = "konsole"
     , modMask     = mod4Mask
     , borderWidth = 2
@@ -18,4 +19,5 @@ main = xmonad $ defaultConfig
     }
     `additionalKeysP`
     [ ("M1-C-l", spawn "slock") -- Lock screen using Ctrl+Alt+L
+    , ("<Print>", spawn "maim -s ~/Pictures/maim-screenshot.png") -- Take screenshot
     ]
