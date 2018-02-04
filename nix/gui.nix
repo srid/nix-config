@@ -32,11 +32,14 @@
     google-chrome
     konsole
     rxvt_unicode
-    slock
 
-    # Screenshot and clipboard
+    # X utilities
+    slock
     maim
     xclip
+    i3lock
+    feh
+    imagemagick
   ];
 
   # slock needs OOM exception

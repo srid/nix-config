@@ -1,11 +1,11 @@
-import XMonad
-import XMonad.Config.Desktop
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicLog
-import XMonad.Util.EZConfig
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.ThreeColumns
+import           XMonad
+import           XMonad.Config.Desktop
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Layout.NoBorders    (smartBorders)
+import           XMonad.Layout.Spacing
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Util.EZConfig
 
 main = do
   xmonad $ defaultConfig
@@ -18,8 +18,12 @@ main = do
     , focusedBorderColor = "#30d080"
     }
     `additionalKeysP`
-    [ ("M1-C-l", spawn "slock") -- Lock screen using Ctrl+Alt+L
-    , ("<Print>", spawn screenshotCli) -- Take screenshot
+    [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
+    , ("<Print>", takeScreenshot) -- Take screenshot
     ]
 
-screenshotCli = "maim -s | xclip -selection clipboard -t image/png"
+takeScreenshot =
+  spawn "maim -s | xclip -selection clipboard -t image/png"
+
+lockScreen =
+  spawn "i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png"
