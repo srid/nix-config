@@ -62,22 +62,39 @@
       Option  "Xinerama" "0"
     '';
   };
-  # TODO: xrandr switch? (autoxrandr)
 
   environment.systemPackages = with  pkgs; [
+    # TODO: Use autorandr to switch between modes.
+    # For now, doing it manually using arandr.
     arandr
+    autorandr
+
+    # pulsemixer
+    # https://github.com/GeorgeFilipkin/pulsemixer#interactive-mode
+    # H/L, Shift+Left/Shift+Right   change volume by 10
+    # 1/2/3/4/5/6/7/8/9/0           set volume to 10%-100%
+    # m                             mute/unmute
+    # Mouse wheel                   volume change
+    # TODO: Configure xmonad to bring pulsemixer on popup
+    # as needed.
+    pulsemixer
   ];
 
   services.xserver.displayManager.lightdm.enable = true;
 
+  # Audio
+  # Use `pactl set-sink-volume 0 +10%` to increase volume.
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+
   # TLP Linux Advanced Power Management
+  # Seems to make suspend / wake-up work on lid-close.
   services.tlp.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
   };
 
   # This value determines the NixOS release with which your system is to be
