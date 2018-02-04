@@ -19,5 +19,7 @@ main = do
     }
     `additionalKeysP`
     [ ("M1-C-l", spawn "slock") -- Lock screen using Ctrl+Alt+L
-    , ("<Print>", spawn "maim -s ~/Pictures/maim-screenshot.png") -- Take screenshot
+    , ("<Print>", spawn screenshotCli) -- Take screenshot
     ]
+
+screenshotCli = "maim -s | xclip -selection clipboard -t image/png"

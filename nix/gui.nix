@@ -33,7 +33,10 @@
     konsole
     rxvt_unicode
     slock
+
+    # Screenshot and clipboard
     maim
+    xclip
   ];
 
   # slock needs OOM exception
