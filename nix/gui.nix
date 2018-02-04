@@ -32,5 +32,10 @@
     google-chrome
     konsole
     rxvt_unicode
+    slock
   ];
+
+  # slock needs OOM exception
+  # https://github.com/NixOS/nixpkgs/issues/9656#issuecomment-137719381
+  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 }

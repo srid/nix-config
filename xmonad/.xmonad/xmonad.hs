@@ -7,7 +7,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Actions.SimpleDate
 
-main = xmonad =<< xmobar desktopConfig
+main = xmonad $ defaultConfig
     { terminal    = "konsole"
     , modMask     = mod4Mask
     , borderWidth = 2
@@ -18,3 +18,6 @@ main = xmonad =<< xmobar desktopConfig
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
     }
+    `additionalKeysP`
+    [ ("M1-C-l", spawn "slock") -- Lock screen using Ctrl+Alt+L
+    ]
