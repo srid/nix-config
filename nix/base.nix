@@ -5,7 +5,7 @@
 
   # Firewall
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 80 443 3000 8080 9812 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 3000 3001 8080 9812 ];
   networking.firewall.allowPing = true;
   
   programs.mosh.enable = true;
