@@ -448,6 +448,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (add-hook 'spacemacs-post-user-config-hook
+            (lambda ()
+              (desktop-save-mode 1)
+              (desktop-read)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

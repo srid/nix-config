@@ -72,6 +72,11 @@
     serverFlagsSection = ''
       Option  "Xinerama" "0"
     '';
+
+    displayManager.lightdm = {
+      enable = true;
+      background = "/home/srid/mynixos/files/Atom-HD-Wallpaper.png";
+    };
   };
 
   environment.systemPackages = with  pkgs; [
@@ -91,8 +96,6 @@
     # as needed.
     pulsemixer
   ];
-
-  services.xserver.displayManager.lightdm.enable = true;
 
   # Audio
   # Use `pactl set-sink-volume 0 +10%` to increase volume.
@@ -114,5 +117,4 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "17.09"; # Did you read the comment?
-
 }
