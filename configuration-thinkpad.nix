@@ -41,6 +41,10 @@
   #   driver = "nvidia";
   # };
 
+  # When using just discrete graphics with nvidia, DPI is calculated
+  # automatically,
+  # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html
+
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
@@ -101,6 +105,10 @@
   # Use `pactl set-sink-volume 0 +10%` to increase volume.
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
+
+  # Bluetooth
+  # https://nixos.wiki/wiki/Bluetooth
+  hardware.bluetooth.enable = true;
 
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
