@@ -30,14 +30,25 @@
 
   sound.mediaKeys.enable = true;
 
+  # TODO: Hybrid graphics configuration.
+  #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
+  #  - Can't connect external monitor via intel card.
+  #  - And bumblee can't use nvidia for external monitor.
+  # The only solution for laptop use (not branched) for now is to disable hybrid
+  # graphics in BIOS and fix the DPI issues manually.
+  # hardware.bumblebee = {
+  #   enable = false;
+  #   driver = "nvidia";
+  # };
+
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
     libinput.enable = true;
 
     # Nvidia
-    # Note: nvidia card must be enabled in BIOS.
-    videoDrivers = [ "nvidia" ];
+    # Note: discrete graphics must be enabled in bios.
+    videoDrivers = [ "nvidia" "intel" ];
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
@@ -66,6 +77,7 @@
   environment.systemPackages = with  pkgs; [
     # TODO: Use autorandr to switch between modes.
     # For now, doing it manually using arandr.
+    #   Using .screenlayout/lgonly.sh when connecting the monitor
     arandr
     autorandr
 
