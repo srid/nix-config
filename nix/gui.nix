@@ -2,12 +2,16 @@
 
 {
   # I depend on Google Chrome
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config.allowUnfree = true;
 
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
     enable = true;
+
+    layout = "us";
+    xkbOptions = "grp:alt_space_toggle, ctrl:swapcaps";
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -18,7 +22,7 @@
         haskellPackages.xmonad
       ];
     };
-    windowManager.default = "xmonad";
+    # windowManager.default = "xmonad";
   };
 
   environment.systemPackages = with pkgs; [
@@ -28,5 +32,21 @@
     google-chrome
     konsole
     rxvt_unicode
+
+    signal-desktop
+    vscode
+
+    # X utilities
+    slock
+    maim
+    xclip
+    i3lock
+    feh
+    imagemagick
+    xorg.xbacklight
   ];
+
+  # slock needs OOM exception
+  # https://github.com/NixOS/nixpkgs/issues/9656#issuecomment-137719381
+  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 }
