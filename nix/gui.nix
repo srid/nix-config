@@ -33,6 +33,9 @@
     konsole
     rxvt_unicode
 
+    signal-desktop
+    vscode
+
     # X utilities
     slock
     maim
@@ -40,6 +43,7 @@
     i3lock
     feh
     imagemagick
+    xorg.xbacklight
   ];
 
   # slock needs OOM exception

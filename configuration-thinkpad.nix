@@ -50,9 +50,18 @@
     # Enable touchpad support.
     libinput.enable = true;
 
-    # Nvidia
-    # Note: discrete graphics must be enabled in bios.
-    videoDrivers = [ "nvidia" "intel" ];
+    # Graphics drivers.
+    # I have not figured out how to use hybrid graphics. Intel doesn't connect
+    # to an external monitor. To do that,
+    #  - enable Discrete graphics in BIOS
+    videoDrivers = [  "nvidia" "intel" ];
+    # If not using discrete graphics (nvidia)--perhaps to save on
+    # battery--power, do the following:
+    #  - remove "nvidia" from the list above
+    #  - uncomment the DPI line below
+    #  - nixos-switch rebuild
+    #  - reboot, and switch to hybrid graphics in BIOS.
+    #dpi = 200;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
@@ -66,12 +75,6 @@
     # For example, to manual display the laptop screen when connected to
     # external display. This needs to be streamlined.
 
-    # If docked with my Lg Ultrafine 5k, and not using the laptop screen, I can
-    # hardcode the following configuration:
-    #  Option "MetaModes"           "DP-5: 2560x2880, DP-3: 2560x2880"
-    #  Option "ConnectedMonitor"    "DP-5, DP-3"
-    #  Option "MetaModeOrientation" "DP-3 RightOf DP-5"
-
     # Not sure if this is still required.
     serverFlagsSection = ''
       Option  "Xinerama" "0"
@@ -79,7 +82,7 @@
 
     displayManager.lightdm = {
       enable = true;
-      background = "/home/srid/mynixos/files/Atom-HD-Wallpaper.png";
+      background = "/home/srid/mynixos/files/Atom-HD-Wallpaper.png";  # FIXME: doesn't work
     };
   };
 
@@ -89,6 +92,7 @@
     #   Using .screenlayout/lgonly.sh when connecting the monitor
     arandr
     autorandr
+    acpi
 
     # pulsemixer
     # https://github.com/GeorgeFilipkin/pulsemixer#interactive-mode
