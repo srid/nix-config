@@ -22,4 +22,30 @@
   environment.systemPackages = with pkgs; [
     ii
   ];
+
+  # Services
+  services.nginx = {
+    enable = true;
+    user = "srid";
+    virtualHosts={
+      "www.srid.ca" = {
+        enableACME = true;
+        forceSSL = true;
+        root = "/home/srid/sridCaOutput";
+      };
+
+      "slownews.srid.ca" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:3001";
+        };
+      };
+    };
+  };
+
+  security.acme.certs = {
+    "slownews.srid.ca".email = "srid@srid.ca";
+    "www.srid.ca".email = "srid@srid.ca";
+  };
 }
