@@ -40,7 +40,6 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
      better-defaults
      emacs-lisp
      git
@@ -52,7 +51,6 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
-     syntax-checking
      version-control
 
      ;; Common stuff
@@ -61,6 +59,9 @@ This function should only modify configuration layer settings."
      nixos
 
      ;; Haskell
+     auto-completion
+     syntax-checking
+     ;; (syntax-checking :variables syntax-checking-enable-by-default nil)
      (haskell :variables haskell-completion-backend 'dante)
      )
 
@@ -71,7 +72,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(nix-sandbox)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -448,9 +449,23 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (add-hook 'dante-mode-hook
+            '(lambda () (flycheck-add-next-checker 'haskell-dante
+                                                   '(warning . haskell-hlint))))
+
+
   (setq haskell-process-type 'cabal-new-repl)
-  ;; (setq dante-project-root "/home/srid/code/slownews")
-  ;; (setq dante-repl-command-line '("nix-shell" "-A" "shells.ghc" "--run" "cabal new-repl frontend"))
+
+  ;; https://github.com/travisbhartwell/nix-emacs#flycheck
+  ;; Requires `nix-sandbox` package added to dotspacemacs-additional-packages
+  (setq flycheck-command-wrapper-function
+        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
+  (setq flycheck-executable-find
+        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
+  (setq haskell-process-wrapper-function
+        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+  ;; We have limit flycheck to haskell because the above wrapper configuration is global (!)
+  (setq flycheck-global-modes '(haskell-mode))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
