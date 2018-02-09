@@ -451,26 +451,31 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; Connect flycheck to dante
   (add-hook 'dante-mode-hook
             '(lambda () (flycheck-add-next-checker 'haskell-dante
                                                    '(warning . haskell-hlint))))
 
-
-  (setq haskell-process-type 'cabal-new-repl)
-
+  ;; Configure flycheck to use Nix
   ;; https://github.com/travisbhartwell/nix-emacs#flycheck
   ;; Requires `nix-sandbox` package added to dotspacemacs-additional-packages
   (setq flycheck-command-wrapper-function
         (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
   (setq flycheck-executable-find
         (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
+
+  ;; Configure haskell-mode (haskell-cabal) to use Nix
   (setq haskell-process-wrapper-function
         (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+
+  ;; Configure haskell-mode to use cabal new-style builds
+  (setq haskell-process-type 'cabal-new-repl)
+
   ;; We have limit flycheck to haskell because the above wrapper configuration is global (!)
   (setq flycheck-global-modes '(haskell-mode))
 
-;; Lastly, load custom-file (but only if the file exists).
-(when (file-exists-p custom-file)
-  (load-file custom-file))
+  ;; Lastly, load custom-file (but only if the file exists).
+  (when (file-exists-p custom-file)
+    (load-file custom-file))
 
 )
