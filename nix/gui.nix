@@ -4,6 +4,13 @@
   # I depend on Google Chrome
   nixpkgs.config.allowUnfree = true;
 
+  services.redshift = {
+    enable = true;
+    # New York
+    latitude = "40.7128";
+    longitude = "-74.0060";
+  };
+
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
