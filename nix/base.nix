@@ -18,11 +18,13 @@
     fira-code
     google-fonts
     hasklig
-    monoid
     powerline-fonts
   ];
 
   environment.systemPackages = with pkgs; [
+    # more fonts
+    dejavu_fonts
+
     ag
     bashInteractive
     fzf

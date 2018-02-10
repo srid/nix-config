@@ -170,7 +170,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(grandshell
+   dotspacemacs-themes '(deeper-blue
+                         grandshell
                          spacemacs-dark
                          spacemacs-light)
 
@@ -189,8 +190,8 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 30
+   dotspacemacs-default-font '("DejaVu Sans Mono"
+                               :size 32
                                :weight normal
                                :width normal)
 
@@ -472,6 +473,7 @@ before packages are loaded."
   (setq haskell-process-type 'cabal-new-repl)
 
   ;; We have limit flycheck to haskell because the above wrapper configuration is global (!)
+  ;; FIXME: How? Using mode local variables?
   (setq flycheck-global-modes '(haskell-mode))
 
   ;; Lastly, load custom-file (but only if the file exists).
