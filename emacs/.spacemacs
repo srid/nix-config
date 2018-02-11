@@ -72,7 +72,8 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(nix-sandbox)
+   dotspacemacs-additional-packages '(nix-sandbox
+                                      all-the-icons)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -170,7 +171,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(deeper-blue
+   dotspacemacs-themes '(dracula
+                         deeper-blue
                          grandshell
                          spacemacs-dark
                          spacemacs-light)
@@ -191,7 +193,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("DejaVu Sans Mono"
-                               :size 32
+                               :size 24
                                :weight normal
                                :width normal)
 
@@ -475,6 +477,11 @@ before packages are loaded."
   ;; We have limit flycheck to haskell because the above wrapper configuration is global (!)
   ;; FIXME: How? Using mode local variables?
   (setq flycheck-global-modes '(haskell-mode))
+
+  ;; ----
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/7828#issuecomment-262853752
+  (setq neo-theme 'icons)
 
   ;; Lastly, load custom-file (but only if the file exists).
   (when (file-exists-p custom-file)

@@ -19,6 +19,7 @@
     google-fonts
     hasklig
     powerline-fonts
+    emacs-all-the-icons-fonts
   ];
 
   environment.systemPackages = with pkgs; [
