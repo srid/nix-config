@@ -2,6 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # Haskell stuff
+    cabal-install
+    haskellPackages.ghcid
     haskellPackages.hlint
     haskellPackages.stylish-haskell
   ];

@@ -60,8 +60,8 @@ This function should only modify configuration layer settings."
 
      ;; Haskell
      auto-completion
-     syntax-checking
-     ;; (syntax-checking :variables syntax-checking-enable-by-default nil)
+     ;; syntax-checking
+     (syntax-checking :variables syntax-checking-enable-by-default nil)
      (haskell :variables haskell-completion-backend 'dante)
      )
 
