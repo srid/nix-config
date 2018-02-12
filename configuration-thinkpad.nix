@@ -14,6 +14,7 @@
       ./nix/emacs.nix
       ./nix/gui.nix
       ./nix/dev.nix
+      ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
 
   # EFI boot

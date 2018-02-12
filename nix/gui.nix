@@ -39,6 +39,8 @@
     google-chrome
     konsole
     rxvt_unicode
+    thunderbird
+    firefox
 
     signal-desktop
     vscode
