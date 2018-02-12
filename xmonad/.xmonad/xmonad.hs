@@ -1,12 +1,13 @@
-import           Data.Default               (def)
-import           XMonad
-import           XMonad.Config.Desktop
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Layout.NoBorders    (smartBorders)
-import           XMonad.Layout.Spacing
-import           XMonad.Layout.ThreeColumns
-import           XMonad.Util.EZConfig
+import Data.Default (def)
+import XMonad
+import XMonad.Config.Desktop
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.Spacing
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
+import XMonad.Util.EZConfig
 
 main = do
   xmonad $ def
@@ -14,7 +15,7 @@ main = do
     , modMask     = mod4Mask
     , startupHook = startupCommands
     , borderWidth = 2
-    -- , layoutHook = ThreeColMid 1 (3/100) (1/2) ||| Full
+    , layoutHook = layoutHook desktopConfig ||| simpleTabbed ||| Full
     , manageHook  = manageHook desktopConfig <+> manageDocks
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
