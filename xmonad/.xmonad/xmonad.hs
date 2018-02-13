@@ -12,20 +12,24 @@ import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 
 
-scratchChromeApp name url = NS name cli windowQuery defaultFloating
-  where cli = "google-chrome-stable --app=https://" <> url
-        windowQuery = className =? "Google-chrome" <&&> resource =? url
+-- main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
-scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
-              ]
+-- myBar = "xmobar"
 
-main = do
-  xmonad $ def
+-- myPP = xmobarPP {
+--   ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
+--   }
+
+-- toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
+main = xmonad =<< xmobar myConfig
+
+myConfig = def
     { terminal    = "konsole"
     , modMask     = mod4Mask
     , startupHook = startupCommands
     , borderWidth = 2
-    , layoutHook = layoutHook desktopConfig ||| simpleTabbed ||| Full
+    , layoutHook = avoidStruts $ layoutHook desktopConfig ||| simpleTabbed ||| Full
     , manageHook  = manageHook desktopConfig <+> manageDocks <+>  namedScratchpadManageHook scratchpads
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
@@ -33,7 +37,9 @@ main = do
     `additionalKeysP`
     [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
     , ("<Print>", takeScreenshot) -- Take screenshot
-    , ("M-C-h", namedScratchpadAction scratchpads "wrinkle")
+    -- Named scratchpads for chat apps
+    , ("M-C-k", namedScratchpadAction scratchpads "wrinkle")
+    , ("M-C-j", namedScratchpadAction scratchpads "irccloud")
     ]
 
 takeScreenshot =
@@ -46,3 +52,12 @@ startupCommands :: X ()
 startupCommands = do
   -- Wallpaper
   spawn "feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg"
+
+scratchChromeApp name url = NS name cli windowQuery defaultFloating
+  where cli = "google-chrome-stable --app=https://" <> url
+        windowQuery = className =? "Google-chrome" <&&> resource =? url
+
+scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
+              , scratchChromeApp "irccloud" "irccloud.com"
+              ]
+

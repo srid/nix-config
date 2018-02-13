@@ -29,7 +29,6 @@
       enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
-        haskellPackages.xmobar
         haskellPackages.xmonad-contrib
         haskellPackages.xmonad-extras
         haskellPackages.xmonad
@@ -51,6 +50,8 @@
     vscode
 
     # X utilities
+    dzen2
+    haskellPackages.xmobar
     slock
     maim
     xclip
