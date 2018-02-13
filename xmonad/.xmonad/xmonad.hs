@@ -1,4 +1,5 @@
 import Data.Default (def)
+import Data.Monoid ((<>))
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
@@ -8,6 +9,15 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Util.EZConfig
+import XMonad.Util.NamedScratchpad
+
+
+scratchChromeApp name url = NS name cli windowQuery defaultFloating
+  where cli = "google-chrome-stable --app=https://" <> url
+        windowQuery = className =? "Google-chrome" <&&> resource =? url
+
+scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
+              ]
 
 main = do
   xmonad $ def
@@ -16,13 +26,14 @@ main = do
     , startupHook = startupCommands
     , borderWidth = 2
     , layoutHook = layoutHook desktopConfig ||| simpleTabbed ||| Full
-    , manageHook  = manageHook desktopConfig <+> manageDocks
+    , manageHook  = manageHook desktopConfig <+> manageDocks <+>  namedScratchpadManageHook scratchpads
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
     }
     `additionalKeysP`
     [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
     , ("<Print>", takeScreenshot) -- Take screenshot
+    , ("M-C-h", namedScratchpadAction scratchpads "wrinkle")
     ]
 
 takeScreenshot =
