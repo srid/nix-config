@@ -42,10 +42,13 @@ myConfig = def
     -- Named scratchpads for chat apps
     , ("M-C-k", namedScratchpadAction scratchpads "wrinkle")
     , ("M-C-j", namedScratchpadAction scratchpads "irccloud")
+    , ("M-C-u", namedScratchpadAction scratchpads "note")
     ]
 
 scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
               , scratchChromeApp "irccloud" "irccloud.com"
+              , scratchChromeApp "dynalist" "dynalist.io"
+              , scratchEmacs "note"
               ]
 
 takeScreenshot =
@@ -59,7 +62,13 @@ startupCommands = do
   -- Wallpaper
   spawn "feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg"
 
-scratchChromeApp name url = NS name cli windowQuery defaultFloating
-  where cli = "google-chrome-stable --app=https://" <> url
-        windowQuery = className =? "Google-chrome" <&&> resource =? url
+-- A dedicated emacs process
+scratchEmacs name = NS name cli q defaultFloating
+  where cli = "emacs --name=" <> name
+        q = windowQuery "Emacs" name
 
+scratchChromeApp name url = NS name cli q defaultFloating
+  where cli = "google-chrome-stable --app=https://" <> url
+        q = windowQuery "Google-chrome" url
+
+windowQuery class_ resource_ = className =? class_ <&&> resource =? resource_
