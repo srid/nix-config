@@ -39,6 +39,7 @@ myConfig = def
     }
     `additionalKeysP`
     [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
+    , ("M-C-l", suspend)
     , ("<Print>", takeScreenshot) -- Take screenshot
     -- Named scratchpads for chat apps
     , ("M-C-u", namedScratchpadAction scratchpads "wrinkle")
@@ -61,6 +62,9 @@ takeScreenshot =
 
 lockScreen =
   spawn "i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png"
+
+suspend =
+  spawn "i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png && systemctl suspend"
 
 startupCommands :: X ()
 startupCommands = do
