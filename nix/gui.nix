@@ -4,6 +4,12 @@
   # I depend on Google Chrome
   nixpkgs.config.allowUnfree = true;
 
+  # Google Chrome ulimit upping
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=362603#c28
+  security.pam.loginLimits = [
+    { domain = "*"; item = "nofile"; type = "-"; value = "16384"; }
+  ];
+
   services.redshift = {
     enable = true;
     # New York
@@ -40,7 +46,6 @@
     konsole
     rxvt_unicode
     thunderbird
-    firefox
 
     signal-desktop
     vscode
