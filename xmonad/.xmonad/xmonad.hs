@@ -12,17 +12,19 @@ import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 
 
--- main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey myConfig
 
--- myBar = "xmobar"
+myXmobarPP :: PP
+myXmobarPP = def { ppCurrent = xmobarColor "green" "" . wrap "[" "]"
+                 , ppTitle   = ignore -- xmobarColor "grey"  "" . shorten 40
+                 , ppVisible = wrap "(" ")"
+                 , ppUrgent  = xmobarColor "red" "yellow"
+                 }
+  where ignore _ = ""
 
--- myPP = xmobarPP {
---   ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
---   }
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
--- toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
-main = xmonad =<< xmobar myConfig
+-- main = xmonad =<< xmobar myConfig
 
 myConfig = def
     { terminal    = "konsole"
@@ -42,6 +44,10 @@ myConfig = def
     , ("M-C-j", namedScratchpadAction scratchpads "irccloud")
     ]
 
+scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
+              , scratchChromeApp "irccloud" "irccloud.com"
+              ]
+
 takeScreenshot =
   spawn "maim -s | xclip -selection clipboard -t image/png"
 
@@ -56,8 +62,4 @@ startupCommands = do
 scratchChromeApp name url = NS name cli windowQuery defaultFloating
   where cli = "google-chrome-stable --app=https://" <> url
         windowQuery = className =? "Google-chrome" <&&> resource =? url
-
-scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
-              , scratchChromeApp "irccloud" "irccloud.com"
-              ]
 
