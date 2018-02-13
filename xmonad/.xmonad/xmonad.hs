@@ -10,6 +10,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
+import XMonad.StackSet as W
 
 
 main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey myConfig
@@ -40,15 +41,19 @@ myConfig = def
     [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
     , ("<Print>", takeScreenshot) -- Take screenshot
     -- Named scratchpads for chat apps
-    , ("M-C-k", namedScratchpadAction scratchpads "wrinkle")
-    , ("M-C-j", namedScratchpadAction scratchpads "irccloud")
-    , ("M-C-u", namedScratchpadAction scratchpads "note")
+    , ("M-C-u", namedScratchpadAction scratchpads "wrinkle")
+    , ("M-C-h", namedScratchpadAction scratchpads "irccloud")
+    , ("M-C-j", namedScratchpadAction scratchpads "note")
+    , ("M-C-i", namedScratchpadAction scratchpads "google")
+    , ("M-C-k", namedScratchpadAction scratchpads "term")
     ]
 
 scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
               , scratchChromeApp "irccloud" "irccloud.com"
               , scratchChromeApp "dynalist" "dynalist.io"
+              , scratchChromeApp "google" "google.ca"
               , scratchEmacs "note"
+              , scratchTerm
               ]
 
 takeScreenshot =
@@ -67,8 +72,15 @@ scratchEmacs name = NS name cli q defaultFloating
   where cli = "emacs --name=" <> name
         q = windowQuery "Emacs" name
 
+scratchTerm = NS "term" cli q centerFloating
+  where cli = "alacritty --title=" <> title
+        q = windowQuery title title
+        title = "FloatingTerm"
+
 scratchChromeApp name url = NS name cli q defaultFloating
   where cli = "google-chrome-stable --app=https://" <> url
         q = windowQuery "Google-chrome" url
 
 windowQuery class_ resource_ = className =? class_ <&&> resource =? resource_
+
+centerFloating = customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)
