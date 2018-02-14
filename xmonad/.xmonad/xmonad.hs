@@ -39,20 +39,23 @@ myConfig = def
     }
     `additionalKeysP`
     [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
-    , ("M-C-l", suspend)
+    , ("M1-M-C-l", suspend)
     , ("<Print>", takeScreenshot) -- Take screenshot
     -- Named scratchpads for chat apps
-    , ("M-C-u", namedScratchpadAction scratchpads "wrinkle")
-    , ("M-C-h", namedScratchpadAction scratchpads "irccloud")
+    , ("M-C-o", namedScratchpadAction scratchpads "wrinkle")
+    , ("M-C-r", namedScratchpadAction scratchpads "irccloud")
     , ("M-C-j", namedScratchpadAction scratchpads "note")
     , ("M-C-i", namedScratchpadAction scratchpads "google")
     , ("M-C-k", namedScratchpadAction scratchpads "term")
+    , ("M-C-p", namedScratchpadAction scratchpads "pivotal")
     ]
 
 scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
               , scratchChromeApp "irccloud" "irccloud.com"
               , scratchChromeApp "dynalist" "dynalist.io"
               , scratchChromeApp "google" "google.ca"
+              , scratchChromeApp "hangout" "hangouts.google.com"
+              , scratchChromeApp "pivotal" "pivotaltracker.com"
               , scratchEmacs "note"
               , scratchTerm
               ]

@@ -7,6 +7,8 @@
     haskellPackages.ghcid
     haskellPackages.hlint
     haskellPackages.stylish-haskell
+
+    gitAndTools.hub
   ];
 
   # Gitit is no longer automatically added to the module list in NixOS. So we
