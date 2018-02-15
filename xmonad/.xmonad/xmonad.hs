@@ -46,6 +46,7 @@ myConfig = def
     , ("M-C-r", namedScratchpadAction scratchpads "irccloud")
     , ("M-C-j", namedScratchpadAction scratchpads "note")
     , ("M-C-i", namedScratchpadAction scratchpads "google")
+    , ("M-C-h", namedScratchpadAction scratchpads "hoogle")
     , ("M-C-k", namedScratchpadAction scratchpads "term")
     , ("M-C-p", namedScratchpadAction scratchpads "pivotal")
     ]
@@ -54,9 +55,10 @@ scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
               , scratchChromeApp "irccloud" "irccloud.com"
               , scratchChromeApp "dynalist" "dynalist.io"
               , scratchChromeApp "google" "google.ca"
+              , scratchChromeAppLocal "hoogle" 8080
               , scratchChromeApp "hangout" "hangouts.google.com"
               , scratchChromeApp "pivotal" "pivotaltracker.com"
-              , scratchEmacs "note"
+              , scratchEmacs "note" "~/NOTES.org"
               , scratchTerm
               ]
 
@@ -75,8 +77,8 @@ startupCommands = do
   spawn "feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg"
 
 -- A dedicated emacs process
-scratchEmacs name = NS name cli q defaultFloating
-  where cli = "emacs --name=" <> name
+scratchEmacs name args = NS name cli q defaultFloating
+  where cli = "emacs --name=" <> name <> " " <> args
         q = windowQuery "Emacs" name
 
 scratchTerm = NS "term" cli q centerFloating
@@ -87,6 +89,10 @@ scratchTerm = NS "term" cli q centerFloating
 scratchChromeApp name url = NS name cli q defaultFloating
   where cli = "google-chrome-stable --app=https://" <> url
         q = windowQuery "Google-chrome" url
+
+scratchChromeAppLocal name port = NS name cli q defaultFloating
+  where cli = "google-chrome-stable --app=http://localhost:" <> show port
+        q = windowQuery "Google-chrome" "localhost"
 
 windowQuery class_ resource_ = className =? class_ <&&> resource =? resource_
 
