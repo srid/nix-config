@@ -5,4 +5,4 @@ nix-switch:
 	sudo nixos-rebuild switch
 
 stow:
-	stow -v 1 bash git emacs xmonad
+	stow -v 1 bash git emacs xmonad tmux
