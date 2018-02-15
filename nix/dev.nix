@@ -9,6 +9,7 @@
     haskellPackages.stylish-haskell
 
     gitAndTools.hub
+    tmate
   ];
 
   # Gitit is no longer automatically added to the module list in NixOS. So we
