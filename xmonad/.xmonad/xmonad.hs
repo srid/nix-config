@@ -8,9 +8,9 @@ import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
+import XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
-import XMonad.StackSet as W
 
 
 main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey myConfig
@@ -25,6 +25,8 @@ myXmobarPP = def { ppCurrent = xmobarColor "green" "" . wrap "[" "]"
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
+threeColumns = ThreeCol 1 (3/100) (1/2)
+myLayoutHook = avoidStruts $ smartBorders $ layoutHook desktopConfig ||| threeColumns ||| Full
 -- main = xmonad =<< xmobar myConfig
 
 myConfig = def
@@ -32,7 +34,7 @@ myConfig = def
     , modMask     = mod4Mask
     , startupHook = startupCommands
     , borderWidth = 2
-    , layoutHook = avoidStruts $ layoutHook desktopConfig ||| simpleTabbed ||| Full
+    , layoutHook = myLayoutHook
     , manageHook  = manageHook desktopConfig <+> manageDocks <+>  namedScratchpadManageHook scratchpads
     , normalBorderColor = "#10b060"
     , focusedBorderColor = "#30d080"
@@ -44,7 +46,7 @@ myConfig = def
     -- Named scratchpads for chat apps
     , ("M-C-o", namedScratchpadAction scratchpads "wrinkle")
     , ("M-C-r", namedScratchpadAction scratchpads "irccloud")
-    , ("M-C-j", namedScratchpadAction scratchpads "note")
+    , ("M-C-j", namedScratchpadAction scratchpads "notes")
     , ("M-C-i", namedScratchpadAction scratchpads "google")
     , ("M-C-h", namedScratchpadAction scratchpads "hoogle")
     , ("M-C-k", namedScratchpadAction scratchpads "term")
@@ -58,7 +60,7 @@ scratchpads = [ scratchChromeApp "wrinkle" "internal.wrinkl.obsidian.systems"
               , scratchChromeAppLocal "hoogle" 8080
               , scratchChromeApp "hangout" "hangouts.google.com"
               , scratchChromeApp "pivotal" "pivotaltracker.com"
-              , scratchEmacs "note" "~/NOTES.org"
+              , scratchEmacs "notes" "~/NOTES.org" "NOTES.org"
               , scratchTerm
               ]
 
@@ -76,10 +78,10 @@ startupCommands = do
   -- Wallpaper
   spawn "feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg"
 
--- A dedicated emacs process
-scratchEmacs name args = NS name cli q defaultFloating
-  where cli = "emacs --name=" <> name <> " " <> args
-        q = windowQuery "Emacs" name
+-- Emacsclient frame
+scratchEmacs name args title_ = NS name cli q defaultFloating
+  where cli = "emacsclient -c " <> args
+        q = title =? title_
 
 scratchTerm = NS "term" cli q centerFloating
   where cli = "alacritty --title=" <> title
@@ -97,3 +99,4 @@ scratchChromeAppLocal name port = NS name cli q defaultFloating
 windowQuery class_ resource_ = className =? class_ <&&> resource =? resource_
 
 centerFloating = customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)
+

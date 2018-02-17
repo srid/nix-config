@@ -39,6 +39,7 @@
     tree
     unzip
     wget
+    psmisc
 
     (import ./nvim.nix)
   ];
