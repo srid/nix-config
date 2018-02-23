@@ -18,6 +18,7 @@
     fira-code
     google-fonts
     hasklig
+    iosevka
     powerline-fonts
     emacs-all-the-icons-fonts
   ];
@@ -40,6 +41,7 @@
     unzip
     wget
     psmisc
+    asciinema
 
     (import ./nvim.nix)
   ];

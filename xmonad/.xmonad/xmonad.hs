@@ -4,6 +4,7 @@ import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.MultiColumns
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
@@ -26,7 +27,7 @@ myXmobarPP = def { ppCurrent = xmobarColor "green" "" . wrap "[" "]"
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 threeColumns = ThreeCol 1 (3/100) (1/2)
-myLayoutHook = avoidStruts $ smartBorders $ layoutHook desktopConfig ||| threeColumns ||| Full
+myLayoutHook = avoidStruts $ smartBorders $ layoutHook desktopConfig ||| threeColumns ||| multiCol [2] 2 0.01 0.4 ||| Full
 -- main = xmonad =<< xmobar myConfig
 
 myConfig = def
@@ -46,7 +47,8 @@ myConfig = def
     -- Named scratchpads for chat apps
     , ("M-C-o", namedScratchpadAction scratchpads "wrinkle")
     , ("M-C-r", namedScratchpadAction scratchpads "irccloud")
-    , ("M-C-j", namedScratchpadAction scratchpads "notes")
+    -- , ("M-C-j", namedScratchpadAction scratchpads "notes")
+    , ("M-C-j", namedScratchpadAction scratchpads "dynalist")
     , ("M-C-i", namedScratchpadAction scratchpads "google")
     , ("M-C-h", namedScratchpadAction scratchpads "hoogle")
     , ("M-C-k", namedScratchpadAction scratchpads "term")

@@ -62,6 +62,8 @@
     feh
     imagemagick
     xorg.xbacklight
+
+    zoom-us
   ];
 
   # slock needs OOM exception
