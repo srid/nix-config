@@ -43,6 +43,6 @@
     psmisc
     asciinema
 
-    (import ./nvim.nix)
+    # (import ./nvim.nix)
   ];
 }

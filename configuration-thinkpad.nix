@@ -106,14 +106,24 @@
     pulsemixer
   ];
 
-  # Audio
-  # Use `pactl set-sink-volume 0 +10%` to increase volume.
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+  hardware = {
+    # Audio
+    # Use `pactl set-sink-volume 0 +10%` to increase volume.
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
 
-  # Bluetooth
-  # https://nixos.wiki/wiki/Bluetooth
-  hardware.bluetooth.enable = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    # Bluetooth
+    # https://nixos.wiki/wiki/Bluetooth
+    bluetooth.enable = true;
+  };
 
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.

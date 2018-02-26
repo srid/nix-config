@@ -45,6 +45,7 @@
     dmenu
     dropbox-cli
     google-chrome
+    firefox
     konsole
     rxvt_unicode
     thunderbird
