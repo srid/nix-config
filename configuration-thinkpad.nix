@@ -87,6 +87,22 @@
     };
   };
 
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    # Create an alias for the unstable channel
+    packageOverrides = pkgs: {
+      unstable = import <nixpkgs-unstable> {
+        # pass the nixpkgs config to the unstable alias
+        # to ensure `allowUnfree = true;` is propagated:
+        config = config.nixpkgs.config;
+      };
+
+      # Until 18.03 for https://github.com/NixOS/nixpkgs/issues/36165#issuecomment-369612241
+      glm = (import <nixpkgs-unstable> {}).glm;
+    };
+  };
+
   environment.systemPackages = with  pkgs; [
     # TODO: Use autorandr to switch between modes.
     # For now, doing it manually using arandr.
@@ -94,7 +110,6 @@
     arandr
     autorandr
     acpi
-
     # pulsemixer
     # https://github.com/GeorgeFilipkin/pulsemixer#interactive-mode
     # H/L, Shift+Left/Shift+Right   change volume by 10
