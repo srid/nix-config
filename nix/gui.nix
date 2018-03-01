@@ -44,14 +44,13 @@
     alacritty
     dmenu
     dropbox-cli
-    google-chrome
-    firefox
+    unstable.google-chrome
     konsole
     rxvt_unicode
-    thunderbird
 
     signal-desktop
-    vscode
+    unstable.vscode
+    atom
 
     # X utilities
     dzen2

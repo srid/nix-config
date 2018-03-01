@@ -2,4 +2,4 @@
 	email = srid@srid.ca
 	name = Sridhar Ratnakumar
 [core]
-	editor = /run/current-system/sw/bin/nvim
+	editor = /run/current-system/sw/bin/vim
