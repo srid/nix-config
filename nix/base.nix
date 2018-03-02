@@ -42,8 +42,9 @@
     wget
     psmisc
     asciinema
-    vim
+    gotty
 
     # (import ./nvim.nix)
+    unstable.neovim
   ];
 }
