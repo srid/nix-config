@@ -40,13 +40,17 @@
     # windowManager.default = "xmonad";
   };
 
+
   environment.systemPackages = with pkgs; [
-    alacritty
+    unstable.alacritty
     dmenu
     dropbox-cli
     unstable.google-chrome
-    konsole
+    unstable.konsole
+    unstable.firefox
+    gnome3.gnome_terminal
     rxvt_unicode
+    flashplayer
 
     signal-desktop
     unstable.vscode
