@@ -13,6 +13,9 @@ with pkgs; neovim.override {
       set softtabstop=4               "Insert 4 spaces when tab is pressed
       set shiftwidth=4                "An indent is 4 spaces
       set shiftround                  "Round indent to nearest shiftwidth multiple
+
+      set nocompatible
+      NeoBundleFetch 'Shougo/neobundle.vim'
     '';
 
     # Builtin packaging
@@ -31,6 +34,9 @@ with pkgs; neovim.override {
       { name = "vim-nix"; }
       { name = "haskell-vim"; }
       { name = "vim-gitgutter"; }
-    ]; 
+      { name = "ctrlp"; }
+      { name = "ctrlp-py-matcher"; }
+      # { name = "papercolor-theme"; }
+    ];
   };
 }

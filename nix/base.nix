@@ -30,7 +30,6 @@
     ag
     bashInteractive
     fzf
-    git
     gnumake
     htop
     keychain
@@ -43,8 +42,5 @@
     psmisc
     asciinema
     gotty
-
-    # (import ./nvim.nix)
-    unstable.neovim
   ];
 }

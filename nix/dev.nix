@@ -25,9 +25,12 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     myHaskellPackages.twitch-cli
+    python
 
-    gitAndTools.hub
+    gitAndTools.gitFull
     tmate
+
+    (import ./nvim.nix)
   ];
 
   # Gitit is no longer automatically added to the module list in NixOS. So we

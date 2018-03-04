@@ -38,6 +38,7 @@
       ];
     };
     # windowManager.default = "xmonad";
+
   };
 
 
@@ -48,6 +49,7 @@
     unstable.google-chrome
     unstable.konsole
     unstable.firefox
+    unstable.anki
     gnome3.gnome_terminal
     rxvt_unicode
     flashplayer

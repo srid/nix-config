@@ -23,6 +23,8 @@
 
   networking.hostName = "thebeast"; # Define your hostname.
 
+  nix.package = pkgs.nixUnstable;
+
   # WiFi
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
