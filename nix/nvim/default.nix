@@ -31,6 +31,27 @@ let
         sha256 = "15ai00k7w0brbjvmsj920hpnqy4iz1y3b0pw04m3mlcx20pkfy9s";
       };
     };
+
+    lastpos = pkgs.vimUtils.buildVimPlugin {
+      name = "lastpos";
+      src = pkgs.fetchFromGitHub {
+        owner = "vim-scripts";
+        repo = "lastpos.vim";
+        rev = "21a22ce4a11117cae8a0017c1cd9a9094fe5adf2";
+        sha256 = "0b4xd87a8pxhdf6g8digvjc1a83y572qk4qfdccda2r5m4knidm4";
+      };
+    };
+
+    ag = pkgs.vimUtils.buildVimPlugin {
+      name = "ag";
+      src = pkgs.fetchFromGitHub {
+        owner = "rking";
+        repo = "ag.vim";
+        rev = "4a0dd6e190f446e5a016b44fdaa2feafc582918e";
+        sha256 = "1dz7rmqv3xw31090qms05hwbdfdn0qd1q68mazyb715cg25r85r2";
+      };
+    };
+
   };
 in
   with pkgs; neovim.override {
@@ -68,6 +89,12 @@ in
         { name = "papercolor-theme"; }
         { name = "indenthaskell"; }
         { name = "nerdtree"; }
+        { name = "lastpos"; }
+        { name = "ag"; }
+        { name = "vim-nix"; }
+        { name = "fugitive"; }
+        { name = "tslime"; }
+        { name = "neocomplete"; }
         # { name = "neocomplcache"; }
         # { name = "papercolor-theme"; }
       ];
