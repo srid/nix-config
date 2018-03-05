@@ -56,17 +56,7 @@ let
 in
   with pkgs; neovim.override {
     configure = {
-      customRC = ''
-        "Colorscheme
-        "-------------------------
-        set background=light
-        "let base16colorspace=256
-        "colorscheme base16-mexico-light
-        colorscheme PaperColor
-        "Adjust theme search colors
-        hi Search ctermbg=250 ctermfg=240
-        hi Comment ctermfg=245
-      '';
+      customRC = lib.readFile ./custom.vim;
 
       # Builtin packaging
       # List of plugins: nix-env -qaP -A nixos.vimPlugins
