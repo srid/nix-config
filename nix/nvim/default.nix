@@ -1,7 +1,8 @@
 { pkgs ? import <nixpkgs-unstable> {} }:
 
 let
-  customPlugins.papercolor-theme = pkgs.vimUtils.buildVimPlugin {
+  customPlugins = {
+    papercolor-theme = pkgs.vimUtils.buildVimPlugin {
       name = "papercolor-theme";
       src = pkgs.fetchFromGitHub {
         owner = "NLKNguyen";
@@ -9,25 +10,32 @@ let
         rev = "58ad6d94c39bf0a2779aa2f6e0a34712d407964f";
         sha256 = "1ifscyvna7ip67xd3yd30a0db96malg17k5i40wh2sxd6qadmcyv";
       };
+    };
+
+    indenthaskell = pkgs.vimUtils.buildVimPlugin {
+      name = "indenthaskell";
+      src = pkgs.fetchFromGitHub {
+        owner = "vim-scripts";
+        repo = "indenthaskell.vim";
+        rev = "17380713774ea4f3ca5da1de455126fa1cce82f7";
+        sha256 = "1cs9qkn40fk3c8a9kvbdm3d6izf944awiagpmllkvlb4ci9m6lk7";
+      };
+    };
+
+    nerdtree = pkgs.vimUtils.buildVimPlugin {
+      name = "nerdtree";
+      src = pkgs.fetchFromGitHub {
+        owner = "scrooloose";
+        repo = "nerdtree";
+        rev = "e47e588705bd7d205a3b5a60ac7090c9a2504ba2";
+        sha256 = "15ai00k7w0brbjvmsj920hpnqy4iz1y3b0pw04m3mlcx20pkfy9s";
+      };
+    };
   };
 in
   with pkgs; neovim.override {
     configure = {
       customRC = ''
-        syntax enable
-        filetype plugin indent on
-        imap fd <Esc>
-
-        " Haskell
-        set tabstop=8                   "A tab is 8 spaces
-        set expandtab                   "Always uses spaces instead of tabs
-        set softtabstop=4               "Insert 4 spaces when tab is pressed
-        set shiftwidth=4                "An indent is 4 spaces
-        set shiftround                  "Round indent to nearest shiftwidth multiple
-
-        set nocompatible
-        " XXX NeoBundleFetch 'Shougo/neobundle.vim'
-
         "Colorscheme
         "-------------------------
         set background=light
@@ -58,6 +66,8 @@ in
         { name = "ctrlp"; }
         { name = "ctrlp-py-matcher"; }
         { name = "papercolor-theme"; }
+        { name = "indenthaskell"; }
+        { name = "nerdtree"; }
         # { name = "neocomplcache"; }
         # { name = "papercolor-theme"; }
       ];
