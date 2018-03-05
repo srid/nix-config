@@ -30,7 +30,7 @@ in
     gitAndTools.gitFull
     tmate
 
-    (import ./nvim.nix)
+    (callPackage (import ./nvim/default.nix) {})
   ];
 
   # Gitit is no longer automatically added to the module list in NixOS. So we
@@ -46,6 +46,4 @@ in
 
     postgresql.enable = true;
   };
-
-
 }

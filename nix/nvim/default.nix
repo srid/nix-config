@@ -1,4 +1,4 @@
-with import <nixpkgs-unstable> {};
+{ pkgs ? import <nixpkgs-unstable> {} }:
 
 let
   customPlugins.papercolor-theme = pkgs.vimUtils.buildVimPlugin {
@@ -10,7 +10,7 @@ let
         sha256 = "1ifscyvna7ip67xd3yd30a0db96malg17k5i40wh2sxd6qadmcyv";
       };
   };
-in (
+in
   with pkgs; neovim.override {
     configure = {
       customRC = ''
@@ -63,4 +63,4 @@ in (
       ];
     };
   }
-)
+
