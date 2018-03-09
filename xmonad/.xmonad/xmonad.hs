@@ -41,7 +41,7 @@ myConfig = def
     , focusedBorderColor = "#30d080"
     }
     `additionalKeysP`
-    [ ("M1-C-l", lockScreen) -- Lock screen using Ctrl+Alt+L
+    [ ("M-S-q", lockScreen) -- Lock screen instead of quitting
     , ("M1-M-C-l", suspend)
     , ("<Print>", takeScreenshot) -- Take screenshot
     -- Named scratchpads for chat apps

@@ -2,14 +2,14 @@
 
 Based on [Ali Abrar](https://github.com/ali-abrar)'s Vim configuration.
 
-## Bulid and test
+## Build and test
 
 ```
 nix-build
 result/bin/nvim ...
 ```
 
-## Install declariatively
+## Install declaratively
 
 Inside the `environment.systemPackages` list of your Nix configuration, add:
 

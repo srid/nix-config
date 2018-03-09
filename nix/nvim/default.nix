@@ -52,6 +52,15 @@ let
       };
     };
 
+    neocomplcache = pkgs.vimUtils.buildVimPlugin {
+      name = "neocomplcache";
+      src = pkgs.fetchFromGitHub {
+        owner = "Shougo";
+        repo = "neocomplcache.vim";
+        rev = "778181767467b8f8016828898779a646074d883a";
+        sha256 = "080h24fqv9gsv9ny33gxzsy03w9wyx1xw8f1xwqyll9c6hw62ygy";
+      };
+    };
   };
 in
   with pkgs; neovim.override {
@@ -85,7 +94,7 @@ in
         { name = "fugitive"; }
         { name = "tslime"; }
         { name = "neocomplete"; }
-        # { name = "neocomplcache"; }
+        { name = "neocomplcache"; }
         # { name = "papercolor-theme"; }
       ];
     };
