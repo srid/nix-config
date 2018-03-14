@@ -12,7 +12,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
-
+import XMonad.Hooks.EwmhDesktops
 
 main = xmonad =<< statusBar "xmobar" myXmobarPP toggleStrutsKey myConfig
 
@@ -30,11 +30,12 @@ threeColumns = ThreeCol 1 (3/100) (1/2)
 myLayoutHook = avoidStruts $ smartBorders $ layoutHook desktopConfig ||| threeColumns ||| multiCol [2] 2 0.01 0.4 ||| Full
 -- main = xmonad =<< xmobar myConfig
 
-myConfig = def
+myConfig = ewmh def
     { terminal    = "konsole"
     , modMask     = mod4Mask
     , startupHook = startupCommands
     , borderWidth = 2
+    , handleEventHook = def <+> fullscreenEventHook
     , layoutHook = myLayoutHook
     , manageHook  = manageHook desktopConfig <+> manageDocks <+>  namedScratchpadManageHook scratchpads
     , normalBorderColor = "#10b060"
