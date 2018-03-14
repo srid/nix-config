@@ -137,7 +137,14 @@
 
     # Bluetooth
     # https://nixos.wiki/wiki/Bluetooth
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      # For Bose QC35
+      extraConfig = ''
+        [General]
+        ControllerMode = bredr
+      '';
+    };
   };
 
   # TLP Linux Advanced Power Management
