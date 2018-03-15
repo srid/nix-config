@@ -95,7 +95,7 @@ in
         { name = "tslime"; }
         { name = "neocomplete"; }
         { name = "neocomplcache"; }
-        # { name = "papercolor-theme"; }
+        { name = "fzf-vim"; }
       ];
     };
   }

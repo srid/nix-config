@@ -29,6 +29,7 @@ in
 
     gitAndTools.gitFull
     tmate
+    fzf
 
     (callPackage (import ./nvim/default.nix) {})
   ];
