@@ -7,7 +7,7 @@
   # Google Chrome ulimit upping
   # https://bugs.chromium.org/p/chromium/issues/detail?id=362603#c28
   security.pam.loginLimits = [
-    { domain = "*"; item = "nofile"; type = "-"; value = "16384"; }
+    { domain = "*"; item = "nofile"; type = "-"; value = "65536"; }
   ];
 
   services.redshift = {
@@ -20,6 +20,10 @@
     # longitude = "-74.0060";
   };
 
+  programs.sway = {
+    enable = true;
+  };
+
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
@@ -27,6 +31,10 @@
 
     layout = "us";
     xkbOptions = "grp:alt_space_toggle, ctrl:swapcaps";
+
+    windowManager.i3 = {
+      enable = true;
+    };
 
     windowManager.xmonad = {
       enable = true;
@@ -50,9 +58,7 @@
     unstable.konsole
     unstable.firefox
     unstable.anki
-    gnome3.gnome_terminal
     rxvt_unicode
-    flashplayer
 
     signal-desktop
     unstable.vscode
