@@ -65,6 +65,7 @@ let
 in
   with pkgs; neovim.override {
     configure = {
+      # FIXME: Changing custom.vim doesn't rebuild the nix package
       customRC = lib.readFile ./custom.vim;
 
       # Builtin packaging
@@ -96,6 +97,7 @@ in
         { name = "neocomplete"; }
         { name = "neocomplcache"; }
         { name = "fzf-vim"; }
+        { name = "fzfWrapper"; }
       ];
     };
   }

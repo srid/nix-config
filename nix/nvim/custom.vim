@@ -71,14 +71,10 @@ elseif executable('xclip')
   inoremap <C-v> <Esc>:r!xclip -o -sel clip <CR>
 endif
 
-"fzf
-"----
-set rtp+=/run/current-system/sw/bin/fzf
-
 "Ctrl-O/P to open files
 "-------------------------
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'Files'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_lazy_update = 10
 nnoremap <C-o> :CtrlPBuffer<CR>
