@@ -1,6 +1,9 @@
 { config, pkgs, ...}:
 
 {
+
+  imports = [ ./tmux.nix ];
+
   time.timeZone = "America/New_York";
 
   # Firewall
@@ -35,7 +38,6 @@
     keychain
     stow
     tig
-    tmux
     tree
     unzip
     wget
