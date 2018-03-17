@@ -24,11 +24,12 @@
     iosevka
     powerline-fonts
     emacs-all-the-icons-fonts
+    font-awesome-ttf
+    dejavu_fonts
   ];
 
   environment.systemPackages = with pkgs; [
     # more fonts
-    dejavu_fonts
 
     ag
     bashInteractive

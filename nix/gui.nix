@@ -34,6 +34,13 @@
 
     windowManager.i3 = {
       enable = true;
+      extraPackages = with pkgs; [
+        i3status-rust
+        alsaUtils
+        speedtest-cli
+        gperftools
+        # lm-sensors
+      ];
       extraSessionCommands = ''
         feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg
       '';
