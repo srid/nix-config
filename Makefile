@@ -8,4 +8,4 @@ nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
 stow:
-	stow -v 1 bash git emacs xmonad tmux
+	stow -v 1 bash git emacs xmonad i3

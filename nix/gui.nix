@@ -34,6 +34,9 @@
 
     windowManager.i3 = {
       enable = true;
+      extraSessionCommands = ''
+        feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg
+      '';
     };
 
     windowManager.xmonad = {
@@ -63,6 +66,10 @@
     signal-desktop
     unstable.vscode
     atom
+
+    # Notification
+    dunst 
+    libnotify
 
     # X utilities
     dzen2
