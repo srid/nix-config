@@ -98,6 +98,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+m move workspace to output left
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -157,5 +159,10 @@ bar {
 # Screenshot
 bindsym $mod+x exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
 # Lock screen
-bindsym $mod+i exec --no-startup-id i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png
+bindsym $mod+i exec --no-startup-id i3lock -c 000000
 bindsym $mod+shift+i exec --no-startup-id sh -c 'i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png && systemctl suspend'
+
+# Gaps
+
+# gaps inner all set 20
+# gaps outer current plus 5

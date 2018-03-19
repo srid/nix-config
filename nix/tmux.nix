@@ -42,6 +42,14 @@ bind-key -T copy-mode-vi 'Space' send -X halfpage-down
 bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
 bind-key -Tcopy-mode-vi 'Escape' send -X cancel
 
+# easy-to-remember split pane commands
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+bind '"' split-window -h -c "#{pane_current_path}"
+bind % split-window -v -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+#unbind '"'
+#unbind %
 
     '';
   };

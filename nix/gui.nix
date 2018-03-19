@@ -42,7 +42,8 @@
         # lm-sensors
       ];
       extraSessionCommands = ''
-        feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg
+        feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
+        dropbox &
       '';
     };
 
@@ -62,10 +63,10 @@
 
   environment.systemPackages = with pkgs; [
     unstable.alacritty
-    dmenu
-    dropbox-cli
+    unstable.dropbox
+    # unstable.dropbox-cli
     unstable.google-chrome
-    unstable.konsole
+    # konsole
     unstable.firefox
     unstable.anki
     rxvt_unicode
@@ -79,6 +80,7 @@
     libnotify
 
     # X utilities
+    dmenu
     dzen2
     haskellPackages.xmobar
     slock
