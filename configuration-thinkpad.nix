@@ -100,9 +100,6 @@
         # to ensure `allowUnfree = true;` is propagated:
         config = config.nixpkgs.config;
       };
-
-      # Until 18.03 for https://github.com/NixOS/nixpkgs/issues/36165#issuecomment-369612241
-      glm = (import <nixpkgs-unstable> {}).glm;
     };
   };
 
