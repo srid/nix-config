@@ -15,6 +15,10 @@
     # Quebec City
     latitude = "46.8423";
     longitude = "-71.2429";
+    # temperature.day = 5500
+    # temperature.night = 3700
+    # brightness.day = 1
+    # brightness.night = 1
     # New York
     # latitude = "40.7128";
     # longitude = "-74.0060";
@@ -47,6 +51,10 @@
       '';
     };
 
+    windowManager.dwm = {
+      enable = true;
+    };
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -58,6 +66,13 @@
     };
     # windowManager.default = "xmonad";
 
+    desktopManager.plasma5 = {
+      enable = true;
+    };
+
+    desktopManager.gnome3 = {
+      enable = true;
+    };
   };
 
 
