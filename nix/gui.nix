@@ -67,16 +67,26 @@
     # windowManager.default = "xmonad";
 
     desktopManager.plasma5 = {
+      # Installing KDE gives me a nice and big cursor that is actually visible
+      # enough on a retina screen.
+
+      # Issues
+      #  - redshift is messing up colors on external monitor.
       enable = true;
     };
 
     desktopManager.gnome3 = {
+      # XXX: Signing into a Gnome session only gives a black screen.
       enable = true;
     };
   };
 
 
   environment.systemPackages = with pkgs; [
+    steam
+
+    redshift-plasma-applet
+
     unstable.alacritty
     unstable.dropbox
     # unstable.dropbox-cli
