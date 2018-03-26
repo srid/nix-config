@@ -41,6 +41,12 @@ in
   services = {
     # gitit.enable = true; -- broken
 
+    # Not enable due to cpu usage spikes
+    ipfs = {
+      enable = false;
+      autoMount = true;
+    };
+
     ihaskell = {
       enable = true;
     };
