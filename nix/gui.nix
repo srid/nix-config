@@ -81,41 +81,19 @@
     };
   };
 
-
   environment.systemPackages = with pkgs; [
-    steam
-
-    redshift-plasma-applet
-
-    unstable.alacritty
-    unstable.dropbox
-    # unstable.dropbox-cli
-    unstable.google-chrome
-    # konsole
-    unstable.firefox
-    unstable.anki
-    rxvt_unicode
-
-    signal-desktop
-    unstable.vscode
-    atom
-
-    # Notification
-    dunst 
-    libnotify
-
-    # X utilities
     dmenu
-    dzen2
-    haskellPackages.xmobar
-    slock
-    maim
-    xclip
-    i3lock
     feh
     imagemagick
+    maim
+    signal-desktop
+    steam
+    unstable.atom
+    unstable.dropbox
+    unstable.google-chrome
+    unstable.vscode
+    xclip
     xorg.xbacklight
-
     zoom-us
   ];
 

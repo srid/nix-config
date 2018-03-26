@@ -26,6 +26,13 @@
   # Hoping for better graphics performance in latest kernels
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
+
   # WiFi
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
@@ -139,10 +146,16 @@
     # https://nixos.wiki/wiki/Bluetooth
     bluetooth = {
       enable = true;
-      # For Bose QC35
+      # For Bose QC35: https://askubuntu.com/questions/833322
       extraConfig = ''
         [General]
+        Disable=Socket
+        Disable=Headset
+        Enable=Media,Source,Sink,Gateway
+        AutoConnect=true
+        load-module module-switch-on-connect
         ControllerMode = bredr
+        AutoEnable=true
       '';
     };
   };
