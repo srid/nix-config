@@ -18,32 +18,31 @@
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   fonts.fonts = with pkgs; [
+    dejavu_fonts
+    emacs-all-the-icons-fonts
     fira-code
+    font-awesome-ttf
     google-fonts
     hasklig
     iosevka
     powerline-fonts
-    emacs-all-the-icons-fonts
-    font-awesome-ttf
-    dejavu_fonts
   ];
 
   environment.systemPackages = with pkgs; [
-    # more fonts
-
     ag
+    asciinema
     bashInteractive
     fzf
     gnumake
+    gotty
     htop
     keychain
+    psmisc
+    python36Packages.glances
     stow
     tig
     tree
     unzip
     wget
-    psmisc
-    asciinema
-    gotty
   ];
 }

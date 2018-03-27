@@ -34,7 +34,6 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     rustvimscript
      python
      javascript
      html
@@ -48,7 +47,6 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     neotree
      org
      chrome
      (shell :variables
@@ -78,6 +76,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(nix-sandbox
+                                      dhall-mode
                                       all-the-icons)
 
    ;; A list of packages that cannot be updated.
