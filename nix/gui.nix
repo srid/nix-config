@@ -17,8 +17,8 @@
     longitude = "-71.2429";
     # temperature.day = 5500
     # temperature.night = 3700
-    # brightness.day = 1
-    # brightness.night = 1
+    # brightness.day = 1;
+    # brightness.night = 1;
     # New York
     # latitude = "40.7128";
     # longitude = "-74.0060";
@@ -79,6 +79,7 @@
       # XXX: Signing into a Gnome session only gives a black screen.
       enable = true;
     };
+
   };
 
   environment.systemPackages = with pkgs; [
@@ -88,9 +89,10 @@
     maim
     signal-desktop
     steam
+    unstable.alacritty
     unstable.atom
     unstable.dropbox
-    unstable.google-chrome
+    unstable.google-chrome-beta
     unstable.vscode
     xclip
     xorg.xbacklight
