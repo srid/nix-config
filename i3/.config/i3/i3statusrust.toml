@@ -2,10 +2,6 @@ theme = "gruvbox-dark"
 icons = "awesome"
 
 [[block]]
-block = "focused_window"
-max_width = 21
-
-[[block]]
 block = "disk_space"
 path = "/"
 alias = "/"

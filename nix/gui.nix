@@ -24,10 +24,6 @@
     # longitude = "-74.0060";
   };
 
-  programs.sway = {
-    enable = true;
-  };
-
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
@@ -39,7 +35,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        i3status-rust
+        unstable.i3status-rust
         alsaUtils
         speedtest-cli
         gperftools
@@ -49,10 +45,6 @@
         feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
         dropbox &
       '';
-    };
-
-    windowManager.dwm = {
-      enable = true;
     };
 
     windowManager.xmonad = {
@@ -75,11 +67,6 @@
       enable = true;
     };
 
-    desktopManager.gnome3 = {
-      # XXX: Signing into a Gnome session only gives a black screen.
-      enable = true;
-    };
-
   };
 
   environment.systemPackages = with pkgs; [
@@ -94,12 +81,10 @@
     unstable.dropbox
     unstable.google-chrome-beta
     unstable.vscode
+    vlc
     xclip
+    xsel
     xorg.xbacklight
     zoom-us
   ];
-
-  # slock needs OOM exception
-  # https://github.com/NixOS/nixpkgs/issues/9656#issuecomment-137719381
-  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 }
