@@ -134,6 +134,9 @@
     pulseaudio = {
       enable = true;
       support32Bit = true;
+      daemon.config = {
+        flat-volumes = "no";
+      };
     };
 
     opengl = {
@@ -147,6 +150,7 @@
     bluetooth = {
       enable = true;
       # For Bose QC35: https://askubuntu.com/questions/833322
+      # Not that it works.
       extraConfig = ''
         [General]
         Disable=Socket

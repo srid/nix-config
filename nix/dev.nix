@@ -24,12 +24,11 @@ in
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
-    myHaskellPackages.twitch-cli
+    # myHaskellPackages.twitch-cli
     python
 
     gitAndTools.gitFull
     tmate
-    fzf
 
     (callPackage (import ./nvim/default.nix) {})
   ];
@@ -40,17 +39,5 @@ in
 
   services = {
     # gitit.enable = true; -- broken
-
-    # Not enable due to cpu usage spikes
-    ipfs = {
-      enable = false;
-      autoMount = true;
     };
-
-    ihaskell = {
-      enable = true;
-    };
-
-    postgresql.enable = true;
-  };
 }

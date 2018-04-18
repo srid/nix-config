@@ -79,7 +79,8 @@
     unstable.alacritty
     unstable.atom
     unstable.dropbox
-    unstable.google-chrome-beta
+    unstable.google-chrome
+    unstable.firefox
     unstable.vscode
     vlc
     xclip
