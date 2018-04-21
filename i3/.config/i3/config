@@ -22,7 +22,7 @@ bindsym $mod+p exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -162,6 +162,8 @@ bar {
 
 # Screenshot
 bindsym $mod+x exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
+#bindsym $mod+p exec --no-startup-id sh -c launch
+
 # Lock screen
 bindsym $mod+i exec --no-startup-id i3lock -c 000000
 bindsym $mod+shift+i exec --no-startup-id sh -c 'i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png && systemctl suspend'

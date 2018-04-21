@@ -11,7 +11,7 @@
   ];
 
   services.redshift = {
-    enable = true;
+    enable = false;
     # Quebec City
     latitude = "46.8423";
     longitude = "-71.2429";
@@ -71,6 +71,8 @@
 
   environment.systemPackages = with pkgs; [
     dmenu
+    i3lock
+    rofi
     feh
     imagemagick
     maim
@@ -80,7 +82,7 @@
     unstable.atom
     unstable.dropbox
     unstable.google-chrome
-    unstable.firefox
+    unstable.google-chrome-dev
     unstable.vscode
     vlc
     xclip

@@ -5,7 +5,7 @@
 
 {
   services.emacs = {
-    enable = true;
+    enable = false;
     defaultEditor = true;
     package = with pkgs; (emacsWithPackages (with emacsPackagesNg; [
       # ace-window
