@@ -1,0 +1,2 @@
+#!/bin/sh -ex 
+emacsclient -c $*

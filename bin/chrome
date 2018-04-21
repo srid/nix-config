@@ -1,0 +1,1 @@
+$(which google-chrome-unstable) --no-proxy-server $*
