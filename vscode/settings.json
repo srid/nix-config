@@ -1,0 +1,54 @@
+{
+    // "editor.fontFamily": "'Liberation Mono'",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 16,
+
+    "window.zoomLevel": -1,
+    "git.autofetch": true,
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.lineNumbers": "off",
+    "workbench.sideBar.location": "left",
+
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/run/current-system/sw/bin/nvim",
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["f","d"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>","d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before":["<C-n>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys":{
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "workbench.statusBar.visible": true,
+    "git.confirmSync": false,
+    "window.menuBarVisibility": "default",
+    "workbench.colorTheme": "Quiet Light"
+}
