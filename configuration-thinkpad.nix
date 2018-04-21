@@ -41,18 +41,7 @@
 
   sound.mediaKeys.enable = true;
 
-  # TODO: Hybrid graphics configuration.
-  #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
-  #  - Can't connect external monitor via intel card.
-  #  - And bumblee can't use nvidia for external monitor.
-  # The only solution for laptop use (not branched) for now is to disable hybrid
-  # graphics in BIOS and fix the DPI issues manually.
-  # hardware.bumblebee = {
-  #   enable = false;
-  #   driver = "nvidia";
-  # };
-
-  # When using just discrete graphics with nvidia, DPI is calculated
+    # When using just discrete graphics with nvidia, DPI is calculated
   # automatically,
   # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html
 
@@ -72,7 +61,7 @@
     #  - uncomment the DPI line below
     #  - nixos-switch rebuild
     #  - reboot, and switch to hybrid graphics in BIOS.
-    #dpi = 200;
+    # dpi = 200;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
@@ -129,6 +118,17 @@
   ];
 
   hardware = {
+    # TODO: Hybrid graphics configuration.
+    #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
+    #  - Can't connect external monitor via intel card.
+    #  - And bumblee can't use nvidia for external monitor.
+    # The only solution for laptop use (not branched) for now is to disable hybrid
+    # graphics in BIOS and fix the DPI issues manually.
+    bumblebee = {
+      enable = true;
+      driver = "nvidia";
+    };
+
     # Audio
     # Use `pactl set-sink-volume 0 +10%` to increase volume.
     pulseaudio = {
