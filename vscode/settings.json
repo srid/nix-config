@@ -5,7 +5,7 @@
     "editor.fontSize": 14,
     "editor.lineHeight": 16,
 
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "git.autofetch": true,
     "workbench.activityBar.visible": true,
     "editor.minimap.enabled": false,
@@ -50,5 +50,5 @@
     "workbench.statusBar.visible": true,
     "git.confirmSync": false,
     "window.menuBarVisibility": "default",
-    "workbench.colorTheme": "Quiet Light"
+    "workbench.colorTheme": "Monokai"
 }

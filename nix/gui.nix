@@ -72,16 +72,13 @@
   environment.systemPackages = with pkgs; [
     dmenu
     i3lock
-    rofi
     feh
-    imagemagick
     maim
     signal-desktop
     steam
     unstable.alacritty
-    unstable.atom
     unstable.dropbox
-    unstable.google-chrome
+    # unstable.google-chrome
     unstable.google-chrome-dev
     unstable.vscode
     vlc

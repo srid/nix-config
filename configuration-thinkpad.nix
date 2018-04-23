@@ -24,20 +24,20 @@
   networking.hostName = "thebeast"; # Define your hostname.
 
   # Hoping for better graphics performance in latest kernels
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.kernelModules = [
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_uvm"
-    "nvidia_drm"
-  ];
+  #boot.initrd.kernelModules = [
+  #  "nvidia"
+  #  "nvidia_modeset"
+  #  "nvidia_uvm"
+  #  "nvidia_drm"
+  #];
 
   # WiFi
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
-  services.openssh.enable = true;
+  services.openssh.enable = false;
 
   sound.mediaKeys.enable = true;
 
@@ -54,7 +54,7 @@
     # I have not figured out how to use hybrid graphics. Intel doesn't connect
     # to an external monitor. To do that,
     #  - enable Discrete graphics in BIOS
-    videoDrivers = [  "nvidia" "intel" ];
+    videoDrivers = [ "nvidia" "intel" ];
     # If not using discrete graphics (nvidia)--perhaps to save on
     # battery--power, do the following:
     #  - remove "nvidia" from the list above
@@ -125,7 +125,7 @@
     # The only solution for laptop use (not branched) for now is to disable hybrid
     # graphics in BIOS and fix the DPI issues manually.
     bumblebee = {
-      enable = true;
+      enable = false;
       driver = "nvidia";
     };
 
