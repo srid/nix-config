@@ -1,3 +1,6 @@
 [submodule "myobsidian"]
 	path = myobsidian
 	url = git@gitlab.com:sridca/myobsidian.git
+[submodule "nix/motif"]
+	path = nix/motif
+	url = git@github.com:srid/motif.git

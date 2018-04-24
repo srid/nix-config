@@ -14,6 +14,7 @@
       ./nix/emacs.nix
       ./nix/gui.nix
       ./nix/dev.nix
+      #./nix/motif/service.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
 
@@ -26,13 +27,6 @@
   # Hoping for better graphics performance in latest kernels
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  #boot.initrd.kernelModules = [
-  #  "nvidia"
-  #  "nvidia_modeset"
-  #  "nvidia_uvm"
-  #  "nvidia_drm"
-  #];
-
   # WiFi
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
@@ -41,7 +35,30 @@
 
   sound.mediaKeys.enable = true;
 
-    # When using just discrete graphics with nvidia, DPI is calculated
+  systemd.user.services.motif5 = 
+    let 
+      motif = import ./nix/motif/release.nix ;
+    in
+    {
+      enable = true;
+      description = "Motif app";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      serviceConfig = 
+        { ExecStart = "${motif}/backend 9005 %h/Dropbox/Apps/motifdb"; 
+          WorkingDirectory = "${motif}";
+        };
+    };
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."localhost" = {
+      locations."/".proxyPass = "http://localhost:9005";
+    };
+  };
+
+
+  # When using just discrete graphics with nvidia, DPI is calculated
   # automatically,
   # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html
 
