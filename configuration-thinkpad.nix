@@ -14,8 +14,8 @@
       ./nix/emacs.nix
       ./nix/gui.nix
       ./nix/dev.nix
-      #./nix/motif/service.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
+      /home/srid/code/motif/service.nix
     ];
 
   # EFI boot
@@ -31,29 +31,16 @@
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
+  virtualisation.virtualbox.host.enable = true;
+
   services.openssh.enable = false;
 
   sound.mediaKeys.enable = true;
 
-  systemd.user.services.motif5 = 
-    let 
-      motif = import ./nix/motif/release.nix ;
-    in
-    {
-      enable = true;
-      description = "Motif app";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
-      serviceConfig = 
-        { ExecStart = "${motif}/backend 9005 %h/Dropbox/Apps/motifdb"; 
-          WorkingDirectory = "${motif}";
-        };
-    };
-
   services.nginx = {
     enable = true;
     virtualHosts."localhost" = {
-      locations."/".proxyPass = "http://localhost:9005";
+      locations."/".proxyPass = "http://localhost:9000";
     };
   };
 

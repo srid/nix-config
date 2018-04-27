@@ -81,6 +81,7 @@
     # unstable.google-chrome
     unstable.google-chrome-dev
     unstable.vscode
+    unstable.atom
     vlc
     xclip
     xsel
