@@ -1,9 +1,5 @@
 # NixOS on Thinkpad P71
 
-# NixOS 17.09 works, but upgrading to nixos-unstable gets you:
-#  - Working DPI in Chrome
-#  - Trackpoint scroll
-
 { config, pkgs, ... }:
 
 {
@@ -55,17 +51,10 @@
     libinput.enable = true;
 
     # Graphics drivers.
-    # I have not figured out how to use hybrid graphics. Intel doesn't connect
-    # to an external monitor. To do that,
-    #  - enable Discrete graphics in BIOS
     videoDrivers = [ "nvidia" "intel" ];
-    # If not using discrete graphics (nvidia)--perhaps to save on
-    # battery--power, do the following:
-    #  - remove "nvidia" from the list above
-    #  - uncomment the DPI line below
-    #  - nixos-switch rebuild
-    #  - reboot, and switch to hybrid graphics in BIOS.
-    # dpi = 200;
+    # Nvidia detects somehow higher value for a DPI than what is standard for retina. Set it manually:
+    # Same as iMac retina 5k https://en.wikipedia.org/wiki/Retina_Display#Models
+    dpi = 218;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
@@ -122,15 +111,15 @@
   ];
 
   hardware = {
-    # TODO: Hybrid graphics configuration.
+    # TODO: Hybrid graphics.
     #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
-    #  - Can't connect external monitor via intel card.
-    #  - And bumblee can't use nvidia for external monitor.
-    # The only solution for laptop use (not branched) for now is to disable hybrid
-    # graphics in BIOS and fix the DPI issues manually.
+    #  - Connect to external monitor using `optirun true; intel-virtual-output -f` (and arandr)
+    #  - Somewhat sluggish performance; monitor 2 duplicates often.
     bumblebee = {
       enable = false;
       driver = "nvidia";
+      pmMethod = "none";
+      connectDisplay = true;
     };
 
     # Audio
@@ -153,18 +142,6 @@
     # https://nixos.wiki/wiki/Bluetooth
     bluetooth = {
       enable = true;
-      # For Bose QC35: https://askubuntu.com/questions/833322
-      # Not that it works.
-      extraConfig = ''
-        [General]
-        Disable=Socket
-        Disable=Headset
-        Enable=Media,Source,Sink,Gateway
-        AutoConnect=true
-        load-module module-switch-on-connect
-        ControllerMode = bredr
-        AutoEnable=true
-      '';
     };
   };
 

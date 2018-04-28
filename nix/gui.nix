@@ -87,6 +87,7 @@
     xclip
     xsel
     xorg.xbacklight
+    xorg.xf86videointel
     zoom-us
   ];
 }
