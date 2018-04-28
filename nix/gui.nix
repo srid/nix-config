@@ -40,6 +40,7 @@
         speedtest-cli
         gperftools
         # lm-sensors
+        compton # https://www.reddit.com/r/i3wm/comments/8fa9js/problem_with_dialog_boxes_to_open_a_file/
       ];
       extraSessionCommands = ''
         feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &

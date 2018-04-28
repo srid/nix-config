@@ -25,7 +25,7 @@
   networking.hostName = "thebeast"; # Define your hostname.
 
   # Hoping for better graphics performance in latest kernels
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # WiFi
   # Connect to wifi using nmtui / nmcli.

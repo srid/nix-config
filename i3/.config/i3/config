@@ -100,7 +100,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $mod+m move workspace to output left
+bindsym $mod+m move workspace to output DP-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -164,7 +164,7 @@ bar {
 
 # Screenshot
 bindsym $mod+x exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
-#bindsym $mod+p exec --no-startup-id sh -c launch
+bindsym $mod+shift+x exec --no-startup-id sh -c 'i3lock -c 000000'
 
 # Lock screen
 bindsym $mod+i exec --no-startup-id i3lock -c 000000

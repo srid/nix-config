@@ -24,7 +24,6 @@ in
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
-    # myHaskellPackages.twitch-cli
     python
 
     gitAndTools.gitFull
@@ -32,12 +31,4 @@ in
 
     (callPackage (import ./nvim/default.nix) {})
   ];
-
-  # Gitit is no longer automatically added to the module list in NixOS. So we
-  # must import it.
-  imports = [ <nixpkgs/nixos/modules/services/misc/gitit.nix> ];
-
-  services = {
-    # gitit.enable = true; -- broken
-    };
 }
