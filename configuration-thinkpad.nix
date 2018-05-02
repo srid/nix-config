@@ -11,7 +11,7 @@
       ./nix/gui.nix
       ./nix/dev.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
-      /home/srid/code/motif/service.nix
+      ./motif/service.nix
     ];
 
   # EFI boot
