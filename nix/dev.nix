@@ -27,8 +27,16 @@ in
     python
 
     gitAndTools.gitFull
+    gitAndTools.hub
     tmate
 
     (callPackage (import ./nvim/default.nix) {})
   ];
+
+  services.ihaskell = {
+    enable = true;
+    extraPackages = haskellPackages: [ 
+      haskellPackages.typed-process
+    ];
+  };
 }

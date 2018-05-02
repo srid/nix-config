@@ -101,6 +101,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+m move workspace to output DP-2
+bindsym $mod+Shift+m move workspace to output DP-5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -75,13 +75,9 @@
     i3lock
     feh
     maim
-    signal-desktop
-    steam
     unstable.alacritty
     unstable.dropbox
-    # unstable.google-chrome
     unstable.google-chrome-dev
-    unstable.vscode
     unstable.atom
     vlc
     xclip
