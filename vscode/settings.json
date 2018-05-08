@@ -2,8 +2,8 @@
     // "editor.fontFamily": "'Liberation Mono'",
     "editor.fontFamily": "'Fira Code'",
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
-    "editor.lineHeight": 16,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 18,
 
     "window.zoomLevel": -2,
     "git.autofetch": true,
@@ -50,5 +50,9 @@
     "workbench.statusBar.visible": true,
     "git.confirmSync": false,
     "window.menuBarVisibility": "default",
-    "workbench.colorTheme": "Monokai"
+    "workbench.colorTheme": "Quiet Light",
+    "editor.rulers": [
+        110
+    ],
+    "editor.tabSize": 2
 }

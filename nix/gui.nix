@@ -79,6 +79,7 @@
     unstable.dropbox
     unstable.google-chrome-dev
     unstable.atom
+    unstable.vscode
     vlc
     xclip
     xsel
