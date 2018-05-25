@@ -4,6 +4,9 @@ all:	stow nix-switch
 nix-switch:
 	sudo nixos-rebuild switch
 
+upgrade:
+	sudo nixos-rebuild switch --upgrade
+
 nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 

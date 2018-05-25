@@ -11,7 +11,7 @@
   ];
 
   services.redshift = {
-    enable = false;
+    enable = true;
     # Quebec City
     latitude = "46.8423";
     longitude = "-71.2429";
@@ -22,6 +22,12 @@
     # New York
     # latitude = "40.7128";
     # longitude = "-74.0060";
+  };
+
+  services.compton = {
+    enable = true;
+    shadow = true;
+    inactiveOpacity = "0.8";
   };
 
   # Xmonad

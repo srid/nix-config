@@ -11,12 +11,13 @@
       ./nix/gui.nix
       ./nix/dev.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
-      ./motif/service.nix
+      #./motif/service.nix
     ];
 
   # EFI boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.plymouth.enable = true;
 
   networking.hostName = "thebeast"; # Define your hostname.
 
