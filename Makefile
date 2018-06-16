@@ -5,6 +5,7 @@ nix-switch:
 	sudo nixos-rebuild switch
 
 upgrade:
+	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade
 
 nocache:

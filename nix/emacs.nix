@@ -5,7 +5,7 @@
 
 {
   services.emacs = {
-    enable = true;
+    enable = false;  # Disabling until Emacs26 becomes the default
     defaultEditor = true;
     package = with pkgs; (emacsWithPackages (with emacsPackagesNg; [
       # ace-window

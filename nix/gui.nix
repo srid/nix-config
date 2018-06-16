@@ -49,7 +49,8 @@
         compton # for the 'peek' screengrabbing tool
       ];
       extraSessionCommands = ''
-        feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
+        # feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
+        feh --bg-tile ~/mynixos/files/mumbai-hotel.jpg &
         dropbox &
       '';
     };
@@ -67,7 +68,7 @@
 
     desktopManager.plasma5 = {
       # Installing KDE gives me a nice and big cursor that is actually visible
-      # enough on a retina screen.
+      # enough on a retina screen. And konsole.
 
       # Issues
       #  - redshift is messing up colors on external monitor.
@@ -87,6 +88,7 @@
     unstable.dropbox
     unstable.google-chrome-dev
     unstable.vscode
+    unstable.konsole  # Not sure what impact this has with stable plasma5 above
     vlc
     xclip
     xorg.xbacklight
