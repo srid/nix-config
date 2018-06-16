@@ -28,7 +28,8 @@
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
+  # Can break during startup. Disabling for now.
+  virtualisation.virtualbox.host.enable = false;
 
   services.openssh.enable = false;
 

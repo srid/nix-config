@@ -27,7 +27,7 @@
   services.compton = {
     enable = true;
     shadow = true;
-    inactiveOpacity = "0.8";
+    inactiveOpacity = "1.0";
   };
 
   # Xmonad
@@ -42,11 +42,11 @@
       enable = true;
       extraPackages = with pkgs; [
         unstable.i3status-rust
-        alsaUtils
+        # alsaUtils
         speedtest-cli
         gperftools
         # lm-sensors
-        compton # https://www.reddit.com/r/i3wm/comments/8fa9js/problem_with_dialog_boxes_to_open_a_file/
+        compton # for the 'peek' screengrabbing tool
       ];
       extraSessionCommands = ''
         feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
@@ -55,7 +55,7 @@
     };
 
     windowManager.xmonad = {
-      enable = true;
+      enable = false;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
         haskellPackages.xmonad-contrib
@@ -73,24 +73,25 @@
       #  - redshift is messing up colors on external monitor.
       enable = true;
     };
-
   };
 
   environment.systemPackages = with pkgs; [
     dmenu
-    i3lock
     feh
+    i3lock
     maim
+    peek
+    steam
     unstable.alacritty
+    unstable.atom
     unstable.dropbox
     unstable.google-chrome-dev
-    unstable.atom
     unstable.vscode
     vlc
     xclip
-    xsel
     xorg.xbacklight
     xorg.xf86videointel
+    xsel
     zoom-us
   ];
 }

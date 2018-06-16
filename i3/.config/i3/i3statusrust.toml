@@ -40,9 +40,9 @@ block = "weather"
 format = "{weather} ({location}) {temp}°, {wind} km/s"
 service = { name = "openweathermap", api_key = "d2babfddec55c71419de401e98172c02", city_id = "6325494", units = "metric" }
 
-[[block]]
-block = "sound"
-on_click = "pulsemixer --toggle-mute"
+# [[block]]
+# block = "sound"
+# on_click = "pulsemixer --toggle-mute"
 
 [[block]]
 block = "time"

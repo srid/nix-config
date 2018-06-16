@@ -24,6 +24,7 @@ in
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    haskellPackages.hpack
     python
 
     gitAndTools.gitFull
