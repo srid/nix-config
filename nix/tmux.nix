@@ -10,7 +10,7 @@
     # Windows begin from no. 1
     baseIndex = 1;
 
-    # Vi friendly 
+    # Vi friendly
     keyMode = "vi";
     customPaneNavigationAndResize = true;
 
@@ -30,26 +30,26 @@
       set-option -g mouse on
 
       # Extra Vi friendly stuff
-# y and p as in vim
-bind Escape copy-mode
-unbind p
-bind p paste-buffer
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-#bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel
-bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
-bind-key -T copy-mode-vi 'Space' send -X halfpage-down
-bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
-bind-key -Tcopy-mode-vi 'Escape' send -X cancel
+      # y and p as in vim
+      bind Escape copy-mode
+      unbind p
+      bind p paste-buffer
+      bind-key -T copy-mode-vi 'v' send -X begin-selection
+      bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
+      #bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel
+      bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+      bind-key -T copy-mode-vi 'Space' send -X halfpage-down
+      bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
+      bind-key -Tcopy-mode-vi 'Escape' send -X cancel
 
-# easy-to-remember split pane commands
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
-bind '"' split-window -h -c "#{pane_current_path}"
-bind % split-window -v -c "#{pane_current_path}"
-bind c new-window -c "#{pane_current_path}"
-#unbind '"'
-#unbind %
+      # easy-to-remember split pane commands
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      bind '"' split-window -h -c "#{pane_current_path}"
+      bind % split-window -v -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+      #unbind '"'
+      #unbind %
 
     '';
   };

@@ -31,7 +31,8 @@
   # Can break during startup. Disabling for now.
   virtualisation.virtualbox.host.enable = false;
 
-  services.openssh.enable = false;
+  # Want to ssh to thinkpad from macbook
+  services.openssh.enable = true;
 
   sound.mediaKeys.enable = true;
 

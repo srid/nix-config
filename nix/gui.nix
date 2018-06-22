@@ -84,11 +84,9 @@
     peek
     steam
     unstable.alacritty
-    unstable.atom
     unstable.dropbox
     unstable.google-chrome-dev
     unstable.vscode
-    unstable.konsole  # Not sure what impact this has with stable plasma5 above
     vlc
     xclip
     xorg.xbacklight
