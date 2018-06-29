@@ -20,10 +20,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    ii
   ];
 
-  # Services
+  # My apps
   services.nginx = {
     enable = true;
     user = "srid";

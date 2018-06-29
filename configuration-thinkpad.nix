@@ -15,6 +15,7 @@
     ];
 
   # EFI boot
+  boot.cleanTmpDir = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.plymouth.enable = true;
@@ -35,6 +36,11 @@
   services.openssh.enable = true;
 
   sound.mediaKeys.enable = true;
+
+  services.ddclient = {
+    enable = true;
+    configFile = "/home/srid/.ddlclient";
+  };
 
   services.nginx = {
     enable = true;

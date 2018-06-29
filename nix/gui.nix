@@ -49,8 +49,7 @@
         compton # for the 'peek' screengrabbing tool
       ];
       extraSessionCommands = ''
-        # feh --bg-fill ~/mynixos/files/Elephant-Mammoth-Dark.jpg &
-        feh --bg-tile ~/mynixos/files/mumbai-hotel.jpg &
+        feh --bg-fill ~/mynixos/files/rYXhoUn.jpg &
         dropbox &
       '';
     };
@@ -82,6 +81,7 @@
     i3lock
     maim
     peek
+    signal-desktop
     steam
     unstable.alacritty
     unstable.dropbox
