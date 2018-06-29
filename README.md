@@ -9,10 +9,14 @@ My NixOS configuration
 1. Then, ssh as srid@... (make sure port forwarding is enabled, if possible, for git clone), and:
 
 ```
+sudo nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+sudo nix-channel --update
+
 nix-shell -p git -p emacs -p stow
 ...
 git clone git@github.com:srid/mynixos.git $HOME/mynixos
 cd $HOME/mynixos 
+
 sudo ln -s $(pwd)/configuration-tinix.nix` /etc/nixos/configuration.nix  # review original first
 make
 ```

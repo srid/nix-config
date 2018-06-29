@@ -17,8 +17,6 @@
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
-  # sudo nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-  # sudo nix-channel --update
   nixpkgs.config = {
     allowUnfree = true;
 
