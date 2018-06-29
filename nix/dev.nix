@@ -27,12 +27,6 @@ in
     haskellPackages.hpack
     python
 
-    unstable.emacs26
-
-    gitAndTools.gitFull
-    gitAndTools.hub
-    tmate
-
     (callPackage (import ./nvim/default.nix) {})
   ];
 

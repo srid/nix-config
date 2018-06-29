@@ -88,19 +88,6 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-
-    # Create an alias for the unstable channel
-    packageOverrides = pkgs: {
-      unstable = import <nixpkgs-unstable> {
-        # pass the nixpkgs config to the unstable alias
-        # to ensure `allowUnfree = true;` is propagated:
-        config = config.nixpkgs.config;
-      };
-    };
-  };
-
   environment.systemPackages = with  pkgs; [
     # TODO: Use autorandr to switch between modes.
     # For now, doing it manually using arandr.
