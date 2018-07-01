@@ -1,3 +1,4 @@
+# NOTE: base.nix should be as lean as possible
 { config, pkgs, ...}:
 
 {
@@ -8,14 +9,14 @@
 
   # Firewall
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
   networking.firewall.allowPing = true;
 
   programs.mosh.enable = true;
   programs.bash.enableCompletion = true;
 
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" "https://srid.cachix.org/"];
-  nix.trustedBinaryCaches = [ "https://cachix.cachix.org" "https://srid.cachix.org/" ];
+  # nix.trustedBinaryCaches = [ "https://cachix.cachix.org" "https://srid.cachix.org/" ];
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" "srid.cachix.org-1:Vq4QePFVPaJt4Zt2SYo1he1uQVJ8pKiCer7Oyg5V6zU=" "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="];
 
   nixpkgs.config = {
@@ -32,27 +33,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Essential dev tools
-    unstable.emacs26
-    gitAndTools.gitFull
-    tmate
+    git
 
-    # Others
     ag
-    asciinema
-    bashInteractive
-    fzf
-    gnumake
-    gotty
     htop
-    keychain
     psmisc
-    python36Packages.glances
     stow
     tig
     tree
     unzip
     wget
-    youtube-dl
   ];
 }

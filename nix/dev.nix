@@ -27,6 +27,10 @@ in
     haskellPackages.hpack
     python
 
+    unstable.emacs26
+    gitAndTools.gitFull
+    asciinema
+
     (callPackage (import ./nvim/default.nix) {})
   ];
 
