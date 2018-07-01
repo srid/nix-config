@@ -14,8 +14,9 @@
   programs.mosh.enable = true;
   programs.bash.enableCompletion = true;
 
-  nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+  nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" "https://srid.cachix.org/"];
+  nix.trustedBinaryCaches = [ "https://cachix.cachix.org" "https://srid.cachix.org/" ];
+  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" "srid.cachix.org-1:Vq4QePFVPaJt4Zt2SYo1he1uQVJ8pKiCer7Oyg5V6zU=" "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="];
 
   nixpkgs.config = {
     allowUnfree = true;

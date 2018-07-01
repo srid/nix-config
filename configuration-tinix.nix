@@ -23,8 +23,12 @@
 
   networking.hostName = "tinix";
   networking.firewall.allowPing = true;
-  services.openssh.enable = true;
-  services.openssh.ports = [9812];
+  services.openssh = {
+    enable = true;
+    ports = [22];
+    permitRootLogin = "no";
+    passwordAuthentication = false;
+  };
   users.extraUsers.srid = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
