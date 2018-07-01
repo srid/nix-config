@@ -4,22 +4,13 @@
   imports = [
     /etc/nixos/hardware-configuration.nix
     ./nix/base.nix
-    ./nix/emacs.nix
+    ./myobsidian/nixos-configuration/cache.nix
+    # ./linode-longview.nix
   ];
 
   boot.cleanTmpDir = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-
-  # For Linode LISH console
-  boot.kernelParams = [ "console=ttyS0,19200n8" ];
-  boot.loader.grub.extraConfig = ''
-    serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1;
-    terminal_input serial;
-    terminal_output serial
-  '';
-  boot.loader.grub.device = "nodev";
-  boot.loader.timeout = 10;
 
   networking.hostName = "tinix";
   networking.firewall.allowPing = true;
