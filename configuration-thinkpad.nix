@@ -39,7 +39,7 @@
 
   services.ddclient = {
     enable = true;
-    configFile = "/home/srid/.ddlclient";
+    configFile = "/home/srid/.ddclient";
   };
 
   services.nginx = {
