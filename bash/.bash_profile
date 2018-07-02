@@ -1,6 +1,6 @@
 export TERM=xterm-256color
 
-eval `keychain --eval id_rsa`
+# eval `keychain --eval id_rsa`
 
 alias copy="xclip -i -selection clipboard"
 
