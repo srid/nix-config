@@ -25,3 +25,11 @@ sudo mv /etc/nixos/configuration.nix /tmp/
 sudo ln -s $(pwd)/configuration-tinix.nix /etc/nixos/configuration.nix
 make
 ```
+
+## Installing NixOS on ...
+
+### Kimsufi
+
+Use https://github.com/jeaye/nixos-in-place on top of Ubuntu.
+
+Priot to running install.sh, patch the configuration.nix used by it to allow root logins; see https://github.com/jeaye/nixos-in-place/issues/43
