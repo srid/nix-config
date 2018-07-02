@@ -3,9 +3,10 @@
 { config, pkgs, ... }: {
   imports = [
     /etc/nixos/hardware-configuration.nix
+    /etc/nixos/nixos-in-place.nix
     ./nix/base.nix
-    ./myobsidian/nixos-configuration/cache.nix
-    # ./linode-longview.nix
+    ./nix/dev.nix
+    # ./myobsidian/nixos-configuration/cache.nix
   ];
 
   boot.cleanTmpDir = true;
