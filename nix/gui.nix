@@ -97,12 +97,13 @@
     unstable.alacritty
     unstable.dropbox
     unstable.google-chrome-dev
-    unstable.vscode
+    unstable.firefox
     vlc
     xclip
     xorg.xbacklight
     xorg.xf86videointel
     xsel
+    gnome2.zenity
     zoom-us
   ];
 }
