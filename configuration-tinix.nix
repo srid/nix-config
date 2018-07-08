@@ -37,11 +37,13 @@
     enable = true;
     user = "srid";
     virtualHosts={
-      #"www.srid.ca" = {
-      #  enableACME = true;
-      #  forceSSL = true;
-      #  root = "/home/srid/sridCaOutput";
-      #};
+      "www.srid.ca" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:9005";
+        };
+      };
 
       "slownews.srid.ca" = {
         enableACME = true;
@@ -61,6 +63,7 @@
   };
 
   security.acme.certs = {
+    "www.srid.ca".email = "srid@srid.ca";
     "slownews.srid.ca".email = "srid@srid.ca";
     "riceneggs.srid.ca".email = "srid@srid.ca";
   };
