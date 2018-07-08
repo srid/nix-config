@@ -34,14 +34,14 @@
 
   # My apps
   services.nginx = {
-    enable = false;
+    enable = true;
     user = "srid";
     virtualHosts={
-      "www.srid.ca" = {
-        enableACME = true;
-        forceSSL = true;
-        root = "/home/srid/sridCaOutput";
-      };
+      #"www.srid.ca" = {
+      #  enableACME = true;
+      #  forceSSL = true;
+      #  root = "/home/srid/sridCaOutput";
+      #};
 
       "slownews.srid.ca" = {
         enableACME = true;
@@ -50,11 +50,18 @@
           proxyPass = "http://localhost:3001";
         };
       };
+      "riceneggs.srid.ca" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8001";
+        };
+      };
     };
   };
 
-  # security.acme.certs = {
-  #   "slownews.srid.ca".email = "srid@srid.ca";
-  #   "www.srid.ca".email = "srid@srid.ca";
-  # };
+  security.acme.certs = {
+    "slownews.srid.ca".email = "srid@srid.ca";
+    "riceneggs.srid.ca".email = "srid@srid.ca";
+  };
 }
