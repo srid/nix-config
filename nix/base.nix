@@ -46,5 +46,6 @@
     tree
     unzip
     wget
+    youtube-dl
   ];
 }
