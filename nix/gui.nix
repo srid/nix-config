@@ -96,8 +96,7 @@
     steam
     unstable.alacritty
     unstable.dropbox
-    unstable.google-chrome-dev
-    unstable.firefox
+    unstable.google-chrome
     vlc
     xclip
     xorg.xbacklight
