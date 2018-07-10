@@ -46,7 +46,7 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     ;; org
      chrome
      (shell :variables
             shell-default-height 30
@@ -79,7 +79,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(exec-path-from-shell)
+   ;; dotspacemacs-excluded-packages '(exec-path-from-shell)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -148,7 +148,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(afternoon
+   dotspacemacs-themes '(espresso
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -156,7 +156,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Space Mono"
-                               :size 12
+                               :size 30
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
