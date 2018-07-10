@@ -37,7 +37,7 @@
   sound.mediaKeys.enable = true;
 
   services.ddclient = {
-    enable = true;
+    enable = false;  # FIXME: has issues
     configFile = "/home/srid/.ddclient";
   };
 
