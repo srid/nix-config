@@ -97,6 +97,7 @@
     unstable.alacritty
     unstable.dropbox
     unstable.google-chrome
+    okular
     vlc
     xclip
     xorg.xbacklight
