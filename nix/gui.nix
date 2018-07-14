@@ -96,7 +96,7 @@
     steam
     unstable.alacritty
     unstable.dropbox
-    unstable.google-chrome
+    unstable.google-chrome-dev
     okular
     vlc
     xclip
