@@ -39,7 +39,11 @@
     vim
     gnumake
 
+    # Used by oh-my-fish plugins
     keychain
+    jq
+    bind
+
     ag
     htop
     psmisc

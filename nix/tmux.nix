@@ -29,6 +29,9 @@
       # Mouse works as expected
       set-option -g mouse on
 
+      # Use default shell 
+      set-option -g default-shell ''${SHELL}
+
       # Extra Vi friendly stuff
       # y and p as in vim
       bind Escape copy-mode
