@@ -44,6 +44,7 @@
     jq
     bind
 
+    entr
     ag
     htop
     psmisc
