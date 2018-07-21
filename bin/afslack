@@ -1,1 +1,2 @@
+#!/bin/sh
 chrome --app=https://actualfreedom.slack.com/

@@ -1,1 +1,2 @@
-$(which google-chrome-unstable) --no-proxy-server $*
+#!/run/current-system/sw/bin/bash
+exec $(which google-chrome-unstable) --no-proxy-server $*

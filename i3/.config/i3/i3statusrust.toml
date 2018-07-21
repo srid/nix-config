@@ -35,10 +35,11 @@ speed_up = false
 graph_up = true
 interval = 5
 
-[[block]]
-block = "weather"
-format = "{weather} ({location}) {temp}°, {wind} km/s"
-service = { name = "openweathermap", api_key = "d2babfddec55c71419de401e98172c02", city_id = "6325494", units = "metric" }
+# API broken
+# [[block]]
+# block = "weather"
+# format = "{weather} ({location}) {temp}°, {wind} km/s"
+# service = { name = "openweathermap", api_key = "d2babfddec55c71419de401e98172c02", city_id = "6325494", units = "metric" }
 
 # [[block]]
 # block = "sound"
