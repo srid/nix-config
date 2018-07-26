@@ -46,6 +46,7 @@
 
     entr
     ag
+    ripgrep
     htop
     psmisc
     stow

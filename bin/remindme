@@ -1,0 +1,3 @@
+#!/bin/sh
+#TODO
+chrome --app=https://keep.google.com
