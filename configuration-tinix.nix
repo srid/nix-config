@@ -33,6 +33,10 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  systemd.services.sridca = import /home/srid/code/srid.ca
+    { port = "9005";
+    };
+
   # My apps
   services.nginx = {
     enable = true;
