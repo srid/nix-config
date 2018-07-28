@@ -33,7 +33,7 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  systemd.services.sridca = import /home/srid/code/srid.ca
+  systemd.services.sridca = import /home/srid/run/srid.ca
     { port = "9005";
     };
 
