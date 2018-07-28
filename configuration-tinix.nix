@@ -1,5 +1,8 @@
-# Made for Linode.
+# Made for my server.
 
+let
+  sridca = (import /home/srid/code/srid.ca {port = "9005";});
+in
 { config, pkgs, ... }: {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -33,23 +36,15 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  systemd.services.sridca = import /home/srid/run/srid.ca
-    { port = "9005";
-    };
+  systemd.services.sridca = sridca.unit;
+  services.nginx.virtualHosts."www.srid.ca" = sridca.vhost;
 
   # My apps
   services.nginx = {
     enable = true;
     user = "srid";
     virtualHosts={
-      "www.srid.ca" = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:9005";
-        };
-      };
-
+      # TODO: Port these over like srid.ca
       "slownews.srid.ca" = {
         enableACME = true;
         forceSSL = true;

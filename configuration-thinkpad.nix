@@ -2,6 +2,9 @@
 
 { config, pkgs, ... }:
 
+let
+  sridca = (import /home/srid/code/srid.ca {port = "9005";});
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -12,6 +15,8 @@
       ./nix/dev.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
+
+  systemd.services.sridcatmp = sridca.unit;
 
   # EFI boot
   boot.cleanTmpDir = true;
@@ -43,9 +48,7 @@
 
   services.nginx = {
     enable = true;
-    virtualHosts."localhost" = {
-      locations."/".proxyPass = "http://localhost:9000";
-    };
+    user = "srid";
   };
 
 
