@@ -44,6 +44,7 @@
     jq
     bind
 
+    ncdu
     entr
     ag
     ripgrep

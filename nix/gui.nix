@@ -93,19 +93,25 @@
     feh
     i3lock
     maim
+
+    # To launch peek, C-p peek
+    # C+S+<space> to make it floaitng window
+    # Postiion window and begin record
+    # C+S+4 to move it hidden i3 workspace
+    # When recording is done, hit C+4 to bring it back
+    # Stop recording.
     peek
+
     signal-desktop
     steam
     unstable.alacritty
     unstable.dropbox
     unstable.google-chrome-dev
-    okular
     vlc
     xclip
     xorg.xbacklight
     xorg.xf86videointel
     xsel
-    gnome2.zenity
     zoom-us
   ];
 }

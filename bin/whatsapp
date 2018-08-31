@@ -1,1 +1,2 @@
+#!/bin/sh
 chrome --app=https://web.whatsapp.com

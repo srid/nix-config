@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 let
-  sridca = (import /home/srid/code/srid.ca {port = "9005";});
+  # sridca = (import /home/srid/code/srid.ca {port = "9005";});
 in
 {
   imports =
@@ -16,13 +16,14 @@ in
       ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
 
-  systemd.services.sridcatmp = sridca.unit;
+  # systemd.services.sridcatmp = sridca.unit;
 
   # EFI boot
   boot.cleanTmpDir = true;
+  boot.loader.timeout = 9;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
 
   networking.hostName = "thebeast"; # Define your hostname.
 
@@ -38,6 +39,8 @@ in
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
+
+  services.timesyncd.enable = true;
 
   sound.mediaKeys.enable = true;
 
