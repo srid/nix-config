@@ -31,6 +31,7 @@ in
     unstable.emacs26
     gitAndTools.gitFull
     asciinema
+    tmate
 
     (callPackage (import ./nvim/default.nix) {})
   ];

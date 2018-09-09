@@ -39,6 +39,7 @@ in
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
+  services.openssh.ports = [22 9812];
 
   services.timesyncd.enable = true;
 
