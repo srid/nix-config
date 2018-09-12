@@ -37,6 +37,10 @@ in
   # Can break during startup. Disabling for now.
   virtualisation.virtualbox.host.enable = false;
 
+  virtualisation.lxd = {
+    enable = true;
+  };
+
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
   services.openssh.ports = [22 9812];
@@ -154,7 +158,7 @@ in
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "lxd" ];
     shell = pkgs.fish;
   };
 
