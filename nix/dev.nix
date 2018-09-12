@@ -25,7 +25,7 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     haskellPackages.hpack
-    unstable.haskellPackages.mmark-cli
+    # unstable.haskellPackages.mmark-cli
     python
 
     unstable.emacs26

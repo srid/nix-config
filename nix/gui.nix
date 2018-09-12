@@ -104,7 +104,6 @@
 
     signal-desktop
     steam
-    unstable.alacritty
     unstable.dropbox
     unstable.google-chrome-dev
     vlc
