@@ -13,3 +13,7 @@ nocache:
 
 stow:
 	stow -v 1 bash git emacs xmonad i3
+
+# https://github.com/NixOS/nixpkgs/issues/23926
+workaround:
+	sudo nix-collect-garbage --delete-older-than 60d
