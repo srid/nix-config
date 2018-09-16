@@ -103,7 +103,6 @@
     peek
 
     signal-desktop
-    steam
     unstable.dropbox
     unstable.google-chrome-dev
     vlc
