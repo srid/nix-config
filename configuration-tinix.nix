@@ -18,7 +18,6 @@ in
   boot.loader.grub.version = 2;
 
   networking.hostName = "tinix";
-  networking.firewall.allowPing = true;
   services.openssh = {
     enable = true;
     ports = [22];

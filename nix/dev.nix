@@ -26,6 +26,7 @@ in
     haskellPackages.stylish-haskell
     haskellPackages.hpack
     # unstable.haskellPackages.mmark-cli
+    unstable.vscode
     python
 
     unstable.emacs26
