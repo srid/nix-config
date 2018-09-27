@@ -109,7 +109,7 @@ in
 
     displayManager.lightdm = {
       enable = true;
-      background = "/home/srid/mynixos/files/Atom-HD-Wallpaper.png";  # FIXME: doesn't work
+      background = "/home/srid/mynixos/files/think.jpg";  # FIXME: doesn't work
     };
   };
 
