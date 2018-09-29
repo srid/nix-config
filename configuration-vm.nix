@@ -11,19 +11,18 @@
     ];
 
   # GRUB
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.cleanTmpDir = true;
 
-  networking.hostName = "AppleDumbsUs";
+  networking.hostName = "machambre";
 
   services.openssh.enable = true;
 
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
   };
 
   # This value determines the NixOS release with which your system is to be
