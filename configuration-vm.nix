@@ -6,7 +6,7 @@
       /etc/nixos/hardware-configuration.nix
       ./nix/base.nix
       ./nix/emacs.nix
-      ./nix/gui.nix
+      # ./nix/gui.nix
       ./nix/dev.nix
     ];
 
