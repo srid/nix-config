@@ -38,7 +38,7 @@ in
   ];
 
   services.ihaskell = {
-    enable = true;
+    enable = false;
     extraPackages = haskellPackages: [ 
       haskellPackages.typed-process
     ];
