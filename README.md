@@ -33,3 +33,7 @@ make
 Use https://github.com/jeaye/nixos-in-place on top of Ubuntu.
 
 Priot to running install.sh, patch the configuration.nix used by it to allow root logins; see https://github.com/jeaye/nixos-in-place/issues/43
+
+### Hyper-v
+
+[Quick Create](https://blogs.windows.com/buildingapps/2018/09/17/run-ubuntu-virtual-machines-made-even-easier-with-hyper-v-quick-create/) a Ubuntu VM, and install a fresh copy of NixOS overwriting it.
