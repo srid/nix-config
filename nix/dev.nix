@@ -36,6 +36,8 @@ in
 
     dropbox-cli
     (callPackage (import ./nvim/default.nix) {})
+    # nvim deps below
+    fzf
   ];
 
   services.ihaskell = {
