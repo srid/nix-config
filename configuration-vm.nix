@@ -1,3 +1,5 @@
+# NixOS running on a VM (which is Hyper-V on Windows, in my case)
+
 { config, pkgs, ... }:
 
 {
@@ -6,7 +8,6 @@
       /etc/nixos/hardware-configuration.nix
       ./nix/base.nix
       ./nix/emacs.nix
-      # ./nix/gui.nix
       ./nix/dev.nix
     ];
 
@@ -14,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.cleanTmpDir = true;
-  boot.growPartition = true;  # Automatically grow root volume to max size; then we must manually use `resize2fs` to do the actual resize.
+  boot.growPartition = true;  # See README.md
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

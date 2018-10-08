@@ -1,6 +1,4 @@
-# NixOS dotfiles
-
-My NixOS configuration
+# My NixOS configuration
 
 ## Setting up a new machine
 
@@ -36,4 +34,15 @@ Priot to running install.sh, patch the configuration.nix used by it to allow roo
 
 ### Hyper-v
 
-[Quick Create](https://blogs.windows.com/buildingapps/2018/09/17/run-ubuntu-virtual-machines-made-even-easier-with-hyper-v-quick-create/) a Ubuntu VM, and install a fresh copy of NixOS overwriting it.
+- [Quick Create](https://blogs.windows.com/buildingapps/2018/09/17/run-ubuntu-virtual-machines-made-even-easier-with-hyper-v-quick-create/) a Ubuntu VM
+- Install a fresh copy of NixOS, overwriting Ubuntu.
+  - Mount the existing UEFI partition as `/boot` (instead of creating a new partition)
+- Add a 2nd network that is "internal", and use the IP address of that network to ssh the VM.
+
+## Tips and tricks
+
+### Resizing VM's disk
+
+- Resize the disk using the VM tools
+- Enable `boot.growPartition` and reboot
+- Run `resize2fs` on the root volume to make use of the new disk space
