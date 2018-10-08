@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.cleanTmpDir = true;
+  boot.growPartition = true;  # Automatically grow root volume to max size; then we must manually use `resize2fs` to do the actual resize.
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
