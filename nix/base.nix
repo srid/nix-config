@@ -44,6 +44,7 @@
     jq
     bind
 
+    lf  # File manager
     ncdu
     entr
     ag
