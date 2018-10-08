@@ -56,7 +56,7 @@ endif
 set background=light
 "let base16colorspace=256
 "colorscheme base16-mexico-light
-"colorscheme PaperColor
+colorscheme PaperColor
 "Adjust theme search colors
 hi Search ctermbg=250 ctermfg=240
 hi Comment ctermfg=245
