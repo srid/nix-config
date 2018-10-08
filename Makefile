@@ -12,7 +12,7 @@ nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
 stow:
-	stow -v 1 bash git emacs xmonad i3
+	stow -v 1 bash git emacs xmonad i3 fish
 
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:

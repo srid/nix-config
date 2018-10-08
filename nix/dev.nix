@@ -34,6 +34,7 @@ in
     asciinema
     tmate
 
+    dropbox-cli
     (callPackage (import ./nvim/default.nix) {})
   ];
 
