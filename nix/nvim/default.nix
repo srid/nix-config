@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs-unstable> {} }:
+{ pkgs ? import <nixpkgs> {} }:
 
 let
   # cf. https://nixos.wiki/wiki/Vim#Adding_new_plugins 
