@@ -13,4 +13,4 @@ source .nix-profile/etc/profile.d/nix.sh
 . ~/.bashrc
 
 alias j="nvim +AutoSaveToggle ~/private/journal.md"
-alias n='nvim +AutoSaveToggle $(find ~/Dropbox/Note -type f -name \*.md | fzf)'
+alias n='nvim +AutoSaveToggle +Goyo $(find ~/Dropbox/Note -type f -name \*.md | fzf)'

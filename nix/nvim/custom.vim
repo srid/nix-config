@@ -38,6 +38,9 @@ nmap ; :
 map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>w :%s/\s\+$//e<CR>
 
+"For exiting vim after exiting Goyo
+:map <C-X> <ESC>:x<CR>:x<CR>
+
 "Mouse
 "-------------------------
 set mouse=a
