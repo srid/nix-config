@@ -93,6 +93,7 @@ in
       vam.knownPlugins = pkgs.vimPlugins // customPlugins;
       vam.pluginDictionaries = [
         { name = "goyo"; }  # Distraction free writing
+        { name = "vim-auto-save"; }
         { name = "vim-nix"; }
         { name = "haskell-vim"; }
         { name = "vim-gitgutter"; }
