@@ -24,6 +24,13 @@ sudo ln -s $(pwd)/configuration-tinix.nix /etc/nixos/configuration.nix
 make
 ```
 
+## On OSX
+
+```
+make stow_osx
+nix-env -f nix/nvim -i  # Installs customized neovim
+```
+
 ## Installing NixOS on ...
 
 ### Kimsufi
