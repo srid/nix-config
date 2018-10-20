@@ -35,6 +35,18 @@ nix-env -f nix/nvim -i  # Installs customized neovim
 
 ## Installing NixOS on ...
 
+### Thinkpad P71
+
+#### Preparation
+- In BIOS, disable discrete graphics so intel card is used. We can change this post-install.
+- In BIOS, make the USB disk the highest startup priority
+- Plug the Ethernet cable for direct internet (wifi will be configured post-install)
+
+#### Install
+- Follow the NixOS installation manual (choose UEFI), using /dev/nvmen1 disk)
+- Boot into NixOS and follow the instructions in [mynixos](https://github.com/srid/mynixos) to complete the configuration.
+- Unplug the Enternet cable, and test WIFI using `nmtui`
+
 ### Kimsufi
 
 Use https://github.com/jeaye/nixos-in-place on top of Ubuntu.
