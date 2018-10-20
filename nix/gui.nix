@@ -108,7 +108,6 @@
     peek
 
     signal-desktop
-    unstable.dropbox
     google-chrome
     vlc
     xclip
