@@ -20,7 +20,6 @@ in
 
   # EFI boot
   boot.cleanTmpDir = true;
-  boot.loader.timeout = 9;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.plymouth.enable = false;
@@ -33,9 +32,6 @@ in
   # WiFi
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
-
-  # Can break during startup. Disabling for now.
-  virtualisation.virtualbox.host.enable = false;
 
   virtualisation.lxd = {
     enable = true;
@@ -106,11 +102,6 @@ in
     serverFlagsSection = ''
       Option  "Xinerama" "0"
     '';
-
-    displayManager.lightdm = {
-      enable = true;
-      background = "/home/srid/mynixos/files/think.jpg";  # FIXME: doesn't work
-    };
   };
 
   environment.systemPackages = with  pkgs; [
@@ -174,12 +165,11 @@ in
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "audio" "lxd" ];
-    shell = pkgs.fish;
   };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "17.09"; # Did you read the comment?
+  system.stateVersion = "18.09"; # Did you read the comment?
 }

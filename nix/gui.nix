@@ -49,6 +49,11 @@
     layout = "us";
     xkbOptions = "grp:alt_space_toggle, ctrl:swapcaps";
 
+    displayManager.lightdm = {
+      enable = true;
+      background = "/home/srid/mynixos/files/think.jpg";  # FIXME: doesn't work
+    };
+
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
@@ -104,7 +109,7 @@
 
     signal-desktop
     unstable.dropbox
-    unstable.google-chrome-dev
+    google-chrome
     vlc
     xclip
     xorg.xbacklight
