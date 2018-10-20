@@ -27,7 +27,6 @@
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "audio" ];
-    shell = pkgs.fish;
   };
 
   # This value determines the NixOS release with which your system is to be

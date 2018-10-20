@@ -44,6 +44,8 @@
     jq
     bind
 
+    openssl
+    gocryptfs
     lf  # File manager
     ncdu
     entr
