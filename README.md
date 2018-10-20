@@ -31,6 +31,8 @@ make stow_osx
 nix-env -f nix/nvim -i  # Installs customized neovim
 ```
 
+- [ ] Use [nix-darwin](https://github.com/LnL7/nix-darwin) to automate installing of packages
+
 ## Installing NixOS on ...
 
 ### Kimsufi

@@ -12,4 +12,5 @@ source .nix-profile/etc/profile.d/nix.sh
 # Trigger ~/.bashrc commands
 . ~/.bashrc
 
-alias j="nvim '+normal G$' ~/private/journal.md"
+alias j="nvim +AutoSaveToggle ~/private/journal.md"
+alias n='nvim +AutoSaveToggle $(find ~/Dropbox/Note -type f -name \*.md | fzf)'
