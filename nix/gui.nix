@@ -98,6 +98,7 @@
     feh
     i3lock
     maim
+    steam
 
     # To launch peek, C-p peek
     # C+S+<space> to make it floaitng window
