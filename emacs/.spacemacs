@@ -74,7 +74,8 @@ values."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(nix-sandbox
                                       dhall-mode
-                                      all-the-icons)
+                                      all-the-icons
+                                      olivetti)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -328,6 +329,7 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; https://github.com/syl20bnr/spacemacs/issues/7891
   (setq custom-file "~/.spacemacs.d/custom.el")
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -372,6 +374,10 @@ before packages are loaded."
 
   ;; https://github.com/syl20bnr/spacemacs/issues/7828#issuecomment-262853752
   (setq neo-theme 'icons)
+
+  ;; distraction-free writing
+  (setq-default olivetti-body-width 100)
+  (spacemacs/set-leader-keys "wc" 'olivetti-mode)
 
   ;; Lastly, load custom-file (but only if the file exists).
   (when (file-exists-p custom-file)
