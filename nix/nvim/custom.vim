@@ -38,7 +38,7 @@ nmap ; :
 map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>w :%s/\s\+$//e<CR>
 
-"For exiting vim after exiting Goyo
+"C-x as a shortcut for exiting Goyo, save the file and exit Vim altogether
 :map <C-X> <ESC>:x<CR>:x<CR>
 
 "Mouse

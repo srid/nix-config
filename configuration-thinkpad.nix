@@ -79,6 +79,9 @@ in
   services.xserver = {
     # Enable touchpad support.
     libinput.enable = true;
+    multitouch = {
+      enable = true;
+    };
 
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
