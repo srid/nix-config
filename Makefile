@@ -12,10 +12,10 @@ nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
 stow:
-	stow -v 1 bash git emacs xmonad i3 fish haskell
+	stow -v 1 bash git emacs xmonad i3 haskell
 
 stow_osx:
-	stow -v 1 bash git emacs fish
+	stow -v 1 bash git emacs nix-darwin
 
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:
