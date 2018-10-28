@@ -3,10 +3,12 @@
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [ pkgs.stow 
-      pkgs.emacs
-      pkgs.fzf
+  environment.systemPackages = with pkgs; 
+    [ stow 
+      emacs
+      fzf
+      (callPackage (import /Users/srid/mynixos/nix/nvim/default.nix) {})
+      silver-searcher
     ];
 
   # Use a custom configuration.nix location.

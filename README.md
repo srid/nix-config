@@ -28,12 +28,9 @@ make
 
 ```
 make stow_osx
-nix-env -f nix/nvim -i  # Installs customized neovim (TODO: do this from nix-darwin)
 # Install nix-darwin https://github.com/LnL7/nix-darwin
 darwin-rebuild switch
 ```
-
-- [ ] Use [nix-darwin](https://github.com/LnL7/nix-darwin) to automate installing of packages
 
 ## Installing NixOS on ...
 
