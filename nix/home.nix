@@ -15,7 +15,7 @@
     programs.git = {
       package = pkgs.gitAndTools.gitFull;
       enable = true;
-      userName = "srid";
+      userName = "Sridhar Ratnakumar";
       userEmail = "srid@srid.ca";
       ignores = [ "*~" "*ghcid.txt" ];
     };
