@@ -30,7 +30,6 @@ in
     python
 
     unstable.emacs26
-    # gitAndTools.gitFull -- disabled to prevent collisions; see myobsidian
     asciinema
     tmate
 
