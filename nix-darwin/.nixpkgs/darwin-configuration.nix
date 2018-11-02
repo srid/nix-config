@@ -7,8 +7,9 @@
     [ stow 
       emacs
       fzf
-      (callPackage (import /Users/srid/mynixos/nix/nvim/default.nix) {})
       silver-searcher
+      mosh
+      (callPackage (import /Users/srid/mynixos/nix/nvim/default.nix) {})
     ];
 
   # Use a custom configuration.nix location.
