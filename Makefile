@@ -1,4 +1,4 @@
-all:	stow nix-switch
+all:	nix-switch
 	@echo
 
 nix-switch:
