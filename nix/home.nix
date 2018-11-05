@@ -10,6 +10,7 @@
     home.packages = with pkgs; [
       fortune
       dict
+      (callPackage (import ./nvim/default.nix) {})
     ];
 
     programs.git = {
