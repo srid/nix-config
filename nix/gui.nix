@@ -30,16 +30,21 @@
     inactiveOpacity = "1.0";
   };
 
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    emacs-all-the-icons-fonts
-    fira-code
-    font-awesome-ttf
-    google-fonts
-    hasklig
-    iosevka
-    powerline-fonts
-  ];
+  fonts = { 
+    enableFontDir = true;
+    fonts = with pkgs; [
+      dejavu_fonts
+      emacs-all-the-icons-fonts
+      fira-code
+      font-awesome-ttf
+      google-fonts
+      hasklig
+      iosevka
+      powerline-fonts
+      noto-fonts-emoji
+      emojione
+    ];
+  };
 
   # Xmonad
   # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
