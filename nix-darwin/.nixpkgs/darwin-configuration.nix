@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; 
+  # TODO: Share with nix/*.nix
+  environment.systemPackages = with pkgs;
     [ stow 
       emacs
       fzf
       silver-searcher
       mosh
+      haskellPackages.stylish-haskell
       (callPackage (import /Users/srid/mynixos/nix/nvim/default.nix) {})
     ];
 
