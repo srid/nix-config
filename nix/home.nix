@@ -13,6 +13,10 @@
       (callPackage (import ./nvim/default.nix) {})
     ];
 
+    programs.fzf = {
+      enable = true;
+      enableBashIntegration = true;
+    };
     programs.git = {
       package = pkgs.gitAndTools.gitFull;
       enable = true;
