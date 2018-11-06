@@ -11,8 +11,26 @@
       fortune
       dict
       (callPackage (import ./nvim/default.nix) {})
+
+      # Collaboration tools
+      termtosvg
     ];
 
+    home.sessionVariables = {
+      TERM = "xterm-256color";
+      EDITOR = "nvim";
+    };
+
+    programs.bash = {
+      enable = true;
+      historyIgnore = [ "ls" "cd" "exit" ];
+      historyControl = [ "erasedups" ];
+      enableAutojump = true;
+      shellAliases = {
+        copy = "xclip -i -selection clipboard";
+      };
+      # TODO: profileExtra
+    };
     programs.fzf = {
       enable = true;
       enableBashIntegration = true;
