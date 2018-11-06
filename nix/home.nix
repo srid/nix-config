@@ -41,6 +41,15 @@
       userName = "Sridhar Ratnakumar";
       userEmail = "srid@srid.ca";
       ignores = [ "*~" "*ghcid.txt" ];
+      aliases = {
+        co = "checkout";
+        ci = "commit";
+      };
+      extraConfig = {
+        core = {
+          editor = "nvim";
+        };
+      };
     };
     programs.command-not-found.enable = true;
 
@@ -52,6 +61,9 @@
     home.file = {
       ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
       ".spacemacs".source = ../spacemacs;
+      ".ghci".text = ''
+        :set prompt "λ> "
+      '';
     };
 
   };

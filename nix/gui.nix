@@ -94,6 +94,10 @@
       #  - redshift is messing up colors on external monitor.
       enable = true;
     };
+
+    desktopManager.gnome3 = {
+      enable = true;
+    };
   };
 
   programs.light.enable = true;
