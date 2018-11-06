@@ -1,9 +1,5 @@
 # Made for my server.
 
-# TODO: These need to manually checked out at the right revision. Make them thunks?
-let
-  # sridca = (import /home/srid/run/srid.ca {port = "9005";});
-in
 { config, pkgs, ... }: {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -37,33 +33,20 @@ in
   environment.systemPackages = with pkgs; [
   ];
 
-  # systemd.services.sridca = sridca.unit;
-
   # My apps
   services.nginx = {
-    enable = false;
+    enable = true;
     user = "srid";
-    # virtualHosts."www.srid.ca" = sridca.vhost;
-    # TODO: Port these over like srid.ca
     virtualHosts."slownews.srid.ca"= {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://localhost:3001";
-      };
-    };
-    virtualHosts."riceneggs.srid.ca" = {
-      enableACME = true;
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:8001";
+        proxyPass = "http://srid.ddns.net:9001";
       };
     };
   };
 
   security.acme.certs = {
-    #"www.srid.ca".email = "srid@srid.ca";
-    #"slownews.srid.ca".email = "srid@srid.ca";
-    #"riceneggs.srid.ca".email = "srid@srid.ca";
+    "slownews.srid.ca".email = "srid@srid.ca";
   };
 }
