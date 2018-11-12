@@ -21,6 +21,7 @@
         fortune
         dict
         (callPackage (import ./nvim/default.nix) {})
+        cachix
 
         # Collaboration tools
         termtosvg
