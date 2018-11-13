@@ -7,7 +7,7 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ <nixos-hardware/lenovo/thinkpad>
       /etc/nixos/hardware-configuration.nix
       ./nix/base.nix
       ./nix/emacs.nix
