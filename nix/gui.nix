@@ -25,7 +25,7 @@
   };
 
   services.compton = {
-    enable = true;
+    enable = false;  # Disable for better battery??
     shadow = true;
     inactiveOpacity = "1.0";
   };
@@ -76,12 +76,13 @@
     };
 
     windowManager.xmonad = {
-      enable = false;
+      enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
         haskellPackages.xmonad-contrib
         haskellPackages.xmonad-extras
         haskellPackages.xmonad
+        haskellPackages.xmobar
       ];
     };
     # windowManager.default = "xmonad";
@@ -92,7 +93,7 @@
 
       # Issues
       #  - redshift is messing up colors on external monitor.
-      enable = true;
+      enable = false;
     };
 
     desktopManager.gnome3 = {
@@ -117,6 +118,7 @@
     # Stop recording.
     peek
 
+    alacritty
     signal-desktop
     google-chrome
     vlc
