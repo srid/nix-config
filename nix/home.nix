@@ -32,7 +32,7 @@
 
       home.sessionVariables = {
         # TERM = "xterm-256color";
-        EDITOR = "nvim";
+        EDITOR = "emacs -nw";
       };
 
       programs.bash = {
@@ -43,6 +43,7 @@
         shellAliases = {
           copy = "xclip -i -selection clipboard";
           g = "git";
+          e = "emacs -nw";
         };
         # TODO: profileExtra
       };
@@ -65,7 +66,7 @@
         };
         extraConfig = {
           core = {
-            editor = "nvim";
+            editor = "emacs -nw";
           };
         };
       };
