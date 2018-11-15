@@ -19,7 +19,6 @@
     newSession = false;
     resizeAmount = 5;
     escapeTime = 0;
-    defaultTerminal = "screen-256color"
 
     extraTmuxConf = ''
       # Fix environment variables
