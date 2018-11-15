@@ -44,6 +44,7 @@
           copy = "xclip -i -selection clipboard";
           g = "git";
           e = "emacs -nw";
+          ee = "emacs -nw $(fzf)";
         };
         # TODO: profileExtra
       };
