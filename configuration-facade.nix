@@ -34,19 +34,23 @@
   ];
 
   # My apps
-  services.nginx = {
-    enable = true;
-    user = "srid";
-    virtualHosts."slownews.srid.ca"= {
+  services.nginx = 
+    let myVhost = port: {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://srid.ddns.net:9001";
+        proxyPass = "http://srid.ddns.net:" + toString port;
       };
     };
-  };
+    in {
+      enable = true;
+      user = "srid";
+      virtualHosts."slownews.srid.ca" = myVhost 9001;
+      virtualHosts."riceneggs.srid.ca" = myVhost 9002;
+    };
 
   security.acme.certs = {
     "slownews.srid.ca".email = "srid@srid.ca";
+    "riceneggs.srid.ca".email = "srid@srid.ca";
   };
 }
