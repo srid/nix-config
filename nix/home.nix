@@ -14,6 +14,8 @@
 
       # Collaboration tools
       termtosvg
+
+      transmission
     ];
 
     home.sessionVariables = {
