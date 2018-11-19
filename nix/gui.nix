@@ -121,6 +121,7 @@
     alacritty
     signal-desktop
     google-chrome
+    firefox
     vlc
     xclip
     xorg.xbacklight

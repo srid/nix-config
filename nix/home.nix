@@ -36,7 +36,7 @@
 
       programs.bash = {
         enable = true;
-        historyIgnore = [ "ls" "cd" "exit" ];
+        historyIgnore = [ "ls" "cd" "exit" "wget" ];
         historyControl = [ "erasedups" ];
         enableAutojump = true;
         shellAliases = {

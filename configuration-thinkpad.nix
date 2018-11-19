@@ -27,7 +27,7 @@ in
 
   networking.hostName = "thebeast"; # Define your hostname.
 
-  # Hoping for better graphics performance in latest kernels
+  # Always use the latest available kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # WiFi
@@ -35,7 +35,7 @@ in
   networking.networkmanager.enable = true;
 
   virtualisation.lxd = {
-    enable = true;
+    enable = false;  # Not using yet.
   };
 
   # Want to ssh to thinkpad from macbook
@@ -82,12 +82,13 @@ in
     libinput.enable = true;
     multitouch = {
       enable = true;
+      invertScroll = true;
     };
 
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
     # Nvidia detects somehow higher value for a DPI than what is standard for retina. Set it manually:
-    # Same as iMac retina 5k https://en.wikipedia.org/wiki/Retina_Display#Models
+    # Same as iMac retina k5k https://en.wikipedia.org/wiki/Retina_Display#Models
     dpi = 218;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
@@ -160,6 +161,7 @@ in
     # https://nixos.wiki/wiki/Bluetooth
     bluetooth = {
       enable = true;
+      # For Bose QC 35
       extraConfig = "
         [General]
         Enable=Source,Sink,Media,Socket
