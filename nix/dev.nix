@@ -34,7 +34,10 @@ in
     tmate
 
     dropbox-cli
+    androidsdk
   ];
+
+  services.udev.packages = [ pkgs.android-udev-rules ];
 
   services.ihaskell = {
     enable = false;

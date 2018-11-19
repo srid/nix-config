@@ -14,9 +14,9 @@
     keyMode = "vi";
     customPaneNavigationAndResize = true;
 
-    aggressiveResize = false;  # Leaving it off for iTerm: https://github.com/tmux-plugins/tmux-sensible/issues/24#issuecomment-251045335
+    aggressiveResize = true;
     historyLimit = 100000;
-    newSession = true;
+    newSession = false;
     resizeAmount = 5;
     escapeTime = 0;
 

@@ -7,7 +7,7 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ <nixos-hardware/lenovo/thinkpad>
       /etc/nixos/hardware-configuration.nix
       ./nix/base.nix
       ./nix/emacs.nix
@@ -124,6 +124,7 @@ in
     # TODO: Configure xmonad to bring pulsemixer on popup
     # as needed.
     pulsemixer
+    blueman
   ];
 
   hardware = {
@@ -142,6 +143,7 @@ in
     # Use `pactl set-sink-volume 0 +10%` to increase volume.
     pulseaudio = {
       enable = true;
+      package = pkgs.pulseaudioFull;
       support32Bit = true;
       daemon.config = {
         flat-volumes = "no";
@@ -158,6 +160,10 @@ in
     # https://nixos.wiki/wiki/Bluetooth
     bluetooth = {
       enable = true;
+      extraConfig = "
+        [General]
+        Enable=Source,Sink,Media,Socket
+      ";
     };
   };
 
