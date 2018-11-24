@@ -76,7 +76,7 @@
     };
 
     windowManager.xmonad = {
-      enable = true;
+      enable = false;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
         haskellPackages.xmonad-contrib
@@ -93,7 +93,7 @@
 
       # Issues
       #  - redshift is messing up colors on external monitor.
-      enable = false;
+      enable = true;
     };
 
     desktopManager.gnome3 = {

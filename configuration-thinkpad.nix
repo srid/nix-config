@@ -34,9 +34,9 @@ in
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
-  virtualisation.lxd = {
-    enable = false;  # Not using yet.
-  };
+  # TLP Linux Advanced Power Management
+  # Seems to make suspend / wake-up work on lid-close.
+  services.tlp.enable = true;
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
@@ -168,10 +168,6 @@ in
       ";
     };
   };
-
-  # TLP Linux Advanced Power Management
-  # Seems to make suspend / wake-up work on lid-close.
-  services.tlp.enable = true;
 
   users.extraUsers.srid = {
     isNormalUser = true;
