@@ -88,7 +88,7 @@ in
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
     # Nvidia detects somehow higher value for a DPI than what is standard for retina. Set it manually:
-    # Same as iMac retina k5k https://en.wikipedia.org/wiki/Retina_Display#Models
+    # Same as iMac retina 5k https://en.wikipedia.org/wiki/Retina_Display#Models
     dpi = 218;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.

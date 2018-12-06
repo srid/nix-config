@@ -169,11 +169,8 @@ bindsym $mod+minus scratchpad show
 
 # Screenshot
 bindsym $mod+x exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
-bindsym $mod+shift+x exec --no-startup-id sh -c 'i3lock -c 000000'
-
 # Lock screen
-bindsym $mod+i exec --no-startup-id i3lock -c 000000
-bindsym $mod+shift+i exec --no-startup-id sh -c 'i3lock -i ~/mynixos/files/Atom-HD-Wallpaper.png && systemctl suspend'
+bindsym $mod+shift+x exec --no-startup-id sh -c 'i3lock -c 222222 & sleep 5 && xset dpms force off'
 
 # Open my notes in floating window
 for_window [title="INBOX.md"] floating enable
