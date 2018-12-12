@@ -58,7 +58,7 @@ in
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql100;
+    package = pkgs.postgresql_10;
     enableTCPIP = true;
     # https://nixos.wiki/wiki/PostgreSQL
     authentication = pkgs.lib.mkOverride 10 ''

@@ -24,7 +24,7 @@
         cachix
         transmission
         # Collaboration tools
-        termtosvg
+        # termtosvg -- fails on unstable
         taskwarrior
         coin
       ];
