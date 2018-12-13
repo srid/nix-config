@@ -37,6 +37,10 @@ in
     androidsdk
   ];
 
+  nixpkgs.config = {
+    android_sdk.accept_license = true;
+  };
+
   services.udev.packages = [ pkgs.android-udev-rules ];
 
   services.ihaskell = {

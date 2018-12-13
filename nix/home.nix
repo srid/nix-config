@@ -24,7 +24,7 @@
         cachix
         transmission
         # Collaboration tools
-        termtosvg
+        # termtosvg -- fails on unstable
         taskwarrior
         coin
       ];
@@ -61,6 +61,8 @@
           co = "checkout";
           ci = "commit";
           s = "status";
+          st = "status";
+          d = "diff";
           pr = "pull --rebase";
           l = "log --graph --pretty='%Cred%h%Creset - %C(bold blue)<%an>%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)' --abbrev-commit --date=relative";
         };

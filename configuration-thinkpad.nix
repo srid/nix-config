@@ -34,9 +34,9 @@ in
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
-  virtualisation.lxd = {
-    enable = false;  # Not using yet.
-  };
+  # TLP Linux Advanced Power Management
+  # Seems to make suspend / wake-up work on lid-close.
+  services.tlp.enable = true;
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
@@ -58,7 +58,7 @@ in
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql100;
+    package = pkgs.postgresql_10;
     enableTCPIP = true;
     # https://nixos.wiki/wiki/PostgreSQL
     authentication = pkgs.lib.mkOverride 10 ''
@@ -88,7 +88,7 @@ in
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
     # Nvidia detects somehow higher value for a DPI than what is standard for retina. Set it manually:
-    # Same as iMac retina k5k https://en.wikipedia.org/wiki/Retina_Display#Models
+    # Same as iMac retina 5k https://en.wikipedia.org/wiki/Retina_Display#Models
     dpi = 218;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
@@ -168,10 +168,6 @@ in
       ";
     };
   };
-
-  # TLP Linux Advanced Power Management
-  # Seems to make suspend / wake-up work on lid-close.
-  services.tlp.enable = true;
 
   users.extraUsers.srid = {
     isNormalUser = true;
