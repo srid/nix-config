@@ -38,6 +38,11 @@ in
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp.enable = true;
 
+  # This machine is now a long-running home-server with a bluetooth keyboard
+  services.logind.extraConfig = ''
+    HandleLidSwitch=ignore
+  '';
+
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
   services.openssh.ports = [22 9812];
