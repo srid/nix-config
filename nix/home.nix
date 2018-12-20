@@ -29,6 +29,8 @@
         coin
         wireguard
         gron
+        mpv
+        file
       ];
 
       home.sessionVariables = {
