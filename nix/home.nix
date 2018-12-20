@@ -27,6 +27,8 @@
         # termtosvg -- fails on unstable
         taskwarrior
         coin
+        wireguard
+        gron
       ];
 
       home.sessionVariables = {
