@@ -13,14 +13,8 @@
   boot.cleanTmpDir = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "facade";
-  services.openssh = {
-    enable = true;
-    ports = [22];
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-  };
   users.extraUsers.srid = {
     isNormalUser = true;
     extraGroups = [ "wheel" "lxd" ];
@@ -31,7 +25,32 @@
   };
 
   environment.systemPackages = with pkgs; [
+    wireguard
   ];
+
+  networking.hostName = "facade";
+  networking.nat = {
+    enable = true;
+    externalInterface = "ens3";  # on DigitalOcean as of Dec '18
+    internalInterfaces = [ "wg0" ];
+  };
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.100.0.1/24" ];
+      listenPort = 51820;
+      privateKeyFile = "/home/srid/wireguard-keys/private";
+      peers = [
+        
+      ];
+    };
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [22];
+    permitRootLogin = "no";
+    passwordAuthentication = false;
+  };
 
   # My apps
   services.nginx = 
