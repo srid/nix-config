@@ -82,6 +82,11 @@
         enable = true;
         inactiveInterval = 3;
       };
+      services.gpg-agent = {
+        enable = true;
+        defaultCacheTtl = 1800;
+        enableSshSupport = true;
+      };
 
       home.file = {
         ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
