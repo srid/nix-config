@@ -40,7 +40,10 @@
       listenPort = 51820;
       privateKeyFile = "/home/srid/wireguard-keys/private";
       peers = [
-        
+        # thebeast
+        { publicKey = "RNq+9jWeHGZuYUw41abU9hC8ldU03Y7tKrhbvhrwj3A=";
+          allowedIPs = [ "10.100.0.2/32" ];
+        }
       ];
     };
   };
