@@ -61,7 +61,7 @@
       enableACME = true;
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://srid.ddns.net:" + toString port;
+        proxyPass = "http://10.100.0.2:" + toString port;
       };
     };
     in {
