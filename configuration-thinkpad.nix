@@ -34,6 +34,22 @@ in
   # Connect to wifi using nmtui / nmcli.
   networking.networkmanager.enable = true;
 
+  # Wireguard client
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.100.0.2/24" ];
+      privateKeyFile = "/home/srid/wireguard-keys/private";
+      peers = [
+        { publicKey = "8BLMztljWIV+9V+fXgj34GCVn0YSK6PYdAuPVkdidTs=";
+          # allowedIPs = [ "0.0.0.0/1" ];
+          allowedIPs = [ "10.100.0.1" "104.198.14.52" ];
+          endpoint = "facade.srid.ca:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
+
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp.enable = true;
