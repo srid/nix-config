@@ -31,6 +31,8 @@
         gron
         mpv
         file
+        sshfs
+        aria
       ];
 
       home.sessionVariables = {
