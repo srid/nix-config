@@ -50,6 +50,7 @@
           g = "git";
           e = "emacs -nw";
           ee = "emacs -nw $(fzf)";
+          download = "aria2c --file-allocation=none";
         };
         # TODO: profileExtra
       };

@@ -118,7 +118,6 @@
     # Stop recording.
     peek
 
-    alacritty
     signal-desktop
     google-chrome
     firefox
