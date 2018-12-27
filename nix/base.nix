@@ -54,7 +54,6 @@
     htop
     psmisc
     stow
-    tig
     tree
     unzip
     wget
