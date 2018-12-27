@@ -20,27 +20,27 @@ in
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    fortune
-    dict
     (callPackage (import ./nvim/default.nix) {})
-    cachix
-    transmission
-    # Collaboration tools
     # termtosvg -- fails on unstable
-    taskwarrior
+    aria
+    cachix
     coin
-    wireguard
+    dict
+    exa
+    file
+    fortune
     gron
     mpv
-    file
     sshfs
-    aria
+    taskwarrior
     tig
+    transmission
+    wireguard
   ];
 
   home.sessionVariables = {
     # TERM = "xterm-256color";
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
 
   programs.bash = {
@@ -49,6 +49,7 @@ in
     historyControl = [ "erasedups" ];
     enableAutojump = true;
     shellAliases = {
+      l = "exa";
       copy = "xclip -i -selection clipboard";
       g = "git";
       e = "$EDITOR";
@@ -89,10 +90,6 @@ in
   };
   programs.command-not-found.enable = true;
 
-  services.screen-locker = {
-    enable = true;
-    inactiveInterval = 3;
-  };
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
@@ -101,7 +98,7 @@ in
 
   home.file = {
     ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
-    ".spacemacs".source = ../spacemacs;
+    # ".spacemacs".source = ../spacemacs;
     ".ghci".text = ''
       :set prompt "λ> "
     '';
