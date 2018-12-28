@@ -5,7 +5,7 @@
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/nixos-in-place.nix
     ./nix/base.nix
-    ./nix/home.nix
+    ./nix/srid-home.nix
     # ./nix/dev.nix
     # ./myobsidian/nixos-configuration/cache.nix
   ];
