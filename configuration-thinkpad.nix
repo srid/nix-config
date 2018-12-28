@@ -13,7 +13,7 @@ in
       ./nix/emacs.nix
       ./nix/gui.nix
       ./nix/dev.nix
-      ./nix/home.nix
+      ./nix/srid-home.nix
       ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
 

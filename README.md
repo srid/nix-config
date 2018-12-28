@@ -33,6 +33,13 @@ make stow_osx
 darwin-rebuild switch
 ```
 
+## On ChromeOS
+
+1. Install [home-manager](https://github.com/rycee/home-manager)
+1. `ln -s ~/mynixos/nix/home.nix ~/.config/nixpkgs/home.nix`
+1. `mkdir crostini-files; mv .bashrc .profile crostini-files`
+1. `home-manager switch`
+
 ## Installing NixOS on ...
 
 ### Thinkpad P71
