@@ -30,12 +30,14 @@ in
     file
     fortune
     gron
+    mosh
     mpv
     sshfs
     taskwarrior
     tig
     transmission
     wireguard
+    youtube-dl
   ];
 
   home.sessionVariables = {
