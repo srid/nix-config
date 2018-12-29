@@ -25,7 +25,7 @@
   };
 
   services.compton = {
-    enable = false;  # Disable for better battery??
+    enable = true;
     shadow = true;
     inactiveOpacity = "1.0";
   };
@@ -93,10 +93,11 @@
 
       # Issues
       #  - redshift is messing up colors on external monitor.
-      enable = true;
+      enable = false;
     };
 
     desktopManager.gnome3 = {
+      # For gnome-terminal
       enable = true;
     };
   };
@@ -120,8 +121,6 @@
 
     signal-desktop
     google-chrome
-    firefox
-    vlc
     xclip
     xorg.xbacklight
     xorg.xf86videointel

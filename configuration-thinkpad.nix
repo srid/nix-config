@@ -78,8 +78,8 @@ in
   };
 
   services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_10;
+    enable = false;
+    # package = pkgs.postgresql_10;  -- not available on 18.09
     enableTCPIP = true;
     # https://nixos.wiki/wiki/PostgreSQL
     authentication = pkgs.lib.mkOverride 10 ''

@@ -34,12 +34,12 @@ in
     tmate
 
     dropbox-cli
-    androidsdk
+    # androidsdk
   ];
 
-  nixpkgs.config = {
-    android_sdk.accept_license = true;
-  };
+  # nixpkgs.config = {
+  #  android_sdk.accept_license = true;
+  # };
 
   services.udev.packages = [ pkgs.android-udev-rules ];
 

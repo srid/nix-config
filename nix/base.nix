@@ -46,9 +46,7 @@
 
     openssl
     gocryptfs
-    lf  # File manager
     ncdu
-    entr
     ag
     ripgrep
     htop
@@ -57,6 +55,5 @@
     tree
     unzip
     wget
-    youtube-dl
   ];
 }
