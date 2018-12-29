@@ -147,6 +147,8 @@ in
     # as needed.
     pulsemixer
     blueman
+    # Casting local videos 
+    nodePackages.castnow
   ];
 
   hardware = {
