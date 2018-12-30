@@ -25,7 +25,6 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     haskellPackages.hpack
-    haskellPackages.mmark-cli
     vscode
     python
 
