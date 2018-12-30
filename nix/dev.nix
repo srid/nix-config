@@ -25,11 +25,11 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     haskellPackages.hpack
-    # unstable.haskellPackages.mmark-cli
-    unstable.vscode
+    haskellPackages.mmark-cli
+    vscode
     python
 
-    unstable.emacs26
+    emacs26
     asciinema
     tmate
 

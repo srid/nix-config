@@ -62,7 +62,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        unstable.i3status-rust
+        i3status-rust
         # alsaUtils
         speedtest-cli
         gperftools
