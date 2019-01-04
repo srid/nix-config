@@ -99,6 +99,12 @@ in
     enableSshSupport = true;
   };
 
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true;
+  };
+
   home.file = {
     ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
     # ".spacemacs".source = ../spacemacs;
