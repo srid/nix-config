@@ -149,6 +149,7 @@ in
     blueman
     # Casting local videos 
     nodePackages.castnow
+    ntfs3g
   ];
 
   hardware = {
