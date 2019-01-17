@@ -47,11 +47,12 @@ in
 
   programs.bash = {
     enable = true;
-    historyIgnore = [ "ls" "cd" "exit" "wget" ];
+    historyIgnore = [ "l" "ls" "cd" "exit" ];
     historyControl = [ "erasedups" ];
     enableAutojump = true;
     shellAliases = {
       l = "exa";
+      ls = "exa";
       copy = "xclip -i -selection clipboard";
       g = "git";
       e = "$EDITOR";
