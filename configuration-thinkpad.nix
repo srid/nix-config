@@ -152,6 +152,8 @@ in
     ntfs3g
   ];
 
+  virtualisation.docker.enable = true;
+
   hardware = {
     # TODO: Hybrid graphics.
     #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
@@ -196,7 +198,7 @@ in
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "lxd" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "lxd" "docker" ];
   };
 
   # This value determines the NixOS release with which your system is to be
