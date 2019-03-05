@@ -21,7 +21,6 @@ in
 
   home.packages = with pkgs; [
     (callPackage (import ./nvim/default.nix) {})
-    cargo binutils gcc gnumake openssl pkgconfig  # rust
     emacs
     # termtosvg -- fails on unstable
     aria

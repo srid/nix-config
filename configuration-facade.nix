@@ -67,6 +67,7 @@
     in {
       enable = true;
       user = "srid";
+      virtualHosts."irc.srid.ca" = myVhost 9000;
       virtualHosts."slownews.srid.ca" = myVhost 9001;
       virtualHosts."riceneggs.srid.ca" = myVhost 9002;
     };
@@ -74,5 +75,6 @@
   security.acme.certs = {
     "slownews.srid.ca".email = "srid@srid.ca";
     "riceneggs.srid.ca".email = "srid@srid.ca";
+    "irc.srid.ca".email = "srid@srid.ca";
   };
 }
