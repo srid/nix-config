@@ -14,7 +14,7 @@ in
       ./nix/gui.nix
       ./nix/dev.nix
       ./nix/srid-home.nix
-      # ./myobsidian/myobsidian.nix  # Work configuration (private)
+      ./myobsidian/myobsidian.nix  # Work configuration (private)
     ];
 
   # systemd.services.sridcatmp = sridca.unit;
