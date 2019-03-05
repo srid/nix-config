@@ -45,7 +45,7 @@ in
 
   home.sessionVariables = {
     # TERM = "xterm-256color";
-    EDITOR = "nvim";
+    EDITOR = "emacs -nw";
   };
 
   programs.bash = {
