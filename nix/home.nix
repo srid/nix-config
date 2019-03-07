@@ -47,6 +47,10 @@ in
     EDITOR = "emacs -nw";
   };
 
+  programs.fish = {
+    enable = true;
+  };
+
   programs.bash = {
     enable = true;
     historyIgnore = [ "l" "ls" "cd" "exit" ];
