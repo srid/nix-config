@@ -56,7 +56,7 @@ in
       ls = "exa";
       copy = "xclip -i -selection clipboard";
       g = "git";
-      e = "$EDITOR";
+      e = "eval $EDITOR";
       ee = "e (fzf)";
       download = "aria2c --file-allocation=none --seed-time=0";
       chromecast = "castnow --address 192.168.2.64 --myip 192.168.2.76";
