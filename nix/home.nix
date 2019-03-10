@@ -19,8 +19,6 @@ in
 {
   programs.home-manager.enable = true;
 
-  fonts.fontconfig.enableProfileFonts = true;
-
   home.packages = with pkgs; [
     (callPackage (import ./nvim/default.nix) {})
     dejavu_fonts
@@ -47,7 +45,7 @@ in
   ];
 
   home.sessionVariables = {
-    # TERM = "xterm-256color";
+    TERM = "xterm-24bit";
     EDITOR = "emacs -nw";
   };
 

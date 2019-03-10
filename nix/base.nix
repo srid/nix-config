@@ -14,7 +14,7 @@
 
   programs.mosh.enable = true;
   programs.bash.enableCompletion = true;
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   nix.trustedUsers = [ "root" "srid" ];
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" "https://srid.cachix.org/"];
