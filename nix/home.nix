@@ -3,8 +3,6 @@
 # Stuff on this file should work across all of my computing devices. 
 # Presently these are: Thinkpad, Macbook and Pixel Slate.
 
-# TODO: make this work on NixOS
-
 { config, pkgs, ...}:
 
 let
@@ -24,9 +22,9 @@ in
     dejavu_fonts
     source-serif-pro
     emacs
-    # termtosvg -- fails on unstable
+    termtosvg
     aria
-    #cachix
+    cachix
     coin
     dict
     exa
@@ -45,6 +43,7 @@ in
   ];
 
   home.sessionVariables = {
+    # https://github.com/syl20bnr/spacemacs/wiki/Terminal
     TERM = "xterm-24bit";
     EDITOR = "emacs -nw";
   };
