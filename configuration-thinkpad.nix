@@ -195,10 +195,13 @@ in
     };
   };
 
+  programs.fish.enable = true;
+
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "audio" "lxd" "docker" ];
+    shell = pkgs.fish;
   };
 
   # This value determines the NixOS release with which your system is to be
