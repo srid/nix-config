@@ -50,6 +50,8 @@ in
     };
   };
 
+  services.safeeyes.enable = true;
+
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp.enable = true;
