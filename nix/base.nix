@@ -3,7 +3,7 @@
 
 {
 
-  imports = [ ./tmux.nix ];
+  imports = [ ./tmux.nix ./gotty.nix ];
 
   time.timeZone = "America/New_York";
 
