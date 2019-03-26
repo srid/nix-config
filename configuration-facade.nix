@@ -57,19 +57,21 @@
 
   # My apps
   services.nginx = 
-    let myVhost = port: {
-      enableACME = true;
-      forceSSL = true;
+    let myVhost = { port, withSSL ? true }: {
+      enableACME = withSSL;
+      forceSSL = withSSL;
       locations."/" = {
         proxyPass = "http://10.100.0.2:" + toString port;
+        proxyWebsockets = true;
       };
     };
     in {
       enable = true;
       user = "srid";
-      virtualHosts."irc.srid.ca" = myVhost 9000;
-      virtualHosts."slownews.srid.ca" = myVhost 9001;
-      virtualHosts."riceneggs.srid.ca" = myVhost 9002;
+      virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
+      virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
+      virtualHosts."riceneggs.srid.ca" = myVhost { port = 9002; };
+      virtualHosts."tmp.srid.ca" = myVhost { port = 9999; withSSL = false; };
     };
 
   security.acme.certs = {
