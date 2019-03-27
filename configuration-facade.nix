@@ -58,17 +58,18 @@
   # My apps
   services.nginx = 
     let 
-      myVhost = { port, withSSL ? true, location ? "/", locationExtraConfig ? "" }: {
+      myVhost = { port, withSSL ? true, location ? "/", locationExtraConfig ? "proxy_pass http://10.100.0.2:${toString port};" }: {
         enableACME = withSSL;
         forceSSL = withSSL;
         locations.${location} = {
-          proxyPass = "http://10.100.0.2:" + toString port;
           proxyWebsockets = true;
           extraConfig = locationExtraConfig;
         };
       };
-      myVhostSub = { port, prefix, withSSL ? true }: myVhost { port = port; withSSL = withSSL; location = "/${prefix}/"; locationExtraConfig = ''
-          rewrite ^/${prefix}/(.*)$ /$1 break;
+      # Set up a sub domain that points a range of ports, mapped from sub path.
+      myVhostPortRange = { prefix, withSSL ? true }: myVhost { port = 0; withSSL = withSSL; location = "~ /${prefix}/"; locationExtraConfig = ''
+          rewrite ^/${prefix}/(.*)$ /$2 break;
+          proxy_pass http://10.100.0.2:$1;
         '' ;
       };
     in {
@@ -76,13 +77,11 @@
       user = "srid";
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
-      virtualHosts."riceneggs.srid.ca" = myVhost { port = 9002; };
-      virtualHosts."tmp.srid.ca" = myVhostSub { port = 9999; prefix = "some"; };
+      virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
   security.acme.certs = {
     "slownews.srid.ca".email = "srid@srid.ca";
-    "riceneggs.srid.ca".email = "srid@srid.ca";
     "irc.srid.ca".email = "srid@srid.ca";
     "tmp.srid.ca".email = "srid@srid.ca";
   };
