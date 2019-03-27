@@ -16,6 +16,8 @@ let
 in
 
 {
+  imports = [ ./gotty.nix ];
+
   environment.systemPackages = with pkgs; [
     # Haskell stuff
     cabal-install
