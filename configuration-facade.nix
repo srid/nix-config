@@ -57,26 +57,33 @@
 
   # My apps
   services.nginx = 
-    let myVhost = { port, withSSL ? true }: {
-      enableACME = withSSL;
-      forceSSL = withSSL;
-      locations."/" = {
-        proxyPass = "http://10.100.0.2:" + toString port;
-        proxyWebsockets = true;
+    let 
+      myVhost = { port, withSSL ? true, location ? "/", locationExtraConfig ? "" }: {
+        enableACME = withSSL;
+        forceSSL = withSSL;
+        locations.${location} = {
+          proxyPass = "http://10.100.0.2:" + toString port;
+          proxyWebsockets = true;
+          extraConfig = locationExtraConfig;
+        };
       };
-    };
+      myVhostSub = { port, prefix, withSSL ? true }: myVhost { port = port; withSSL = withSSL; location = "/${prefix}/"; locationExtraConfig = ''
+          rewrite ^/${prefix}/(.*)$ /$1 break;
+        '' ;
+      };
     in {
       enable = true;
       user = "srid";
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
       virtualHosts."riceneggs.srid.ca" = myVhost { port = 9002; };
-      virtualHosts."tmp.srid.ca" = myVhost { port = 9999; withSSL = false; };
+      virtualHosts."tmp.srid.ca" = myVhostSub { port = 9999; prefix = "some"; };
     };
 
   security.acme.certs = {
     "slownews.srid.ca".email = "srid@srid.ca";
     "riceneggs.srid.ca".email = "srid@srid.ca";
     "irc.srid.ca".email = "srid@srid.ca";
+    "tmp.srid.ca".email = "srid@srid.ca";
   };
 }
