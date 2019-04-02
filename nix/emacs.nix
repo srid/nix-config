@@ -4,10 +4,14 @@
 # TODO: Dyanmically do this (if using_spacemacs ...)
 
 {
+  environment.systemPackages = with pkgs; [
+    sqlite  # used by emacsql-sqlite (magit)
+  ];
   services.emacs = {
     enable = false;  # Disabling until Emacs26 becomes the default
     defaultEditor = true;
     package = with pkgs; (emacsWithPackages (with emacsPackagesNg; [
+      emacsql-sqlite
       # ace-window
       # avy
       # beacon         # ; highlight my cursor when scrolling
