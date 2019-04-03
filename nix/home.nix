@@ -15,6 +15,8 @@ let
   '';
 in
 {
+  nixpkgs.config.allowUnfree = true;
+ 
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
@@ -46,6 +48,12 @@ in
     # https://github.com/syl20bnr/spacemacs/wiki/Terminal
     TERM = "xterm-24bit";
     EDITOR = "emacs -nw";
+  };
+
+  xsession.pointerCursor = {
+    package = pkgs.vanilla-dmz;
+    name = "Vanilla-DMZ";
+    size = 64;
   };
 
   programs.fish = {
