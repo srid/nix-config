@@ -53,7 +53,7 @@ in
   xsession.pointerCursor = {
     package = pkgs.vanilla-dmz;
     name = "Vanilla-DMZ";
-    size = 64;
+    size = 128;
   };
 
   programs.fish = {

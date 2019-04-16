@@ -80,7 +80,7 @@ in
   };
 
   services.postgresql = {
-    enable = false;
+    enable = true;
     # package = pkgs.postgresql_10;  -- not available on 18.09
     enableTCPIP = true;
     # https://nixos.wiki/wiki/PostgreSQL
@@ -139,15 +139,8 @@ in
     arandr
     autorandr
     acpi
-    # pulsemixer
-    # https://github.com/GeorgeFilipkin/pulsemixer#interactive-mode
-    # H/L, Shift+Left/Shift+Right   change volume by 10
-    # 1/2/3/4/5/6/7/8/9/0           set volume to 10%-100%
-    # m                             mute/unmute
-    # Mouse wheel                   volume change
-    # TODO: Configure xmonad to bring pulsemixer on popup
-    # as needed.
     pulsemixer
+    pavucontrol  # GUI version of pulsemixer
     blueman
     # Casting local videos 
     nodePackages.castnow
