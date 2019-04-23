@@ -24,7 +24,6 @@ in
     dejavu_fonts
     source-serif-pro
     emacs
-    termtosvg
     aria
     cachix
     coin
