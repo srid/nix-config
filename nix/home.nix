@@ -32,6 +32,7 @@ in
     file
     fortune
     gron
+    ii # suckless irc client
     mosh
     mpv
     ripgrep
@@ -119,16 +120,34 @@ in
   };
   programs.command-not-found.enable = true;
 
+  services.ihaskell = {
+    enable = true;
+    notebooksPath = "$HOME/ihaskell";
+    extraPackages = haskellPackages: with haskellPackages; [
+      groom
+      streamly
+    ];
+  };
+
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
 
+  # Automounter for removable media.
   services.udiskie = {
     enable = true;
     automount = true;
     notify = true;
+  };
+
+  services.redshift = {
+    enable = true;
+    tray = true;
+    # Quebec City
+    latitude = "46.8423";
+    longitude = "-71.2429";
   };
 
   home.file = {

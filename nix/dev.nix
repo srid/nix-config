@@ -27,7 +27,6 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     haskellPackages.hpack
-    vscode
     python
 
     emacs26
@@ -41,9 +40,11 @@ in
   # nixpkgs.config = {
   #  android_sdk.accept_license = true;
   # };
+  #
 
   services.udev.packages = [ pkgs.android-udev-rules ];
 
+  # XXX: remove in favour of home-manager
   services.ihaskell = {
     enable = false;
     extraPackages = haskellPackages: [ 

@@ -28,7 +28,7 @@ in
   networking.hostName = "thebeast"; # Define your hostname.
 
   # Always use the latest available kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # WiFi
   # Connect to wifi using nmtui / nmcli.
@@ -65,7 +65,8 @@ in
   services.openssh.enable = true;
   services.openssh.ports = [22 9812];
 
-  services.timesyncd.enable = true;
+  # services.timesyncd.enable = true;
+  services.chrony.enable = true;
 
   sound.mediaKeys.enable = true;
 

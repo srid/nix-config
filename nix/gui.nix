@@ -16,20 +16,6 @@
     { domain = "*"; item = "nofile"; type = "-"; value = "65536"; }
   ];
 
-  services.redshift = {
-    enable = true;
-    # Quebec City
-    latitude = "46.8423";
-    longitude = "-71.2429";
-    # temperature.day = 5500
-    # temperature.night = 3700
-    # brightness.day = 1;
-    # brightness.night = 1;
-    # New York
-    # latitude = "40.7128";
-    # longitude = "-74.0060";
-  };
-
   services.compton = {
     enable = true;
     shadow = true;
