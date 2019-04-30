@@ -120,14 +120,14 @@ in
   };
   programs.command-not-found.enable = true;
 
-  services.ihaskell = {
-    enable = true;
-    notebooksPath = "$HOME/ihaskell";
-    extraPackages = haskellPackages: with haskellPackages; [
-      groom
-      streamly
-    ];
-  };
+  # services.ihaskell = {
+  #   enable = true;
+  #   notebooksPath = "$HOME/ihaskell";
+  #   extraPackages = haskellPackages: with haskellPackages; [
+  #     groom
+  #     streamly
+  #   ];
+  # };
 
   services.gpg-agent = {
     enable = true;
