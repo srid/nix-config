@@ -26,6 +26,7 @@
 
   environment.systemPackages = with pkgs; [
     wireguard
+    apacheHttpd # For htpasswd
   ];
 
   networking.hostName = "facade";
@@ -58,16 +59,27 @@
   # My apps
   services.nginx = 
     let 
-      myVhost = { port, withSSL ? true, location ? "/", locationExtraConfig ? "proxy_pass http://10.100.0.2:${toString port};" }: {
+      myVhost = 
+      { port
+      , withSSL ? true
+      , location ? "/"
+      , locationExtraConfig ? "proxy_pass http://10.100.0.2:${toString port};" 
+      , basicAuthFile ? null
+      }: {
         enableACME = withSSL;
         forceSSL = withSSL;
+        basicAuthFile = basicAuthFile;
         locations.${location} = {
           proxyWebsockets = true;
           extraConfig = locationExtraConfig;
         };
       };
       # Set up a sub domain that points a range of ports, mapped from sub path.
-      myVhostPortRange = { prefix, withSSL ? true }: myVhost { port = 0; withSSL = withSSL; location = "~ /${prefix}/"; locationExtraConfig = ''
+      myVhostPortRange = { prefix, withSSL ? true }: myVhost { 
+        port = 0; 
+        withSSL = withSSL; 
+        location = "~ /${prefix}/"; 
+        locationExtraConfig = ''
           rewrite ^/${prefix}/(.*)$ /$2 break;
           proxy_pass http://10.100.0.2:$1;
         '' ;
@@ -77,6 +89,7 @@
       user = "srid";
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
+      virtualHosts."afslacksearch.srid.ca" = myVhost { port = 9002; basicAuthFile = "/home/srid/afslacksearch.htpasswd"; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
