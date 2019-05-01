@@ -89,7 +89,8 @@
       user = "srid";
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
-      virtualHosts."afslacksearch.srid.ca" = myVhost { port = 9002; basicAuthFile = "/home/srid/afslacksearch.htpasswd"; };
+      virtualHosts."slackarchive.actualists.org" = 
+        myVhost { port = 9002; basicAuthFile = "/home/srid/afslacksearch.htpasswd"; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
