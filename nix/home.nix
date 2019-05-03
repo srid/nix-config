@@ -152,7 +152,6 @@ in
 
   home.file = {
     ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
-    # ".spacemacs".source = ../spacemacs;
     ".ghci".text = ''
       :set prompt "λ> "
     '';
