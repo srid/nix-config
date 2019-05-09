@@ -41,8 +41,7 @@ in
       privateKeyFile = "/home/srid/wireguard-keys/private";
       peers = [
         { publicKey = "8BLMztljWIV+9V+fXgj34GCVn0YSK6PYdAuPVkdidTs=";
-          # allowedIPs = [ "0.0.0.0/1" ];
-          allowedIPs = [ "10.100.0.1" "104.198.14.52" ];
+          allowedIPs = [ "10.100.0.0/24" "104.198.14.52" ];
           endpoint = "facade.srid.ca:51820";
           persistentKeepalive = 25;
         }
