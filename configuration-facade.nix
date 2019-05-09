@@ -45,6 +45,10 @@
         { publicKey = "RNq+9jWeHGZuYUw41abU9hC8ldU03Y7tKrhbvhrwj3A=";
           allowedIPs = [ "10.100.0.2/32" ];
         }
+        # pixel slate
+        { publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
+          allowedIPs = [ "10.100.0.3/32" ];
+        }
       ];
     };
   };
@@ -89,8 +93,7 @@
       user = "srid";
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
-      virtualHosts."slackarchive.actualists.org" = 
-        myVhost { port = 9002; basicAuthFile = "/home/srid/afslacksearch.htpasswd"; };
+      virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
