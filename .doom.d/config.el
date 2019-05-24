@@ -2,6 +2,8 @@
 
 ;; Place your private configuration here
 
+(setq doom-font (font-spec :family "Fira Mono" :size 24))
+
 (after! haskell-mode
   ;; rhyolite quasi quotes
   (setq haskell-font-lock-quasi-quote-modes

@@ -110,6 +110,7 @@
     # When recording is done, hit C+4 to bring it back
     # Stop recording.
     peek
+    simplescreenrecorder
 
     signal-desktop
     google-chrome
