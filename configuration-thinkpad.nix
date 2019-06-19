@@ -101,6 +101,13 @@ in
     '';
   };
 
+  # My own nix cache server 
+  services.nix-serve = {
+    enable = true;
+    port = 9009;
+    secretKeyFile = "/home/srid/Dropbox/nix-serve-keys/secret-key-file";
+  };
+
   # When using just discrete graphics with nvidia, DPI is calculated
   # automatically,
   # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html

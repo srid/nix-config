@@ -43,12 +43,4 @@ in
   #
 
   services.udev.packages = [ pkgs.android-udev-rules ];
-
-  # XXX: remove in favour of home-manager
-  services.ihaskell = {
-    enable = false;
-    extraPackages = haskellPackages: [ 
-      haskellPackages.typed-process
-    ];
-  };
 }
