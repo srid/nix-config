@@ -24,8 +24,10 @@ in
     dejavu_fonts
     source-serif-pro
     emacs
+    sqlite  # For emacsql
     aria
     cachix
+    htop
     coin
     dict
     exa

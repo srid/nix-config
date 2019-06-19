@@ -49,7 +49,6 @@
     ncdu
     ag
     ripgrep
-    htop
     psmisc
     stow
     tree
