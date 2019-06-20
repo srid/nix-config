@@ -59,7 +59,13 @@ in
 
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    extraConfig = ''
+      CPU_MAX_PERF_ON_BAT=60
+      CPU_HWP_ON_BAT=balance_power
+    '';
+  };
 
   # This machine is now a long-running home-server with a bluetooth keyboard
   services.logind.extraConfig = ''
@@ -105,7 +111,7 @@ in
   services.nix-serve = {
     enable = true;
     port = 9009;
-    secretKeyFile = "/home/srid/Dropbox/nix-serve-keys/secret-key-file";
+    secretKeyFile = "/nix-serve-keys/secret-key-file";
   };
 
   # When using just discrete graphics with nvidia, DPI is calculated
