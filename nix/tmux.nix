@@ -31,7 +31,7 @@
 
       # Use default shell 
       set-option -g default-shell ''${SHELL}
-      set -g default-terminal "screen-256color"
+      set -g default-terminal "xterm-24bit"
 
       # Extra Vi friendly stuff
       # y and p as in vim

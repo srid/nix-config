@@ -173,6 +173,8 @@ in
     #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
     #  - Connect to external monitor using `optirun true; intel-virtual-output -f` (and arandr)
     #  - Somewhat sluggish performance; monitor 2 duplicates often.
+    #  ...
+    #  If enabling it back, switch BIOS to hybrid graphics while rebooting.
     bumblebee = {
       enable = false;
       driver = "nvidia";

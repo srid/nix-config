@@ -44,6 +44,7 @@ in
     transmission
     wireguard
     youtube-dl
+    haskellPackages.pandoc
   ];
 
   home.sessionVariables = {
