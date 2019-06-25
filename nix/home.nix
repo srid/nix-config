@@ -15,6 +15,10 @@ let
   '';
 in
 {
+  imports = [
+    ./ihaskell.nix
+  ];
+ 
   nixpkgs.config.allowUnfree = true;
  
   programs.home-manager.enable = true;
@@ -123,14 +127,16 @@ in
   };
   programs.command-not-found.enable = true;
 
-  # services.ihaskell = {
-  #   enable = true;
-  #   notebooksPath = "$HOME/ihaskell";
-  #   extraPackages = haskellPackages: with haskellPackages; [
-  #     groom
-  #     streamly
-  #   ];
-  # };
+  services.ihaskell = {
+    enable = true;
+    notebooksPath = "$HOME/ihaskell";
+    extraPackages = haskellPackages: with haskellPackages; [
+      groom
+      streamly
+      mmark
+      megaparsec
+    ];
+  };
 
   services.gpg-agent = {
     enable = true;
