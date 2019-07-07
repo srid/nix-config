@@ -167,6 +167,9 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# Typically used for floating Chrome windows running video sites.
+bindsym $mod+t sticky toggle
+
 # Screenshot
 bindsym $mod+x exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png'
 # Lock screen
