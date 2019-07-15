@@ -94,8 +94,9 @@
       virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
       virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
-      virtualHosts."nixcache.srid.ca" = myVhost { port = 9009; };
+      virtualHosts."rib.srid.ca" = myVhost { port = 9007; };
       virtualHosts."notes.srid.ca" = myVhost { port = 9008; };
+      virtualHosts."nixcache.srid.ca" = myVhost { port = 9009; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
@@ -105,5 +106,6 @@
     "tmp.srid.ca".email = "srid@srid.ca";
     "nixcache.srid.ca".email = "srid@srid.ca";
     "notes.srid.ca".email = "srid@srid.ca";
+    "rib.srid.ca".email = "srid@srid.ca";
   };
 }
