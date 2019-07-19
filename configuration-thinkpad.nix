@@ -28,7 +28,7 @@ in
   networking.hostName = "thebeast"; # Define your hostname.
 
   # Always use the latest available kernel.
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # WiFi
   # Connect to wifi using nmtui / nmcli.
@@ -55,7 +55,7 @@ in
     };
   };
 
-  services.safeeyes.enable = true;
+  services.safeeyes.enable = false;
 
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
@@ -164,6 +164,9 @@ in
     # Casting local videos 
     nodePackages.castnow
     ntfs3g
+
+    # Keep this big package all the time 
+    texlive.combined.scheme-full
   ];
 
   virtualisation.docker.enable = true;
