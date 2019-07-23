@@ -2,8 +2,11 @@
 
 ;; Place your private configuration here
 
-(setq doom-theme 'doom-one-light)
-(setq doom-font (font-spec :family "Fira Code" :size 26))
+(setq doom-theme 'doom-challenger-deep)
+(setq doom-font (font-spec :family "Roboto Mono" :size 26))
+
+;; For my org.git
+(setq gac-automatically-push-p t)
 
 (after! haskell-mode
   ;; rhyolite quasi quotes

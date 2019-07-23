@@ -3,6 +3,7 @@
 
 (package! writeroom-mode)
 (package! chocolate-theme)
+(package! git-auto-commit-mode)
 
 ;;; Examples:
 ;; (package! some-package)
