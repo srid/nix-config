@@ -18,9 +18,9 @@ in
   imports = [
     ./ihaskell.nix
   ];
- 
+
   nixpkgs.config.allowUnfree = true;
- 
+
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
@@ -28,7 +28,7 @@ in
     dejavu_fonts
     source-serif-pro
     emacs
-    sqlite  # For emacsql
+    sqlite gcc  # For emacsql
     aria
     cachix
     htop
@@ -126,6 +126,12 @@ in
     };
   };
   programs.command-not-found.enable = true;
+
+  # This thing is rather unstable (for instance, the android app crashes)
+  services.syncthing = {
+    enable = false;
+    tray = true;
+  };
 
   services.ihaskell = {
     enable = true;

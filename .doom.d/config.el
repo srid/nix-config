@@ -2,8 +2,8 @@
 
 ;; Place your private configuration here
 
-(setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "Roboto Mono" :size 24))
+(setq doom-theme 'doom-one-light)
+(setq doom-font (font-spec :family "Fira Code" :size 26))
 
 (after! haskell-mode
   ;; rhyolite quasi quotes
