@@ -179,7 +179,7 @@ in
     #  ...
     #  If enabling it back, switch BIOS to hybrid graphics while rebooting.
     bumblebee = {
-      enable = false;
+      enable = true;
       driver = "nvidia";
       pmMethod = "none";
       connectDisplay = true;

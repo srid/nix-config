@@ -17,3 +17,11 @@
                   ("traceQueryQ" . sql-mode)
                   ("traceExecuteQ" . sql-mode)
                   ("sqlQ" . sql-mode)))))
+
+(map!
+  (:map vterm-mode-map
+    ;; Easier window movement
+    :i "C-h" #'evil-window-left
+    :i "C-j" #'evil-window-down
+    :i "C-k" #'evil-window-up
+    :i "C-l" #'evil-window-right))
