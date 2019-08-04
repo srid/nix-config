@@ -121,7 +121,7 @@ in
     };
     extraConfig = {
       core = {
-        editor = "$EDITOR";
+        editor = "nvim";
       };
     };
   };
