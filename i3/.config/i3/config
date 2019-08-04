@@ -102,6 +102,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+m move workspace to output DP-2
 bindsym $mod+Shift+m move workspace to output DP-5
+# bindsym $mod+b move workspace to output VIRTUAL5
+# bindsym $mod+n move workspace to output VIRTUAL3
+# bindsym $mod+m move workspace to output eDP1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
