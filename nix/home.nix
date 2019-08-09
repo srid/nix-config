@@ -15,10 +15,6 @@ let
   '';
 in
 {
-  imports = [
-    ./ihaskell.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
@@ -126,23 +122,6 @@ in
     };
   };
   programs.command-not-found.enable = true;
-
-  # This thing is rather unstable (for instance, the android app crashes)
-  services.syncthing = {
-    enable = false;
-    tray = true;
-  };
-
-  services.ihaskell = {
-    enable = true;
-    notebooksPath = "$HOME/ihaskell";
-    extraPackages = haskellPackages: with haskellPackages; [
-      groom
-      streamly
-      mmark
-      megaparsec
-    ];
-  };
 
   services.gpg-agent = {
     enable = true;

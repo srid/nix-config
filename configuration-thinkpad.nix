@@ -25,10 +25,10 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.plymouth.enable = false;
 
-  networking.hostName = "thebeast"; # Define your hostname.
-
   # Always use the latest available kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  networking.hostName = "thebeast"; # Define your hostname.
 
   # WiFi
   # Connect to wifi using nmtui / nmcli.
@@ -55,8 +55,6 @@ in
     };
   };
 
-  services.safeeyes.enable = false;
-
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp = {
@@ -74,22 +72,9 @@ in
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
-  services.openssh.ports = [22 9812];
-
-  # services.timesyncd.enable = true;
-  services.chrony.enable = true;
+  services.openssh.ports = [22];
 
   sound.mediaKeys.enable = true;
-
-  services.ddclient = {
-    enable = false;  # FIXME: has issues
-    configFile = "/home/srid/.ddclient";
-  };
-
-  services.nginx = {
-    enable = true;
-    user = "srid";
-  };
 
   services.postgresql = {
     enable = true;

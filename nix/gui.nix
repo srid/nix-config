@@ -2,7 +2,7 @@
 
 {
   # I depend on Google Chrome
-  nixpkgs.config = { 
+  nixpkgs.config = {
     allowUnfree = true;
     firefox = {
       enableGoogleTalkPlugin = true;
@@ -22,7 +22,7 @@
     inactiveOpacity = "1.0";
   };
 
-  fonts = { 
+  fonts = {
     enableFontDir = true;
     fonts = with pkgs; [
       dejavu_fonts
@@ -38,8 +38,6 @@
     ];
   };
 
-  # Xmonad
-  # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
   services.xserver = {
     enable = true;
 
@@ -48,7 +46,6 @@
 
     displayManager.lightdm = {
       enable = true;
-      background = "/home/srid/mynixos/files/think.jpg";  # FIXME: doesn't work
     };
 
     windowManager.i3 = {
@@ -67,6 +64,7 @@
       '';
     };
 
+    # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
     windowManager.xmonad = {
       enable = false;
       enableContribAndExtras = true;
@@ -94,8 +92,6 @@
     };
   };
 
-  programs.light.enable = true;
-
   environment.systemPackages = with pkgs; [
     dmenu
     feh
@@ -114,7 +110,6 @@
 
     signal-desktop
     google-chrome
-    # firefoxWrapper
     xclip
     xorg.xbacklight
     xorg.xf86videointel
