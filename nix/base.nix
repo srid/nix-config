@@ -3,8 +3,6 @@
 
 {
 
-  imports = [ ./tmux.nix ];
-
   time.timeZone = "America/New_York";
 
   # Firewall
