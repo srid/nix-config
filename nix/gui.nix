@@ -59,7 +59,7 @@
         compton # for the 'peek' screengrabbing tool
       ];
       extraSessionCommands = ''
-        feh --bg-fill ~/mynixos/files/think.jpg &
+        # feh --bg-fill ~/mynixos/files/think.jpg &
         dropbox &
       '';
     };

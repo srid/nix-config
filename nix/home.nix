@@ -197,7 +197,6 @@ in
   };
 
   home.file = {
-    ".stylish-haskell.yaml".source = ../stylish-haskell.yaml;
     ".ghci".text = ''
       :set prompt "λ> "
     '';

@@ -22,6 +22,7 @@ cd $HOME/mynixos
 # First, review configuration-tinix.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
 sudo ln -s $(pwd)/configuration-tinix.nix /etc/nixos/configuration.nix
+make stow
 make
 ```
 

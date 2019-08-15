@@ -1,2 +1,0 @@
-- Atom-HD-Wallpaper.png: https://archive.nyafuu.org/wg/thread/7050477/?download
-- Elephant-Mammoth-Dark.jpg: https://wallpapersite.com/creative-graphics/elephant-mammoth-dark-5k-10454.html
