@@ -23,8 +23,8 @@ in
     (callPackage (import ./nvim/default.nix) {})
     dejavu_fonts
     source-serif-pro
-    emacs
-    sqlite gcc  # For emacsql
+    #emacs  -- Don't want emacs on crostini
+    #sqlite gcc  # For emacsql
     aria
     cachix
     htop
@@ -49,8 +49,8 @@ in
 
   home.sessionVariables = {
     # https://github.com/syl20bnr/spacemacs/wiki/Terminal
-    TERM = "xterm-24bit";
-    EDITOR = "emacs -nw";
+    # TERM = "xterm-24bit";  breaks on crostini
+    EDITOR = "nvim";
   };
 
   xsession.pointerCursor = {
@@ -128,6 +128,8 @@ in
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
+
+  # TODO: Don't enable these on crostini
 
   # Automounter for removable media.
   services.udiskie = {
