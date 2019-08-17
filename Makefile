@@ -12,7 +12,7 @@ nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
 stow:
-	cd dotfiles && stow -v 1 *
+	cd dotfiles && stow -v 1 -t ${HOME} *
 
 stow_osx:
 	cd dotfiles.osx && stow -v 1 -t ${HOME} *
