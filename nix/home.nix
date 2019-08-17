@@ -23,17 +23,15 @@ in
     (callPackage (import ./nvim/default.nix) {})
     dejavu_fonts
     source-serif-pro
-    #emacs  -- Don't want emacs on crostini
     #sqlite gcc  # For emacsql
     aria
-    # cachix -- XXX find cache before building on darwin
+    cachix
     htop
     coin
     exa
     file
     fortune
     gron
-    ii # suckless irc client
     mosh
     mpv
     ripgrep
@@ -41,9 +39,8 @@ in
     taskwarrior
     tig
     transmission
-    # wireguard  -- TODO: fails on darwin
     youtube-dl
-    # haskellPackages.pandoc  -- don't want to compile this on darwin
+    pandoc
   ];
 
   home.sessionVariables = {
