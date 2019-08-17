@@ -170,7 +170,7 @@ in
   # programs.command-not-found.enable = true;  XXX fails on darwin
 
   services.gpg-agent = {
-    enable = false;  # linux only
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
@@ -179,13 +179,13 @@ in
 
   # Automounter for removable media.
   services.udiskie = {
-    enable = false;  # linux only
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     automount = true;
     notify = true;
   };
 
   services.redshift = {
-    enable = false;  # linux only
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     tray = true;
     # Quebec City
     latitude = "46.8423";
