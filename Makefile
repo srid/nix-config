@@ -15,7 +15,7 @@ stow:
 	cd dotfiles && stow -v 1 *
 
 stow_osx:
-	cd dotfiles.osx && stow -v 1 *
+	cd dotfiles.osx && stow -v 1 -t ${HOME} *
 
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:
