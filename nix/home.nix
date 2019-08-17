@@ -23,28 +23,24 @@ in
     (callPackage (import ./nvim/default.nix) {})
     dejavu_fonts
     source-serif-pro
-    #emacs  -- Don't want emacs on crostini
     #sqlite gcc  # For emacsql
     aria
     cachix
     htop
     coin
-    dict
     exa
     file
     fortune
     gron
-    ii # suckless irc client
     mosh
     mpv
     ripgrep
-    sshfs
+    # sshfs -- TODO: not available on darwin
     taskwarrior
     tig
     transmission
-    wireguard
     youtube-dl
-    haskellPackages.pandoc
+    pandoc
   ];
 
   home.sessionVariables = {
@@ -171,10 +167,10 @@ in
       };
     };
   };
-  programs.command-not-found.enable = true;
+  # programs.command-not-found.enable = true;  XXX fails on darwin
 
   services.gpg-agent = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
@@ -183,13 +179,13 @@ in
 
   # Automounter for removable media.
   services.udiskie = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     automount = true;
     notify = true;
   };
 
   services.redshift = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     tray = true;
     # Quebec City
     latitude = "46.8423";
