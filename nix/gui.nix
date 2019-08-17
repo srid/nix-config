@@ -4,10 +4,6 @@
   # I depend on Google Chrome
   nixpkgs.config = {
     allowUnfree = true;
-    firefox = {
-      enableGoogleTalkPlugin = true;
-      enableAdobeFlash = true;
-    };
   };
 
   # Google Chrome ulimit upping

@@ -26,7 +26,7 @@ in
   boot.plymouth.enable = false;
 
   # Always use the latest available kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "thebeast"; # Define your hostname.
 

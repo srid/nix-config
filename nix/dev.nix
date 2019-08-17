@@ -5,7 +5,6 @@
 
   environment.systemPackages = with pkgs; [
     # Haskell stuff
-    haskellPackages.ghcid
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
