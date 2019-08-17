@@ -26,10 +26,9 @@ in
     #emacs  -- Don't want emacs on crostini
     #sqlite gcc  # For emacsql
     aria
-    cachix
+    # cachix -- XXX find cache before building on darwin
     htop
     coin
-    dict
     exa
     file
     fortune
@@ -38,13 +37,13 @@ in
     mosh
     mpv
     ripgrep
-    sshfs
+    # sshfs -- TODO: not available on darwin
     taskwarrior
     tig
     transmission
-    wireguard
+    # wireguard  -- TODO: fails on darwin
     youtube-dl
-    haskellPackages.pandoc
+    # haskellPackages.pandoc  -- don't want to compile this on darwin
   ];
 
   home.sessionVariables = {
@@ -171,10 +170,10 @@ in
       };
     };
   };
-  programs.command-not-found.enable = true;
+  # programs.command-not-found.enable = true;  XXX fails on darwin
 
   services.gpg-agent = {
-    enable = true;
+    enable = false;  # linux only
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
@@ -183,13 +182,13 @@ in
 
   # Automounter for removable media.
   services.udiskie = {
-    enable = true;
+    enable = false;  # linux only
     automount = true;
     notify = true;
   };
 
   services.redshift = {
-    enable = true;
+    enable = false;  # linux only
     tray = true;
     # Quebec City
     latitude = "46.8423";

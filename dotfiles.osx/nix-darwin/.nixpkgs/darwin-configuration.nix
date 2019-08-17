@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  imports = 
+    [ "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nix-darwin"
+    ];
+
+  users.users.srid = { };
+  home-manager.users.srid = (import ../mynixos/nix/home.nix);
+
   # TODO: Share with nix/*.nix
   environment.systemPackages = with pkgs;
     [ stow 
