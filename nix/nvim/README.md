@@ -11,7 +11,7 @@ result/bin/nvim ...
 
 ## Install declaratively
 
-Inside the `environment.systemPackages` list of your Nix configuration, add:
+Inside the `environment.systemPackages` list of your NixOS configuration, add:
 
 ```
 (callPackage (import /path/to/nvim/default.nix) {})
