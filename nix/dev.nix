@@ -14,7 +14,5 @@
     emacs26
     asciinema
     tmate
-
-    dropbox-cli
   ];
 }

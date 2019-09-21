@@ -13,6 +13,7 @@ in
       ./nix/emacs.nix
       ./nix/gui.nix
       ./nix/dev.nix
+      ./nix/dropbox.nix
       ./nix/ci.nix
       ./nix/srid-home.nix
     ];
