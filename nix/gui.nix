@@ -93,7 +93,7 @@
     feh
     i3lock
     maim
-    # unstable.steam
+    unstable.steam
 
     # To launch peek, C-p peek
     # C+S+<space> to make it floaitng window
