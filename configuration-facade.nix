@@ -96,7 +96,9 @@
       virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
       virtualHosts."notes.srid.ca" = myVhost { port = 9008; };
       virtualHosts."nixcache.srid.ca" = myVhost { port = 9009; };
+      virtualHosts."files.srid.ca" = myVhost { port = 9010; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
+      virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
   security.acme.certs = {
