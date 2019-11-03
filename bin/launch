@@ -1,2 +1,0 @@
-set -xe
-rofi -combi-modi window,drun -theme gruvbox-light -font "Inconsolata 26" -show combi

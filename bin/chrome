@@ -1,2 +1,0 @@
-#!/run/current-system/sw/bin/bash
-exec $(which google-chrome-stable) --no-proxy-server $*
