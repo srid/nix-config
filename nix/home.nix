@@ -5,30 +5,25 @@
 
 { config, pkgs, ...}:
 
-let
-  coinSound = pkgs.fetchurl {
-    url = "https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav";
-    sha256 = "18c7dfhkaz9ybp3m52n1is9nmmkq18b1i82g6vgzy7cbr2y07h93";
-  };
-  coin = pkgs.writeShellScriptBin "coin" ''
-    ${pkgs.sox}/bin/play --no-show-progress ${coinSound}
-  '';
-in
 {
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
 
+  imports = [
+    ./home/shells.nix
+    ./home/git.nix
+    ./home/gpg.nix
+    ./home/tmux.nix
+  ];
+
   home.packages = with pkgs; [
     (callPackage (import ./nvim/default.nix) {})
     dejavu_fonts
     source-serif-pro
-    #sqlite gcc  # For emacsql
     aria
     cachix
     htop
-    coin
-    exa
     file
     fortune
     gron
@@ -36,7 +31,6 @@ in
     mpv
     ripgrep
     # sshfs -- TODO: not available on darwin
-    taskwarrior
     tig
     transmission
     youtube-dl
@@ -55,125 +49,6 @@ in
     size = 128;
   };
 
-  programs.tmux = {
-    enable = true;
-    shortcut = "a"; # Use Ctrl-a 
-    baseIndex = 1; # Widows numbers begin with 1
-    keyMode = "vi";
-    customPaneNavigationAndResize = true;
-    aggressiveResize = true;
-    historyLimit = 100000;
-    resizeAmount = 5;
-    escapeTime = 0;
-
-    extraConfig = ''
-      # Fix environment variables
-      set-option -g update-environment "SSH_AUTH_SOCK \
-                                        SSH_CONNECTION \
-                                        DISPLAY"
-
-      # Mouse works as expected
-      set-option -g mouse on
-
-      # Use default shell 
-      set-option -g default-shell ''${SHELL}
-      # set -g default-terminal "xterm-24bit"
-
-      # Extra Vi friendly stuff
-      # y and p as in vim
-      bind Escape copy-mode
-      unbind p
-      bind p paste-buffer
-      bind-key -T copy-mode-vi 'v' send -X begin-selection
-      bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-      #bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel
-      bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
-      bind-key -T copy-mode-vi 'Space' send -X halfpage-down
-      bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
-      bind-key -Tcopy-mode-vi 'Escape' send -X cancel
-
-      # easy-to-remember split pane commands
-      bind | split-window -h -c "#{pane_current_path}"
-      bind - split-window -v -c "#{pane_current_path}"
-      bind '"' split-window -h -c "#{pane_current_path}"
-      bind % split-window -v -c "#{pane_current_path}"
-      bind c new-window -c "#{pane_current_path}"
-      #unbind '"'
-      #unbind %
-
-    '';
-
-  };
-
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      l = "exa";
-      ls = "exa";
-      copy = "xclip -i -selection clipboard";
-      g = "git";
-      e = "eval $EDITOR";
-      ee = "e (fzf)";
-      download = "aria2c --file-allocation=none --seed-time=0";
-      chromecast = "castnow --address 192.168.2.64 --myip 192.168.2.76";
-      gotty-sridca = "gotty -a 0.0.0.0 -p 9999 -r"; # To be run from the thebeast wireguard peer only.
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-    historyIgnore = [ "l" "ls" "cd" "exit" ];
-    historyControl = [ "erasedups" ];
-    enableAutojump = true;
-    shellAliases = {
-      l = "exa";
-      ls = "exa";
-      copy = "xclip -i -selection clipboard";
-      g = "git";
-      e = "$EDITOR";
-      ee = "e $(fzf)";
-      download = "aria2c --file-allocation=none --seed-time=0";
-      chromecast = "castnow --address 192.168.2.64 --myip 192.168.2.76";
-    };
-    initExtra = ''
-    if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then 
-      . ~/.nix-profile/etc/profile.d/nix.sh; 
-      export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-    fi # added by Nix installer
-    '';
-  };
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-  programs.git = {
-    package = pkgs.gitAndTools.gitFull;
-    enable = true;
-    userName = "Sridhar Ratnakumar";
-    userEmail = "srid@srid.ca";
-    ignores = [ "*~" "*ghcid.txt" ];
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      s = "status";
-      st = "status";
-      d = "diff";
-      pr = "pull --rebase";
-      l = "log --graph --pretty='%Cred%h%Creset - %C(bold blue)<%an>%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)' --abbrev-commit --date=relative";
-    };
-    extraConfig = {
-      core = {
-        editor = "nvim";
-      };
-    };
-  };
-  # programs.command-not-found.enable = true;  XXX fails on darwin
-
-  services.gpg-agent = {
-    enable = pkgs.stdenv.hostPlatform.isLinux;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
-  };
 
   # TODO: Don't enable these on crostini
 

@@ -1,9 +1,13 @@
 { config, pkgs, ...}:
 
+with {
+  homeManager = builtins.fetchTarball "https://github.com/rycee/home-manager/archive/master.tar.gz";
+};
+
 {
   imports = [
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+    "${homeManager}/nixos"
+    # ./home/tmux.nix
   ];
   home-manager.users.srid = (import ./home.nix);
 }
-
