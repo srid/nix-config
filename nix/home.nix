@@ -15,6 +15,7 @@
     ./home/git.nix
     ./home/gpg.nix
     ./home/tmux.nix
+    ./home/keybase.nix
   ];
 
   home.packages = with pkgs; [
