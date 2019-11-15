@@ -20,6 +20,7 @@
 
   home.packages = with pkgs; [
     (callPackage (import ./nvim/default.nix) {})
+    awscli
     dejavu_fonts
     source-serif-pro
     aria
