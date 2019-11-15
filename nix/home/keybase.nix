@@ -8,4 +8,8 @@
   services.kbfs = {
     enable = true;
   };
+
+  home.packages = with pkgs; [
+    keybase-gui
+  ];
 }
