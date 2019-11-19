@@ -6,8 +6,6 @@
     /etc/nixos/nixos-in-place.nix
     ./nix/base.nix
     ./nix/srid-home.nix
-    # ./nix/dev.nix
-    # ./myobsidian/nixos-configuration/cache.nix
   ];
 
   boot.cleanTmpDir = true;
@@ -88,23 +86,33 @@
           proxy_pass http://10.100.0.2:$1;
         '' ;
       };
+      # A vhost that simply redirects old notes to my new site
+      notesVhost = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          extraConfig = ''
+            rewrite ^/haskell-nix$ https://www.srid.ca/haskell-nix.html permanent;
+            rewrite ^/calisthenics$ https://www.srid.ca/calisthenics.html permanent;
+            rewrite ^/carnivore-diet$ https://www.srid.ca/carnivore-diet.html permanent;
+            rewrite ^/conflicts$ https://www.srid.ca/conflicts.html permanent;
+            rewrite ^/lasik$ https://www.srid.ca/lasik.html permanent;
+            rewrite ^/sous-vide$ https://www.srid.ca/sous-vide.html permanent;
+            rewrite ^/$ https://www.srid.ca/ permanent;
+          '' ;
+        };
+      };
     in {
       enable = true;
       user = "srid";
-      virtualHosts."irc.srid.ca" = myVhost { port = 9000; };
-      virtualHosts."slownews.srid.ca" = myVhost { port = 9001; };
+      virtualHosts."notes.srid.ca" = notesVhost;
       virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
-      virtualHosts."notes.srid.ca" = myVhost { port = 9008; };
-      virtualHosts."nixcache.srid.ca" = myVhost { port = 9009; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
       virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
   security.acme.certs = {
-    "slownews.srid.ca".email = "srid@srid.ca";
-    "irc.srid.ca".email = "srid@srid.ca";
     "tmp.srid.ca".email = "srid@srid.ca";
-    "nixcache.srid.ca".email = "srid@srid.ca";
     "notes.srid.ca".email = "srid@srid.ca";
   };
 }
