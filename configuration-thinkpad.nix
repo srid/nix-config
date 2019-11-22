@@ -71,7 +71,7 @@ in
     HandleLidSwitch=ignore
   '';
 
-  services.redis.enable = true;
+  services.redis.enable = false;
 
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
