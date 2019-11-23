@@ -1,6 +1,6 @@
-# My NixOS configuration
+# My Nix configuration
 
-## Setting up a new machine
+## On NixOS
 
 1. First, copy the 'srid' user config to configuration.nix, and activate that nix. We need to do 
    this before cloning the repo under srid's home directory. 
@@ -26,6 +26,13 @@ make stow
 make
 ```
 
+## On ChromeOS
+
+1. Install [home-manager](https://github.com/rycee/home-manager)
+1. `ln -s ~/mynixos/nix/home.nix ~/.config/nixpkgs/home.nix`
+1. `mkdir crostini-files; mv .bashrc .profile crostini-files`
+1. `home-manager switch`
+
 ## On OSX
 
 Install nix-darwin https://github.com/LnL7/nix-darwin, and:
@@ -34,13 +41,6 @@ Install nix-darwin https://github.com/LnL7/nix-darwin, and:
 make stow_osx
 darwin-rebuild switch
 ```
-
-## On ChromeOS
-
-1. Install [home-manager](https://github.com/rycee/home-manager)
-1. `ln -s ~/mynixos/nix/home.nix ~/.config/nixpkgs/home.nix`
-1. `mkdir crostini-files; mv .bashrc .profile crostini-files`
-1. `home-manager switch`
 
 ## Installing NixOS on ...
 
