@@ -4,6 +4,7 @@
 (package! writeroom-mode)
 (package! chocolate-theme)
 (package! git-auto-commit-mode)
+(package! flycheck-mmark)
 
 ;;; Examples:
 ;; (package! some-package)
