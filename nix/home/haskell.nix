@@ -1,4 +1,4 @@
-{ config, lib, pkgs, fetchGH, ... }:
+{ pkgs, fetchGH, ... }:
 
 let
   ormolu = import (fetchGH "tweag/ormolu" "39592b2") { inherit pkgs; };
