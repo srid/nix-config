@@ -4,7 +4,6 @@
   imports = [ ./gotty.nix ];
 
   environment.systemPackages = with pkgs; [
-    haskellPackages.stylish-haskell
     python
 
     emacs26

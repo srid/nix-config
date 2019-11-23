@@ -10,12 +10,18 @@
 
   programs.home-manager.enable = true;
 
+  # Utility functions
+  _module.args = {
+    fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
+  };
+
   imports = [
     ./home/shells.nix
     ./home/git.nix
     ./home/gpg.nix
     ./home/tmux.nix
     ./home/keybase.nix
+    ./home/haskell.nix
   ];
 
   home.packages = with pkgs; [

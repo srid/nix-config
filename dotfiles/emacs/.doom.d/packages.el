@@ -5,6 +5,8 @@
 (package! chocolate-theme)
 (package! git-auto-commit-mode)
 (package! flycheck-mmark)
+(package! ormolu
+  :recipe (:host github :repo "vyorkin/ormolu.el"))
 
 ;;; Examples:
 ;; (package! some-package)

@@ -14,7 +14,8 @@
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-mmark-setup))
 ;; (add-hook 'markdown-mode-hook #'flycheck-mode)
 
-
+(add-hook 'haskell-mode #'ormolu-mode)
+(setq-hook! 'haskell-mode ormolu-reformat-buffer-on-save t)
 (after! haskell-mode
   ;; rhyolite quasi quotes
   (setq haskell-font-lock-quasi-quote-modes
@@ -23,7 +24,8 @@
                   ("executeQ" . sql-mode)
                   ("traceQueryQ" . sql-mode)
                   ("traceExecuteQ" . sql-mode)
-                  ("sqlQ" . sql-mode)))))
+                  ("sqlQ" . sql-mode))))
+  )
 
 (map!
   (:map vterm-mode-map

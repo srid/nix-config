@@ -2,9 +2,6 @@
 
 { config, pkgs, ... }:
 
-let
-  # sridca = (import /home/srid/code/srid.ca {port = "9005";});
-in
 {
   imports =
     [ <nixos-hardware/lenovo/thinkpad>
@@ -17,8 +14,6 @@ in
       ./nix/ci.nix
       ./nix/srid-home.nix
     ];
-
-  # systemd.services.sridcatmp = sridca.unit;
 
   # EFI boot
   boot.cleanTmpDir = true;
