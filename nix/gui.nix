@@ -1,11 +1,6 @@
 { config, pkgs, ...}:
 
 {
-  # I depend on Google Chrome
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   # Google Chrome ulimit upping
   # https://bugs.chromium.org/p/chromium/issues/detail?id=362603#c28
   security.pam.loginLimits = [

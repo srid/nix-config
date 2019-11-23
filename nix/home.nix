@@ -38,12 +38,18 @@
     gron
     mosh
     mpv
-    ripgrep
     # sshfs -- TODO: not available on darwin
-    tig
     transmission
     youtube-dl
     pandoc
+
+    # Dev tools
+    ripgrep
+    tig
+    python
+    emacs26
+    asciinema
+    tmate
   ];
 
   home.sessionVariables = {
