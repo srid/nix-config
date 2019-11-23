@@ -1,5 +1,23 @@
 # My Nix configuration
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [My Nix configuration](#my-nix-configuration)
+    - [On NixOS](#on-nixos)
+    - [On Other Linux](#on-other-linux)
+    - [On OSX](#on-osx)
+    - [Hardware notes](#hardware-notes)
+        - [Thinkpad P71](#thinkpad-p71)
+            - [Preparation](#preparation)
+            - [Install](#install)
+        - [Kimsufi](#kimsufi)
+        - [Hyper-v](#hyper-v)
+    - [Tips and tricks](#tips-and-tricks)
+        - [Resizing VM's disk](#resizing-vms-disk)
+
+<!-- markdown-toc end -->
+
 ## On NixOS
 
 1. First, copy the 'srid' user config to configuration.nix, and activate that nix. We need to do 
@@ -26,11 +44,13 @@ make stow
 make
 ```
 
-## On ChromeOS
+## On Other Linux
+
+Use this method on other Linux distros including ChromeOS's crostini container.
 
 1. Install [home-manager](https://github.com/rycee/home-manager)
 1. `ln -s ~/mynixos/nix/home.nix ~/.config/nixpkgs/home.nix`
-1. `mkdir crostini-files; mv .bashrc .profile crostini-files`
+1. `mkdir old-profile; mv .bashrc .profile old-profile`
 1. `home-manager switch`
 
 ## On OSX
@@ -42,7 +62,7 @@ make stow_osx
 darwin-rebuild switch
 ```
 
-## Installing NixOS on ...
+## Hardware notes
 
 ### Thinkpad P71
 
