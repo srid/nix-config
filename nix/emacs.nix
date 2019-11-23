@@ -6,6 +6,7 @@
 {
   environment.systemPackages = with pkgs; [
     sqlite  # used by emacsql-sqlite (magit)
+    haskellPackages.mmark
   ];
   services.emacs = {
     enable = false;  # Disabling until Emacs26 becomes the default
