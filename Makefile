@@ -15,7 +15,7 @@ stow:
 	cd dotfiles && stow -v 1 -t ${HOME} *
 
 stow_osx:
-	cd dotfiles.osx && stow -v 1 -t ${HOME} *
+	ln -sf $(pwd)/configuration-osx.nix ~/.nixpkgs/darwin-configuration.nix
 
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:

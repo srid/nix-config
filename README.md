@@ -21,16 +21,17 @@ cd $HOME/mynixos
 
 # First, review configuration-tinix.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
-sudo ln -s $(pwd)/configuration-tinix.nix /etc/nixos/configuration.nix
+sudo ln -s $(pwd)/machine/configuration-???.nix /etc/nixos/configuration.nix
 make stow
 make
 ```
 
 ## On OSX
 
+Install nix-darwin https://github.com/LnL7/nix-darwin, and:
+
 ```
 make stow_osx
-# Install nix-darwin https://github.com/LnL7/nix-darwin
 darwin-rebuild switch
 ```
 

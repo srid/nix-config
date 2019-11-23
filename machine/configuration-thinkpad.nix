@@ -6,12 +6,12 @@
   imports =
     [ <nixos-hardware/lenovo/thinkpad>
       /etc/nixos/hardware-configuration.nix
-      ./nix/base.nix
-      ./nix/emacs.nix
-      ./nix/gui.nix
-      ./nix/dropbox.nix
-      ./nix/ci.nix
-      ./nix/srid-home.nix
+      ../nix/base.nix
+      ../nix/emacs.nix
+      ../nix/gui.nix
+      ../nix/dropbox.nix
+      ../nix/ci.nix
+      ../nix/srid-home.nix
     ];
 
   # EFI boot

@@ -4,8 +4,8 @@
   imports = [
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/nixos-in-place.nix
-    ./nix/base.nix
-    ./nix/srid-home.nix
+    ../nix/base.nix
+    ../nix/srid-home.nix
   ];
 
   boot.cleanTmpDir = true;
