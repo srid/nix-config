@@ -22,6 +22,7 @@
     ./home/tmux.nix
     ./home/keybase.nix
     ./home/haskell.nix
+    ./home/gotty.nix
   ];
 
   home.packages = with pkgs; [
