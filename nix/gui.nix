@@ -19,10 +19,11 @@
       dejavu_fonts
       emacs-all-the-icons-fonts
       emojione
+      fantasque-sans-mono
       fira-code
       font-awesome-ttf
       google-fonts
-      hack-font  # https://www.reddit.com/r/emacs/comments/5twcka/which_font_do_you_use/ddpslsq/
+      hack-font
       hasklig
       iosevka
       noto-fonts-emoji
@@ -51,7 +52,6 @@
         compton # for the 'peek' screengrabbing tool
       ];
       extraSessionCommands = ''
-        # feh --bg-fill ~/mynixos/files/think.jpg &
         dropbox &
       '';
     };

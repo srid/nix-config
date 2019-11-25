@@ -3,7 +3,7 @@
 ;; Place your private configuration here
 
 (setq doom-theme 'doom-moonlight)
-(setq doom-font (font-spec :family "Roboto Mono" :size 26))
+(setq doom-font (font-spec :family "Fantasque Sans Mono" :size 30))
 
 ;; Markdown - line wrapping sensible defaults
 (remove-hook 'text-mode-hook #'auto-fill-mode)
