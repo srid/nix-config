@@ -7,6 +7,7 @@
 (package! flycheck-mmark)
 (package! ormolu
   :recipe (:host github :repo "vyorkin/ormolu.el"))
+(package! nix-sandbox)
 
 ;;; Examples:
 ;; (package! some-package)

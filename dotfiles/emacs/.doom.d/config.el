@@ -26,6 +26,17 @@
                   ("traceQueryQ" . sql-mode)
                   ("traceExecuteQ" . sql-mode)
                   ("sqlQ" . sql-mode))))
+
+  ;; (setq haskell-process-type 'cabal-new-repl)
+  ;; (setq lsp-haskell-process-wrapper-function
+  ;;       (lambda (args)
+  ;;         (append
+  ;;         (append (list "nix-shell" "-I" "." "--command" )
+  ;;                 (list (mapconcat 'identity args " "))
+  ;;                 )
+  ;;         (list (nix-current-sandbox))
+  ;;         )
+  ;;         ))
   )
 
 (map!
