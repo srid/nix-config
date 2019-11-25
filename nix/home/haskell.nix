@@ -14,7 +14,7 @@ in {
     # stylish-hashell code formatter
     stylish-haskell
     # Install stable HIE for specified GHC versions
-    # (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
+    (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
   ];
 
   home.file = {
