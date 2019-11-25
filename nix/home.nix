@@ -1,10 +1,13 @@
 # https://nixos.wiki/wiki/Home_Manager
 
-# Stuff on this file should work across all of my computing devices. 
-# Presently these are: Thinkpad, Macbook and Pixel Slate.
+# Stuff on this file, and ./home/*.nix, should work across all of my computing
+# devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
 { config, pkgs, ...}:
 
+let
+  unstable = import <nixpkgs-unstable> { config = config.nixpkgs.config; };
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -16,75 +19,40 @@
   };
 
   imports = [
-    ./home/shells.nix
+    ./home/HighDpiCursor.nix
     ./home/git.nix
-    ./home/gpg.nix
-    ./home/tmux.nix
-    ./home/keybase.nix
-    ./home/haskell.nix
     ./home/gotty.nix
+    ./home/gpg.nix
+    ./home/haskell.nix
+    ./home/keybase.nix
+    ./home/shells.nix
+    ./home/tmux.nix
   ];
 
   home.packages = with pkgs; [
     (callPackage ./nvim.nix {})
-    awscli
-    dejavu_fonts
-    source-serif-pro
-    aria
-    cachix
     htop
     file
-    fortune
-    gron
-    mosh
+
     mpv
-    # sshfs -- TODO: not available on darwin
-    transmission
-    youtube-dl
-    pandoc
+    unstable.steam
 
     # Dev tools
+    gnumake
     ripgrep
     tig
-    python
-    emacs26
-    asciinema
     tmate
+    emacs26
   ];
 
   home.sessionVariables = {
-    # https://github.com/syl20bnr/spacemacs/wiki/Terminal
-    # TERM = "xterm-24bit";  breaks on crostini
     EDITOR = "nvim";
   };
-
-  xsession.pointerCursor = {
-    package = pkgs.vanilla-dmz;
-    name = "Vanilla-DMZ";
-    size = 128;
-  };
-
-
-  # TODO: Don't enable these on crostini
 
   # Automounter for removable media.
   services.udiskie = {
     enable = pkgs.stdenv.hostPlatform.isLinux;
     automount = true;
     notify = true;
-  };
-
-  services.redshift = {
-    enable = pkgs.stdenv.hostPlatform.isLinux;
-    tray = true;
-    # Quebec City
-    latitude = "46.8423";
-    longitude = "-71.2429";
-  };
-
-  home.file = {
-    ".ghci".text = ''
-      :set prompt "λ> "
-    '';
   };
 }

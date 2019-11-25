@@ -13,24 +13,6 @@
     inactiveOpacity = "1.0";
   };
 
-  fonts = {
-    enableFontDir = true;
-    fonts = with pkgs; [
-      dejavu_fonts
-      emacs-all-the-icons-fonts
-      emojione
-      fantasque-sans-mono
-      fira-code
-      font-awesome-ttf
-      google-fonts
-      hack-font
-      hasklig
-      iosevka
-      noto-fonts-emoji
-      powerline-fonts
-    ];
-  };
-
   services.xserver = {
     enable = true;
 
@@ -51,9 +33,6 @@
         # lm-sensors
         compton # for the 'peek' screengrabbing tool
       ];
-      extraSessionCommands = ''
-        dropbox &
-      '';
     };
 
     # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
@@ -86,10 +65,8 @@
 
   environment.systemPackages = with pkgs; [
     dmenu
-    feh
     i3lock
     maim
-    unstable.steam
 
     # To launch peek, C-p peek
     # C+S+<space> to make it floaitng window

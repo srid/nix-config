@@ -7,8 +7,8 @@
     [ <nixos-hardware/lenovo/thinkpad>
       /etc/nixos/hardware-configuration.nix
       ../nix/base.nix
-      ../nix/emacs.nix
       ../nix/gui.nix
+      ../nix/fonts.nix
       ../nix/dropbox.nix
       ../nix/ci.nix
       ../nix/srid-home.nix
@@ -65,8 +65,6 @@
     HandleLidSwitch=ignore
   '';
 
-  services.redis.enable = false;
-
   # Want to ssh to thinkpad from macbook
   services.openssh.enable = true;
   services.openssh.ports = [22];
@@ -74,7 +72,7 @@
   sound.mediaKeys.enable = true;
 
   services.postgresql = {
-    enable = true;
+    enable = false;
     # package = pkgs.postgresql_10;  -- not available on 18.09
     enableTCPIP = true;
     # https://nixos.wiki/wiki/PostgreSQL
@@ -91,7 +89,7 @@
 
   # My own nix cache server 
   services.nix-serve = {
-    enable = true;
+    enable = false;
     port = 9009;
     secretKeyFile = "/nix-serve-keys/secret-key-file";
   };
@@ -144,11 +142,7 @@
     pavucontrol  # GUI version of pulsemixer
     blueman
     # Casting local videos 
-    nodePackages.castnow
     ntfs3g
-
-    # Keep this big package all the time 
-    texlive.combined.scheme-full
   ];
 
   virtualisation.docker.enable = true;
@@ -201,7 +195,7 @@
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "lxd" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
     shell = pkgs.fish;
   };
 

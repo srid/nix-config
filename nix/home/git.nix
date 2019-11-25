@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+  ];
+ 
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
     enable = true;
