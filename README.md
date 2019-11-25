@@ -53,7 +53,7 @@ Use this method on other Linux distros including ChromeOS's crostini container.
 1. `mkdir old-profile; mv .bashrc .profile old-profile`
 1. `home-manager switch`
 
-## On OSX
+## On macOS
 
 Install nix-darwin https://github.com/LnL7/nix-darwin, and:
 

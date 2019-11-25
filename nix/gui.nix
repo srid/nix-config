@@ -18,14 +18,15 @@
     fonts = with pkgs; [
       dejavu_fonts
       emacs-all-the-icons-fonts
+      emojione
       fira-code
       font-awesome-ttf
       google-fonts
+      hack-font  # https://www.reddit.com/r/emacs/comments/5twcka/which_font_do_you_use/ddpslsq/
       hasklig
       iosevka
-      powerline-fonts
       noto-fonts-emoji
-      emojione
+      powerline-fonts
     ];
   };
 

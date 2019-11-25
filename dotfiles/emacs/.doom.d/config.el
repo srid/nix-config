@@ -7,6 +7,7 @@
 
 ;; Markdown - line wrapping sensible defaults
 (remove-hook 'text-mode-hook #'auto-fill-mode)
+(remove-hook 'markdown-mode-hook #'auto-fill-mode)
 (add-hook 'markdown-mode-hook #'visual-line-mode)
 ;; Markdown - flycheck using mmark
 ;; (require 'flycheck-mmark)
