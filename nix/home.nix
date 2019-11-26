@@ -27,6 +27,7 @@ in
     ./home/keybase.nix
     ./home/shells.nix
     ./home/tmux.nix
+    ./home/redshift.nix
   ];
 
   home.packages = with pkgs; [
@@ -42,7 +43,10 @@ in
     ripgrep
     tig
     tmate
+
+    # Emacs
     emacs26
+    wordnet
   ];
 
   home.sessionVariables = {
