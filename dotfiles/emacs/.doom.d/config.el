@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here
 
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-vibrant)
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 30))
 
 ;; Markdown - line wrapping sensible defaults
@@ -27,7 +27,7 @@
                   ("traceExecuteQ" . sql-mode)
                   ("sqlQ" . sql-mode))))
 
-  ;; (setq haskell-process-type 'cabal-new-repl)
+  (setq haskell-process-type 'cabal-new-repl)
   ;; (setq lsp-haskell-process-wrapper-function
   ;;       (lambda (args)
   ;;         (append
