@@ -1,7 +1,7 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormolu = fetchGH "tweag/ormolu" "39592b2";
+  ormolu = fetchGH "tweag/ormolu" "6e07126";
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 in {
   home.packages = with pkgs.haskellPackages; [
