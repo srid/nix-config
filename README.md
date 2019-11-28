@@ -34,8 +34,8 @@ ssh-keygen  # then, add to Github
 
 nix-shell -p git -p vim -p stow
 ...
-git clone git@github.com:srid/mynixos.git $HOME/mynixos
-cd $HOME/mynixos 
+git clone git@github.com:srid/nix-config.git $HOME/nix-config
+cd $HOME/nix-config 
 
 # First, review configuration-tinix.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
@@ -44,23 +44,14 @@ make stow
 make
 ```
 
-## On Other Linux
+## On macOS & Other Linux
 
-Use this method on other Linux distros including ChromeOS's crostini container.
+Use this method on other macOS and Linux distros including ChromeOS's crostini container.
 
 1. Install [home-manager](https://github.com/rycee/home-manager)
-1. `ln -s ~/mynixos/nix/home.nix ~/.config/nixpkgs/home.nix`
+1. `ln -s ~/nix-config/nix/home.nix ~/.config/nixpkgs/home.nix`
 1. `mkdir old-profile; mv .bashrc .profile old-profile`
 1. `home-manager switch`
-
-## On macOS
-
-Install nix-darwin https://github.com/LnL7/nix-darwin, and:
-
-```
-make stow_osx
-darwin-rebuild switch
-```
 
 ## Hardware notes
 
@@ -73,7 +64,7 @@ darwin-rebuild switch
 
 #### Install
 - Follow the NixOS installation manual (choose UEFI), using /dev/nvmen1 disk)
-- Boot into NixOS and follow the instructions in [mynixos](https://github.com/srid/mynixos) to complete the configuration.
+- Boot into NixOS and follow the instructions in [nix-config](https://github.com/srid/nix-config) to complete the configuration.
 - Unplug the Enternet cable, and test WIFI using `nmtui`
 
 ### Kimsufi
