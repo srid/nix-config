@@ -7,6 +7,19 @@
 
 let
   unstable = import <nixpkgs-unstable> { config = config.nixpkgs.config; };
+  allPlatformImports = [
+    ./home/git.nix
+    ./home/haskell.nix
+    ./home/shells.nix
+    ./home/tmux.nix
+  ];
+  linuxImports = [
+    ./home/HighDpiCursor.nix
+    ./home/gpg.nix
+    ./home/redshift.nix
+    ./home/keybase.nix
+    ./home/gotty.nix
+  ];
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -18,17 +31,9 @@ in
     fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
   };
 
-  imports = [
-    ./home/HighDpiCursor.nix
-    ./home/git.nix
-    ./home/gotty.nix
-    ./home/gpg.nix
-    ./home/haskell.nix
-    ./home/keybase.nix
-    ./home/shells.nix
-    ./home/tmux.nix
-    ./home/redshift.nix
-  ];
+  imports = if builtins.currentSystem == "x86_64-linux"
+            then (allPlatformImports ++ linuxImports)
+            else allPlatformImports;
 
   home.packages = with pkgs; [
     (callPackage ./nvim.nix {})
@@ -36,7 +41,7 @@ in
     file
 
     mpv
-    unstable.steam
+    #unstable.steam
 
     # Dev tools
     gnumake
@@ -46,7 +51,7 @@ in
 
     # Emacs
     emacs26
-    wordnet
+    # wordnet
   ];
 
   home.sessionVariables = {
