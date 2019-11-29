@@ -19,6 +19,7 @@ let
     ./home/keybase.nix
     ./home/gotty.nix
     ./home/steam.nix
+    ./home/udiskie.nix
   ];
 in
 {
@@ -36,31 +37,24 @@ in
             else allPlatformImports;
 
   home.packages = with pkgs; [
-    (callPackage ./nvim.nix {})
+    # Basic tools
     htop
     file
 
-    mpv
-
     # Dev tools
+    (callPackage ./nvim.nix {})
     gnumake
     ripgrep
     tig
     tmate
-
-    # Emacs
     emacs26
-    # wordnet
+
+    # Media
+    mpv
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  # Automounter for removable media.
-  services.udiskie = {
-    enable = pkgs.stdenv.hostPlatform.isLinux;
-    automount = true;
-    notify = true;
-  };
 }
