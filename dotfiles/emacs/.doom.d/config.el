@@ -3,7 +3,7 @@
 ;; Place your private configuration here
 
 (setq doom-theme 'doom-vibrant)
-(setq doom-font (font-spec :family "Fantasque Sans Mono" :size 30))
+(setq doom-font (font-spec :family "Fantasque Sans Mono"))
 
 ;; Markdown - line wrapping sensible defaults
 (remove-hook 'text-mode-hook #'auto-fill-mode)
