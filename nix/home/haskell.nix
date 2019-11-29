@@ -1,7 +1,7 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormolu = fetchGH "tweag/ormolu" "6e07126";
+  ormolu = fetchGH "tweag/ormolu" "46ede8a";
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 in {
   home.packages = with pkgs.haskellPackages; [
@@ -9,6 +9,8 @@ in {
     cachix
     pandoc
 
+    # hoogle used by emacs
+    hoogle
     # ormolu code formatter
     (callPackage ormolu { inherit pkgs; }).ormolu
     # stylish-hashell code formatter
