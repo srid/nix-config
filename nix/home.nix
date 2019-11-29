@@ -6,7 +6,6 @@
 { config, pkgs, ...}:
 
 let
-  unstable = import <nixpkgs-unstable> { config = config.nixpkgs.config; };
   allPlatformImports = [
     ./home/git.nix
     ./home/haskell.nix
@@ -19,6 +18,7 @@ let
     ./home/redshift.nix
     ./home/keybase.nix
     ./home/gotty.nix
+    ./home/steam.nix
   ];
 in
 {
@@ -41,7 +41,6 @@ in
     file
 
     mpv
-    #unstable.steam
 
     # Dev tools
     gnumake
