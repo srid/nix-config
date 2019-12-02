@@ -3,6 +3,9 @@
 let
   ormolu = fetchGH "tweag/ormolu" "46ede8a";
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
+  macOSCaseNameFix = drv:
+    pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
   home.packages = with pkgs.haskellPackages; [
     # Some commonly used tools
@@ -12,7 +15,8 @@ in {
     # hoogle used by emacs
     hoogle
     # ormolu code formatter
-    (callPackage ormolu { inherit pkgs; }).ormolu
+    (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
+
     # stylish-hashell code formatter
     stylish-haskell
     # Install stable HIE for specified GHC versions
