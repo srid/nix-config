@@ -28,6 +28,7 @@
 ```
 sudo nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --update
 
 ssh-keygen  # then, add to Github
