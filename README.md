@@ -38,7 +38,7 @@ nix-shell -p git -p vim -p stow
 git clone git@github.com:srid/nix-config.git $HOME/nix-config
 cd $HOME/nix-config 
 
-# First, review configuration-tinix.nix
+# First, review configuration-???.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
 sudo ln -s $(pwd)/machine/configuration-???.nix /etc/nixos/configuration.nix
 make stow
@@ -47,7 +47,7 @@ make
 
 ## On macOS & Other Linux
 
-Use this method on other macOS and Linux distros including ChromeOS's crostini container.
+Use this method on macOS and other Linux distros including ChromeOS's crostini container.
 
 1. Install [home-manager](https://github.com/rycee/home-manager)
 1. `ln -s ~/nix-config/nix/home.nix ~/.config/nixpkgs/home.nix`

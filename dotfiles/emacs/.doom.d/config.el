@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here
 
-(setq doom-theme 'doom-vibrant)
+(setq doom-theme 'doom-palenight)
 (setq doom-font (font-spec :family "Fantasque Sans Mono"))
 
 ;; Markdown - line wrapping sensible defaults
