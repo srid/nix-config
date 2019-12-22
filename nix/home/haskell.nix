@@ -21,6 +21,10 @@ in {
     stylish-haskell
     # Install stable HIE for specified GHC versions
     # (all-hies.selection { selector = p: { inherit (p) ghc865 ghc864; }; })
+
+    # ghcide
+    (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/f0de603") {}
+    ).ghcide-ghc865
   ];
 
   home.file = {
@@ -28,7 +32,7 @@ in {
     ".ghci".text = ''
       :set prompt "λ> "
     '';
-    # stylish-haskell
+    # stylish-haskell (obsidian style)
     ".stylish-haskell.yaml".text = ''
       steps:
         - imports:
