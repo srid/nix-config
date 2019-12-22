@@ -18,7 +18,7 @@ let
     ./home/redshift.nix
     ./home/keybase.nix
     ./home/gotty.nix
-    ./home/steam.nix
+    # ./home/steam.nix
     ./home/udiskie.nix
   ];
 in
