@@ -91,7 +91,8 @@
   systemd.user.services = {
     slownews = import ../nix/obelisk-app.nix {
       inherit pkgs;
-      approot =
+      name = "SlowNews";
+      root =
         let rev = "badc5fd";
         in builtins.fetchTarball "https://github.com/srid/slownews/archive/${rev}.tar.gz";
       port = "3001";
@@ -208,6 +209,10 @@
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
     shell = pkgs.fish;
+  };
+  users.extraUsers.apps = {
+    isNormalUser = true;
+    uid = 1001;
   };
 
   # This value determines the NixOS release with which your system is to be

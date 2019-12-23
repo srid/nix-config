@@ -1,16 +1,15 @@
-{ pkgs, approot, port, ... }:
+{ pkgs, root, name, port, ... }:
 
 let
-  app = import approot {};
+  app = import root {};
 in
 {
   enable = true;
-  description = "SlowNews";
+  description = name;
   wantedBy = [ "multi-user.target" ];
   after = [ "network-online.target" ];
   environment = {
   };
-  # TODO: Run as different user?
   serviceConfig = {
     # TODO: copy over files, and allow overriding ./config dir.
     WorkingDirectory = "${app.exe}";
