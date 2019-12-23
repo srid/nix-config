@@ -17,5 +17,6 @@ in
     ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
     Restart = "on-failure";
     PrivateTmp = true;
+    User = "apps";
   };
 }

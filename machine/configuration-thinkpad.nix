@@ -88,7 +88,7 @@
   };
 
   # Obelisk apps I expose outside from the Thinkpad.
-  systemd.user.services = {
+  systemd.services = {
     slownews = import ../nix/obelisk-app.nix {
       inherit pkgs;
       name = "SlowNews";
