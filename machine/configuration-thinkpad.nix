@@ -87,6 +87,17 @@
     '';
   };
 
+  # Obelisk apps I expose outside from the Thinkpad.
+  systemd.user.services = {
+    slownews = import ../nix/obelisk-app.nix {
+      inherit pkgs;
+      approot =
+        let rev = "badc5fd";
+        in builtins.fetchTarball "https://github.com/srid/slownews/archive/${rev}.tar.gz";
+      port = "3001";
+    };
+  };
+
   # My own nix cache server 
   services.nix-serve = {
     enable = false;
