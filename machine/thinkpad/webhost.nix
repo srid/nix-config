@@ -1,6 +1,10 @@
+# How I use my Thinkpad as a web server on the internet
 { config, lib, pkgs, ... }:
 
 let
+  # Dedicated user for running internet-exposed services.
+  srvUser = "apps";
+
   obeliskService = name: port: repo: rev:
     let
       obresult = (import (builtins.fetchTarball "https://github.com/${repo}/archive/${rev}.tar.gz") {}).exe;
@@ -8,24 +12,34 @@ let
         ''
         mkdir $out
         cp -r ${obresult}/* $out/
+        # Copy deployment config from a private area.
         cp -r ${./deployments}/${name}/config $out/
         '';
-    in import ../../nix/obelisk-app.nix {
-      inherit pkgs name port root;
+    in {
+      enable = true;
+      description = name;
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network-online.target" ];
+      environment = {};
+      serviceConfig = {
+        WorkingDirectory = "${root}";
+        ExecStart = "${root}/backend -p ${port}";
+        ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+        Restart = "on-failure";
+        PrivateTmp = true;
+        User = srvUser;
+      };
     };
 in
 {
-  # How I use my Thinkpad as a web server on the internet
-
-  # First, dedicate a user for running internet-exposed services.
-  users.extraUsers.apps = {
-    isNormalUser = true;
-    uid = 1001;
-  };
-
-  # Obelisk apps I expose outside from the Thinkpad.
+  # Obelisk apps I expose to the outside world
   systemd.services = {
     slownews = obeliskService "slownews" "3001" "srid/slownews" "badc5fd";
     slackarchive = obeliskService "slackarchive" "9002" "srid/Taut" "ef07c2c";
+  };
+
+  users.extraUsers.${srvUser} = {
+    isNormalUser = true;
+    uid = 1001;
   };
 }
