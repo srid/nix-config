@@ -18,14 +18,13 @@ let
     in {
       enable = true;
       description = name;
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = [ ];
       after = [ "network-online.target" ];
       environment = {};
       serviceConfig = {
         WorkingDirectory = "${root}";
         ExecStart = "${root}/backend -p ${port}";
-        ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
-        Restart = "on-failure";
+        Restart = "on-abnormal";
         PrivateTmp = true;
         User = srvUser;
       };
