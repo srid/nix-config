@@ -26,6 +26,6 @@ in
   # Obelisk apps I expose outside from the Thinkpad.
   systemd.services = {
     slownews = obeliskService "slownews" "3001" "srid/slownews" "badc5fd";
-    # slackarchive = obeliskService "SlackArchive" "9002" "srid/Taut" "...";  -- TODO: config
+    slackarchive = obeliskService "slackarchive" "9002" "srid/Taut" "ef07c2c";
   };
 }
