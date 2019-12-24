@@ -22,16 +22,19 @@
     ];
 
   # EFI boot
-  boot.cleanTmpDir = true;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.plymouth.enable = false;
+  boot = {
+    cleanTmpDir = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = false;
+    # Always use the latest available kernel.
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
-  # Always use the latest available kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "thebeast"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "thebeast";
+    networkmanager.enable = true;
+  };
 
   services.openssh = {
     enable = true;
@@ -52,8 +55,6 @@
     blueman
     ntfs3g
   ];
-
-  programs.fish.enable = true;
 
   users.extraUsers.srid = {
     isNormalUser = true;
