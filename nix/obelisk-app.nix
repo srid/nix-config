@@ -8,7 +8,6 @@
   environment = {
   };
   serviceConfig = {
-    # TODO: copy over files, and allow overriding ./config dir.
     WorkingDirectory = "${root}";
     ExecStart = "${root}/backend -p ${port}";
     ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
