@@ -13,6 +13,7 @@
       ./thinkpad/webhost.nix
      
       ../nix/base.nix
+      ../nix/caches.nix
       ../nix/gui.nix
       ../nix/fonts.nix
       ../nix/dropbox.nix

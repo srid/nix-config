@@ -5,6 +5,7 @@
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/nixos-in-place.nix
     ../nix/base.nix
+    ../nix/caches.nix
     ../nix/srid-home.nix
   ];
 
