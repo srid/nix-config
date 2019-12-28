@@ -63,6 +63,8 @@
     };
   };
 
+  programs.sway.enable = true;
+
   environment.systemPackages = with pkgs; [
     dmenu
     i3lock
