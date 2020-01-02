@@ -13,7 +13,7 @@ let
         mkdir $out
         cp -r ${obresult}/* $out/
         # Copy deployment config from a private area.
-        cp -r ${./deployments}/${name}/config $out/
+        cp -r ${../../private-config/deployments}/${name}/config $out/
         '';
     in {
       enable = true;

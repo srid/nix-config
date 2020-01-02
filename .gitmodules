@@ -1,6 +1,3 @@
-[submodule "machine/thinkpad/deployments"]
-	path = machine/thinkpad/deployments
-	url = keybase://private/srid/deployments
 [submodule "private-config"]
 	path = private-config
 	url = keybase://private/srid/private-config
