@@ -20,6 +20,8 @@
       # ../nix/ci.nix  -- not using due to security concerns
 
       ../nix/srid-home.nix
+
+      ../private-config
     ];
 
   # EFI boot
