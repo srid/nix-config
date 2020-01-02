@@ -48,6 +48,7 @@ in
     tig
     tmate
     emacs26
+    gitAndTools.hub
 
     # Media
     mpv
