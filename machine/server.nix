@@ -118,4 +118,6 @@
     "notes.srid.ca".email = "srid@srid.ca";
     "slownews.srid.ca".email = "srid@srid.ca";
   };
+
+  system.stateVersion = "19.03";
 }
