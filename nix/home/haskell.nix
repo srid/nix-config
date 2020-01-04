@@ -26,7 +26,7 @@ in {
     # ghcide
     # TODO: configure cache in home-manager first; until then, on macOS, use
     # 'cachix use hercules-ci' before 'home-manager switch'
-    (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/f0de603") {}).ghcide-ghc865
+    # (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/f0de603") {}).ghcide-ghc865
 
     # dhall for dhall-format in emacs
     dhall
