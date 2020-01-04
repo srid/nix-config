@@ -108,6 +108,7 @@
       user = "srid";
       virtualHosts."notes.srid.ca" = notesVhost;
       virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
+      virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
       virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
@@ -115,5 +116,6 @@
   security.acme.certs = {
     "tmp.srid.ca".email = "srid@srid.ca";
     "notes.srid.ca".email = "srid@srid.ca";
+    "slownews.srid.ca".email = "srid@srid.ca";
   };
 }
