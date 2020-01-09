@@ -21,6 +21,12 @@ in
     nodePackages.castnow
   ];
 
+  programs.broot = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
+
   programs.fish = {
     enable = true;
     inherit shellAliases;
