@@ -20,12 +20,14 @@
 (after! haskell-mode
   ;; rhyolite quasi quotes
   (setq haskell-font-lock-quasi-quote-modes
-        (append haskell-font-lock-quasi-quote-modes
+        (setq haskell-font-lock-quasi-quote-modes
                 '(("queryQ" . sql-mode)
                   ("executeQ" . sql-mode)
                   ("traceQueryQ" . sql-mode)
                   ("traceExecuteQ" . sql-mode)
-                  ("sqlQ" . sql-mode))))
+                  ("sqlQ" . sql-mode)
+                  ("str" . markdown-mode)
+                  )))
 
   (setq haskell-process-type 'cabal-new-repl)
   ;; (setq lsp-haskell-process-wrapper-function
