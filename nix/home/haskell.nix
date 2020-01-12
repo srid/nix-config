@@ -39,6 +39,7 @@ in {
       :set prompt "λ> "
     '';
     # stylish-haskell (obsidian style)
+    # I now use ormolu; retaining this config for legacy purposes.
     ".stylish-haskell.yaml".text = ''
       steps:
         - imports:

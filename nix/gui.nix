@@ -79,7 +79,6 @@
     peek
     simplescreenrecorder
 
-    brave
     vscode
     signal-desktop
     google-chrome
