@@ -74,10 +74,11 @@
     bluetooth = {
       enable = true;
       # For Bose QC 35
-      extraConfig = "
-        [General]
-        Enable=Source,Sink,Media,Socket
-      ";
+      config = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
     };
   };
 
