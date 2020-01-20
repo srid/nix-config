@@ -50,20 +50,15 @@
 
     desktopManager.plasma5 = {
       # Installing KDE gives me a nice and big cursor that is actually visible
-      # enough on a retina screen. And konsole.
+      # enough on a retina screen.
 
       # Issues
       #  - redshift is messing up colors on external monitor.
       enable = false;
     };
-
-    desktopManager.gnome3 = {
-      # For gnome-terminal
-      enable = true;
-    };
   };
 
-  programs.sway.enable = true;
+  # programs.sway.enable = true;
 
   environment.systemPackages = with pkgs; [
     dmenu
