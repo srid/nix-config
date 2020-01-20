@@ -21,8 +21,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "NLKNguyen";
         repo = "papercolor-theme";
-        rev = "58ad6d94c39bf0a2779aa2f6e0a34712d407964f";
-        sha256 = "1ifscyvna7ip67xd3yd30a0db96malg17k5i40wh2sxd6qadmcyv";
+        rev = "ddd0986";
+        sha256 = "1dhbnd99xs6l5alqhn9m1nynmr9sbvrqj2137l23ysisprl3rgmr";
       };
     };
 
@@ -173,7 +173,7 @@ in
 
       "Colorscheme
       "-------------------------
-      set background=light
+      set background=dark
       "let base16colorspace=256
       "colorscheme base16-mexico-light
       colorscheme PaperColor
