@@ -1,3 +1,0 @@
-#!/bin/sh -e
-DIR=`dirname "$(readlink -f "$0")"`
-HOME=${DIR}/home ${DIR}/result/bin/emacs -nw $*
