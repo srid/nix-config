@@ -69,6 +69,10 @@
     dmenu
     i3lock
     maim
+    termite
+    st
+    kitty
+    asciinema
 
     # To launch peek, C-p peek
     # C+S+<space> to make it floaitng window

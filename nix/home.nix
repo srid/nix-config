@@ -48,7 +48,7 @@ in
     ripgrep
     tig
     tmate
-    emacs26
+    emacs
     gitAndTools.hub
 
     # Media
