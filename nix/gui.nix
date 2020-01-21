@@ -34,28 +34,11 @@
         compton # for the 'peek' screengrabbing tool
       ];
     };
+    windowManager.default = "none+i3";
 
-    # cf. https://wiki.haskell.org/Xmonad/Installing_xmonad#NixOS
-    windowManager.xmonad = {
-      enable = false;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
-        haskellPackages.xmobar
-      ];
-    };
-    # windowManager.default = "xmonad";
-
-    desktopManager.plasma5 = {
-      # Installing KDE gives me a nice and big cursor that is actually visible
-      # enough on a retina screen.
-
-      # Issues
-      #  - redshift is messing up colors on external monitor.
-      enable = false;
-    };
+    # Installing KDE gives me a nice and big cursor that is actually visible
+    # enough on a retina screen.
+    desktopManager.plasma5.enable = true;
   };
 
   # programs.sway.enable = true;
