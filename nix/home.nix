@@ -14,7 +14,7 @@ let
   ];
   linuxImports = [
     ./home/i3.nix
-    ./home/irssi.nix
+    ./home/irc.nix
     ./home/HighDpiCursor.nix
     ./home/gpg.nix
     ./home/redshift.nix
