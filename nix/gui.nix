@@ -28,9 +28,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    termite
     st
-    kitty
     asciinema
 
     # To launch peek, C-p peek
@@ -43,12 +41,12 @@
     simplescreenrecorder
 
     vscode
-    signal-desktop
     google-chrome
     xorg.xbacklight
     xorg.xf86videointel
     xorg.xprop
     xsel
+
     zoom-us
   ];
 }

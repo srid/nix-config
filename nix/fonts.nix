@@ -16,6 +16,7 @@
       iosevka
       noto-fonts-emoji
       powerline-fonts
+      material-icons
     ];
   };
 }

@@ -1,4 +1,4 @@
-theme = "gruvbox-dark"
+theme = "modern"
 icons = "awesome"
 
 [[block]]
@@ -20,6 +20,7 @@ format_swap = "{SUp}%"
 [[block]]
 block = "cpu"
 interval = 1
+format = "{barchart} {utilization}%"
 
 [[block]]
 block = "load"
@@ -30,7 +31,7 @@ format = "{1m}"
 block = "net"
 device = "wlp4s0"
 ssid = true
-ip = true
+ip = false
 speed_up = false
 graph_up = true
 interval = 5
