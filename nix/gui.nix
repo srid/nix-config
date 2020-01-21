@@ -19,8 +19,12 @@
     layout = "us";
     xkbOptions = "grp:alt_space_toggle, ctrl:swapcaps";
 
-    displayManager.lightdm = {
-      enable = true;
+    displayManager = {
+      hiddenUsers = [ "apps" ];
+      defaultSession = "none+i3";
+      lightdm = {
+        enable = true;
+      };
     };
 
     windowManager.i3 = {
@@ -34,7 +38,6 @@
         compton # for the 'peek' screengrabbing tool
       ];
     };
-    windowManager.default = "none+i3";
 
     # Installing KDE gives me a nice and big cursor that is actually visible
     # enough on a retina screen.
