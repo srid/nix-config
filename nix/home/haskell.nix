@@ -12,7 +12,6 @@ in {
     cachix
     pandoc
 
-    # hoogle used by emacs
     hoogle
     # ormolu code formatter
     (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
@@ -27,10 +26,6 @@ in {
     # TODO: configure cache in home-manager first; until then, on macOS, use
     # 'cachix use hercules-ci' before 'home-manager switch'
     # (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/f0de603") {}).ghcide-ghc865
-
-    # dhall for dhall-format in emacs
-    dhall
-    dhall-json
   ];
 
   home.file = {
