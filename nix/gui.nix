@@ -21,35 +21,13 @@
 
     displayManager = {
       hiddenUsers = [ "apps" ];
-      defaultSession = "none+i3";
       lightdm = {
         enable = true;
       };
     };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        i3status-rust
-        # alsaUtils
-        speedtest-cli
-        gperftools
-        # lm-sensors
-        compton # for the 'peek' screengrabbing tool
-      ];
-    };
-
-    # Installing KDE gives me a nice and big cursor that is actually visible
-    # enough on a retina screen.
-    desktopManager.plasma5.enable = true;
   };
 
-  # programs.sway.enable = true;
-
   environment.systemPackages = with pkgs; [
-    dmenu
-    i3lock
-    maim
     termite
     st
     kitty
@@ -67,7 +45,6 @@
     vscode
     signal-desktop
     google-chrome
-    xclip
     xorg.xbacklight
     xorg.xf86videointel
     xorg.xprop

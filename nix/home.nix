@@ -13,6 +13,7 @@ let
     ./home/tmux.nix
   ];
   linuxImports = [
+    ./home/i3.nix
     ./home/HighDpiCursor.nix
     ./home/gpg.nix
     ./home/redshift.nix
