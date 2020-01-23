@@ -33,15 +33,14 @@ sudo nix-channel --update
 
 ssh-keygen  # then, add to Github
 
-nix-shell -p git -p vim -p stow
+nix-shell -p git -p vim
 ...
 git clone git@github.com:srid/nix-config.git $HOME/nix-config
 cd $HOME/nix-config 
 
-# First, review configuration-???.nix
+# First, review ./machine/???.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
-sudo ln -s $(pwd)/machine/configuration-???.nix /etc/nixos/configuration.nix
-make stow
+sudo ln -s $(pwd)/machine/???.nix /etc/nixos/configuration.nix
 make
 ```
 

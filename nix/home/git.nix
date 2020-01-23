@@ -9,10 +9,11 @@
     enable = true;
     userName = "Sridhar Ratnakumar";
     userEmail = "srid@srid.ca";
-    ignores = [ "*~" "*ghcid.txt" ];
+    ignores = [ ];
     aliases = {
       co = "checkout";
       ci = "commit";
+      cp = "commit -p";
       s = "status";
       st = "status";
       d = "diff";
