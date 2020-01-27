@@ -17,6 +17,7 @@ in
   home.packages = with pkgs; [
     # Programs used by shell config defined below.
     exa
+    bat
     aria
     nodePackages.castnow
   ];
