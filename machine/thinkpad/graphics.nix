@@ -8,10 +8,9 @@
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
-    libinput.enable = true;
-    multitouch = {
+    libinput = {
       enable = true;
-      invertScroll = true;
+      naturalScrolling = true;
     };
 
     # Graphics drivers.
