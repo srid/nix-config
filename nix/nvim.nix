@@ -111,6 +111,7 @@ in
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
+        { name = "coc-nvim"; }
         # { name = "vim-stylish-haskell"; }
       ];
 
