@@ -1,7 +1,7 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormolu = fetchGH "tweag/ormolu" "3137345";
+  ormolu = fetchGH "tweag/ormolu" "d1c7606";
   # all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
