@@ -24,6 +24,7 @@ let
     ./home/udiskie.nix
     ../private-config/work/aws.nix
   ];
+  fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -32,7 +33,7 @@ in
 
   # Utility functions
   _module.args = {
-    fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
+    inherit fetchGH;
   };
 
   imports = if builtins.currentSystem == "x86_64-linux"
@@ -45,7 +46,7 @@ in
     file
 
     # nvim, and its runtime dependencies
-    (callPackage ./nvim {})
+    (callPackage ./nvim {inherit fetchGH;})
     nodejs  # coc.vim requires it
 
     # Dev tools
