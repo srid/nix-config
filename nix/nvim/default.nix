@@ -18,10 +18,6 @@ let
       name = "lastpos";
       src = fetchGH "vim-scripts/lastpos.vim" "21a22ce4a11117cae8a0017c1cd9a9094fe5adf2";
     };
-    ag = pkgs.vimUtils.buildVimPlugin {
-      name = "ag";
-      src = fetchGH "rking/ag.vim" "4a0dd6e190f446e5a016b44fdaa2feafc582918e";
-    };
   };
 in
   with pkgs; neovim.override {
@@ -44,12 +40,10 @@ in
         { name = "haskell-vim"; }
         { name = "vim-gitgutter"; }
         { name = "ctrlp"; }
-        { name = "ctrlp-py-matcher"; }
         { name = "papercolor-theme"; }
         { name = "indenthaskell"; }
         { name = "nerdtree"; }
         { name = "lastpos"; }
-        { name = "ag"; }
         { name = "vim-nix"; }
         { name = "fugitive"; }
         { name = "tslime"; }

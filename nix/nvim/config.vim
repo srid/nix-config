@@ -83,30 +83,6 @@ let g:ctrlp_lazy_update = 10
 nnoremap <C-o> :CtrlPBuffer<CR>
 inoremap <C-o> <Esc>:CtrlPBuffer<CR>
 
-"Use ag/silver-searcher for faster and more configurable search
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --smart-case
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --smart-case
-                              \ --ignore .git
-                              \ --ignore .svn
-                              \ --ignore .hg
-                              \ --ignore amazonka
-                              \ --ignore="*.dyn_hi"
-                              \ --ignore="*.dyn_o"
-                              \ --ignore="*.p_hi"
-                              \ --ignore="*.p_o"
-                              \ --ignore="*.hi"
-                              \ --ignore="*.o"
-                              \ -g ""'
-endif
-
-"Use a better relevance algorithm
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
 "NERDTree
 "-------------------------
 map <leader>\ :NERDTreeToggle<CR>

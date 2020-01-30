@@ -50,5 +50,6 @@ in
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
   };
 }
