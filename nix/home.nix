@@ -45,7 +45,7 @@ in
     file
 
     # nvim, and its runtime dependencies
-    (callPackage ./nvim.nix {})
+    (callPackage ./nvim {})
     nodejs  # coc.vim requires it
 
     # Dev tools
