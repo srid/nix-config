@@ -1,8 +1,12 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormolu = fetchGH "tweag/ormolu" "d1c7606";
-  # all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  ormoluSrc = fetchGH "tweag/ormolu" "34dc1cb";
+
+  # TODO: configure cache in home-manager first; until then, on macOS, use
+  # 'cachix use hercules-ci' before 'home-manager switch'
+  ghcideNixSrc = fetchGH "hercules-ci/ghcide-nix" "55d5a88";
+
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
     pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
@@ -14,7 +18,7 @@ in {
 
     hoogle
     # ormolu code formatter
-    (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
+    (macOSCaseNameFix (callPackage ormoluSrc { inherit pkgs; }).ormolu)
 
     # stylish-hashell code formatter
     stylish-haskell
@@ -22,13 +26,8 @@ in {
     # For coc.vim
     pkgs.nodejs 
 
-    # Install stable HIE for specified GHC versions
-    # (all-hies.selection { selector = p: { inherit (p) ghc865 ghc864; }; })
-
     # ghcide
-    # TODO: configure cache in home-manager first; until then, on macOS, use
-    # 'cachix use hercules-ci' before 'home-manager switch'
-    (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/1a95c11") {}).ghcide-ghc865
+    (import ghcideNixSrc {}).ghcide-ghc865
   ];
 
   home.file = {
