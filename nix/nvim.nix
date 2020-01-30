@@ -66,15 +66,6 @@ let
       };
     };
 
-    neocomplcache = pkgs.vimUtils.buildVimPlugin {
-      name = "neocomplcache";
-      src = pkgs.fetchFromGitHub {
-        owner = "Shougo";
-        repo = "neocomplcache.vim";
-        rev = "778181767467b8f8016828898779a646074d883a";
-        sha256 = "080h24fqv9gsv9ny33gxzsy03w9wyx1xw8f1xwqyll9c6hw62ygy";
-      };
-    };
   };
 in
   with pkgs; neovim.override {
@@ -106,8 +97,6 @@ in
         { name = "vim-nix"; }
         { name = "fugitive"; }
         { name = "tslime"; }
-        { name = "neocomplete"; }
-        { name = "neocomplcache"; }
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
@@ -224,28 +213,6 @@ in
       else
         let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
       endif
-
-      "Autocomplete
-      "-------------------------
-      let g:neocomplcache_enable_at_startup = 1
-      let g:neocomplcache_tags_caching_limit_file_size = 10000000
-
-      "Use a custom <CR> handler
-      inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-      function! s:my_cr_function()
-        return neocomplcache#smart_close_popup() . "\<CR>"
-        " For no inserting <CR> key.
-        "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-      endfunction
-
-      "<TAB>: completion.
-      inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-      "Close popup
-      inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-      inoremap <expr><C-y>  neocomplcache#close_popup()
-      inoremap <expr><C-e>  neocomplcache#cancel_popup()
-      "<BS>: delete backword char
-      inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
       "NERDTree
       "-------------------------
