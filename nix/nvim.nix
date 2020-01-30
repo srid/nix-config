@@ -227,6 +227,16 @@ in
       au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
       au FileType haskell nnoremap <buffer> <F3> :HdevtoolsInfo<CR>
 
+      "Autocompletion
+          
+      " Use tab for trigger completion with characters ahead and navigate.
+      " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+      inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+      inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
       "Saving
       "-------------------------
       " If the current buffer has never been saved, it will have no name,
