@@ -44,8 +44,11 @@ in
     htop
     file
 
-    # Dev tools
+    # nvim, and its runtime dependencies
     (callPackage ./nvim.nix {})
+    nodejs  # coc.vim requires it
+
+    # Dev tools
     gnumake
     ripgrep
     tig

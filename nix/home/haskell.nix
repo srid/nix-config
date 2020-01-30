@@ -23,9 +23,6 @@ in {
     # stylish-hashell code formatter
     stylish-haskell
 
-    # For coc.vim
-    pkgs.nodejs 
-
     # ghcide
     (import ghcideNixSrc {}).ghcide-ghc865
   ];
