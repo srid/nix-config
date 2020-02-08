@@ -21,7 +21,7 @@ in {
     (macOSCaseNameFix (callPackage ormoluSrc { inherit pkgs; }).ormolu)
 
     # stylish-hashell code formatter
-    stylish-haskell
+    # stylish-haskell
 
     # ghcide
     (import ghcideNixSrc {}).ghcide-ghc865
