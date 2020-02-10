@@ -55,6 +55,7 @@ in
     tig
     tmate
     gitAndTools.hub
+    dhall
 
     # Media
     mpv

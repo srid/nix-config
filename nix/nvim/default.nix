@@ -52,6 +52,7 @@ in
         { name = "neovim-ghcid"; }
         { name = "coc-nvim"; }
         { name = "vim-airline"; }
+        { name = "dhall-vim"; }
         # { name = "vim-stylish-haskell"; }
       ];
 
