@@ -94,6 +94,7 @@
         locations."/" = {
           extraConfig = ''
             rewrite ^/haskell-nix$ https://www.srid.ca/haskell-nix.html permanent;
+            rewrite ^/computing/haskell-nix$ https://www.srid.ca/haskell-nix.html permanent;
             rewrite ^/calisthenics$ https://www.srid.ca/calisthenics.html permanent;
             rewrite ^/carnivore-diet$ https://www.srid.ca/carnivore-diet.html permanent;
             rewrite ^/conflicts$ https://www.srid.ca/conflicts.html permanent;
