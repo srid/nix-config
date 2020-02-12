@@ -54,7 +54,7 @@ in
     ripgrep
     tig
     tmate
-    gitAndTools.hub
+    gitAndTools.gh
     dhall
 
     # Media
