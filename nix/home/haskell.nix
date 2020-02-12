@@ -1,11 +1,11 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "34dc1cb";
+  ormoluSrc = fetchGH "tweag/ormolu" "ba38173";
 
   # TODO: configure cache in home-manager first; until then, on macOS, use
   # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "hercules-ci/ghcide-nix" "55d5a88";
+  ghcideNixSrc = fetchGH "hercules-ci/ghcide-nix" "c940edd";
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
