@@ -245,9 +245,6 @@ command -nargs=0 -bar Update if &modified
 nnoremap <silent> <C-s> :<C-u>Update<CR>
 inoremap <C-s> <C-o>:Update<CR>
 
-"Dhall
-let g:dhall_format=1
-
 "ALE
 "-------------------------
 "let g:ale_linters = { 'haskell': ['hlint'] }
@@ -292,3 +289,8 @@ augroup HiglightTODO
         autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
         augroup END
 
+"Dhall
+let g:dhall_format=1
+
+"ormolu
+let g:ormolu_options=["-o -XTypeApplications"]

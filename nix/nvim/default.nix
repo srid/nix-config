@@ -18,6 +18,10 @@ let
       name = "lastpos";
       src = fetchGH "vim-scripts/lastpos.vim" "21a22ce4a11117cae8a0017c1cd9a9094fe5adf2";
     };
+    vim-ormolu = pkgs.vimUtils.buildVimPlugin {
+      name = "vim-ormolu";
+      src = fetchGH "sdiehl/vim-ormolu" "4ae4fe1";
+    };
   };
 in
   with pkgs; neovim.override {
@@ -53,6 +57,7 @@ in
         { name = "coc-nvim"; }
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
+        { name = "vim-ormolu"; }
         # { name = "vim-stylish-haskell"; }
       ];
 
