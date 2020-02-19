@@ -13,6 +13,7 @@ let
     ./home/tmux.nix
   ];
   linuxImports = [
+    ./home/terminal.nix
     ./home/i3.nix
     ./home/irc.nix
     ./home/HighDpiCursor.nix
@@ -63,6 +64,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERMINAL = "myst";
   };
 
 }

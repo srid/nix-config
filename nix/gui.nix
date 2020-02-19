@@ -46,7 +46,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    st
     asciinema
 
     # To launch peek, C-p peek
