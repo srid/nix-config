@@ -3,6 +3,8 @@
 let 
   mod = "Mod4";
 in {
+  xsession.scriptPath = ".hm-xsession"; # Ref: https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
