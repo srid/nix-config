@@ -13,6 +13,7 @@ let
     ./home/tmux.nix
   ];
   linuxImports = [
+    ./home/scripts.nix
     ./home/terminal.nix
     ./home/i3.nix
     ./home/irc.nix
