@@ -22,6 +22,10 @@ let
       name = "vim-ormolu";
       src = fetchGH "sdiehl/vim-ormolu" "4ae4fe1";
     };
+    vim-markdown-toc = pkgs.vimUtils.buildVimPlugin {
+      name = "vim-markdown-toc";
+      src = fetchGH "mzlogin/vim-markdown-toc" "25c6e3d";
+    };
   };
 in
   with pkgs; neovim.override {
@@ -58,6 +62,7 @@ in
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
+        { name = "vim-markdown-toc"; }
         # { name = "vim-stylish-haskell"; }
       ];
 

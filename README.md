@@ -1,22 +1,19 @@
 # My Nix configuration
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
-**Table of Contents**
+<!-- vim-markdown-toc GFM -->
 
-- [My Nix configuration](#my-nix-configuration)
-    - [On NixOS](#on-nixos)
-    - [On Other Linux](#on-other-linux)
-    - [On OSX](#on-osx)
-    - [Hardware notes](#hardware-notes)
-        - [Thinkpad P71](#thinkpad-p71)
-            - [Preparation](#preparation)
-            - [Install](#install)
-        - [Kimsufi](#kimsufi)
-        - [Hyper-v](#hyper-v)
-    - [Tips and tricks](#tips-and-tricks)
-        - [Resizing VM's disk](#resizing-vms-disk)
+* [On NixOS](#on-nixos)
+* [On macOS & Other Linux](#on-macos--other-linux)
+* [Hardware notes](#hardware-notes)
+  * [Thinkpad P71](#thinkpad-p71)
+    * [Preparation](#preparation)
+    * [Install](#install)
+  * [Kimsufi](#kimsufi)
+  * [Hyper-v](#hyper-v)
+* [Tips and tricks](#tips-and-tricks)
+  * [Resizing VM's disk](#resizing-vms-disk)
 
-<!-- markdown-toc end -->
+<!-- vim-markdown-toc -->
 
 ## On NixOS
 
