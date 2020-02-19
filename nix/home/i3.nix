@@ -3,6 +3,13 @@
 let 
   mod = "Mod4";
 in {
+  home.packages = [
+    (pkgs.writeScriptBin "myst" ''
+      #!${pkgs.runtimeShell}
+      exec st -f "monospace:pixelsize=24"
+      '')
+  ];
+
   xsession.scriptPath = ".hm-xsession"; # Ref: https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8
 
   xsession.windowManager.i3 = {
