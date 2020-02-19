@@ -13,6 +13,9 @@ in
       "${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force off")
     (mkScript "screenshot" 
       "${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png")
+    # Need this to fix a random nvidia display bug (vertical buzz line)
+    (mkScript "refreshscreen"
+      "xset dpms force off ; xset dpms force on")
 
     # Wifi management
     (mkScript "fuckwifi"
