@@ -4,8 +4,6 @@ set nocompatible
 "-------------------------
 filetype plugin indent on
 set backspace=indent,eol,start
-"set backup
-"set backupdir=~/.vim/.backup//
 set dir=~/.vim/.swp//
 set encoding=utf-8
 set expandtab
@@ -29,6 +27,11 @@ set ts=2
 "set lazyredraw
 "set ttyfast
 syntax enable
+
+"Get rid of annoyances
+set noswapfile
+set nobackup
+set nowritebackup
 
 "Convenience
 "-------------------------
@@ -101,10 +104,6 @@ au FileType haskell nnoremap <buffer> <F3> :HdevtoolsInfo<CR>
 
 " if hidden is not set, TextEdit might fail.
 set hidden
-
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
 
 " Better display for messages
 " set cmdheight=2
