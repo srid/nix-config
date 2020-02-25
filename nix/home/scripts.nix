@@ -17,6 +17,9 @@ in
     (mkScript "refreshscreen"
       "xset dpms force off ; xset dpms force on")
 
+    (mkScript "copy"
+      "${pkgs.xclip}/bin/xclip -i -selection clipboard")
+
     # Wifi management
     (mkScript "fuckwifi"
       "sh -xe -c 'nmcli radio wifi off; nmcli radio wifi on'")

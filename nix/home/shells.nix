@@ -4,7 +4,6 @@ let
   shellAliases = {
     l = "exa";
     ls = "exa";
-    copy = "${pkgs.xclip}/bin/xclip -i -selection clipboard";
     g = "git";
     e = "eval $EDITOR";
     ee = "fzf | xargs $EDITOR";
