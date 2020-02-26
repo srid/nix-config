@@ -12,6 +12,9 @@
 
   sound.mediaKeys.enable = true;
 
+  # For Google's Titan key
+  services.udev.packages = [ pkgs.libfido2 ];
+
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp = {
