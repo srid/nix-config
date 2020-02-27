@@ -54,6 +54,7 @@ in
     # Dev tools
     gnumake
     ripgrep
+    ag
     tig
     tmate
     gitAndTools.gh

@@ -32,6 +32,9 @@ in {
         # My multi monitor setup
         "${mod}+m" = "move workspace to output DP-2";
         "${mod}+Shift+m" = "move workspace to output DP-5";
+
+        # Quick floating windows
+        "${mod}+Shift+p" = "exec myst -c floating -g=150x50 tmux new-session -s floating ~/code/self/bin/open-zettel";
       };
 
       bars = [
@@ -41,5 +44,8 @@ in {
         }
       ];
     };
+    extraConfig = ''
+      for_window [class="floating"] floating enable;
+    '';
   };
 }
