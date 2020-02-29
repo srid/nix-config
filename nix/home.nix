@@ -62,6 +62,8 @@ in
 
     # Media
     mpv
+
+    zotero
   ];
 
   home.sessionVariables = {
