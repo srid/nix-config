@@ -1,36 +1,38 @@
 { config, pkgs, ...}:
 
 let 
-  mkScript = name: cli: pkgs.writeScriptBin name
+  mkScript = name: script: pkgs.writeScriptBin name
   ''
     #!${pkgs.runtimeShell}
-    exec ${cli}
+    ${script}
   '';
+  mkAlias = name: cli: mkScript name "exec ${cli}";
 in 
 {
   home.packages = with pkgs; [
-    (mkScript "lockscreen" 
+    (mkAlias "lockscreen" 
       "${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force off")
-    (mkScript "screenshot" 
+    (mkAlias "screenshot" 
       "${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png")
     # Need this to fix a random nvidia display bug (vertical buzz line)
-    (mkScript "refreshscreen"
+    (mkAlias "refreshscreen"
       "xset dpms force off ; xset dpms force on")
 
+    # Set DISPLAY so xclip will work inside tmux.
     (mkScript "copy"
-      "${pkgs.xclip}/bin/xclip -i -selection clipboard")
+      "DISPLAY=:0 ${pkgs.xclip}/bin/xclip -i -selection clipboard")
 
     # Wifi management
-    (mkScript "fuckwifi"
+    (mkAlias "fuckwifi"
       "sh -xe -c 'nmcli radio wifi off; nmcli radio wifi on'")
 
     # Monitor management
     # Use `arandr` to dump these scripts after fixing layout through GUI.
-    (mkScript "monitor-extonly"
+    (mkAlias "monitor-extonly"
       "xrandr --output DP-6 --off --output DP-5 --mode 2560x2880 --pos 0x0 --rotate normal --output DP-4 --off --output DP-3 --mode 2560x2880 --pos 2560x0 --rotate normal --output DP-2 --off --output DP-1 --off --output DP-0 --off")
-    (mkScript "monitor-laptoponly"
+    (mkAlias "monitor-laptoponly"
       "xrandr --output DP-6 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output DP-0 --off")
-    (mkScript "monitor-full"
+    (mkAlias "monitor-full"
       "xrandr --output DP-6 --off --output DP-5 --primary --mode 2560x2880 --pos 0x0 --rotate normal --output DP-4 --off --output DP-3 --mode 2560x2880 --pos 2560x0 --rotate normal --output DP-2 --mode 3840x2160 --pos 640x2880 --rotate normal --output DP-1 --off --output DP-0 --off")
 
   ];
