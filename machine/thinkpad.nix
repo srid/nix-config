@@ -44,9 +44,12 @@
     ports = [22];
   };
 
+  # Docker
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with  pkgs; [
+    docker-compose
+
     # TODO: Use autorandr to switch between modes.
     # For now, doing it manually using arandr.
     #   Using .screenlayout/lgonly.sh when connecting the monitor
