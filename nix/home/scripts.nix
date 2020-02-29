@@ -15,7 +15,7 @@ in
     (mkAlias "screenshot" 
       "${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png")
     # Need this to fix a random nvidia display bug (vertical buzz line)
-    (mkAlias "refreshscreen"
+    (mkScript "refreshscreen"
       "xset dpms force off ; xset dpms force on")
 
     # Set DISPLAY so xclip will work inside tmux.
