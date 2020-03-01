@@ -74,15 +74,6 @@ elseif executable('xclip')
   inoremap <C-v> <Esc>:r!xclip -o -sel clip <CR>
 endif
 
-"Ctrl-O/P to open files
-"-------------------------
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'Files'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_lazy_update = 10
-nnoremap <C-o> :CtrlPBuffer<CR>
-inoremap <C-o> <Esc>:CtrlPBuffer<CR>
-
 "NERDTree
 "-------------------------
 map <leader>\ :NERDTreeToggle<CR>
@@ -107,3 +98,15 @@ let g:dhall_format=1
 
 "ormolu
 let g:ormolu_options=["-o -XTypeApplications"]
+
+
+"Ctrl-O/P to open files
+"-------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'Files'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_lazy_update = 10
+nnoremap <C-o> :CtrlPBuffer<CR>
+inoremap <C-o> <Esc>:CtrlPBuffer<CR>
+"And to open by searching file content
+nnoremap <C-l> :Rg<CR>
