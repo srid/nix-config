@@ -50,6 +50,7 @@ in
     # nvim, and its runtime dependencies
     (callPackage ./nvim {inherit fetchGH;})
     nodejs  # coc.vim requires it
+    xclip  # config.vim references it
 
     # Dev tools
     gnumake

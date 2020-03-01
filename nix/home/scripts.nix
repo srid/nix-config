@@ -23,8 +23,11 @@ in
       "DISPLAY=:0 ${pkgs.xclip}/bin/xclip -i -selection clipboard")
 
     # Wifi management
-    (mkAlias "fuckwifi"
-      "sh -xe -c 'nmcli radio wifi off; nmcli radio wifi on'")
+    (mkScript "fuckwifi"
+    ''
+      nmcli radio wifi off
+      nmcli radio wifi on
+    '')
 
     # Monitor management
     # Use `arandr` to dump these scripts after fixing layout through GUI.

@@ -66,6 +66,7 @@ in
         # { name = "vim-stylish-haskell"; }
       ];
 
-      customRC = builtins.readFile ./config.vim;
+      customRC = 
+        builtins.readFile ./config.vim + builtins.readFile ./config-coc.vim;
     };
   }
