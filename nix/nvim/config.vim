@@ -81,6 +81,17 @@ let NERDTreeIgnore = [ '\.js_dyn_o', '\.js_hi', '\.js_o', '\.js_dyn_hi', '\.dyn_
 "Automatically close if NERDTree is the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+"Saving	
+"-------------------------	
+" If the current buffer has never been saved, it will have no name,	
+" call the file browser to save it, otherwise just save it.	
+command -nargs=0 -bar Update if &modified	
+                          \|    if empty(bufname('%'))	
+                          \|        browse confirm write	
+                          \|    else	
+                          \|        confirm write	
+                          \|    endif	
+                          \|endif
 "<C-s> to save
 nnoremap <silent> <C-s> :<C-u>Update<CR>
 inoremap <C-s> <C-o>:Update<CR>
