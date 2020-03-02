@@ -17,12 +17,9 @@ in {
     pandoc
 
     hoogle
+
     # ormolu code formatter
-    (macOSCaseNameFix (callPackage ormoluSrc { inherit pkgs; }).ormolu)
-
-    # stylish-hashell code formatter
-    # stylish-haskell
-
+    (macOSCaseNameFix (callPackage ormoluSrc { }).ormolu)
     # ghcide
     (import ghcideNixSrc {}).ghcide-ghc865
   ];
