@@ -120,4 +120,4 @@ let g:ctrlp_lazy_update = 10
 nnoremap <C-o> :CtrlPBuffer<CR>
 inoremap <C-o> <Esc>:CtrlPBuffer<CR>
 "And to open by searching file content
-nnoremap <C-l> :Rg<CR>
+nnoremap <C-l> :Rg<CR> title: 
