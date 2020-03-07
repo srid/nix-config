@@ -24,6 +24,7 @@
       core.editor = "nvim";
       # Allow keybase git protocol.
       protocol.keybase.allow = "always";
+      credential.helper = "store --file ~/.git-credentials";
     };
   };
 }
