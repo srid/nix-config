@@ -59,6 +59,8 @@
     passwordAuthentication = false;
   };
 
+  services.do-agent.enable = true;
+
   # My apps
   services.nginx = 
     let 
@@ -114,10 +116,15 @@
       virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
-  security.acme.certs = {
-    "tmp.srid.ca".email = "srid@srid.ca";
-    "notes.srid.ca".email = "srid@srid.ca";
-    "slownews.srid.ca".email = "srid@srid.ca";
+  security.acme = {
+    acceptTerms = true;
+    certs = {
+      "tmp.srid.ca".email = "srid@srid.ca";
+      "tmp1.srid.ca".email = "srid@srid.ca";
+      "notes.srid.ca".email = "srid@srid.ca";
+      "slownews.srid.ca".email = "srid@srid.ca";
+      "slackarchive.actualists.org".email = "srid@srid.ca";
+    };
   };
 
   system.stateVersion = "19.03";
