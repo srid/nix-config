@@ -12,6 +12,8 @@ let
     pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
   home.packages = with pkgs.haskellPackages; [
+    pkgs.stack
+
     # Some commonly used tools
     cachix
     pandoc
