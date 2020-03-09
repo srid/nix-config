@@ -19,8 +19,11 @@ in
       "xset dpms force off ; xset dpms force on")
 
     # Set DISPLAY so xclip will work inside tmux.
+    # These won't however work when remotely ssh'ed in (obviously).
     (mkScript "copy"
-      "DISPLAY=:0 ${pkgs.xclip}/bin/xclip -i -selection clipboard")
+      "DISPLAY=:0 ${pkgs.xclip}/bin/xclip -f -sel clip")
+    (mkScript "paste"
+      "DISPLAY=:0 ${pkgs.xclip}/bin/xclip -o -sel clip")
 
     # Wifi management
     (mkScript "fuckwifi"

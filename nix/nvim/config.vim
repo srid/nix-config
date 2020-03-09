@@ -70,8 +70,8 @@ if has("xterm_clipboard")
   vnoremap <C-c> "+y
   inoremap <C-v> <Esc>"+p i
 elseif executable('xclip')
-  vnoremap <C-c> :!xclip -f -sel clip <CR>
-  inoremap <C-v> <Esc>:r!xclip -o -sel clip <CR>
+  vnoremap <C-c> :!copy <CR>
+  inoremap <C-v> <Esc>:r!paste <CR>
 endif
 
 "NERDTree
