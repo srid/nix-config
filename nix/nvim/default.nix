@@ -58,7 +58,7 @@ in
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
-        # { name = "coc-nvim"; }
+        { name = "coc-nvim"; }
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
@@ -67,6 +67,6 @@ in
       ];
 
       customRC = 
-        builtins.readFile ./config.vim; # + builtins.readFile ./config-coc.vim;
+        builtins.readFile ./config.vim  + builtins.readFile ./config-coc.vim;
     };
   }
