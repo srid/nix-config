@@ -110,6 +110,9 @@ let g:dhall_format=1
 "ormolu
 let g:ormolu_options=["-o -XTypeApplications"]
 
+"But not for work projects
+autocmd BufRead,BufNewFile */work/* let b:ormolu_disable=1
+
 
 "Ctrl-O/P to open files
 "-------------------------
