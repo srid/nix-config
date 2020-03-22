@@ -63,7 +63,5 @@
     xorg.xf86videointel
     xorg.xprop
     xsel
-
-    zoom-us
   ];
 }
