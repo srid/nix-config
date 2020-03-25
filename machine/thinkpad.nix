@@ -44,8 +44,8 @@
     ports = [22];
   };
 
-  # Docker
   virtualisation.docker.enable = true;
+  virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
     docker-compose
