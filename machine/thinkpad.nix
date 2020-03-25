@@ -65,7 +65,7 @@
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" ];
     shell = pkgs.fish;
   };
 
