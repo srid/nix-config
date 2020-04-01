@@ -33,7 +33,7 @@ in
 {
   # Obelisk apps I expose to the outside world
   systemd.services = {
-    slownews = obeliskService "slownews" "3001" "srid/slownews" "badc5fd";
+    slownews = obeliskService "slownews" "3001" "srid/slownews" "909f6ea0d83ed3f95177d6c8a3f70ffc5ad175b7";
     slackarchive = obeliskService "slackarchive" "9002" "srid/Taut" "ef07c2c";
   };
 
