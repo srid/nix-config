@@ -14,11 +14,25 @@
 
   environment.systemPackages = [ pkgs.tmux ];
 
+  # Allow SSH based login
+  services.openssh = {
+    enable = true;
+    ports = [22];
+  };
+
+  networking = {
+    hostName = ""; # Allow the DHCP server to provide one
+    dhcpcd = {
+      enable = true;
+    };
+  };
+
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" ];
     shell = pkgs.bash;
+    openssh.authorizedKeys.keyFiles = [ ../keys/nixos.pub ];
   };
 
   # This value determines the NixOS release with which your system is to be
