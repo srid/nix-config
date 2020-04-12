@@ -26,6 +26,10 @@ let
       name = "vim-markdown-toc";
       src = fetchGH "mzlogin/vim-markdown-toc" "25c6e3d";
     };
+    vim-which-key = pkgs.vimUtils.buildVimPlugin {
+      name = "vim-which-key";
+      src = fetchGH "liuchengxu/vim-which-key" "4b70b44";
+    };
   };
 in
   with pkgs; neovim.override {
@@ -63,6 +67,7 @@ in
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-markdown-toc"; }
+        { name = "vim-which-key"; }
         # { name = "vim-stylish-haskell"; }
       ];
 
