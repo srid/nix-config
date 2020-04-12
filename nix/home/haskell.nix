@@ -1,7 +1,7 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "55d8b7f";
+  ormoluSrc = fetchGH "tweag/ormolu" "d09429f";
 
   # TODO: configure cache in home-manager first; until then, on macOS, use
   # 'cachix use hercules-ci' before 'home-manager switch'
