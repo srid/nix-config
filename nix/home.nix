@@ -24,6 +24,7 @@ let
     ./home/gotty.nix
     ./home/steam.nix
     ./home/udiskie.nix
+    ./home/emacs.nix
     ../private-config/work/aws.nix
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
@@ -46,6 +47,10 @@ in
     # Basic tools
     htop
     file
+    cmake # For emacs config
+    gcc
+    libtool
+    haskellPackages.mmark-cli
 
     # nvim, and its runtime dependencies
     (callPackage ./nvim {inherit fetchGH;})
