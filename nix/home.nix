@@ -50,6 +50,7 @@ in
     cmake # For emacs config
     gcc
     libtool
+    jq
     haskellPackages.mmark-cli
 
     # nvim, and its runtime dependencies
