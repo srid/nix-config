@@ -1,29 +1,29 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "d09429f";
+  ormoluSrc = fetchGH "tweag/ormolu" "683cbea";
 
   # TODO: configure cache in home-manager first; until then, on macOS, use
   # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "hercules-ci/ghcide-nix" "c940edd";
+  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c940edd";
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
     pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
   home.packages = with pkgs.haskellPackages; [
-    pkgs.stack
 
     # Some commonly used tools
     cachix
     pandoc
+    hlint
 
     hoogle
 
     # ormolu code formatter
     (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    # ghcide -- disabling, because uttery broken and unreliable
-    # (import ghcideNixSrc {}).ghcide-ghc865
+    # ghcide : disabling, because uttery broken and unreliable
+    (import ghcideNixSrc {}).ghcide-ghc865
   ];
 
   home.file = {
