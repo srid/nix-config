@@ -44,6 +44,10 @@
     ports = [22];
   };
 
+  services.ipfs = {
+    enable = true;
+  };
+
   virtualisation.docker.enable = true;
   virtualisation.lxd.enable = true;
 

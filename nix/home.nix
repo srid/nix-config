@@ -51,6 +51,7 @@ in
     gcc
     libtool
     jq
+    sshfs
     haskellPackages.mmark-cli
 
     # nvim, and its runtime dependencies
