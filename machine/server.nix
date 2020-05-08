@@ -122,6 +122,7 @@ in
       virtualHosts."notes.srid.ca" = notesVhost;
       virtualHosts."slackarchive.actualists.org" = myVhost { port = 9002; };
       virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
+      virtualHosts."commonmark.srid.ca" = myVhost { port = 3002; };
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
       virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
@@ -133,6 +134,7 @@ in
       "tmp1.srid.ca".email = "srid@srid.ca";
       "notes.srid.ca".email = "srid@srid.ca";
       "slownews.srid.ca".email = "srid@srid.ca";
+      "commonmark.srid.ca".email = "srid@srid.ca";
       "slackarchive.actualists.org".email = "srid@srid.ca";
     };
   };
