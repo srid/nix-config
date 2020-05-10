@@ -68,7 +68,7 @@ Use this method on macOS and other Linux distros including ChromeOS's crostini c
 
 Use https://github.com/jeaye/nixos-in-place on top of Ubuntu.
 
-Priot to running install.sh, patch the configuration.nix used by it to allow root logins; see https://github.com/jeaye/nixos-in-place/issues/43
+Prior to running install.sh, patch the configuration.nix used by it to allow root logins; see https://github.com/jeaye/nixos-in-place/issues/43
 
 ### Hyper-v
 
