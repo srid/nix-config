@@ -17,7 +17,7 @@
       ../nix/gui.nix
       ../nix/fonts.nix
       ../nix/dropbox.nix
-      # ../nix/ci.nix  -- not using due to security concerns
+      ../nix/ci.nix
 
       ../nix/srid-home.nix
 
