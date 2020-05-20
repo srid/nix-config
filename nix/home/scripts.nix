@@ -14,6 +14,12 @@ in
       "${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force off")
     (mkAlias "screenshot" 
       "${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png")
+    (mkScript "screenshot-to-zettelkasten"
+      ''
+      FILEPATH=static/images/$(date +"%Y-%m-%d-%H-%S.png")
+      ${pkgs.maim}/bin/maim -s /home/srid/zettelkasten/$FILEPATH
+      echo "![Image]($FILEPATH)" | ${pkgs.xclip}/bin/xclip -selection clipboard -t text/plain
+      '')
     # Need this to fix a random nvidia display bug (vertical buzz line)
     (mkScript "refreshscreen"
       "xset dpms force off ; xset dpms force on")

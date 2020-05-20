@@ -15,6 +15,7 @@ in {
       keybindings = lib.mkOptionDefault {
         "${mod}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
         "${mod}+x" = "exec screenshot";
+        "${mod}+Ctrl+x" = "exec screenshot-to-zettelkasten";
         "${mod}+Shift+x" = "exec lockscreen";
 
         # Focus
