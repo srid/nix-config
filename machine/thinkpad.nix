@@ -44,6 +44,10 @@
     ports = [22];
   };
 
+  services.netdata = {
+    enable = true;
+  };
+
   virtualisation.docker.enable = false;
   virtualisation.lxd.enable = true;
 
