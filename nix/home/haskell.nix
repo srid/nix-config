@@ -1,11 +1,21 @@
-{ pkgs, fetchGH, ... }:
+{ pkgs, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "683cbea";
+  ormoluSrc = pkgs.fetchFromGitHub {
+    owner = "tweag";
+    repo = "ormolu";
+    rev = "683cbea";
+    sha256 = "12z3qfs5nq3pgxwlr6gsmgqm363z0k9xac9bhikm5mi85b992yi4";
+  };
 
   # TODO: configure cache in home-manager first; until then, on macOS, use
   # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c940edd";
+  ghcideNixSrc = pkgs.fetchFromGitHub {
+    owner = "cachix";
+    repo = "ghcide-nix";
+    rev = "c940edd";
+    sha256 = "01f2x5sgncd468h99w3mpkkb1203akachm12czmiwbvgishf7dwp";
+  };
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:

@@ -27,17 +27,11 @@ let
     ./home/emacs.nix
     ../private-config/work/aws.nix
   ];
-  fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in
 {
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
-
-  # Utility functions
-  _module.args = {
-    inherit fetchGH;
-  };
 
   imports = if builtins.currentSystem == "x86_64-linux"
             then (allPlatformImports ++ linuxImports)
@@ -55,7 +49,7 @@ in
     haskellPackages.mmark-cli
 
     # nvim, and its runtime dependencies
-    (callPackage ./nvim {inherit fetchGH;})
+    (callPackage ./nvim {})
     nodejs  # coc.vim requires it
     xclip  # config.vim references it
 

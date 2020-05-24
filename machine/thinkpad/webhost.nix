@@ -5,9 +5,11 @@ let
   # Dedicated user for running internet-exposed services.
   srvUser = "apps";
 
-  obeliskService = name: port: repo: rev:
+  obeliskService = name: port: owner: repo: rev: sha256:
     let
-      obresult = (import (builtins.fetchTarball "https://github.com/${repo}/archive/${rev}.tar.gz") {}).exe;
+      obresult = (import (pkgs.fetchFromGitHub {
+        inherit owner repo rev sha256;
+      }) {}).exe;
       root = pkgs.runCommand "${name}-service" {}
         ''
         mkdir $out
@@ -33,9 +35,21 @@ in
 {
   # Obelisk apps I expose to the outside world
   systemd.services = {
-    slownews = obeliskService "slownews" "3001" "srid/slownews" "909f6ea0d83ed3f95177d6c8a3f70ffc5ad175b7";
-    MarkdownPreview = obeliskService "MarkdownPreview" "3002" "srid/MarkdownPreview" "89ec7c2fb2206f01219709f86c29fd53f12e8218";
-    slackarchive = obeliskService "slackarchive" "9002" "srid/Taut" "ef07c2c";
+    slownews =
+      obeliskService
+        "slownews" "3001" "srid" "slownews"
+        "909f6ea0d83ed3f95177d6c8a3f70ffc5ad175b7"
+        "10zwnf5z2raphpx3jfml6ry7y0mkpls92wm7ax613p5s18qfagxf";
+    MarkdownPreview =
+      obeliskService
+        "MarkdownPreview" "3002" "srid" "MarkdownPreview"
+        "89ec7c2fb2206f01219709f86c29fd53f12e8218"
+        "172wh1fk3i92c0awy6hm9a2fhhvmb62mfzkqsl7h2gdi75c353wz";
+    slackarchive =
+      obeliskService
+        "slackarchive" "9002" "srid" "Taut"
+        "ef07c2c"
+        "1pk99yhb88rgc8siqsqpps1l9qdgsryalbqj37sln0100i549xfz";
   };
 
   users.extraUsers.${srvUser} = {
