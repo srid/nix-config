@@ -17,7 +17,9 @@
       ../nix/gui.nix
       ../nix/fonts.nix
       ../nix/dropbox.nix
-      ../nix/ci.nix
+
+      # Using GitHub Actions with cachix instead
+      # ../nix/ci.nix
 
       ../nix/srid-home.nix
 
