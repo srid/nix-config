@@ -30,8 +30,11 @@ in
   };
 
   programs.fish = {
-    enable = true;
     inherit shellAliases;
+    enable = true;
+    shellAbbrs = {
+      gs = "git status";
+    };
   };
 
   programs.bash = {
