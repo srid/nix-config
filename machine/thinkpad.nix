@@ -21,10 +21,10 @@
       # Using GitHub Actions with cachix instead
       # ../nix/ci.nix
 
-      ../nix/srid-home.nix
-
       ../private-config
+      <home-manager/nixos>
     ];
+  home-manager.users.srid = (import ../nix/home.nix "thebeast");
 
   # EFI boot
   boot = {

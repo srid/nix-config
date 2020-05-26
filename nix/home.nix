@@ -3,16 +3,16 @@
 # Stuff on this file, and ./home/*.nix, should work across all of my computing
 # devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
-{ config, pkgs, ...}:
+device: { config, pkgs, ...}:
 
 let
-  allPlatformImports = [
+  baseImports = [
     ./home/git.nix
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
   ];
-  linuxImports = [
+  linuxDesktopImports = [
     ./home/scripts.nix
     ./home/terminal.nix
     ./home/i3.nix
@@ -33,9 +33,9 @@ in
 
   programs.home-manager.enable = true;
 
-  imports = if builtins.currentSystem == "x86_64-linux"
-            then (allPlatformImports ++ linuxImports)
-            else allPlatformImports;
+  imports = if (builtins.currentSystem == "x86_64-linux" && device == "thebeast")
+            then (baseImports ++ linuxDesktopImports)
+            else baseImports;
 
   home.packages = with pkgs; [
     # Basic tools

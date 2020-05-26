@@ -9,8 +9,9 @@ in
     /etc/nixos/nixos-in-place.nix
     ../nix/base.nix
     ../nix/caches.nix
-    ../nix/srid-home.nix
+    <home-manager/nixos>
   ];
+  home-manager.users.srid = (import ../nix/home.nix "facade");
 
   boot.cleanTmpDir = true;
   boot.loader.grub.enable = true;
