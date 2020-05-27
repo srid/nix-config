@@ -1,20 +1,5 @@
 # My Nix configuration
 
-<!-- vim-markdown-toc GFM -->
-
-* [On NixOS](#on-nixos)
-* [On macOS & Other Linux](#on-macos--other-linux)
-* [Hardware notes](#hardware-notes)
-  * [Thinkpad P71](#thinkpad-p71)
-    * [Preparation](#preparation)
-    * [Install](#install)
-  * [Kimsufi](#kimsufi)
-  * [Hyper-v](#hyper-v)
-* [Tips and tricks](#tips-and-tricks)
-  * [Resizing VM's disk](#resizing-vms-disk)
-
-<!-- vim-markdown-toc -->
-
 ## On NixOS
 
 1. First, copy the 'srid' user config to configuration.nix, and activate that nix. We need to do 
