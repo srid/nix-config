@@ -50,6 +50,15 @@ let
         sha256 = "197rp20hngrq7qdlii0ai4vb81dlilah0q1wlil8hv3qcf4az7qr";
       };
     };
+    neuron-vim = pkgs.vimUtils.buildVimPlugin {
+      name = "neuron-vim";
+      src = pkgs.fetchFromGitHub {
+        owner = "ihsanturk";
+        repo = "neuron.vim";
+        rev = "6352d5e";
+        sha256 = "sha256:1nva7928hncklr4w7cq5sz738hfqrvnp8yhsd6sc12wdxdikna9v";
+      };
+    };
   };
 in
   with pkgs; neovim.override {
@@ -87,7 +96,7 @@ in
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
-        # { name = "vim-stylish-haskell"; }
+        { name = "neuron-vim"; }
       ];
 
       customRC = 

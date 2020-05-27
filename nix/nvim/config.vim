@@ -135,6 +135,12 @@ set timeoutlen=500
 nnoremap <Leader>a<Tab> :echom "Hello, World"<cr>
 nnoremap <Leader>1 :echom "THis is one"<cr>
 
+# neuron.vim
+nnoremap <Leader>zz :call ZettelSearch()<cr>
+nnoremap <Leader>zl :call ZettelSearchInsert()<cr>
+nnoremap <Leader>zo :call ZettelOpenUnderCursor()<cr>
+nnoremap <Leader>zu :call ZettelOpenLast()<cr>
+
 let g:which_key_map = {}
 
 let g:which_key_map.a = {
