@@ -43,8 +43,8 @@ in
     MarkdownPreview =
       obeliskService
         "MarkdownPreview" "3002" "srid" "MarkdownPreview"
-        "89ec7c2fb2206f01219709f86c29fd53f12e8218"
-        "172wh1fk3i92c0awy6hm9a2fhhvmb62mfzkqsl7h2gdi75c353wz";
+        "eafa96b9b1b6906f6684bd7ba311d9c3ae85910f"
+        "sha256:1axnll107xqwpw20f92n2qvxznz2xqzr1a9x0s24x15mbgbz1qlh";
     slackarchive =
       obeliskService
         "slackarchive" "9002" "srid" "Taut"
