@@ -55,8 +55,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "ihsanturk";
         repo = "neuron.vim";
-        rev = "6352d5e";
-        sha256 = "sha256:1nva7928hncklr4w7cq5sz738hfqrvnp8yhsd6sc12wdxdikna9v";
+        rev = "3cd60b9";
+        sha256 = "sha256:1lx5gavqdhlksmpxrbrgpk35ml9618xzg4c0zp8jc4y5fy9nh4nh";
       };
     };
   };
