@@ -11,8 +11,10 @@ let
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
+    ./home/fx.nix
   ];
-  linuxDesktopImports = [
+  # For my main development machine only
+  thinkpadImports = [
     ./home/scripts.nix
     ./home/terminal.nix
     ./home/i3.nix
@@ -34,7 +36,7 @@ in
   programs.home-manager.enable = true;
 
   imports = if (builtins.currentSystem == "x86_64-linux" && device == "thebeast")
-            then (baseImports ++ linuxDesktopImports)
+            then (baseImports ++ thinkpadImports)
             else baseImports;
 
   home.packages = with pkgs; [
