@@ -50,6 +50,12 @@
     enable = true;
   };
 
+  services.ipfs = {
+    # Not using it due to issues with publishing static sites
+    enable = false;
+    autoMount = true;
+  };
+
   virtualisation.docker.enable = false;
   virtualisation.lxd.enable = true;
 
@@ -73,7 +79,7 @@
   users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
     shell = pkgs.fish;
   };
 
