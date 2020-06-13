@@ -66,6 +66,8 @@
     pavucontrol  # GUI version of pulsemixer
     blueman
     ntfs3g
+
+    inkscape
   ];
 
   users.extraUsers.srid = {
