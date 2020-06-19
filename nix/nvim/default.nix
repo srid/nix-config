@@ -96,7 +96,8 @@ in
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
-        { name = "neuron-vim"; }
+        # Fails with no neuron as build-time dependency
+        # { name = "neuron-vim"; }
       ];
 
       customRC = 
