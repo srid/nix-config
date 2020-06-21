@@ -25,6 +25,7 @@
       # Allow keybase git protocol.
       protocol.keybase.allow = "always";
       credential.helper = "store --file ~/.git-credentials";
+      pull.rebase = "false";
     };
   };
 }
