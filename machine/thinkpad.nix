@@ -36,6 +36,35 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  # Until nvidia fixes their broken package
+  # https://github.com/NixOS/nixpkgs/issues/90459#issuecomment-647041204
+  nixpkgs.overlays = [
+    (self: super: {
+      linuxPackages_latest = super.linuxPackages_latest.extend (self: super: {
+        nvidiaPackages = super.nvidiaPackages // {
+          stable = super.nvidiaPackages.stable.overrideAttrs (attrs: {
+            patches = [
+              (pkgs.fetchpatch {
+                name = "nvidia-kernel-5.7.patch";
+                url = "https://gitlab.com/snippets/1965550/raw";
+                sha256 = "03iwxhkajk65phc0h5j7v4gr4fjj6mhxdn04pa57am5qax8i2g9w";
+              })
+            ];
+
+            passthru = {
+              settings = pkgs.callPackage (import <nixpkgs/pkgs/os-specific/linux/nvidia-x11/settings.nix> self.nvidiaPackages.stable "15psxvd65wi6hmxmd2vvsp2v0m07axw613hb355nh15r1dpkr3ma") {
+                withGtk2 = true;
+                withGtk3 = false;
+              };
+
+              persistenced = pkgs.lib.mapNullable (hash: pkgs.callPackage (import <nixpkgs/pkgs/os-specific/linux/nvidia-x11/persistenced.nix> self.nvidiaPackages.stable hash) { }) "13izz9p2kg9g38gf57g3s2sw7wshp1i9m5pzljh9v82c4c22x1fw";
+            };
+          });
+        };
+      });
+    })
+  ];
+
   networking = {
     hostName = "thebeast";
     networkmanager.enable = true;
