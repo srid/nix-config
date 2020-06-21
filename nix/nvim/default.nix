@@ -55,8 +55,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "ihsanturk";
         repo = "neuron.vim";
-        rev = "4a50657";
-        sha256 = "sha256:1d1w5kg83dp4lgscslaknjlih50z60a36j9dvpjms7fbcx6syjk6";
+        rev = "94f0841";
+        sha256 = "sha256:15kxlqicf95iix367803024z4z6ga06zmqjh3c89dq7wk9b54qss";
       };
     };
   };
@@ -96,7 +96,7 @@ in
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
-        # Fails with no neuron as build-time dependency
+        # Fails with no neuron/jq as build-time dependency
         # { name = "neuron-vim"; }
       ];
 
