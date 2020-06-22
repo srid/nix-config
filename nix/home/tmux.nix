@@ -46,7 +46,10 @@
       bind c new-window -c "#{pane_current_path}"
       #unbind '"'
       #unbind %
+      tage)
 
+      # Because P is used for paste-buffer
+      bind N previous-window
     '';
 
   };

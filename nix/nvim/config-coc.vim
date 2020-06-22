@@ -1,4 +1,6 @@
 "Copy pasted from https://github.com/neoclide/coc.nvim
+"
+"http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
 
 " if hidden is not set, TextEdit might fail.
 set hidden
