@@ -4,8 +4,8 @@ let
   ormoluSrc = pkgs.fetchFromGitHub {
     owner = "tweag";
     repo = "ormolu";
-    rev = "683cbea";
-    sha256 = "12z3qfs5nq3pgxwlr6gsmgqm363z0k9xac9bhikm5mi85b992yi4";
+    rev = "409c1f9aa8064ffc89aa8d047181ffee95e4fc46";
+    sha256 = "sha256:0j26r42nw854wn9zyn1dm1h87rjdjwfdyncjgp8fj1q19hnz99gw";
   };
 
   # TODO: configure cache in home-manager first; until then, on macOS, use
