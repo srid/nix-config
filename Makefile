@@ -14,3 +14,7 @@ nocache:
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:
 	sudo nix-collect-garbage --delete-older-than 7d
+
+# TODO: Do it in nix
+terminfo:
+	tic -x -o ~/.terminfo terminfo-24bit.src
