@@ -24,7 +24,6 @@
 
       # Use default shell
       set-option -g default-shell ''${SHELL}
-      # set -g default-terminal "xterm-24bit"
 
       # Extra Vi friendly stuff
       # y and p as in vim
@@ -42,12 +41,7 @@
       # easy-to-remember split pane commands
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
-      bind '"' split-window -h -c "#{pane_current_path}"
-      bind % split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
-      #unbind '"'
-      #unbind %
-      tage)
 
       # Because P is used for paste-buffer
       bind N previous-window
