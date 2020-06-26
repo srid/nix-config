@@ -11,6 +11,8 @@
     libinput = {
       enable = true;
       naturalScrolling = true;
+      # Workaround https://github.com/NixOS/nixpkgs/issues/75007
+      additionalOptions = ''MatchIsTouchpad "on"'';
     };
 
     # Graphics drivers.
