@@ -13,8 +13,8 @@ let
   ghcideNixSrc = pkgs.fetchFromGitHub {
     owner = "cachix";
     repo = "ghcide-nix";
-    rev = "c940edd";
-    sha256 = "01f2x5sgncd468h99w3mpkkb1203akachm12czmiwbvgishf7dwp";
+    rev = "67493b8";
+    sha256 = "sha256:1zq5g7ka99vcyqbg5l1bx0rliq3ihig37nzczk0wdwidjyxjghf9";
   };
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
