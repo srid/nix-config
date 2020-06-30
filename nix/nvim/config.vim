@@ -114,6 +114,7 @@ let g:ormolu_options=["-o -XTypeApplications"]
 autocmd BufRead,BufNewFile */work/* let b:ormolu_disable=1
 "Or for obelisk deps
 autocmd BufRead,BufNewFile */dep/* let b:ormolu_disable=1
+autocmd BufRead,BufNewFile */dep/neuron* let b:ormolu_disable=0
 
 
 "Ctrl-O/P to open files
