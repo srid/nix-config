@@ -96,6 +96,7 @@ in
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
+        { name = "vim-sneak"; }
         # Fails with no neuron/jq as build-time dependency
         # { name = "neuron-vim"; }
       ];
