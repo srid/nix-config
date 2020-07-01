@@ -36,6 +36,10 @@ in {
 
         # Quick floating windows
         "${mod}+Shift+p" = "exec myst -c floating -g=150x50 tmux new-session -s floating ~/code/self/bin/open-zettel";
+
+        # Swap
+        "${mod}+i" = "mark _last; focus left; swap with mark \"_last\" ";
+        "${mod}+Shift+i" = "mark _last; focus right; swap with mark \"_last\" ";
       };
 
       bars = [
