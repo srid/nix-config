@@ -23,6 +23,14 @@ in
     # nodePackages.castnow
   ];
 
+  programs.keychain = {
+    enable = true;
+    keys = [
+      "id_rsa"
+      "/home/srid/work/m/j/sshkey"
+    ];
+  };
+
   programs.broot = {
     enable = true;
     enableBashIntegration = true;
