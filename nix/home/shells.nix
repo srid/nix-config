@@ -25,6 +25,8 @@ in
 
   programs.keychain = {
     enable = true;
+    # Disable bash integration which breaks nix-shell everywhere
+    enableBashIntegration = false;
     keys = [
       "id_rsa"
       "/home/srid/work/m/j/sshkey"
