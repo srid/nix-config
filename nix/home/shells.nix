@@ -20,6 +20,7 @@ in
     exa
     bat
     aria
+    mosh
     # nodePackages.castnow
   ];
 
