@@ -34,6 +34,12 @@ in
     ];
   };
 
+  programs.ssh = {
+    enable = true;
+    # Keeping individual hosts private.
+    matchBlocks = import ../../private-config/ssh-match-blocks.nix;
+  };
+
   programs.broot = {
     enable = true;
     enableBashIntegration = true;
