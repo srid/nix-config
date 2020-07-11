@@ -37,6 +37,10 @@
     serverFlagsSection = ''
       Option  "Xinerama" "0"
     '';
+
+    desktopManager.plasma5 = {
+      enable = true;
+    };
   };
 
   hardware = {
