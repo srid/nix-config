@@ -24,7 +24,7 @@ let
     ./home/redshift.nix
     ./home/keybase.nix
     ./home/gotty.nix
-    # ./home/steam.nix
+    ./home/steam.nix
     ./home/udiskie.nix
     ./home/emacs.nix
     ../private-config/work/aws.nix
