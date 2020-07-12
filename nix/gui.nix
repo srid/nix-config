@@ -21,7 +21,7 @@
 
     displayManager = {
       hiddenUsers = [ "apps" ];
-      lightdm = {
+      gdm = {
         enable = true;
       };
     };
@@ -40,6 +40,14 @@
           '';
         }
       ];
+    };
+
+    desktopManager.plasma5 = {
+      enable = false;
+    };
+
+    desktopManager.gnome3 = {
+      enable = true;
     };
   };
 
