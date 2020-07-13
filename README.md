@@ -20,9 +20,9 @@ nix-shell -p git -p vim
 git clone git@github.com:srid/nix-config.git $HOME/nix-config
 cd $HOME/nix-config 
 
-# First, review ./machine/???.nix
+# First, review ./nixos-configuration/???.nix
 sudo mv /etc/nixos/configuration.nix /tmp/
-sudo ln -s $(pwd)/machine/???.nix /etc/nixos/configuration.nix
+sudo ln -s $(pwd)/nixos-configuration/???.nix /etc/nixos/configuration.nix
 make
 ```
 
