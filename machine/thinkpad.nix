@@ -12,11 +12,11 @@
       ./thinkpad/postgresql.nix
       ./thinkpad/webhost.nix
      
-      ../nix/base.nix
-      ../nix/caches.nix
-      ../nix/gui.nix
-      ../nix/fonts.nix
-      ../nix/dropbox.nix
+      ../nixos/base.nix
+      ../nixos/caches.nix
+      ../nixos/gui.nix
+      ../nixos/fonts.nix
+      ../nixos/dropbox.nix
 
       # Using GitHub Actions with cachix instead
       # ../nix/ci.nix
