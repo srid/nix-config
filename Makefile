@@ -8,6 +8,7 @@ upgrade:
 	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade
 
+# Use this if one of the cache gets broken
 nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
@@ -15,6 +16,3 @@ nocache:
 workaround:
 	sudo nix-collect-garbage --delete-older-than 7d
 
-# TODO: Do it in nix
-terminfo:
-	tic -x -o ~/.terminfo terminfo-24bit.src
