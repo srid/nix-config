@@ -39,6 +39,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+
   networking = {
     hostName = "thebeast";
     networkmanager.enable = true;
@@ -60,7 +61,8 @@
   };
 
   virtualisation.docker.enable = false;
-  virtualisation.lxd.enable = true;
+  # security.apparmor.enable = true;
+  # virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
     docker-compose
