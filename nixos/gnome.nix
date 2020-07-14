@@ -7,6 +7,10 @@
     };
   };
 
+  services.gnome3 = {
+    tracker-miners.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     gnomeExtensions.paperwm
   ];
