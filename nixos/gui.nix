@@ -1,12 +1,6 @@
 { config, pkgs, ...}:
 
 {
-  # Google Chrome ulimit upping
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=362603#c28
-  security.pam.loginLimits = [
-    { domain = "*"; item = "nofile"; type = "-"; value = "65536"; }
-  ];
-
   services.compton = {
     enable = true;
     shadow = true;
@@ -25,30 +19,6 @@
         enable = true;
       };
     };
-
-    windowManager.i3.enable = true;
-
-    desktopManager = {
-      # To make home-manager's i3 available in system X session
-      # https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8
-      session = [
-        { 
-          name = "home-manager";
-          start = ''
-            ${pkgs.runtimeShell} $HOME/.hm-xsession &
-            waitPID=$!
-          '';
-        }
-      ];
-    };
-
-    desktopManager.plasma5 = {
-      enable = false;
-    };
-
-    desktopManager.gnome3 = {
-      enable = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -64,7 +34,6 @@
     simplescreenrecorder
 
     vscode
-    google-chrome
     xorg.xbacklight
     xorg.xf86videointel
     xorg.xprop

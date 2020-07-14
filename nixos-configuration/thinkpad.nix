@@ -15,6 +15,9 @@
       ../nixos/base.nix
       ../nixos/caches.nix
       ../nixos/gui.nix
+      ../nixos/gnome.nix
+      ../nixos/i3.nix
+      ../nixos/google-chrome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
 
