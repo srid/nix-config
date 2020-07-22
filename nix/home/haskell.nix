@@ -32,8 +32,8 @@ in {
 
     # ormolu code formatter
     (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    # ghcide : disabling, because uttery broken and unreliable
-    (import ghcideNixSrc {}).ghcide-ghc865
+    # ghcide
+    (import ghcideNixSrc {}).ghcide-ghc883
   ];
 
   home.file = {
