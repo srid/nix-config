@@ -3,15 +3,15 @@
 # Stuff on this file, and ./home/*.nix, should work across all of my computing
 # devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
-device: { config, pkgs, ...}:
+{ config, pkgs,  ...}:
 
 let
+  device = "unknown";
   baseImports = [
     ./home/git.nix
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
-    ./home/fx.nix
   ];
   # For my main development machine only
   thinkpadImports = [
@@ -53,7 +53,6 @@ in
     # nvim, and its runtime dependencies
     (callPackage ./nvim {})
     nodejs  # coc.vim requires it
-    xclip  # config.vim references it
 
     # Dev tools
     gnumake
@@ -63,14 +62,10 @@ in
     tmate
     gitAndTools.gh
     dhall
-
-    # Media
-    mpv
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "myst";
   };
 
 }

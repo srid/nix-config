@@ -26,9 +26,9 @@ sudo ln -s $(pwd)/nixos-configuration/???.nix /etc/nixos/configuration.nix
 make
 ```
 
-## On macOS & Other Linux
+## On macOS, Windows (WSL 2) & Other Linux
 
-Use this method on macOS and other Linux distros including ChromeOS's crostini container.
+Use this method on macOS, Windows (WSL 2) and other Linux distros (including ChromeOS's crostini container).
 
 1. Install [home-manager](https://github.com/rycee/home-manager)
 1. `ln -s ~/nix-config/nix/home.nix ~/.config/nixpkgs/home.nix`
