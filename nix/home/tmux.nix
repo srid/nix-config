@@ -11,7 +11,7 @@
     historyLimit = 100000;
     resizeAmount = 5;
     escapeTime = 0;
-    terminal = "xterm-24bit";
+    # terminal = "xterm-24bit";
 
     extraConfig = ''
       # Fix environment variables
