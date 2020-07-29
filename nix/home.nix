@@ -49,6 +49,7 @@ in
     jq
     sshfs
     haskellPackages.mmark-cli
+    youtube-dl
 
     # nvim, and its runtime dependencies
     (callPackage ./nvim {})
