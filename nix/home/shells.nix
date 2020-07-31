@@ -10,6 +10,7 @@ let
     download = "aria2c --file-allocation=none --seed-time=0";
     # chromecast = "castnow --address 192.168.2.64 --myip 192.168.2.76";
     gotty-sridca = "gotty -a 0.0.0.0 -p 9999 -r"; # To be run from the thebeast wireguard peer only.
+    youtube-dl-audio = "youtube-dl --ignore-errors --output \"%(title)s.%(ext)s\" --extract-audio --audio-format mp3";
   };
 
 in
