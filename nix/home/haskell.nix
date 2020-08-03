@@ -33,7 +33,7 @@ in {
     # ormolu code formatter
     (macOSCaseNameFix (import ormoluSrc { }).ormolu)
     # ghcide
-    (import ghcideNixSrc {}).ghcide-ghc883
+    # (import ghcideNixSrc {}).ghcide-ghc882
   ];
 
   home.file = {
