@@ -5,6 +5,7 @@ let
     l = "exa";
     ls = "exa";
     g = "git";
+    t = "tig status";
     e = "eval $EDITOR";
     ee = "fzf | xargs $EDITOR";
     download = "aria2c --file-allocation=none --seed-time=0";
