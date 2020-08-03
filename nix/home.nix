@@ -43,12 +43,7 @@ in
     # Basic tools
     htop
     file
-    cmake # For emacs config
-    gcc
-    libtool
     jq
-    sshfs
-    haskellPackages.mmark-cli
     youtube-dl
 
     # nvim, and its runtime dependencies
@@ -58,7 +53,6 @@ in
     # Dev tools
     gnumake
     ripgrep
-    ag
     tig
     tmate
     gitAndTools.gh
