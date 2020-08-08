@@ -30,6 +30,32 @@ in {
     ".ghci".text = ''
       :set prompt "λ> "
     '';
+
+    # coc.vim
+    ".config/nvim/coc-settings.json".text = ''
+      {
+        "languageserver": {
+          "haskell": {
+            "command": "ghcide",
+            "args": [
+              "--lsp"
+            ],
+            "rootPatterns": [
+              ".stack.yaml",
+              ".hie-bios",
+              "BUILD.bazel",
+              "cabal.config",
+              "package.yaml"
+            ],
+            "filetypes": [
+              "hs",
+              "lhs",
+              "haskell"
+            ]
+          }
+        }
+      }
+      '';
     # stylish-haskell (obsidian style)
     # I now use ormolu; retaining this config for legacy purposes.
     ".stylish-haskell.yaml".text = ''
