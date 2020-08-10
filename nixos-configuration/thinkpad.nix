@@ -10,7 +10,6 @@
       ./thinkpad/graphics.nix
       ./thinkpad/wireguard.nix
       ./thinkpad/postgresql.nix
-      ./thinkpad/webhost.nix
      
       ../nixos/base.nix
       ../nixos/caches.nix
