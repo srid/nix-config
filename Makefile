@@ -2,15 +2,15 @@ all:	nix-switch
 	@echo
 
 nix-switch:
-	sudo nixos-rebuild switch
+	sudo nixos-rebuild -j auto switch
 
 upgrade:
 	sudo nix-channel --update
-	sudo nixos-rebuild switch --upgrade
+	sudo nixos-rebuild -j auto switch --upgrade
 
 # Use this if one of the cache gets broken
 nocache:
-	sudo nixos-rebuild switch --option build-use-substitutes false
+	sudo nixos-rebuild -j auto switch --option build-use-substitutes false
 
 # https://github.com/NixOS/nixpkgs/issues/23926
 workaround:
