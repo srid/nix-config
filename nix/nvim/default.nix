@@ -59,6 +59,15 @@ let
         sha256 = "sha256:15kxlqicf95iix367803024z4z6ga06zmqjh3c89dq7wk9b54qss";
       };
     };
+    mkdx = pkgs.vimUtils.buildVimPlugin {
+      name = "mkdx";
+      src = pkgs.fetchFromGitHub {
+        owner = "SidOfc";
+        repo = "mkdx";
+        rev = "bc7cc40";
+        sha256 = "sha256:1va4cfwpq29z9cfw8l04g0f1wgfc4gqp1gpcn15y997cg61bvlnf";
+      };
+    };
   };
 in
   with pkgs; neovim.override {
@@ -97,6 +106,7 @@ in
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
         { name = "vim-sneak"; }
+        { name = "mkdx"; }
         # Fails with no neuron/jq as build-time dependency
         # { name = "neuron-vim"; }
       ];
