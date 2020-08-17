@@ -6,7 +6,10 @@ let
     doomPrivateDir = ./doom.d; 
   };
 in {
-  home.packages = [ doom-emacs ];
+  home.packages = [ 
+    doom-emacs 
+    (pkgs.callPackage ./xterm-24bit.nix {})
+  ];
   home.file.".emacs.d/init.el".text = ''
      (load "default.el")
   '';
