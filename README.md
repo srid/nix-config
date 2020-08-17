@@ -42,12 +42,10 @@ Use this method on macOS, Windows (WSL 2) and other Linux distros (including Chr
 #### Preparation
 - In BIOS, disable discrete graphics so intel card is used. We can change this post-install.
 - In BIOS, make the USB disk the highest startup priority
-- Plug the Ethernet cable for direct internet (wifi will be configured post-install)
 
 #### Install
-- Follow the NixOS installation manual (choose UEFI), using /dev/nvmen1 disk)
+- Follow the NixOS installation manual (choose UEFI), using /dev/nvme0n1 disk)
 - Boot into NixOS and follow the instructions in [nix-config](https://github.com/srid/nix-config) to complete the configuration.
-- Unplug the Enternet cable, and test WIFI using `nmtui`
 
 ### Kimsufi
 
