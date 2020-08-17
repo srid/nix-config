@@ -26,7 +26,10 @@
       ../private-config
       <home-manager/nixos>
     ];
-  home-manager.users.srid = (import ../nix/home.nix);
+    home-manager.users.srid = (import ../nix/home.nix { 
+      inherit pkgs config;
+      device = "bornagain"; 
+    } );
 
   # EFI boot
   boot = {

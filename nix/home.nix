@@ -3,12 +3,9 @@
 # Stuff on this file, and ./home/*.nix, should work across all of my computing
 # devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
-{ config, pkgs,  ...}:
+{ config, pkgs, device ? "unknown", ...}:
 
 let
-  # FIXME: resurrect device argument to this file
-  device = "unknown";
-
   baseImports = [
     ./home/git.nix
     ./home/haskell.nix
@@ -40,7 +37,7 @@ in
 
   programs.home-manager.enable = true;
 
-  imports = if (builtins.currentSystem == "x86_64-linux" && device == "thebeast")
+  imports = if (builtins.currentSystem == "x86_64-linux" && device == "bornagain")
             then (baseImports ++ thinkpadImports)
             else baseImports;
 
