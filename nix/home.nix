@@ -11,6 +11,7 @@ let
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
+    ./home/emacs.nix
   ];
   # For my main development machine only
   thinkpadImports = [
@@ -29,7 +30,6 @@ let
     ./home/gotty.nix
     #./home/steam.nix
     ./home/udiskie.nix
-    ./home/emacs.nix
     ../private-config/work/aws.nix
   ];
 in

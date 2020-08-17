@@ -1,13 +1,15 @@
 { pkgs, ... }:
-  let
-    emacsWithPackages = (pkgs.emacsPackagesNgGen pkgs.emacs).emacsWithPackages;
-    # elpa vs melpa vs melpaStable: https://emacs.stackexchange.com/a/10501/2059
-    myEmacs = emacsWithPackages (epkgs: [
-      # epkgs.emacs-libvterm
-    ]);
-  in
-  {
-    home.packages = with pkgs; [
-      myEmacs
-    ];
-  }
+let
+ doom-emacs = pkgs.callPackage (builtins.fetchTarball {
+   url = https://github.com/vlaci/nix-doom-emacs/archive/master.tar.gz;
+ }) {
+   # Doom configuration
+   doomPrivateDir = ./emacs/doom.d; 
+ };
+in {
+ home.packages = [ doom-emacs ];
+ home.file.".emacs.d/init.el".text = ''
+     (load "default.el")
+ '';
+}
+
