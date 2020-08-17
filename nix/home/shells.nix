@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
+  go-cast = pkgs.callPackage (builtins.fetchTarball {
+    url = "https://github.com/srid/go-cast/archive/df48bea685.tar.gz";
+    sha256 = "0xka0q3f7axrglckaxbmh0cwpad1r7kc1im4alfhw9vp90j81xyh";
+  }) {};
   shellAliases = {
     l = "exa";
     ls = "exa";
@@ -9,7 +13,10 @@ let
     e = "eval $EDITOR";
     ee = "fzf | xargs $EDITOR";
     download = "aria2c --file-allocation=none --seed-time=0";
-    # chromecast = "castnow --address 192.168.2.64 --myip 192.168.2.76";
+    cast-mini = "${go-cast}/bin/cast --name SridMini ";
+    cast-screen = "${go-cast}/bin/cast --name SridScreen ";
+    cast-screen-castnow = "${pkgs.nodePackages.castnow} --address 192.168.2.64 --myip 192.168.2.204";
+    cast = "${go-cast}/bin/cast";
     gotty-sridca = "gotty -a 0.0.0.0 -p 9999 -r"; # To be run from the thebeast wireguard peer only.
     youtube-dl-audio = "youtube-dl --ignore-errors --output \"%(title)s.%(ext)s\" --extract-audio --audio-format mp3";
   };
@@ -22,7 +29,6 @@ in
     bat
     aria
     mosh
-    # nodePackages.castnow
   ];
 
   programs.keychain = {
