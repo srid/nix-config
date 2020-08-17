@@ -22,6 +22,7 @@ let
     #./home/terminal.nix
 
     #./home/irc.nix
+    ./home/google-cast.nix
     ./home/HighDpiCursor.nix
     ./home/gpg.nix
     ./home/keybase.nix
