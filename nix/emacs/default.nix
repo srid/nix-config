@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
-  sources = import ./sources.nix;
+  sources = import ../sources.nix;
   doom-emacs = pkgs.callPackage sources.nix-doom-emacs {
     # Doom configuration
-    doomPrivateDir = ./emacs/doom.d; 
+    doomPrivateDir = ./doom.d; 
   };
 in {
   home.packages = [ doom-emacs ];
