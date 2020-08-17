@@ -50,6 +50,7 @@ in
     enable = true;
     shellAbbrs = {
       gs = "git status";
+      gca = "git commit --amend";
     };
   };
 
