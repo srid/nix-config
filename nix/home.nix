@@ -1,35 +1,35 @@
 # https://nixos.wiki/wiki/Home_Manager
 
-# Stuff on this file, and ./home/*.nix, should work across all of my computing
+# Stuff on this file, and ./*.nix, should work across all of my computing
 # devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
 { config, pkgs, device ? "unknown", ...}:
 
 let
   baseImports = [
-    ./home/git.nix
-    ./home/haskell.nix
-    ./home/shells.nix
-    ./home/tmux.nix
-    ./home/emacs.nix
+    ./git.nix
+    ./haskell.nix
+    ./shells.nix
+    ./tmux.nix
+    ./emacs.nix
   ];
   # For my main development machine only
   thinkpadImports = [
-    ./home/scripts.nix
+    ./scripts.nix
 
     # i3 and related (not using right now)
-    #./home/i3.nix
-    ./home/redshift.nix
-    #./home/terminal.nix
+    #./i3.nix
+    ./redshift.nix
+    #./terminal.nix
 
-    #./home/irc.nix
-    ./home/google-cast.nix
-    ./home/HighDpiCursor.nix
-    ./home/gpg.nix
-    ./home/keybase.nix
-    ./home/gotty.nix
-    #./home/steam.nix
-    ./home/udiskie.nix
+    #./irc.nix
+    ./google-cast.nix
+    ./HighDpiCursor.nix
+    ./gpg.nix
+    ./keybase.nix
+    ./gotty.nix
+    #./steam.nix
+    ./udiskie.nix
     ../private-config/work/aws.nix
   ];
 in

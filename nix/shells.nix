@@ -36,7 +36,7 @@ in
   programs.ssh = {
     enable = true;
     # Keeping individual hosts private.
-    matchBlocks = import ../../private-config/ssh-match-blocks.nix;
+    matchBlocks = import ../private-config/ssh-match-blocks.nix;
   };
 
   programs.broot = {
