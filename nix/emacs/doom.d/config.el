@@ -52,3 +52,16 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Per https://github.com/haskell/haskell-language-server#using-haskell-language-server-with-doom-emacs
+(use-package lsp-haskell
+ :ensure t
+ :config
+ (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+ ;; Comment/uncomment this line to see interactions between lsp client/server.
+ ;;(setq lsp-log-io t)
+)
+
+;; Since doom-emacs is managed by Nix, we need to override the default path
+;; which points to read-only Nix store.
+(setq lsp-session-file "/home/srid/.emacs-lsp-session")
