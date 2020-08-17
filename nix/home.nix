@@ -43,6 +43,9 @@ in
             else baseImports;
 
   home.packages = with pkgs; [
+    # To track sources 
+    niv
+
     # Basic tools
     htop
     file

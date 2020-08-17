@@ -17,6 +17,18 @@
         "url": "https://github.com/nmattia/niv/archive/303f442c43f918bc43400ab4a0b662a82ca7748b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nix-doom-emacs": {
+        "branch": "master",
+        "description": "doom-emacs packaged for Nix",
+        "homepage": "",
+        "owner": "vlaci",
+        "repo": "nix-doom-emacs",
+        "rev": "edea767bd1a5cf2bbf00760f6070ecf1c2490ebc",
+        "sha256": "16q5n8ha7hq8cmc85490dr37q6swr2b87wd6bihxbdcb0hbwik5j",
+        "type": "tarball",
+        "url": "https://github.com/vlaci/nix-doom-emacs/archive/edea767bd1a5cf2bbf00760f6070ecf1c2490ebc.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "release-20.03",
         "description": "Nix Packages collection",
