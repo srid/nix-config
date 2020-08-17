@@ -8,7 +8,7 @@
 
       ./thinkpad/hardware.nix
       ./thinkpad/graphics.nix
-      ./thinkpad/wireguard.nix
+      #./thinkpad/wireguard.nix
       ./thinkpad/postgresql.nix
      
       ../nixos/base.nix
@@ -26,7 +26,7 @@
       ../private-config
       <home-manager/nixos>
     ];
-  home-manager.users.srid = (import ../nix/home.nix "thebeast");
+  home-manager.users.srid = (import ../nix/home.nix);
 
   # EFI boot
   boot = {
@@ -40,7 +40,7 @@
 
 
   networking = {
-    hostName = "thebeast";
+    hostName = "bornagain";
     networkmanager.enable = true;
   };
 
@@ -91,5 +91,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 }

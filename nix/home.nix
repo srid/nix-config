@@ -6,7 +6,9 @@
 { config, pkgs,  ...}:
 
 let
+  # FIXME: resurrect device argument to this file
   device = "unknown";
+
   baseImports = [
     ./home/git.nix
     ./home/haskell.nix
@@ -16,15 +18,18 @@ let
   # For my main development machine only
   thinkpadImports = [
     ./home/scripts.nix
-    ./home/terminal.nix
-    ./home/i3.nix
-    ./home/irc.nix
+
+    # i3 and related (not using right now)
+    #./home/i3.nix
+    #./home/redshift.nix
+    #./home/terminal.nix
+
+    #./home/irc.nix
     ./home/HighDpiCursor.nix
     ./home/gpg.nix
-    ./home/redshift.nix
     ./home/keybase.nix
     ./home/gotty.nix
-    ./home/steam.nix
+    #./home/steam.nix
     ./home/udiskie.nix
     ./home/emacs.nix
     ../private-config/work/aws.nix
