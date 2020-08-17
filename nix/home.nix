@@ -18,7 +18,7 @@ let
 
     # i3 and related (not using right now)
     #./home/i3.nix
-    #./home/redshift.nix
+    ./home/redshift.nix
     #./home/terminal.nix
 
     #./home/irc.nix
