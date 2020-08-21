@@ -26,7 +26,7 @@
     "cerveau": {
         "ref": "master",
         "repo": "git@github.com:srid/cerveau",
-        "rev": "e57c1492b2253ed5357a4a1c091d18ccb299e6fb",
+        "rev": "dd690656304cb53165efe51a1b15a5a13068eb05",
         "type": "git"
     },
     "niv": {
@@ -35,10 +35,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "d13bf5ff11850f49f4282d59b25661c45a851936",
-        "sha256": "06hg0i173dia99bcv8si8qqwdw0ymbngsilz2s182d4afsnylq5z",
+        "rev": "89ae775e9dfc2571f912156dd2f8627e14d4d507",
+        "sha256": "0ssw6byyn79fpyzswi28s5b85x66xh4xsfhmcfl5mkdxxpmyy0ns",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/d13bf5ff11850f49f4282d59b25661c45a851936.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/89ae775e9dfc2571f912156dd2f8627e14d4d507.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-doom-emacs": {
@@ -47,10 +47,10 @@
         "homepage": "",
         "owner": "vlaci",
         "repo": "nix-doom-emacs",
-        "rev": "edea767bd1a5cf2bbf00760f6070ecf1c2490ebc",
-        "sha256": "16q5n8ha7hq8cmc85490dr37q6swr2b87wd6bihxbdcb0hbwik5j",
+        "rev": "8e120b430bbaf473305cdf9ee2aed9b01a3f8398",
+        "sha256": "1cp12lmkp9wq5kzwhl91wsvmmna0apfz5b8s4xl1j30y9n1sxh4b",
         "type": "tarball",
-        "url": "https://github.com/vlaci/nix-doom-emacs/archive/edea767bd1a5cf2bbf00760f6070ecf1c2490ebc.tar.gz",
+        "url": "https://github.com/vlaci/nix-doom-emacs/archive/8e120b430bbaf473305cdf9ee2aed9b01a3f8398.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -59,10 +59,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "de3780b937d2984f9b5e20d191f23be4f857b3aa",
-        "sha256": "0q090679dg1nsy45vl3qm285g0q9vdr878cym9zgfc44zk46k4bx",
+        "rev": "2d580cd2793a7b5f4b8b6b88fb2ccec700ee1ae6",
+        "sha256": "1nbanzrir1y0yi2mv70h60sars9scwmm0hsxnify2ldpczir9n37",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/de3780b937d2984f9b5e20d191f23be4f857b3aa.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/2d580cd2793a7b5f4b8b6b88fb2ccec700ee1ae6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "slownews": {
@@ -71,10 +71,10 @@
         "homepage": "https://slownews.srid.ca/",
         "owner": "srid",
         "repo": "slownews",
-        "rev": "ea855f9f5ab465d6473ec5572c21cd4c8c8d4958",
-        "sha256": "1v2gdmws4ada514w5agrdlmjn687za95knp4dw4finzdwalp5c9v",
+        "rev": "fc5cedabb8b2206c0e020cec4c0feead3fd50a0c",
+        "sha256": "0qp3d5ng98vacnwcydiid7g27n3fynrgkbg9aibnqfmm7m21ckbc",
         "type": "tarball",
-        "url": "https://github.com/srid/slownews/archive/ea855f9f5ab465d6473ec5572c21cd4c8c8d4958.tar.gz",
+        "url": "https://github.com/srid/slownews/archive/fc5cedabb8b2206c0e020cec4c0feead3fd50a0c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
