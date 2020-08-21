@@ -118,24 +118,21 @@ in
       };
     in {
       enable = true;
-      #user = "srid";
-      virtualHosts."notes.srid.ca" = notesVhost;
-      #virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
-      #virtualHosts."commonmark.srid.ca" = myVhost { port = 3002; };
 
-      # https://tmp.srid.ca/p/9990 => bornagain:9990
+      # Redirects
+      virtualHosts."notes.srid.ca" = notesVhost;
+
+      # Web apps
+      virtualHosts."slownews.srid.ca" = myVhost { port = 7001; };
+      virtualHosts."commonmark.srid.ca" = myVhost { port = 7002; };
+
+      # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
-      #virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
   security.acme = {
     acceptTerms = true;
-    certs = {
-      "tmp.srid.ca".email = "srid@srid.ca";
-      "notes.srid.ca".email = "srid@srid.ca";
-      #"slownews.srid.ca".email = "srid@srid.ca";
-      #"commonmark.srid.ca".email = "srid@srid.ca";
-    };
+    email = "srid@srid.ca";
   };
 
   system.stateVersion = "20.03";
