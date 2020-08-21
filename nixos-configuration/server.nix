@@ -35,23 +35,32 @@ in
   ];
 
   networking.hostName = "facade";
-  #networking.wireguard.interfaces = {
-  #  wg0 = {
-  #    ips = [ "10.100.0.1/24" ];
-  #    listenPort = 51820;
-  #    privateKeyFile = "/home/srid/wireguard-keys/private";
-  #    peers = [
-  #      # thebeast
-  #      { publicKey = "RNq+9jWeHGZuYUw41abU9hC8ldU03Y7tKrhbvhrwj3A=";
-  #        allowedIPs = [ "10.100.0.2/32" ];
-  #      }
-  #      # pixel slate
-  #      { publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
-  #        allowedIPs = [ "10.100.0.3/32" ];
-  #      }
-  #    ];
-  #  };
-  #};
+
+  # Wireguard: https://nixos.wiki/wiki/Wireguard
+  networking.nat.enable = true;
+  networking.nat.externalInterface = "eth0";
+  networking.nat.internalInterfaces = [ "wg0" ];
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+    allowedTCPPorts = [ 22 1984 80 443 ];
+  };
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.100.0.1/24" ];
+      listenPort = 51820;
+      privateKeyFile = "/home/srid/nix-config/private-config/wireguard/facade/private";
+      peers = [
+        # bornagain
+        { publicKey = "z298c6R+NXecUAEQmw/vdNMnewOT6nZ7Tx5q4Kh+5z0=";
+          allowedIPs = [ "10.100.0.2/32" ];
+        }
+        # pixel slate
+        #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
+        #  allowedIPs = [ "10.100.0.3/32" ];
+        #}
+      ];
+    };
+  };
 
   services.openssh = {
     enable = true;
@@ -110,19 +119,20 @@ in
     in {
       enable = true;
       #user = "srid";
-      #virtualHosts."notes.srid.ca" = notesVhost;
+      virtualHosts."notes.srid.ca" = notesVhost;
       #virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
       #virtualHosts."commonmark.srid.ca" = myVhost { port = 3002; };
-      #virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
+
+      # https://tmp.srid.ca/p/9990 => bornagain:9990
+      virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
       #virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
   security.acme = {
     acceptTerms = true;
     certs = {
-      #"tmp.srid.ca".email = "srid@srid.ca";
-      #"tmp1.srid.ca".email = "srid@srid.ca";
-      #"notes.srid.ca".email = "srid@srid.ca";
+      "tmp.srid.ca".email = "srid@srid.ca";
+      "notes.srid.ca".email = "srid@srid.ca";
       #"slownews.srid.ca".email = "srid@srid.ca";
       #"commonmark.srid.ca".email = "srid@srid.ca";
     };
