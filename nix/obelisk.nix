@@ -23,7 +23,7 @@ let
     in {
       enable = true;
       description = name;
-      wantedBy = [ ];
+      wantedBy = [ "default.target" ];
       after = [ "network-online.target" ];
       environment = {};
       serviceConfig = {
