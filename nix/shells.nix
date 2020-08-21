@@ -21,6 +21,7 @@ in
     bat
     aria
     mosh
+    (pkgs.callPackage ./emacs/xterm-24bit.nix {})
   ];
 
   programs.keychain = {

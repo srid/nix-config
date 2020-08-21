@@ -6,17 +6,17 @@ in
 { config, pkgs, ... }: {
   imports = [
     /etc/nixos/hardware-configuration.nix
-    /etc/nixos/nixos-in-place.nix
-    ../nix/base.nix
-    ../nix/caches.nix
+    /etc/nixos/networking.nix
     <home-manager/nixos>
   ];
-  home-manager.users.srid = (import ../nix/home.nix "facade");
+  home-manager.users.srid = (import ../nix/home.nix { 
+    inherit pkgs config;
+    device = "facade"; 
+  } );
 
   boot.cleanTmpDir = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  networking.firewall.allowPing = true;
 
   users.extraUsers = {
     srid = {
@@ -24,13 +24,8 @@ in
       extraGroups = [ "wheel" "lxd" ];
       # TODO: replace with keyFiles (see bare.nix)
       openssh.authorizedKeys.keys = [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDxb8ZoHT4EYdGjSslIUMSFrsoRh/4cdRJXBgS0878Kv/rDRR+f33bh9Hunmx0m78g5bG3/b6C4AMmfcqgw7XvT6yuW0NGjKQeOQtCX6FSu5F+cEv63r7FSjAXEQ6FkJHaFELG2f1wIU43mCVTutAQsiLy0a7NaH7EyxCk1OUXN4FByd2slqGPeLfDEjNQLGiZaYrG4VEfkl1jlgSHWK9ryiahp9IuR4mOTtwRf7fl4DoCAKpEY5jGNZJTe2HubzMAjtxSVcR5KWd7kJYVLw3SsA3NC8o8k9K0rFj2WDKHst0dpBfYjPTYnWZAu3hytrTxS/IB87XUtFjBwQhQk59b srid@MacBook-Pro-de-Sridhar.local"
-      nixosKey
+        nixosKey
       ];
-    };
-    sites = {
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [ nixosKey ];
     };
   };
 
@@ -40,32 +35,27 @@ in
   ];
 
   networking.hostName = "facade";
-  networking.nat = {
-    enable = true;
-    externalInterface = "ens3";  # on DigitalOcean as of Dec '18
-    internalInterfaces = [ "wg0" ];
-  };
-  networking.wireguard.interfaces = {
-    wg0 = {
-      ips = [ "10.100.0.1/24" ];
-      listenPort = 51820;
-      privateKeyFile = "/home/srid/wireguard-keys/private";
-      peers = [
-        # thebeast
-        { publicKey = "RNq+9jWeHGZuYUw41abU9hC8ldU03Y7tKrhbvhrwj3A=";
-          allowedIPs = [ "10.100.0.2/32" ];
-        }
-        # pixel slate
-        { publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
-          allowedIPs = [ "10.100.0.3/32" ];
-        }
-      ];
-    };
-  };
+  #networking.wireguard.interfaces = {
+  #  wg0 = {
+  #    ips = [ "10.100.0.1/24" ];
+  #    listenPort = 51820;
+  #    privateKeyFile = "/home/srid/wireguard-keys/private";
+  #    peers = [
+  #      # thebeast
+  #      { publicKey = "RNq+9jWeHGZuYUw41abU9hC8ldU03Y7tKrhbvhrwj3A=";
+  #        allowedIPs = [ "10.100.0.2/32" ];
+  #      }
+  #      # pixel slate
+  #      { publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
+  #        allowedIPs = [ "10.100.0.3/32" ];
+  #      }
+  #    ];
+  #  };
+  #};
 
   services.openssh = {
     enable = true;
-    ports = [22];
+    ports = [1984];
     permitRootLogin = "no";
     passwordAuthentication = false;
   };
@@ -119,24 +109,24 @@ in
       };
     in {
       enable = true;
-      user = "srid";
-      virtualHosts."notes.srid.ca" = notesVhost;
-      virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
-      virtualHosts."commonmark.srid.ca" = myVhost { port = 3002; };
-      virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
-      virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
+      #user = "srid";
+      #virtualHosts."notes.srid.ca" = notesVhost;
+      #virtualHosts."slownews.srid.ca" = myVhost { port = 3001; };
+      #virtualHosts."commonmark.srid.ca" = myVhost { port = 3002; };
+      #virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
+      #virtualHosts."tmp1.srid.ca" = myVhost { port = 9876; };
     };
 
   security.acme = {
     acceptTerms = true;
     certs = {
-      "tmp.srid.ca".email = "srid@srid.ca";
-      "tmp1.srid.ca".email = "srid@srid.ca";
-      "notes.srid.ca".email = "srid@srid.ca";
-      "slownews.srid.ca".email = "srid@srid.ca";
-      "commonmark.srid.ca".email = "srid@srid.ca";
+      #"tmp.srid.ca".email = "srid@srid.ca";
+      #"tmp1.srid.ca".email = "srid@srid.ca";
+      #"notes.srid.ca".email = "srid@srid.ca";
+      #"slownews.srid.ca".email = "srid@srid.ca";
+      #"commonmark.srid.ca".email = "srid@srid.ca";
     };
   };
 
-  system.stateVersion = "19.03";
+  system.stateVersion = "20.03";
 }
