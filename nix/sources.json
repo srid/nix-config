@@ -1,4 +1,28 @@
 {
+    "MarkdownPreview": {
+        "branch": "master",
+        "description": "Demo Obelisk app",
+        "homepage": "https://www.srid.ca/fa9766e6.html",
+        "owner": "srid",
+        "repo": "MarkdownPreview",
+        "rev": "eafa96b9b1b6906f6684bd7ba311d9c3ae85910f",
+        "sha256": "1axnll107xqwpw20f92n2qvxznz2xqzr1a9x0s24x15mbgbz1qlh",
+        "type": "tarball",
+        "url": "https://github.com/srid/MarkdownPreview/archive/eafa96b9b1b6906f6684bd7ba311d9c3ae85910f.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "Taut": {
+        "branch": "master",
+        "description": "An ambitious Slack JSON export viewer.",
+        "homepage": "",
+        "owner": "srid",
+        "repo": "Taut",
+        "rev": "ace9134def81277e7521cd29e14cf81400b93181",
+        "sha256": "0nmc7k1pzg932bvh60sf297nrk53nflgk151xwg83hcmb21j804q",
+        "type": "tarball",
+        "url": "https://github.com/srid/Taut/archive/ace9134def81277e7521cd29e14cf81400b93181.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "cerveau": {
         "ref": "master",
         "repo": "git@github.com:srid/cerveau",
@@ -39,6 +63,18 @@
         "sha256": "0q090679dg1nsy45vl3qm285g0q9vdr878cym9zgfc44zk46k4bx",
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/de3780b937d2984f9b5e20d191f23be4f857b3aa.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "slownews": {
+        "branch": "master",
+        "description": "🐢 Bringing slow news for the nervous among us",
+        "homepage": "https://slownews.srid.ca/",
+        "owner": "srid",
+        "repo": "slownews",
+        "rev": "ea855f9f5ab465d6473ec5572c21cd4c8c8d4958",
+        "sha256": "1v2gdmws4ada514w5agrdlmjn687za95knp4dw4finzdwalp5c9v",
+        "type": "tarball",
+        "url": "https://github.com/srid/slownews/archive/ea855f9f5ab465d6473ec5572c21cd4c8c8d4958.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

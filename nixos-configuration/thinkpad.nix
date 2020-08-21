@@ -10,6 +10,7 @@
       ./thinkpad/graphics.nix
       ./thinkpad/wireguard.nix
       ./thinkpad/postgresql.nix
+      ./thinkpad/webapps.nix
      
       ../nixos/base.nix
       ../nixos/caches.nix
@@ -83,11 +84,16 @@
     inkscape
   ];
 
-  users.extraUsers.srid = {
-    isNormalUser = true;
-    uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
-    shell = pkgs.fish;
+  users.extraUsers = {
+    srid = {
+      isNormalUser = true;
+      uid = 1000;
+      extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
+      shell = pkgs.fish;
+    };
+    apps = {
+      uid = 1001;
+    };
   };
 
   # This value determines the NixOS release with which your system is to be
