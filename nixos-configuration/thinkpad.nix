@@ -8,7 +8,7 @@
 
       ./thinkpad/hardware.nix
       ./thinkpad/graphics.nix
-      #./thinkpad/wireguard.nix
+      ./thinkpad/wireguard.nix
       ./thinkpad/postgresql.nix
      
       ../nixos/base.nix
