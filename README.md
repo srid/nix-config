@@ -57,6 +57,10 @@ Prior to running install.sh, patch the configuration.nix used by it to allow roo
 
 https://www.srid.ca/137ae172.html
 
+### Digital Ocean
+
+Use [nixos-infect](https://github.com/elitak/nixos-infect).
+
 ### Hyper-v
 
 - [Quick Create](https://blogs.windows.com/buildingapps/2018/09/17/run-ubuntu-virtual-machines-made-even-easier-with-hyper-v-quick-create/) a Ubuntu VM
