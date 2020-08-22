@@ -58,8 +58,7 @@
   };
 
   services.ipfs = {
-    # Not using it due to issues with publishing static sites
-    enable = false;
+    enable = true;
     autoMount = true;
   };
 
