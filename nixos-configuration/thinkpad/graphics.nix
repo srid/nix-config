@@ -20,20 +20,11 @@
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
-    #  - TwinView is automatically enabled in recent nvidia drivers (no need to enable it explicitly)
-    #  - nvidiaXineramaInfo must be disabled, otherwise X will treat the display as two monitors.
-    screenSection = ''
-      Option "nvidiaXineramaInfo"  "false"
-    '';
-
-    # FIXME: To work with varied display configurations, I have to use `arandr`.
-    # For example, to manual display the laptop screen when connected to
-    # external display. This needs to be streamlined.
-
-    # Not sure if this is still required.
-    serverFlagsSection = ''
-      Option  "Xinerama" "0"
-    '';
+    #  - TwinView is automatically enabled in recent nvidia drivers (no need to 
+    #    enable it explicitly)
+    #  - In the past, nvidiaXineramaInfo/Xinerama must be disabled, otherwise X
+    #    will treat the display as two monitors. This doesn't have to be done
+    #    anymore.
   };
 
   hardware = {
