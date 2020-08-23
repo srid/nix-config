@@ -22,9 +22,9 @@
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp = {
     enable = true;
-    extraConfig = ''
-      CPU_MAX_PERF_ON_BAT=60
-      CPU_HWP_ON_BAT=balance_power
-    '';
+    settings = {
+      CPU_MAX_PERF_ON_BAT=60;
+      CPU_HWP_ON_BAT="balance_power";
+    };
   };
 }
