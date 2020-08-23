@@ -11,11 +11,5 @@ in
 {
   # Obelisk apps I expose to the outside world
   systemd.services = {
-    slownews =
-      obelisk.obeliskService
-        "slownews" "7001" (import sources.slownews {});
-    MarkdownPreview =
-      obelisk.obeliskService
-        "MarkdownPreview" "7002" (import sources.MarkdownPreview {});
   };
 }
