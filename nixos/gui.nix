@@ -2,6 +2,7 @@
 
 {
   services.compton = {
+    # Disabling, causes chrome to slow down
     #enable = true;
     #shadow = true;
     #inactiveOpacity = 1.0;
@@ -15,7 +16,7 @@
 
     displayManager = {
       hiddenUsers = [ "apps" ];
-      gdm = {
+      lightdm = {
         enable = true;
       };
     };

@@ -6,7 +6,7 @@ let
   myst = pkgs.writeScriptBin "myst" 
   ''
     #!${pkgs.runtimeShell}
-    exec ${pkgs.st}/bin/st -f "monospace:pixelsize=24" $*
+    exec ${pkgs.st}/bin/st -f "Ubuntu Mono:pixelsize=26" $*
   '';
 in 
 {
