@@ -17,10 +17,10 @@ let
   thinkpadImports = [
     ./scripts.nix
 
-    # i3 and related (not using right now)
-    #./i3.nix
+    # i3 and related
+    ./i3.nix
     ./redshift.nix
-    #./terminal.nix
+    ./terminal.nix
 
     #./irc.nix
     ./google-cast.nix

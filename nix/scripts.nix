@@ -45,8 +45,7 @@ in
     (mkAlias "monitor-laptoponly"
       "xrandr --output DP-6 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output DP-0 --off")
     (mkAlias "monitor-full"
-      "xrandr --output DP-6 --off --output DP-5 --primary --mode 2560x2880 --pos 0x0 --rotate normal --output DP-4 --off --output DP-3 --mode 2560x2880 --pos 2560x0 --rotate normal --output DP-2 --mode 3840x2160 --pos 640x2880 --rotate normal --output DP-1 --off --output DP-0 --off")
-
+      "xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --mode 3840x2160 --pos 5120x1264 --rotate normal --output DP-3 --mode 2560x2880 --pos 2560x0 --rotate normal --output DP-4 --off --output DP-5 --primary --mode 2560x2880 --pos 0x0 --rotate normal --output DP-6 --off")
   ];
 }
 
