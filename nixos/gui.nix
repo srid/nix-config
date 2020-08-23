@@ -2,9 +2,9 @@
 
 {
   services.compton = {
-    enable = true;
-    shadow = true;
-    inactiveOpacity = 1.0;
+    #enable = true;
+    #shadow = true;
+    #inactiveOpacity = 1.0;
   };
 
   services.xserver = {
