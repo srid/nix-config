@@ -5,6 +5,8 @@
   # automatically,
   # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html
 
+  hardware.video.hidpi.enable = true;
+
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
@@ -15,9 +17,6 @@
 
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
-    # Nvidia detects somehow higher value for a DPI than what is standard for retina. Set it manually:
-    # Same as iMac retina 5k https://en.wikipedia.org/wiki/Retina_Display#Models
-    dpi = 200; # 218;
 
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:

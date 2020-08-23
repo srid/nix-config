@@ -15,7 +15,8 @@
       ../nixos/base.nix
       ../nixos/caches.nix
       ../nixos/gui.nix
-      #../nixos/gnome.nix
+      ../nixos/gnome.nix
+      #../nixos/kde.nix
       ../nixos/i3.nix
       ../nixos/google-chrome.nix
       ../nixos/fonts.nix
@@ -69,8 +70,6 @@
   # virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
-    docker-compose
-
     # TODO: Use autorandr to switch between modes.
     # For now, doing it manually using arandr.
     #   Using .screenlayout/lgonly.sh when connecting the monitor
@@ -81,8 +80,6 @@
     pavucontrol  # GUI version of pulsemixer
     blueman
     ntfs3g
-
-    inkscape
   ];
 
   users.extraUsers = {

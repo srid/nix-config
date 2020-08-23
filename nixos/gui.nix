@@ -16,7 +16,7 @@
 
     displayManager = {
       hiddenUsers = [ "apps" ];
-      lightdm = {
+      gdm = {
         enable = true;
       };
     };
