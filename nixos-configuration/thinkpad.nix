@@ -46,6 +46,7 @@
   networking = {
     hostName = "bornagain";
     networkmanager.enable = true;
+    wireless.networks = ./private-config/wifi.nix;
   };
 
   services.openssh = {
