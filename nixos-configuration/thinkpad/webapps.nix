@@ -17,5 +17,8 @@ in
     MarkdownPreview =
       obelisk.obeliskService
         "MarkdownPreview" "7002" (import sources.MarkdownPreview {});
+    slackarchive =
+      obelisk.obeliskService
+        "slackarchive" "7003" (import sources.Taut {});
   };
 }
