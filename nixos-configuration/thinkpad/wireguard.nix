@@ -10,7 +10,7 @@
       peers = [
         { publicKey = "cInHQG7ns2Hvq7HW6kqVGoRXvoZALNZ00pvjH1bPTmM=";
           allowedIPs = [ "10.100.0.1" /* "167.71.82.208" */ ];
-          endpoint = "facade.srid.ca:51820";
+          endpoint = "167.172.133.184:51820";
           persistentKeepalive = 25;
         }
         # pixel slate
