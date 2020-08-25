@@ -35,6 +35,10 @@ in {
     ".config/nvim/coc-settings.json".text = ''
       {
         "languageserver": {
+          "neuron": {
+            "command": "neuron-language-server",
+            "filetypes": ["markdown"]
+          },
           "haskell": {
             "command": "ghcide",
             "args": [
