@@ -40,7 +40,7 @@
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
     # Always use the latest available kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
   };
 
 
