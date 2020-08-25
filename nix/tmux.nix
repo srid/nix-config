@@ -11,7 +11,7 @@
     historyLimit = 100000;
     resizeAmount = 5;
     escapeTime = 0;
-    terminal = "xterm-24bit";
+    terminal = "xterm";  # Don't use 24bit here, it breaks ssh sessions
 
     extraConfig = ''
       # Fix environment variables
