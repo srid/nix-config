@@ -8,10 +8,8 @@
 let
   baseImports = [
     ./git.nix
-    ./haskell.nix
     ./shells.nix
     ./tmux.nix
-    # ./emacs
   ];
   # For my main development machine only
   thinkpadImports = [
@@ -31,6 +29,9 @@ let
     #./steam.nix
     ./udiskie.nix
     ../private-config/work/aws.nix
+ 
+    # Development
+    ./haskell.nix
   ];
 in
 {
