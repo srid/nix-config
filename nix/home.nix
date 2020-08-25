@@ -11,7 +11,7 @@ let
     ./haskell.nix
     ./shells.nix
     ./tmux.nix
-    ./emacs
+    # ./emacs
   ];
   # For my main development machine only
   thinkpadImports = [
