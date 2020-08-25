@@ -66,8 +66,8 @@
   };
 
   virtualisation.docker.enable = false;
-  # security.apparmor.enable = true;
-  # virtualisation.lxd.enable = true;
+  security.apparmor.enable = true;
+  virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
     # TODO: Use autorandr to switch between modes.
