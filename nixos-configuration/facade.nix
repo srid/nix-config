@@ -125,6 +125,7 @@ in
 
       virtualHosts."slownews.srid.ca" = myVhost { port = 7001; };
       virtualHosts."commonmark.srid.ca" = myVhost { port = 7002; };
+      virtualHosts."slackarchive.actualists.org" = myVhost { port = 7003; };
       # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
