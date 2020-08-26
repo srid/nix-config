@@ -47,6 +47,7 @@
     hostName = "bornagain";
     networkmanager.enable = true;
     wireless.networks = ./private-config/wifi.nix;
+    firewall.enable = false;
   };
 
   nix.trustedUsers = [ "root" "srid" ];
