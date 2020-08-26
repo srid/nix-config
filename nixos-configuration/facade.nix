@@ -15,6 +15,7 @@ in
   } );
 
   boot.cleanTmpDir = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.firewall.allowPing = true;
 
   users.extraUsers = {
