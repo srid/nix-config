@@ -12,12 +12,11 @@
       ./thinkpad/postgresql.nix
       ./thinkpad/webapps.nix
      
-      ../nixos/base.nix
       ../nixos/caches.nix
       ../nixos/gui.nix
       ../nixos/gnome.nix
       #../nixos/kde.nix
-      ../nixos/i3.nix
+      #../nixos/i3.nix
       ../nixos/google-chrome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
@@ -25,7 +24,6 @@
       # Using GitHub Actions with cachix instead
       # ../nix/ci.nix
 
-      ../private-config
       <home-manager/nixos>
     ];
     home-manager.users.srid = (import ../nix/home.nix { 
@@ -39,10 +37,11 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
-    # Always use the latest available kernel.
+    # Always use the latest available kernel. Disabled, because buggy (crashes)
     # kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  time.timeZone = "America/New_York";
 
   networking = {
     hostName = "bornagain";
@@ -50,24 +49,17 @@
     wireless.networks = ./private-config/wifi.nix;
   };
 
+  nix.trustedUsers = [ "root" "srid" ];
+  nixpkgs.config.allowUnfree = true;
+
   services.openssh = {
     enable = true;
     ports = [22];
   };
 
-  services.netdata = {
-    enable = true;
-  };
-
-  services.ipfs = {
-    # Not using it due to issues with publishing static sites
-    enable = false;
-    autoMount = true;
-  };
-
   virtualisation.docker.enable = false;
-  security.apparmor.enable = true;
-  virtualisation.lxd.enable = true;
+  #security.apparmor.enable = true;
+  #virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
     # TODO: Use autorandr to switch between modes.

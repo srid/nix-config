@@ -51,6 +51,11 @@ in
     htop
     file
     jq
+    ncdu
+    psmisc
+    tree 
+    unzip
+    wget
     youtube-dl
 
     # nvim, and its runtime dependencies
