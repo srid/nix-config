@@ -45,6 +45,9 @@ in {
 
   time.timeZone = "America/New_York";
 
+  nix.trustedUsers = [ "root" "srid" ];
+  nixpkgs.config.allowUnfree = true;
+
   networking = {
     inherit hostName;
     networkmanager.enable = true;
@@ -52,13 +55,9 @@ in {
     firewall = {
       enable = true;
       allowPing = true;
-      allowedUDPPorts = [ 51820 ];
-      allowedTCPPorts = [ 22 80 443 ];
+      allowedTCPPorts = [ 22 ];
     };
   };
-
-  nix.trustedUsers = [ "root" "srid" ];
-  nixpkgs.config.allowUnfree = true;
 
   services.openssh = {
     enable = true;
@@ -70,15 +69,8 @@ in {
   #virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
-    # TODO: Use autorandr to switch between modes.
-    # For now, doing it manually using arandr.
-    #   Using .screenlayout/lgonly.sh when connecting the monitor
-    arandr
-    autorandr
     acpi
     pulsemixer
-    pavucontrol  # GUI version of pulsemixer
-    blueman
     ntfs3g
   ];
 

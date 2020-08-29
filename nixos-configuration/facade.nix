@@ -15,12 +15,12 @@ in
 
   boot.cleanTmpDir = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  networking.firewall.allowPing = true;
 
   users.extraUsers = {
     srid = {
       isNormalUser = true;
       extraGroups = [ "wheel" "lxd" ];
+      shell = pkgs.fish;
       openssh.authorizedKeys.keys = [ (builtins.readFile ../private-config/ssh/id_rsa.pub) ];
     };
   };
@@ -32,6 +32,7 @@ in
 
   networking = { inherit hostName; };
 
+  networking.firewall.allowPing = true;
   # Wireguard: https://nixos.wiki/wiki/Wireguard
   networking.nat.enable = true;
   networking.nat.externalInterface = "eth0";

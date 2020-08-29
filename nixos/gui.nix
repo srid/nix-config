@@ -23,7 +23,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    asciinema
+    
 
     # To launch peek, C-p peek
     # C+S+<space> to make it floaitng window
@@ -39,5 +39,6 @@
     xorg.xf86videointel
     xorg.xprop
     xsel
+    arandr
   ];
 }
