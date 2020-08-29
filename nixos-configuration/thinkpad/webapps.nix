@@ -9,6 +9,10 @@ let
   obelisk = import ../../nix/obelisk.nix { inherit config lib pkgs; };
 in
 {
+  networking.firewall.allowedTCPPorts = [
+    7001 7002 7003 7004
+  ];
+
   # Obelisk apps I expose to the outside world
   systemd.services = {
     slownews =

@@ -49,7 +49,12 @@ in {
     inherit hostName;
     networkmanager.enable = true;
     wireless.networks = ./private-config/wifi.nix;
-    firewall.enable = false;
+    firewall = {
+      enable = true;
+      allowPing = true;
+      allowedUDPPorts = [ 51820 ];
+      allowedTCPPorts = [ 22 80 443 ];
+    };
   };
 
   nix.trustedUsers = [ "root" "srid" ];
