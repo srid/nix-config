@@ -3,7 +3,7 @@
 # Stuff on this file, and ./*.nix, should work across all of my computing
 # devices. Presently these are: Thinkpad, Macbook and Pixel Slate.
 
-{ config, pkgs, device ? "unknown", ...}:
+{ config, pkgs, hostName ? "unknown", ...}:
 
 let
   baseImports = [
@@ -39,7 +39,7 @@ in
 
   programs.home-manager.enable = true;
 
-  imports = if (builtins.currentSystem == "x86_64-linux" && device == "bornagain")
+  imports = if (builtins.currentSystem == "x86_64-linux" && hostName == "bornagain")
             then (baseImports ++ thinkpadImports)
             else baseImports;
 

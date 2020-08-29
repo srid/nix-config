@@ -2,7 +2,9 @@
 
 { config, pkgs, ... }:
 
-{
+let 
+  hostName = "bornagain";
+in {
   imports =
     [ /etc/nixos/hardware-configuration.nix
 
@@ -26,10 +28,10 @@
 
       <home-manager/nixos>
     ];
-    home-manager.users.srid = (import ../nix/home.nix { 
-      inherit pkgs config;
-      device = "bornagain"; 
-    } );
+
+  home-manager.users.srid = (import ../nix/home.nix { 
+    inherit pkgs config hostName;
+  } );
 
   # EFI boot
   boot = {
@@ -44,7 +46,7 @@
   time.timeZone = "America/New_York";
 
   networking = {
-    hostName = "bornagain";
+    inherit hostName;
     networkmanager.enable = true;
     wireless.networks = ./private-config/wifi.nix;
     firewall.enable = false;
@@ -81,6 +83,7 @@
       uid = 1000;
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
       shell = pkgs.fish;
+      openssh.authorizedKeys.keys = [ (builtins.readFile ../private-config/ssh/id_rsa.pub) ];
     };
     apps = {
       uid = 1001;

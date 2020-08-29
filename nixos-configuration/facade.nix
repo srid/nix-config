@@ -1,7 +1,7 @@
 # Made for my server.
 
 let 
-  nixosKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCYQ003p7fB5ICQehLwhDBomY9WzkNBeijkSw9ADGU+ECrPakeIH3pntUWRJH1W93vKnLqpkn6HLGEXD9MCR0s98uhh8hT7uAYCxQTbEeKT3PYkfz3oe7XaR8rE601sds0ZyFwH7l8cvK97pGr+uhFXAaohiV6VqmLVXhManEjZZ8GfYWBD9BCmIJk43G3OGa5QYFeHqztprXaJNU5dFPv2Uq2C+L6EvfCfkK2OO1BLZgL+Rai5jjyy6k0fcfsxxd9BdGUwqDhcBeyTIzX9rePMugf/xD+6uNRxTU+vjVpGUtFOw6rpgmVyFv9mn3QMNdQBc5hYKVbIQwMNGTzGgcQv srid@nixos";
+  hostName = "facade";
 in
 { config, pkgs, ... }: {
   imports = [
@@ -10,8 +10,7 @@ in
     <home-manager/nixos>
   ];
   home-manager.users.srid = (import ../nix/home.nix { 
-    inherit pkgs config;
-    device = "facade"; 
+    inherit pkgs config hostName;
   } );
 
   boot.cleanTmpDir = true;
@@ -22,10 +21,7 @@ in
     srid = {
       isNormalUser = true;
       extraGroups = [ "wheel" "lxd" ];
-      # TODO: replace with keyFiles (see bare.nix)
-      openssh.authorizedKeys.keys = [
-        nixosKey
-      ];
+      openssh.authorizedKeys.keys = [ (builtins.readFile ../private-config/ssh/id_rsa.pub) ];
     };
   };
 
@@ -34,7 +30,7 @@ in
     apacheHttpd # For htpasswd
   ];
 
-  networking.hostName = "facade";
+  networking = { inherit hostName; };
 
   # Wireguard: https://nixos.wiki/wiki/Wireguard
   networking.nat.enable = true;
