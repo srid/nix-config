@@ -35,6 +35,11 @@ Use this method on macOS, Windows (WSL 2) and other Linux distros (including Chr
 1. `mkdir old-profile; mv .bashrc .profile old-profile`
 1. `home-manager switch`
 
+### macOS 
+
+1. Set `fish` as the default shell: `chsh -s $(which fish)`
+2. Teach fish to initialize Nix environment: <https://github.com/NixOS/nix/issues/440>
+
 ## Hardware notes
 
 ### Thinkpad P71
