@@ -2,8 +2,8 @@
 
 let
   shellAliases = {
-    l = "exa";
-    ls = "exa";
+    l = "${pkgs.exa}/bin/exa";
+    ls = "${pkgs.exa}/bin/exa";
     g = "git";
     t = "tig status";
     e = "eval $EDITOR";
@@ -21,7 +21,7 @@ in
     bat
     aria
     mosh
-    sshfs
+    # sshfs -- not available on macOs
     (pkgs.callPackage ./emacs/xterm-24bit.nix {})
   ];
 
@@ -31,7 +31,7 @@ in
     enableBashIntegration = false;
     keys = [
       "id_rsa"
-      "/home/srid/work/m/j/sshkey"
+      # "/home/srid/work/m/j/sshkey"
     ];
   };
 

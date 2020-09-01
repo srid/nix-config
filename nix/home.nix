@@ -52,7 +52,7 @@ in
     file
     jq
     ncdu
-    psmisc
+    # psmisc  # not on macOS
     tree 
     unzip
     wget
