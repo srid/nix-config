@@ -13,6 +13,8 @@
       google-fonts
       hack-font
       hasklig
+      nerdfonts
+      jetbrains-mono
       iosevka
       noto-fonts-emoji
       powerline-fonts

@@ -49,9 +49,15 @@ in
 
     # Basic tools
     htop
+    ytop
     file
     jq
     ncdu
+    du-dust
+    procs
+    sd
+    ripgrep
+    tealdeer
     # psmisc  # not on macOS
     tree 
     unzip
@@ -64,10 +70,9 @@ in
 
     # Dev tools
     gnumake
-    ripgrep
-    tig
     tmate
     gitAndTools.gh
+    tig
     dhall
   ];
 
