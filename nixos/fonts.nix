@@ -2,11 +2,13 @@
 
 {
    fonts = {
-    enableFontDir = true;
+    enableDefaultFonts = true;
     fonts = with pkgs; [
+      # This is supposed to give us emoji fonts
+      noto-fonts-emoji
+      # Other fonts
       dejavu_fonts
       emacs-all-the-icons-fonts
-      emojione
       fantasque-sans-mono
       fira-code
       font-awesome-ttf
@@ -16,7 +18,6 @@
       nerdfonts
       jetbrains-mono
       iosevka
-      noto-fonts-emoji
       powerline-fonts
       material-icons
     ];
