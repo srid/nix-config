@@ -3,23 +3,25 @@
 {
    fonts = {
     enableDefaultFonts = true;
+
+    # NOTE: Some fonts may break colour emojis in Chrome
+    # cf. https://github.com/NixOS/nixpkgs/issues/69073#issuecomment-621982371
     fonts = with pkgs; [
-      # This is supposed to give us emoji fonts
       noto-fonts-emoji
-      # Other fonts
-      dejavu_fonts
-      emacs-all-the-icons-fonts
-      fantasque-sans-mono
-      fira-code
-      font-awesome-ttf
-      google-fonts
-      hack-font
-      hasklig
-      nerdfonts
       jetbrains-mono
-      iosevka
-      powerline-fonts
-      material-icons
+
+      # Keep this disabled until verifying they don't break emoji font
+      #emacs-all-the-icons-fonts
+      #fantasque-sans-mono
+      #fira-code
+      #font-awesome-ttf
+      #google-fonts
+      #hack-font
+      #hasklig
+      #nerdfonts
+      #iosevka
+      #powerline-fonts
+      #material-icons
     ];
   };
 }
