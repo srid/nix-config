@@ -5,6 +5,8 @@
     [ <nixos-hardware/lenovo/thinkpad>
       # Assuming on blind faith that is okay for p71
       <nixos-hardware/lenovo/thinkpad/p53>
+      # Pull in hardware specific modules when relevant
+      <nixos-hardware/common/pc/ssd>
     ];
 
   # This machine is now a long-running home-server with a bluetooth keyboard
