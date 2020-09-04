@@ -78,9 +78,9 @@ in
       , locationExtraConfig ? "proxy_pass http://10.100.0.2:${toString port};" 
       , basicAuthFile ? null
       }: {
+        inherit basicAuthFile;
         enableACME = withSSL;
         forceSSL = withSSL;
-        basicAuthFile = basicAuthFile;
         locations.${location} = {
           proxyWebsockets = true;
           extraConfig = locationExtraConfig;
@@ -123,7 +123,10 @@ in
 
       virtualHosts."slownews.srid.ca" = myVhost { port = 7001; };
       virtualHosts."commonmark.srid.ca" = myVhost { port = 7002; };
-      virtualHosts."slackarchive.actualists.org" = myVhost { port = 7003; };
+      virtualHosts."slackarchive.actualists.org" = myVhost { 
+        port = 7003; 
+        basicAuthFile = ../private-config/machine/godzilla/slackarchive.htpasswd;
+      };
       virtualHosts."funprog.srid.ca" = myVhost { port = 7004; };
       # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
