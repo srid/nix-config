@@ -9,6 +9,5 @@
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    google-chrome-dev
   ];
 }
