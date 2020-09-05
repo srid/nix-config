@@ -112,6 +112,8 @@ let g:ormolu_options=["-o -XTypeApplications"]
 
 "But not for work projects
 autocmd BufRead,BufNewFile */work/* let b:ormolu_disable=1
+"Some open source projects
+autocmd BufRead,BufNewFile */hls/* let b:ormolu_disable=1
 "Or for obelisk deps
 autocmd BufRead,BufNewFile */dep/* let b:ormolu_disable=1
 autocmd BufRead,BufNewFile */dep/neuron* let b:ormolu_disable=0
