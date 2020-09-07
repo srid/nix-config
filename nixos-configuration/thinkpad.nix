@@ -40,7 +40,7 @@ in {
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
     # Always use the latest available kernel. Disabled, because buggy (crashes)
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   time.timeZone = "America/New_York";
