@@ -119,6 +119,13 @@ in
       # Redirects
       virtualHosts."notes.srid.ca" = notesVhost;
 
+      # Private stuff 
+
+      virtualHosts."static.srid.ca" = myVhost {
+        port = 4444;
+        basicAuthFile = ../private-config/machine/godzilla/htpasswd;
+      };
+
       # Web apps
 
       virtualHosts."slownews.srid.ca" = myVhost { port = 7001; };
