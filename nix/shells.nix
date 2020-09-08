@@ -54,7 +54,24 @@ in
       gs = "git status";
       gca = "git commit --amend";
     };
+    plugins = [
+      { name = "bobthefish";
+        src = pkgs.fetchFromGitHub {
+          owner = "oh-my-fish";
+          repo = "theme-bobthefish";
+          rev = "df13338";
+          sha256 = "1nyh85ji75j3a23czbaaf9s66dpfhfd9in5b6s5baispi2qfwdh2";
+        };
+      }
+    ];
   };
+
+  # https://www.mathiaspolligkeit.de/dev/exploring-nix-on-macos/
+  xdg.configFile."fish/conf.d/plugin-bobthefish.fish".text = lib.mkAfter ''
+  for f in $plugin_dir/*.fish
+    source $f
+  end
+  '';
 
   programs.bash = {
     enable = true;

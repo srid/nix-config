@@ -8,7 +8,10 @@
     # cf. https://github.com/NixOS/nixpkgs/issues/69073#issuecomment-621982371
     fonts = with pkgs; [
       noto-fonts-emoji
-      jetbrains-mono
+
+      # For fish powerline plugin
+      powerline-fonts
+      nerdfonts
 
       # Keep this disabled until verifying they don't break emoji font
       #emacs-all-the-icons-fonts
