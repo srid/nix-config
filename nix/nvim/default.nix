@@ -53,10 +53,10 @@ let
     neuron-vim = pkgs.vimUtils.buildVimPlugin {
       name = "neuron-vim";
       src = pkgs.fetchFromGitHub {
-        owner = "ihsanturk";
+        owner = "fiatjaf";
         repo = "neuron.vim";
-        rev = "94f0841";
-        sha256 = "sha256:15kxlqicf95iix367803024z4z6ga06zmqjh3c89dq7wk9b54qss";
+        rev = "d2fb9b3";
+        sha256 = "1x563d3996zad74p8zzlzpmhmh4r3snjajxb4jjq6wl6k2m80v2v";
       };
     };
     mkdx = pkgs.vimUtils.buildVimPlugin {
@@ -108,7 +108,7 @@ in
         { name = "vim-sneak"; }
         { name = "mkdx"; }
         # Fails with no neuron/jq as build-time dependency
-        # { name = "neuron-vim"; }
+        { name = "neuron-vim"; }
       ];
 
       customRC = 
