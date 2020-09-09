@@ -51,7 +51,8 @@ in
     inherit shellAliases;
     enable = true;
     shellAbbrs = {
-      gs = "git status";
+      gs = "git status -s";
+      gd = "git diff";
       gca = "git commit --amend";
     };
     plugins = [
