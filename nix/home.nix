@@ -12,26 +12,26 @@ let
     ./tmux.nix
   ];
   # For my main development machine only
-  thinkpadImports = [
-    ./scripts.nix
-
-    # i3 and related
-    ./i3.nix
-    ./redshift.nix
-    ./terminal.nix
-
-    #./irc.nix
+  devImports = [
     ./google-cast.nix
-    ./HighDpiCursor.nix
-    ./gpg.nix
     ./keybase.nix
-    ./gotty.nix
-    #./steam.nix
-    ./udiskie.nix
-    ../private-config/work/aws.nix
- 
+
     # Development
     ./haskell.nix
+  ];
+  homeOffice = devImports ++ [
+    ./scripts.nix
+    #./terminal.nix
+    #./irc.nix
+    #./gotty.nix
+    #./steam.nix
+    #./udiskie.nix
+    #./i3.nix
+    ./redshift.nix
+    ../private-config/work/aws.nix
+
+    #./HighDpiCursor.nix
+    #./gpg.nix
   ];
 in
 {
@@ -39,9 +39,11 @@ in
 
   programs.home-manager.enable = true;
 
-  imports = if (builtins.currentSystem == "x86_64-linux" && hostName == "bornagain")
-            then (baseImports ++ thinkpadImports)
-            else baseImports;
+  imports = if (hostName == "bornagain")
+            then (baseImports ++ homeOffice)
+            else if (hostName == "bebe")
+              then (baseImports ++ devImports)
+              else baseImports;
 
   home.packages = with pkgs; [
     # To track sources 
