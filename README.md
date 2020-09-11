@@ -48,6 +48,8 @@ https://github.com/andywhite37/nixos/blob/master/DUAL_BOOT_WINDOWS_GUIDE.md
 
 When following these instructions note that the builtin Windows disk manager can do the resize of C: partition; no need to install third-party partition tools. Also, remember to disable Secure Boot before installing NixOS.
 
+Use kernel 5.8+ (nixos-unstable has it) for better drivers.
+
 ### Thinkpad P71
 
 #### Preparation
