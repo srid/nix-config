@@ -8,11 +8,11 @@ in {
   imports =
     [ /etc/nixos/hardware-configuration.nix
 
-      ./thinkpad/hardware.nix
-      ./thinkpad/graphics.nix
-      ./thinkpad/wireguard.nix
-      ./thinkpad/postgresql.nix
-      ./thinkpad/webapps.nix
+      ./p71/hardware.nix
+      ./p71/graphics.nix
+      ./p71/wireguard.nix
+      ./p71/postgresql.nix
+      ./p71/webapps.nix
      
       ../nixos/caches.nix
       ../nixos/gui.nix
