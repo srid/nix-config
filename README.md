@@ -42,6 +42,12 @@ Use this method on macOS, Windows (WSL 2) and other Linux distros (including Chr
 
 ## Hardware notes
 
+### Thinkpad X1 Carbon Gen 7
+
+https://github.com/andywhite37/nixos/blob/master/DUAL_BOOT_WINDOWS_GUIDE.md
+
+When following these instructions note that the builtin Windows disk manager can do the resize of C: partition; no need to install third-party partition tools. Also, remember to disable Secure Boot before installing NixOS.
+
 ### Thinkpad P71
 
 #### Preparation
