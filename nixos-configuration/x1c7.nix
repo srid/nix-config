@@ -17,6 +17,7 @@ in {
       <home-manager/nixos>
 
       ../nixos/gnome.nix
+      ../nixos/dropbox.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {
