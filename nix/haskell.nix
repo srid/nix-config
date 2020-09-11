@@ -11,6 +11,8 @@
     hoogle
     ormolu
     ghcide
+
+    vscode
   ];
 
   home.file = {

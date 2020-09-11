@@ -34,7 +34,6 @@
     peek
     simplescreenrecorder
 
-    vscode
     xorg.xbacklight
     xorg.xf86videointel
     xorg.xprop

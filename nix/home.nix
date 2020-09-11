@@ -36,6 +36,9 @@ let
 in
 {
   nixpkgs.config.allowUnfree = true;
+  home.file.".config/nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+  '';
 
   programs.home-manager.enable = true;
 
