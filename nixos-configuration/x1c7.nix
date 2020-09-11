@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 let 
@@ -24,12 +20,11 @@ in {
   home-manager.users.srid = (import ../nix/home.nix {
     inherit pkgs config hostName;
   } );
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-
 
   networking.hostName = hostName;
   networking.networkmanager.enable = true;
@@ -49,7 +44,7 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim google-chrome
+    google-chrome
   ];
 
   # Enable the OpenSSH daemon.
@@ -57,6 +52,7 @@ in {
 
   sound.enable = true;
 
+  # Fingerprint reader
   services.fwupd.enable = true;
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
@@ -65,8 +61,7 @@ in {
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -79,10 +74,7 @@ in {
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
-  # Enable the KDE Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
@@ -98,6 +90,4 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.03"; # Did you read the comment?
-
 }
-
