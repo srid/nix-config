@@ -11,8 +11,6 @@
     hoogle
     ormolu
     ghcide
-
-    pkgs.vscode
   ];
 
   home.file = {

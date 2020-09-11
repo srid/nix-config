@@ -2,6 +2,7 @@
 
 let 
   hostName = "bebe";
+  unstable = import <nixpkgs-unstable> { config.allowUnfree = true; };
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -45,6 +46,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     google-chrome
+    unstable.vscode
   ];
 
   # Enable the OpenSSH daemon.
