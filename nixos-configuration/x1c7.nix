@@ -16,6 +16,7 @@ in {
       <nixos-hardware/lenovo/thinkpad/x1/7th-gen>
       <home-manager/nixos>
 
+      ../nixos/caches.nix
       ../nixos/gnome.nix
       ../nixos/dropbox.nix
     ];
