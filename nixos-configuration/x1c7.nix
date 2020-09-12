@@ -47,6 +47,7 @@ in {
   environment.systemPackages = with pkgs; [
     google-chrome
     unstable.vscode
+    peek
   ];
 
   # Enable the OpenSSH daemon.
