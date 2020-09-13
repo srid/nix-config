@@ -18,6 +18,8 @@ let
 
     # Development
     ./haskell.nix
+
+    ./syncthing.nix
   ];
   homeOffice = devImports ++ [
     ./scripts.nix

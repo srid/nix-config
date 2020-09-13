@@ -12,6 +12,7 @@
     gnome3.gnome-tweaks
     # Extensions
     gnomeExtensions.paperwm
+    gnomeExtensions.appindicator
     # Themes
     materia-theme
     equilux-theme
