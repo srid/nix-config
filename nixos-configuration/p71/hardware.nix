@@ -22,6 +22,12 @@
     pkgs.android-udev-rules 
   ];
 
+  # Fingerprint reader
+  services.fwupd.enable = true;
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.xscreensaver.fprintAuth = true;
+
   # TLP Linux Advanced Power Management
   # Seems to make suspend / wake-up work on lid-close.
   services.tlp = {

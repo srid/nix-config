@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    google-chrome-unstable
+    google-chrome
   ];
 
   # Google Chrome ulimit upping

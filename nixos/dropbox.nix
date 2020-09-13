@@ -6,6 +6,8 @@
     dropbox-cli
   ];
 
+  # Based on https://nixos.wiki/wiki/Dropbox
+
   networking.firewall = {
     allowedTCPPorts = [ 17500 ];
     allowedUDPPorts = [ 17500 ];
