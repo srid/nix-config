@@ -16,6 +16,7 @@ in {
       ../nixos/caches.nix
       ../nixos/gnome.nix
       ../nixos/dropbox.nix
+      ../nixos/syncthing-firewall.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {

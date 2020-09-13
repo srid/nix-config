@@ -22,6 +22,7 @@ in {
       ../nixos/google-chrome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
+      ../nixos/syncthing-firewall.nix
 
       # Using GitHub Actions with cachix instead
       # ../nix/ci.nix
@@ -58,6 +59,7 @@ in {
       allowedTCPPorts = [ 22 ];
     };
   };
+
 
   services.openssh = {
     enable = true;
