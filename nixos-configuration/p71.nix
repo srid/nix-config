@@ -15,11 +15,11 @@ in {
       ./p71/webapps.nix
      
       ../nixos/caches.nix
-      ../nixos/gui.nix
-      ../nixos/gnome.nix
+      #../nixos/gui.nix
+      #../nixos/gnome.nix
       #../nixos/kde.nix
       #../nixos/i3.nix
-      ../nixos/google-chrome.nix
+      #../nixos/google-chrome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
       ../nixos/syncthing-firewall.nix
