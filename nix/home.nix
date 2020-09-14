@@ -15,6 +15,7 @@ let
   devImports = [
     ./google-cast.nix
     ./keybase.nix
+    ./redshift.nix
 
     # Development
     ./haskell.nix
@@ -29,7 +30,6 @@ let
     #./steam.nix
     #./udiskie.nix
     #./i3.nix
-    ./redshift.nix
     ../private-config/work/aws.nix
 
     #./HighDpiCursor.nix
