@@ -54,6 +54,8 @@ in {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  virtualisation.docker.enable = true;
+
   sound.enable = true;
 
   # Fingerprint reader
@@ -83,7 +85,7 @@ in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "docker" ];
      shell = pkgs.fish;
   };
 
