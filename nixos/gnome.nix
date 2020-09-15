@@ -7,6 +7,9 @@
     };
   };
 
+  # Used by redshift
+  services.geoclue2.enable = true;
+
   environment.systemPackages = with pkgs; [
     # Tweak tool
     gnome3.gnome-tweaks

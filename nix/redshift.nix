@@ -5,8 +5,9 @@
   services.redshift = {
     enable = true;
     tray = true;
+    provider = "geoclue2";
     # Quebec City
-    latitude = "46.8423";
-    longitude = "-71.2429";
+    #latitude = "46.8423";
+    #longitude = "-71.2429";
   };
 }

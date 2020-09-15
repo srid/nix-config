@@ -46,7 +46,8 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    google-chrome
+    # google-chrome UI lags on x1c7
+    chromium
     peek
   ];
 

@@ -44,17 +44,7 @@ Use this method on macOS, Windows (WSL 2) and other Linux distros (including Chr
 
 ### Thinkpad X1 Carbon Gen 7
 
-https://github.com/andywhite37/nixos/blob/master/DUAL_BOOT_WINDOWS_GUIDE.md
-
-When following these instructions note that the builtin Windows disk manager can do the resize of C: partition; no need to install third-party partition tools. Then,
-
-- Pre-install, go to BIOS and
-  - disable Secure Boot 
-  - set Sleep State to Linux
-- Post-install
-  - Use kernel 5.8+ (nixos-unstable has it) for better drivers.
-
-For more information, see https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_7)
+<https://www.srid.ca/f65d38df.html>
 
 ### Thinkpad P71
 
