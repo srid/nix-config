@@ -40,7 +40,7 @@ in {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
-    # Always use the latest available kernel. Disabled, because buggy (crashes)
+    # Always use the latest available kernel.
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -67,12 +67,12 @@ in {
   };
 
   virtualisation.docker.enable = false;
-  #security.apparmor.enable = true;
-  #virtualisation.lxd.enable = true;
+  security.apparmor.enable = true;
+  # To enable lxd, first enable apparmor and reboot
+  virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
     acpi
-    pulsemixer
     ntfs3g
   ];
 
@@ -82,7 +82,9 @@ in {
       uid = 1000;
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
       shell = pkgs.fish;
-      openssh.authorizedKeys.keys = [ (builtins.readFile ../private-config/ssh/id_rsa.pub) ];
+      openssh.authorizedKeys.keys = [ 
+        (builtins.readFile ../private-config/ssh/id_rsa.pub) 
+      ];
     };
     apps = {
       uid = 1001;
