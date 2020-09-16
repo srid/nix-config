@@ -15,7 +15,6 @@ let
   devImports = [
     ./google-cast.nix
     ./keybase.nix
-    ./redshift.nix
 
     # Development
     ./haskell.nix
@@ -30,6 +29,7 @@ let
     #./steam.nix
     #./udiskie.nix
     #./i3.nix
+    ./redshift.nix  # redshift won't work on wayland (used in x1c7)
     ../private-config/work/aws.nix
 
     #./HighDpiCursor.nix
