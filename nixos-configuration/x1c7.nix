@@ -49,6 +49,7 @@ in {
     # google-chrome UI lags on x1c7
     chromium
     peek
+    mpv
   ];
 
   # Enable the OpenSSH daemon.
