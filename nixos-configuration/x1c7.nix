@@ -27,6 +27,11 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_testing;
+  # Allow non-free firmward, such as for intel wifi
+  hardware = {
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
+  };
 
   networking.hostName = hostName;
   networking.networkmanager.enable = true;
