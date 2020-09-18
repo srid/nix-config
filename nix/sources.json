@@ -26,7 +26,7 @@
     "cerveau": {
         "ref": "master",
         "repo": "git@github.com:srid/cerveau",
-        "rev": "d15b3ea097734e2d25c67d4b6d746d45bd8aef5a",
+        "rev": "73a13fcacfbbd93154abe87dbf1772d38edc3739",
         "type": "git"
     },
     "niv": {
