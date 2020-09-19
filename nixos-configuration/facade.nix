@@ -133,6 +133,7 @@ in
       virtualHosts."slackarchive.actualists.org" = myVhost { 
         port = 7003; 
         basicAuthFile = ../private-config/machine/godzilla/slackarchive.htpasswd;
+      };
       virtualHosts."funprog.srid.ca" = myVhost { port = 7004; };
       virtualHosts."staging.cerveau.app" = myVhost { port = 7005; };
 
