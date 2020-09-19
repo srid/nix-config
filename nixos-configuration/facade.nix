@@ -133,8 +133,9 @@ in
       virtualHosts."slackarchive.actualists.org" = myVhost { 
         port = 7003; 
         basicAuthFile = ../private-config/machine/godzilla/slackarchive.htpasswd;
-      };
       virtualHosts."funprog.srid.ca" = myVhost { port = 7004; };
+      virtualHosts."staging.cerveau.app" = myVhost { port = 7005; };
+
       # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };

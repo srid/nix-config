@@ -88,6 +88,7 @@ in {
     };
     apps = {
       uid = 1001;
+      isNormalUser = true;
     };
   };
 

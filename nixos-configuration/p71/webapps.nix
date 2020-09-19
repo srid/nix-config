@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  # Dedicated user for running internet-exposed services.
-  srvUser = "apps";
-
   sources = import ../../nix/sources.nix;
 
   obelisk = import ../../nix/obelisk.nix { inherit config lib pkgs; };
@@ -24,6 +21,9 @@ in
     slackarchive =
       obelisk.obeliskService
         "slackarchive" "7003" (import sources.Taut {});
+    cerveau-www-staging = 
+      obelisk.obeliskService 
+        "cerveau-www-staging" "7005" (import sources.cerveau {}); 
     funprog = 
       let 
         # TODO: properly nixify this
