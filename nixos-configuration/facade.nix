@@ -115,6 +115,7 @@ in
       };
     in {
       enable = true;
+      recommendedProxySettings = true;
 
       # Redirects
       virtualHosts."notes.srid.ca" = notesVhost;
