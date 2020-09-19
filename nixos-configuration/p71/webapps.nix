@@ -7,7 +7,7 @@ let
 in
 {
   networking.firewall.allowedTCPPorts = [
-    7001 7002 7003 7004
+    7001 7002 7003 7004 7005
   ];
 
   # Obelisk apps I expose to the outside world
