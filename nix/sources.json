@@ -11,6 +11,18 @@
         "url": "https://github.com/srid/MarkdownPreview/archive/eafa96b9b1b6906f6684bd7ba311d9c3ae85910f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "MarkdownPreview-wasm": {
+        "branch": "wasm",
+        "description": "Demo Obelisk app",
+        "homepage": "https://www.srid.ca/fa9766e6.html",
+        "owner": "srid",
+        "repo": "MarkdownPreview",
+        "rev": "52bec7d4f3e4a48e34038e943f06521048d7376b",
+        "sha256": "0r3lpl6ggijlk5g11vigq28hbiz5crh5r2q1pax29kvdz7yzgf5d",
+        "type": "tarball",
+        "url": "https://github.com/srid/MarkdownPreview/archive/52bec7d4f3e4a48e34038e943f06521048d7376b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "Taut": {
         "branch": "master",
         "description": "An ambitious Slack JSON export viewer.",

@@ -20,12 +20,12 @@ in
     MarkdownPreview =
       obelisk.obeliskService
         "MarkdownPreview" "7002" (import sources.MarkdownPreview {});
+    MarkdownPreview-wasm =
+      obelisk.obeliskService
+        "MarkdownPreview-wasm" "7005" (import sources.MarkdownPreview-wasm {});
     slackarchive =
       obelisk.obeliskService
         "slackarchive" "7003" (import sources.Taut {});
-    cerveau-www-staging = 
-      obelisk.obeliskService 
-        "cerveau-www-staging" "7005" (import sources.cerveau {}); 
     funprog = 
       let 
         # TODO: properly nixify this
