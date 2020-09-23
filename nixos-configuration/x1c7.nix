@@ -13,9 +13,10 @@ in {
       <nixos-hardware/lenovo/thinkpad/x1/7th-gen>
       <home-manager/nixos>
 
-      ../nixos/caches.nix
       ../nixos/gnome.nix
       ../nixos/syncthing-firewall.nix
+
+      ../private-config/caches.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {
