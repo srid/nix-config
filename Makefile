@@ -8,13 +8,14 @@ upgrade:
 	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade
 
-# Use this if one of the cache gets broken
+# Use this if one of the cache is down
 nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
 
-# https://github.com/NixOS/nixpkgs/issues/23926
-workaround:
-	sudo nix-collect-garbage --delete-older-than 7d
+# Use this only to freeup disk space (at the cost losing cached builds, esp. re: ghcjs).
+# To free up space in /boot, use `make freeupboot`
+# workaround:
+#	sudo nix-collect-garbage --delete-older-than 7d
 
 freeupboot:
 	# Delete all but the last two generations
