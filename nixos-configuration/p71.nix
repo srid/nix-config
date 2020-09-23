@@ -13,7 +13,8 @@ in {
       ./p71/wireguard.nix
       ./p71/postgresql.nix
       ./p71/webapps.nix
-     
+      ./p71/nix-serve.nix
+
       #../nixos/caches.nix  -- TODO: get caches.nix except self
       #../nixos/gui.nix
       #../nixos/gnome.nix
