@@ -54,7 +54,7 @@ in {
     hostName = "bornagain";
     # hostName = "192.168.2.127";
     system = "x86_64-linux";
-    maxJobs = 1;
+    maxJobs = 4;
     speedFactor = 2;
     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
   }];
