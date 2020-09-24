@@ -22,6 +22,9 @@ in {
   home-manager.users.srid = (import ../nix/home.nix {
     inherit pkgs config hostName;
   } );
+  home-manager.users.root = (import ../nix/root-home.nix {
+    inherit pkgs config;
+  } );
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -47,6 +50,19 @@ in {
 
   nix.trustedUsers = [ "root" "srid" ];
   nixpkgs.config.allowUnfree = true;
+  nix.buildMachines = [ {
+    hostName = "bornagain";
+    # hostName = "192.168.2.127";
+    system = "x86_64-linux";
+    maxJobs = 1;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+  }];
+  nix.distributedBuilds = true;
+  # Builder has fast internet connection
+  nix.extraOptions = ''
+    builders-use-substitutes = true
+  '';
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
