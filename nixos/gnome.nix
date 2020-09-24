@@ -24,5 +24,8 @@
     adementary-theme
     plata-theme
     arc-theme
+
+    # Twitter 
+    cawbird
   ];
 }
