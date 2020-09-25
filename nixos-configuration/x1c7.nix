@@ -30,11 +30,19 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_testing;
-  # Allow non-free firmward, such as for intel wifi
+  
+  # Allow non-free firmware, such as for intel wifi
   hardware = {
     enableRedistributableFirmware = true;
     enableAllFirmware = true;
   };
+  # Sound
+  sound.enable = true;
+  # Fingerprint reader
+  services.fwupd.enable = true;
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.xscreensaver.fprintAuth = true;
 
   networking.hostName = hostName;
   networking.networkmanager.enable = true;
@@ -78,31 +86,14 @@ in {
 
   virtualisation.docker.enable = true;
 
-  sound.enable = true;
-
-  # Fingerprint reader
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.xscreensaver.fprintAuth = true;
-
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
   networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {

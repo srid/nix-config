@@ -2,13 +2,11 @@
 
 {
   services.xserver = {
+    displayManager.gdm.enable = true;
     desktopManager.gnome3 = {
       enable = true;
     };
   };
-
-  # Used by redshift
-  services.geoclue2.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Tweak tool
