@@ -7,7 +7,7 @@ let
 in
 {
   networking.firewall.allowedTCPPorts = [
-    7001 7002 7003 7004 7005
+    7001 7002 7003 7004 7005 7006
     4444
     9990 9991
   ];
@@ -43,6 +43,21 @@ in
           Restart = "on-abnormal";
           PrivateTmp = true;
           User = "srid";
+        };
+      };
+    github-sponsors = 
+      let 
+        app = pkgs.callPackage (sources.sponsors-api) {};
+      in {
+        enable = true;
+        wantedBy = [ "default.target" ];
+        after = [ "network-online.target" ];
+        environment = import ./../../private-config/github-sponsors-env.nix;
+        serviceConfig = {
+          ExecStart = "${app}/bin/sponsors-api";
+          Restart = "on-abnormal";
+          PrivateTmp = true;
+          User = "apps";
         };
       };
   };

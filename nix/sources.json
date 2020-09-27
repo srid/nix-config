@@ -88,5 +88,17 @@
         "type": "tarball",
         "url": "https://github.com/srid/slownews/archive/5230a08980332af31147b79dbfa836f51f258467.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "sponsors-api": {
+        "branch": "nixify",
+        "description": "GitHub Sponsor avatar listings in your Readme.md",
+        "homepage": "",
+        "owner": "srid",
+        "repo": "sponsors-api",
+        "rev": "fd99c42e1d7e6ad4cc55be66bb40d229532d9e61",
+        "sha256": "1hhdiv8j8z5wcbvdqzlfbc0r3bwcn4ifgg6n7xn8zr89xp7wl6qi",
+        "type": "tarball",
+        "url": "https://github.com/srid/sponsors-api/archive/fd99c42e1d7e6ad4cc55be66bb40d229532d9e61.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
