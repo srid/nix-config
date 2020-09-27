@@ -137,6 +137,8 @@ in
       virtualHosts."funprog.srid.ca" = myVhost { port = 7004; };
       virtualHosts."commonmark-wasm.srid.ca" = myVhost { port = 7005; };
 
+      virtualHosts."github-sponsors.srid.ca" = myVhost { port = 7006; };
+
       virtualHosts."cache.srid.ca" = myVhost { 
         port = 5000; 
         basicAuthFile = ../private-config/binary-cache/htpasswd;
