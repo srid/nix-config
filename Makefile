@@ -8,6 +8,10 @@ upgrade:
 	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade
 
+upgrade-fast:
+	sudo nix-channel --update
+	sudo nixos-rebuild switch --upgrade -j0
+
 # Use this if one of the cache is down
 nocache:
 	sudo nixos-rebuild switch --option build-use-substitutes false
