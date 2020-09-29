@@ -126,6 +126,9 @@ in
         basicAuthFile = ../private-config/machine/godzilla/htpasswd;
       };
 
+      # To Nginx
+      virtualHosts."public.srid.ca" = myVhost { port = 80; };
+
       # Web apps
 
       virtualHosts."slownews.srid.ca" = myVhost { port = 7001; };
@@ -143,6 +146,8 @@ in
         port = 5000; 
         basicAuthFile = ../private-config/binary-cache/htpasswd;
       };
+
+
 
       # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
       virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
