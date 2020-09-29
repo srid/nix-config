@@ -12,7 +12,7 @@
     ormolu
     ghcide
 
-    pkgs.vscode
+    # pkgs.vscode
   ];
 
   home.file = {

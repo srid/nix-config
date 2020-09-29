@@ -2,7 +2,7 @@
 
 let 
   hostName = "bebe";
-  # unstable = import <nixpkgs-unstable> { config.allowUnfree = true; };
+  nixpkgs-master = import <nixpkgs-master> { config.allowUnfree = true; };
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -76,9 +76,10 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # google-chrome UI lags on x1c7
-    chromium
+    nixpkgs-master.chromium
     peek
     mpv
+    nixpkgs-master.vscode
   ];
 
   # Enable the OpenSSH daemon.
