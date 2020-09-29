@@ -29,7 +29,24 @@ in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  # boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = let
+      customLinuxF = { fetchurl, buildLinux, ... } @ args:
+
+        buildLinux (args // rec {
+          version = "5.9-rc7";
+          extraMeta.branch = "5.9";
+          modDirVersion = builtins.replaceStrings ["-"] [".0-"] version;
+
+          src = fetchurl {
+            url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
+            sha256 = "19ma3bbr8k85nkchm9n7b1zxv5wsk4h7g6br0xs2fsp3mx2s3ngs";
+          };
+          kernelPatches = [];
+        } // (args.argsOverride or {}));
+      customLinux = pkgs.callPackage customLinuxF{};
+    in 
+      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor customLinux);
   
   # Allow non-free firmware, such as for intel wifi
   hardware = {
