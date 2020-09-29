@@ -10,7 +10,20 @@ in
     7001 7002 7003 7004 7005 7006
     4444
     9990 9991
+    80
   ];
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."public.srid.ca" = {
+      root = "/var/public";
+      locations."/list" = {
+        extraConfig = ''
+          autoindex on;
+        '';
+      };
+    };
+  };
 
   # Obelisk apps I expose to the outside world
   systemd.services = {
