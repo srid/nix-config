@@ -13,6 +13,7 @@ in {
       <nixos-hardware/lenovo/thinkpad/x1/7th-gen>
       <home-manager/nixos>
 
+      ../nixos/quebec.nix
       ../nixos/gnome.nix
       ../nixos/syncthing-firewall.nix
 
@@ -69,9 +70,6 @@ in {
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
 
   nix.trustedUsers = [ "root" "srid" ];
   nixpkgs.config.allowUnfree = true;

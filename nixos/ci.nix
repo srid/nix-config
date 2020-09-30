@@ -10,6 +10,6 @@
   services.hercules-ci-agent = {
     enable = true;
     concurrentTasks = 4; # Number of jobs to run
-    patchNix = true;
+    # patchNix = true;
   };
 }

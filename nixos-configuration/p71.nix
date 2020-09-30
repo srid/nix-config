@@ -15,18 +15,13 @@ in {
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
-      #../nixos/caches.nix  -- TODO: get caches.nix except self
-      ../nixos/gui.nix
-      ../nixos/gnome.nix
-      #../nixos/kde.nix
-      #../nixos/i3.nix
-      #../nixos/google-chrome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
       ../nixos/syncthing-firewall.nix
 
-      # Using GitHub Actions with cachix instead
-      # ../nix/ci.nix
+      ../nixos/quebec.nix
+      ../nixos/nix.nix
+      # ../nixos/ci.nix
 
       <home-manager/nixos>
     ];
@@ -41,14 +36,8 @@ in {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
-    # Always use the latest available kernel.
     kernelPackages = pkgs.linuxPackages_latest;
   };
-
-  time.timeZone = "America/New_York";
-
-  nix.trustedUsers = [ "root" "srid" ];
-  nixpkgs.config.allowUnfree = true;
 
   networking = {
     inherit hostName;
@@ -60,7 +49,6 @@ in {
       allowedTCPPorts = [ 22 ];
     };
   };
-
 
   services.openssh = {
     enable = true;
