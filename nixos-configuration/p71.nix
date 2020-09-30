@@ -16,8 +16,8 @@ in {
       ./p71/nix-serve.nix
 
       #../nixos/caches.nix  -- TODO: get caches.nix except self
-      #../nixos/gui.nix
-      #../nixos/gnome.nix
+      ../nixos/gui.nix
+      ../nixos/gnome.nix
       #../nixos/kde.nix
       #../nixos/i3.nix
       #../nixos/google-chrome.nix
