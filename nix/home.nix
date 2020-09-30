@@ -14,7 +14,9 @@ let
   # For my main development machine only
   devImports = [
     ./google-cast.nix
-    ./keybase.nix
+
+    # Not using keybase anymore
+    # ./keybase.nix
 
     # Development
     ./haskell.nix
