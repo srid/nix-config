@@ -14,6 +14,8 @@ in {
       <home-manager/nixos>
 
       ../nixos/quebec.nix
+      ../nixos/nix.nix
+      ../nixos/nix-distributed.nix
       ../nixos/gnome.nix
       ../nixos/syncthing-firewall.nix
 
@@ -62,30 +64,18 @@ in {
   security.pam.services.login.fprintAuth = true;
   security.pam.services.xscreensaver.fprintAuth = true;
 
-  networking.hostName = hostName;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = hostName;
+    networkmanager.enable = true;
+    wireless.networks = ./private-config/wifi.nix;
+    firewall.enable = false;
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  nix.trustedUsers = [ "root" "srid" ];
-  nixpkgs.config.allowUnfree = true;
-  nix.buildMachines = [ {
-    hostName = "bornagain";
-    # hostName = "192.168.2.127";
-    system = "x86_64-linux";
-    maxJobs = 4;
-    speedFactor = 2;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-  }];
-  nix.distributedBuilds = true;
-  # Builder has fast internet connection
-  nix.extraOptions = ''
-    builders-use-substitutes = true
-  '';
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
+    useDHCP = false;
+    interfaces.wlp0s20f3.useDHCP = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -102,14 +92,13 @@ in {
 
   virtualisation.docker.enable = true;
 
-  # Open ports in the firewall.
-  networking.firewall.enable = false;
-
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    # Enable touchpad support.
+    libinput.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {

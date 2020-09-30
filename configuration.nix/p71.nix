@@ -21,7 +21,7 @@ in {
 
       ../nixos/quebec.nix
       ../nixos/nix.nix
-      # ../nixos/ci.nix
+      ../nixos/ci.nix
 
       <home-manager/nixos>
     ];
