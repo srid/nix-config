@@ -9,7 +9,6 @@ let
   baseImports = [
     ./git.nix
     ./shells.nix
-    ./tmux.nix
   ];
   # For my main development machine only
   devImports = [
