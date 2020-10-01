@@ -2,7 +2,11 @@
 
 {
   services.xserver = {
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      # https://github.com/NixOS/nixpkgs/issues/42053
+      autoSuspend = false;
+    };
     desktopManager.gnome3 = {
       enable = true;
     };
