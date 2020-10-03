@@ -86,39 +86,9 @@ in
           extraConfig = locationExtraConfig;
         };
       };
-      # Set up a sub domain that points a range of ports, mapped from sub path.
-      myVhostPortRange = { prefix, withSSL ? true }: myVhost { 
-        port = 0; 
-        withSSL = withSSL; 
-        location = "~ /${prefix}/"; 
-        locationExtraConfig = ''
-          rewrite ^/${prefix}/(.*)$ /$2 break;
-          proxy_pass http://10.100.0.2:$1;
-        '' ;
-      };
-      # A vhost that simply redirects old notes to my new site
-      notesVhost = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/" = {
-          extraConfig = ''
-            rewrite ^/haskell-nix$ https://www.srid.ca/haskell-nix.html permanent;
-            rewrite ^/computing/haskell-nix$ https://www.srid.ca/haskell-nix.html permanent;
-            rewrite ^/calisthenics$ https://www.srid.ca/calisthenics.html permanent;
-            rewrite ^/carnivore-diet$ https://www.srid.ca/carnivore-diet.html permanent;
-            rewrite ^/conflicts$ https://www.srid.ca/conflicts.html permanent;
-            rewrite ^/lasik$ https://www.srid.ca/lasik.html permanent;
-            rewrite ^/sous-vide$ https://www.srid.ca/sous-vide.html permanent;
-            rewrite ^/$ https://www.srid.ca/ permanent;
-          '' ;
-        };
-      };
     in {
       enable = true;
       recommendedProxySettings = true;
-
-      # Redirects
-      virtualHosts."notes.srid.ca" = notesVhost;
 
       # Private stuff 
       virtualHosts."static.srid.ca" = myVhost {
@@ -146,11 +116,6 @@ in
         port = 5000; 
         basicAuthFile = ../private-config/binary-cache/htpasswd;
       };
-
-
-
-      # Multi site: https://tmp.srid.ca/p/9990 => bornagain:9990
-      virtualHosts."tmp.srid.ca" = myVhostPortRange { prefix = "p/(999[0-9])"; };
     };
 
   security.acme = {
