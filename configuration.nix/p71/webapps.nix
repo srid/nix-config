@@ -8,19 +8,37 @@ in
 {
   networking.firewall.allowedTCPPorts = [
     7001 7002 7003 7004 7005 7006
-    4444
     9990 9991
-    80
+    80 81
   ];
+
+  # **WARNING** All these services are exposed on the local network.
 
   services.nginx = {
     enable = true;
-    virtualHosts."public.srid.ca" = {
-      root = "/var/public";
-      locations."/list" = {
-        extraConfig = ''
-          autoindex on;
-        '';
+    recommendedProxySettings = true;
+
+    virtualHosts = {
+      # This will be the default (nginx picks the first) for unrecognized
+      # incoming requests.
+      "public.srid.ca" = {
+        listen = [{ addr = "0.0.0.0"; port = 80; }];
+        root = "/var/public";
+        locations."/list" = {
+          extraConfig = ''
+            autoindex on;
+          '';
+        };
+      };
+      "static.srid.ca" = {
+        listen = [{ addr = "0.0.0.0"; port = 81; }];
+        root = "/var/private";
+        basicAuthFile = ../../private-config/machine/godzilla/htpasswd;
+        locations."/" = {
+          extraConfig = ''
+            autoindex on;
+          '';
+        };
       };
     };
   };
