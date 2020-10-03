@@ -122,8 +122,8 @@ in
 
       # Private stuff 
       virtualHosts."static.srid.ca" = myVhost {
-        port = 4444;
-        basicAuthFile = ../private-config/machine/godzilla/htpasswd;
+        # Inner nginx uses htpasswd
+        port = 81;
       };
 
       # To Nginx
