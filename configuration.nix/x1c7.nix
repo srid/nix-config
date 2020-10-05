@@ -2,7 +2,7 @@
 
 let 
   hostName = "bebe";
-  nixpkgs-master = import <nixpkgs-master> { config.allowUnfree = true; };
+  nixpkgs-master = import ../nixos/nixpkgs-master.nix;
 in {
   imports =
     [ # Include the results of the hardware scan.
