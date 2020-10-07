@@ -9,13 +9,14 @@ in {
     [ /etc/nixos/hardware-configuration.nix
 
       ./p71/hardware.nix
-      # ./p71/graphics.nix  -- DISABLED, because in server-mode
+      ./p71/graphics.nix
       ./p71/wireguard.nix
       ./p71/postgresql.nix
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
       ../nixos/tmux.nix
+      ../nixos/gnome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
       ../nixos/syncthing-firewall.nix

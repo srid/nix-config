@@ -18,7 +18,6 @@
     # Extensions
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
-    gnomeExtensions.material-shell
     # Themes
     materia-theme
     equilux-theme
