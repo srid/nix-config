@@ -15,6 +15,7 @@ in {
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
+      ../nixos/tmux.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
       ../nixos/syncthing-firewall.nix
