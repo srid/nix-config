@@ -65,6 +65,20 @@ in {
   environment.systemPackages = with  pkgs; [
     acpi
     ntfs3g
+    vscode
+    # Needed for vscode-remote extension per
+    # https://nixos.wiki/wiki/Vscode
+    nodejs-12_x
+    /* (let 
+      extensions = (with pkgs.vscode-extensions; [
+        ms-vscode-remote.remote-ssh
+      ]);
+    in pkgs.vscode-with-extensions.override {
+      vscodeExtensions = extensions;
+    }
+      )*/
+    vscode
+
   ];
 
   users.extraUsers = {
