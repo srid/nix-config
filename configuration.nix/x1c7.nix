@@ -85,7 +85,15 @@ in {
     nixpkgs-master.chromium
     peek
     mpv
-    nixpkgs-master.vscode
+    # nixpkgs-master.vscode
+    (let 
+      extensions = (with nixpkgs-master.vscode-extensions; [
+        ms-vscode-remote.remote-ssh
+      ]);
+    in nixpkgs-master.vscode-with-extensions.override {
+      vscodeExtensions = extensions;
+    }
+      )
   ];
 
   # Enable the OpenSSH daemon.
