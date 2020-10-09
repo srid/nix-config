@@ -62,7 +62,7 @@ in {
     ports = [22];
   };
 
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
   security.apparmor.enable = true;
   # To enable lxd, first enable apparmor and reboot
   virtualisation.lxd.enable = true;
