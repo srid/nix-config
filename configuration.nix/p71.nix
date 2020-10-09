@@ -9,14 +9,14 @@ in {
     [ /etc/nixos/hardware-configuration.nix
 
       ./p71/hardware.nix
-      ./p71/graphics.nix
+      #./p71/graphics.nix
       ./p71/wireguard.nix
       ./p71/postgresql.nix
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
       ../nixos/tmux.nix
-      ../nixos/gnome.nix
+      # ../nixos/gnome.nix
       ../nixos/fonts.nix
       ../nixos/dropbox.nix
       ../nixos/syncthing-firewall.nix
@@ -41,12 +41,17 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  hardware = {
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
+  };
+
   networking = {
     inherit hostName;
     networkmanager.enable = true;
     wireless.networks = ./private-config/wifi.nix;
     firewall = {
-      enable = false;
+      enable = true;
       allowPing = true;
       allowedTCPPorts = [ 22 ];
     };
@@ -68,6 +73,8 @@ in {
     # Needed for vscode-remote extension per
     # https://nixos.wiki/wiki/Vscode
     nodejs-10_x
+
+    steam
   ];
 
   users.extraUsers = {

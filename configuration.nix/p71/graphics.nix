@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
@@ -8,6 +9,7 @@
       enable = true;
       naturalScrolling = true;
     };
+
 
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
