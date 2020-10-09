@@ -82,7 +82,8 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # google-chrome UI lags on x1c7
-    nixpkgs-master.chromium
+    # google-chrome
+    chromium
     peek
     mpv
     nixpkgs-master.vscode
