@@ -7,6 +7,8 @@
     aggressiveResize = true;
     baseIndex = 1;
     newSession = true;
+    # Stop tmux+escape craziness.
+    escapeTime = 0;
 
     extraConfig = ''
       # Mouse works as expected

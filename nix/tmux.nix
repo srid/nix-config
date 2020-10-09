@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 
+## XXX: Unused. See nixos/tmux.nix
 {
    programs.tmux = {
     enable = true;
