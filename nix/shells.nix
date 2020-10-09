@@ -45,8 +45,6 @@ in
 
   programs.broot = {
     enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
   };
 
   programs.fish = {
@@ -54,8 +52,6 @@ in
     enable = true;
     shellAbbrs = {
       gs = "git status -s";
-      gd = "git diff";
-      gca = "git commit --amend";
     };
     plugins = [
       { name = "bobthefish";
@@ -76,11 +72,12 @@ in
   end
   '';
 
+  programs.autojump.enable = true;
+
   programs.bash = {
     enable = true;
     historyIgnore = [ "l" "ls" "cd" "exit" ];
     historyControl = [ "erasedups" ];
-    enableAutojump = true;
     inherit shellAliases;
     initExtra = ''
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
