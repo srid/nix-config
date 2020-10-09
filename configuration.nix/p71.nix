@@ -46,7 +46,7 @@ in {
     networkmanager.enable = true;
     wireless.networks = ./private-config/wifi.nix;
     firewall = {
-      enable = true;
+      enable = false;
       allowPing = true;
       allowedTCPPorts = [ 22 ];
     };
@@ -63,22 +63,11 @@ in {
   virtualisation.lxd.enable = true;
 
   environment.systemPackages = with  pkgs; [
-    acpi
-    ntfs3g
+    chromium
     vscode
     # Needed for vscode-remote extension per
     # https://nixos.wiki/wiki/Vscode
-    nodejs-12_x
-    /* (let 
-      extensions = (with pkgs.vscode-extensions; [
-        ms-vscode-remote.remote-ssh
-      ]);
-    in pkgs.vscode-with-extensions.override {
-      vscodeExtensions = extensions;
-    }
-      )*/
-    vscode
-
+    nodejs-10_x
   ];
 
   users.extraUsers = {

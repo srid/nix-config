@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # When using just discrete graphics with nvidia, DPI is calculated
-  # automatically,
-  # https://http.download.nvidia.com/XFree86/Linux-x86/1.0-8178/README/appendix-y.html
-
-  hardware.video.hidpi.enable = true;
-
   # services.xserver.
   services.xserver = {
     # Enable touchpad support.
@@ -28,19 +22,6 @@
   };
 
   hardware = {
-    # TODO: Hybrid graphics.
-    #  - Bumblee works, but DPI sucks (no nvidia driver to detect it)
-    #  - Connect to external monitor using `optirun true; intel-virtual-output -f` (and arandr)
-    #  - Somewhat sluggish performance; monitor 2 duplicates often.
-    #  ...
-    #  If enabling it back, switch BIOS to hybrid graphics while rebooting.
-    bumblebee = {
-      enable = false;
-      driver = "nvidia";
-      pmMethod = "none";
-      connectDisplay = true;
-    };
-
     # Audio
     # Use `pactl set-sink-volume 0 +10%` to increase volume.
     pulseaudio = {
