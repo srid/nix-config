@@ -18,6 +18,7 @@ in {
       ../nixos/nix-distributed.nix
       ../nixos/gnome.nix
       ../nixos/tmux.nix
+      ../nixos/fonts.nix
       ../nixos/syncthing-firewall.nix
 
       ../private-config/caches.nix
