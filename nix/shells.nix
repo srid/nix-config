@@ -72,10 +72,11 @@ in
   end
   '';
 
-  programs.autojump.enable = true;
+  # programs.autojump.enable = true;
 
   programs.bash = {
     enable = true;
+    enableAutojump = true;
     historyIgnore = [ "l" "ls" "cd" "exit" ];
     historyControl = [ "erasedups" ];
     inherit shellAliases;
