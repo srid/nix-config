@@ -14,15 +14,14 @@ let
   devImports = [
     ./google-cast.nix
 
-    # Not using keybase anymore
-    # ./keybase.nix
+    ./keybase.nix
 
     # Development
     ./haskell.nix
 
     ./syncthing.nix
   ];
-  homeOffice = devImports ++ [
+  homeMachine = [
     ./scripts.nix
     #./terminal.nix
     #./irc.nix
@@ -46,7 +45,7 @@ in
   programs.home-manager.enable = true;
 
   imports = if (hostName == "bornagain")
-            then (baseImports ++ homeOffice)
+            then (baseImports ++ devImports ++ homeMachine)
             else if (hostName == "bebe")
               then (baseImports ++ devImports)
               else baseImports;

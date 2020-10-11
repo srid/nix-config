@@ -52,6 +52,7 @@ in
     enable = true;
     shellAbbrs = {
       gs = "git status -s";
+      gc = "git commit -F -";
     };
     plugins = [
       { name = "bobthefish";

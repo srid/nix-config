@@ -14,6 +14,7 @@
     };
     extraConfig = {
       core.editor = "nvim";
+      protocol.keybase.allow = "always";
       credential.helper = "store --file ~/.git-credentials";
       pull.rebase = "false";
     };
