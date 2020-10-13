@@ -8,7 +8,6 @@ in
 {
   networking.firewall.allowedTCPPorts = [
     7001 7002 7003 7004 7005 7006
-    9990 9991
     80 81
   ];
 

@@ -53,7 +53,8 @@ in {
     firewall = {
       enable = true;
       allowPing = true;
-      allowedTCPPorts = [ 22 ];
+      # Allow 9000 for tmp stuff
+      allowedTCPPorts = [ 22 9000 ];
     };
   };
 
