@@ -19,16 +19,5 @@
     # Extensions
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
-    # Themes
-    materia-theme
-    equilux-theme
-    qogir-theme
-    theme-obsidian2
-    adementary-theme
-    plata-theme
-    arc-theme
-
-    # Twitter 
-    cawbird
   ];
 }
