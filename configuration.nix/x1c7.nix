@@ -67,7 +67,11 @@ in {
 
   networking = {
     hostName = hostName;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.powersave = false;
+      wifi.scanRandMacAddress = false;
+    };
     wireless.networks = ./private-config/wifi.nix;
     firewall.enable = false;
 
