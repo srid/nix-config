@@ -19,7 +19,7 @@ in {
       ../nixos/gnome.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
-      ../nixos/syncthing-firewall.nix
+      ../nixos/syncthing.nix
 
       ../private-config/caches.nix
     ];
@@ -73,7 +73,7 @@ in {
       wifi.scanRandMacAddress = false;
     };
     wireless.networks = ./private-config/wifi.nix;
-    firewall.enable = false;
+    firewall.enable = true;
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -88,18 +88,15 @@ in {
     # google-chrome UI lags on x1c7
     # google-chrome
     chromium
+
     peek
+
     mpv
+
+    psmisc  # For killall
+
     nixpkgs-master.vscode
     nodejs-12_x
-    /* (let 
-      extensions = (with nixpkgs-master.vscode-extensions; [
-        ms-vscode-remote.remote-ssh
-      ]);
-    in nixpkgs-master.vscode-with-extensions.override {
-      vscodeExtensions = extensions;
-    }
-      )*/
   ];
 
   # Enable the OpenSSH daemon.

@@ -18,8 +18,6 @@ let
 
     # Development
     ./haskell.nix
-
-    ./syncthing.nix
   ];
   homeMachine = [
     ./scripts.nix
