@@ -11,7 +11,7 @@
 
       # For fish powerline plugin
       powerline-fonts
-      nerdfonts
+      cascadia-code
 
       # Keep this disabled until verifying they don't break emoji font
       #emacs-all-the-icons-fonts
