@@ -20,7 +20,7 @@ in {
 
       ../nixos/tmux.nix
       ../nixos/fonts.nix
-      ../nixos/dropbox.nix
+      # ../nixos/dropbox.nix
       ../nixos/syncthing.nix
 
       ../nixos/quebec.nix

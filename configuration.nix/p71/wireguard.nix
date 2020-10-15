@@ -1,7 +1,16 @@
 { config, lib, pkgs, ... }:
 
-{
-  networking.firewall.allowedUDPPorts = [ 51820 ];
+let 
+  facadeIP = "167.172.133.184";
+in {
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+    # Accept all connections from wireguard peer, facade.
+    extraCommands = 
+      '' 
+      iptables -I INPUT -p tcp -s 10.100.0.1 -j ACCEPT
+      '';
+  };
 
   # Wireguard client
   networking.wireguard.interfaces = {
@@ -12,7 +21,7 @@
       peers = [
         { publicKey = "cInHQG7ns2Hvq7HW6kqVGoRXvoZALNZ00pvjH1bPTmM=";
           allowedIPs = [ "10.100.0.1" ];
-          endpoint = "167.172.133.184:51820";
+          endpoint = "${facadeIP}:51820";
           persistentKeepalive = 25;
         }
         # pixel slate

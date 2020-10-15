@@ -6,12 +6,7 @@ let
   obelisk = import ../../nix/obelisk.nix { inherit config lib pkgs; };
 in
 {
-  networking.firewall.allowedTCPPorts = [
-    7001 7002 7003 7004 7005 7006
-    80 81
-  ];
-
-  # **WARNING** All these services are exposed on the local network.
+  # **NOTE** These are not exposed to local network; only wireguard peer (see wireguard.nix)
 
   services.nginx = {
     enable = true;
