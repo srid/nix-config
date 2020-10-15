@@ -95,9 +95,14 @@ in
         # Inner nginx uses htpasswd
         port = 81;
       };
+      virtualHosts."zk.srid.ca" = myVhost {
+        port = 9000;
+        basicAuthFile = ../private-config/machine/godzilla/htpasswd;
+      };
 
       # To Nginx
       virtualHosts."public.srid.ca" = myVhost { port = 80; };
+
 
       # Web apps
 
