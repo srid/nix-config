@@ -95,24 +95,18 @@ in {
       wg0 = {
         ips = [ "10.100.0.3/24" ];
         listenPort = 51820;
-        # publicKey = "tDRqfSwIocf6VCutSzc6McEq38oZV/HpF1Yh1o85zSE=";
         privateKeyFile = " /home/srid/nix-config/private-config/wireguard/x1c7/private";
         peers = [
           { publicKey = "cInHQG7ns2Hvq7HW6kqVGoRXvoZALNZ00pvjH1bPTmM=";
-            allowedIPs = [ "10.100.0.1" ];
+            allowedIPs = [ "10.100.0.1/32" ];
             endpoint = let facadeIP = "167.172.133.184"; in "${facadeIP}:51820";
             persistentKeepalive = 25;
           }
           # bornagain
           { publicKey = "z298c6R+NXecUAEQmw/vdNMnewOT6nZ7Tx5q4Kh+5z0=";
-            allowedIPs = [ "10.100.0.2" ];
+            allowedIPs = [ "10.100.0.2/32" ];
             endpoint = "192.168.2.127:51820";  # Apparently needed to be able to talk to it
           }
-          # pixel slate
-          #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
-          #  allowedIPs = [ "10.100.0.3" ];
-          #  persistentKeepalive = 25;
-          #}
         ];
       };
     };
