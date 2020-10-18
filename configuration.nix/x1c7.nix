@@ -103,6 +103,10 @@ in {
             endpoint = let facadeIP = "167.172.133.184"; in "${facadeIP}:51820";
             persistentKeepalive = 25;
           }
+          # bornagain
+          { publicKey = "z298c6R+NXecUAEQmw/vdNMnewOT6nZ7Tx5q4Kh+5z0=";
+            allowedIPs = [ "10.100.0.2" ];
+          }
           # pixel slate
           #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
           #  allowedIPs = [ "10.100.0.3" ];

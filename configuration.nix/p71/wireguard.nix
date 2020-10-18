@@ -28,7 +28,7 @@ in {
         }
         # x1c7
         { publicKey = "tDRqfSwIocf6VCutSzc6McEq38oZV/HpF1Yh1o85zSE=";
-          allowedIPs = [ "10.100.0.3/32" ];
+          allowedIPs = [ "10.100.0.3" ];
         }
         # pixel slate
         #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
