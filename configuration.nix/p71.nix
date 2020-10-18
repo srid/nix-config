@@ -20,7 +20,7 @@ in {
 
       ../nixos/tmux.nix
       ../nixos/fonts.nix
-      # ../nixos/dropbox.nix
+      ../nixos/docker.nix
       ../nixos/syncthing.nix
 
       ../nixos/quebec.nix
@@ -65,7 +65,6 @@ in {
     ports = [22];
   };
 
-  virtualisation.docker.enable = true;
   security.apparmor.enable = true;
   # To enable lxd, first enable apparmor and reboot
   virtualisation.lxd.enable = true;

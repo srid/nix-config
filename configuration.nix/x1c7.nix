@@ -20,6 +20,7 @@ in {
       ../nixos/tmux.nix
       ../nixos/fonts.nix
       ../nixos/syncthing.nix
+      ../nixos/docker.nix
 
       ../private-config/caches.nix
     ];
@@ -122,8 +123,6 @@ in {
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  virtualisation.docker.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
