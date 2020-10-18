@@ -50,11 +50,11 @@ in
         # bornagain
         { publicKey = "z298c6R+NXecUAEQmw/vdNMnewOT6nZ7Tx5q4Kh+5z0=";
           allowedIPs = [ "10.100.0.2/32" ];
-        },
+        }
         # x1c7
         { publicKey = "tDRqfSwIocf6VCutSzc6McEq38oZV/HpF1Yh1o85zSE=";
           allowedIPs = [ "10.100.0.3/32" ];
-        };
+        }
         # pixel slate
         #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
         #  allowedIPs = [ "10.100.0.3/32" ];
