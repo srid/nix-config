@@ -73,13 +73,44 @@ in {
       wifi.scanRandMacAddress = false;
     };
     wireless.networks = ./private-config/wifi.nix;
-    firewall.enable = true;
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
     interfaces.wlp0s20f3.useDHCP = true;
+  };
+
+  # Set up Wireguard
+  networking = {
+    nat = {
+      enable = true;
+      #externalInterface = "";
+    };
+    firewall = {
+      enable = true;
+      allowedUDPPorts = [51820];
+    };
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "10.100.0.3/24" ];
+        listenPort = 51820;
+        # publicKey = "tDRqfSwIocf6VCutSzc6McEq38oZV/HpF1Yh1o85zSE=";
+        privateKeyFile = " /home/srid/nix-config/private-config/wireguard/x1c7/private";
+        peers = [
+          { publicKey = "cInHQG7ns2Hvq7HW6kqVGoRXvoZALNZ00pvjH1bPTmM=";
+            allowedIPs = [ "10.100.0.1" ];
+            endpoint = let facadeIP = "167.172.133.184"; in "${facadeIP}:51820";
+            persistentKeepalive = 25;
+          }
+          # pixel slate
+          #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
+          #  allowedIPs = [ "10.100.0.3" ];
+          #  persistentKeepalive = 25;
+          #}
+        ];
+      };
+    };
   };
 
   # List packages installed in system profile. To search, run:
