@@ -22,19 +22,14 @@ in {
       privateKeyFile = " /home/srid/nix-config/private-config/wireguard/bornagain/private";
       peers = [
         { publicKey = "cInHQG7ns2Hvq7HW6kqVGoRXvoZALNZ00pvjH1bPTmM=";
-          allowedIPs = [ "10.100.0.1" ];
+          allowedIPs = [ "10.100.0.1/32" ];
           endpoint = "${facadeIP}:51820";
           persistentKeepalive = 25;
         }
         # x1c7
         { publicKey = "tDRqfSwIocf6VCutSzc6McEq38oZV/HpF1Yh1o85zSE=";
-          allowedIPs = [ "10.100.0.3" ];
+          allowedIPs = [ "10.100.0.3/32" ];
         }
-        # pixel slate
-        #{ publicKey = "yMuIxno/f/eI5W+P6SsBZ0Ib5s0uhqEo/DB8MdCbryY=";
-        #  allowedIPs = [ "10.100.0.3" ];
-        #  persistentKeepalive = 25;
-        #}
       ];
     };
   };
