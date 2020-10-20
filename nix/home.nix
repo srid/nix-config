@@ -45,7 +45,6 @@ in
 
     # Basic tools
     htop
-    ytop
     file
     jq
     ncdu
