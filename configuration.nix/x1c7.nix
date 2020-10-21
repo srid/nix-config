@@ -110,13 +110,14 @@ in {
     # google-chrome UI lags on x1c7
     # google-chrome
     chromium
-    # nixpkgs-master.opera
+    # nixpkgs-master.opera (outdated)
     (callPackage ../nix/opera.nix {})
     # ^ Did I mention that I don't believe the firefox hype?
 
     peek
 
-    # mpv
+    mpv
+    cawbird
 
     psmisc  # For killall
 
