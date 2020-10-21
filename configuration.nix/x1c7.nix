@@ -110,7 +110,7 @@ in {
     # google-chrome UI lags on x1c7
     # google-chrome
     chromium
-    # nixpkgs-master.opera (outdated)
+    # nixpkgs-master.opera 
     (callPackage ../nix/opera.nix {})
     # ^ Did I mention that I don't believe the firefox hype?
 
