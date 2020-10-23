@@ -78,15 +78,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "slownews": {
-        "branch": "wasm",
+        "branch": "master",
         "description": "🐢 Bringing slow news for the nervous among us",
         "homepage": "https://slownews.srid.ca/",
         "owner": "srid",
         "repo": "slownews",
-        "rev": "5230a08980332af31147b79dbfa836f51f258467",
-        "sha256": "1z1i0jxmy1bw8qynsn8i7a3fksanwyn6clwqfrk8zq05cvhxfkvj",
+        "rev": "a84801872b61042afe9d6a5676dc40b101d0f857",
+        "sha256": "1cahsn51p4xx33iypz6swaayl7grfy70ibqpfa2b4jiaqciij3jl",
         "type": "tarball",
-        "url": "https://github.com/srid/slownews/archive/5230a08980332af31147b79dbfa836f51f258467.tar.gz",
+        "url": "https://github.com/srid/slownews/archive/a84801872b61042afe9d6a5676dc40b101d0f857.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "sponsors-api": {
