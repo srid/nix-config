@@ -110,8 +110,6 @@ in {
     # google-chrome UI lags on x1c7
     # google-chrome
     chromium
-    # nixpkgs-master.opera 
-    (callPackage ../nix/opera.nix {})
     # ^ Did I mention that I don't believe the firefox hype?
 
     peek
@@ -123,6 +121,8 @@ in {
 
     nixpkgs-master.vscode
     nodejs-12_x
+
+    steam
   ];
 
   # Enable the OpenSSH daemon.
