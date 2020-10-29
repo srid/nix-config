@@ -40,13 +40,13 @@ in {
       customLinuxF = { fetchurl, buildLinux, ... } @ args:
 
         buildLinux (args // rec {
-          version = "5.9.1";
+          version = "5.9.2";
           extraMeta.branch = "5.9";
           modDirVersion = "${version}";
 
           src = fetchurl {
             url = "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
-            sha256 = "0dn0xz81pphca5dkg6zh8c78p05f63rrr5ihqqsmhc4n73li2jms";
+            sha256 = "0dh2ciyrm2ac7r4pybxa1cq3pfw3z3ilj50gdaa0clm9j7nyrx2i";
           };
           kernelPatches = [];
         } // (args.argsOverride or {}));
