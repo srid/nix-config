@@ -114,7 +114,8 @@ in {
     peek
 
     mpv
-    cawbird
+    # winamp 
+    qmmp
 
     psmisc  # For killall
 
