@@ -36,9 +36,10 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "cerveau": {
+        "branch": "master",
         "ref": "master",
         "repo": "git@github.com:srid/cerveau",
-        "rev": "bbbc3cb3f44c9be493a1bcd3ca653454a82d33f0",
+        "rev": "e722279286b409809644ae527fcb8685d3d65736",
         "type": "git"
     },
     "niv": {
