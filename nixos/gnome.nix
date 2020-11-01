@@ -13,7 +13,7 @@
     };
   };
 
-  services.flatpak.enable = true;
+  services.flatpak.enable = false;
 
   environment.systemPackages = with pkgs; [
     # Tweak tool

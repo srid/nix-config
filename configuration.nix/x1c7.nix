@@ -38,15 +38,14 @@ in {
   # boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.kernelPackages = let
       customLinuxF = { fetchurl, buildLinux, ... } @ args:
-
         buildLinux (args // rec {
-          version = "5.9.2";
+          version = "5.9.3";
           extraMeta.branch = "5.9";
           modDirVersion = "${version}";
 
           src = fetchurl {
             url = "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
-            sha256 = "0dh2ciyrm2ac7r4pybxa1cq3pfw3z3ilj50gdaa0clm9j7nyrx2i";
+            sha256 = "0wwa6557i9l4vyswz26ixz8c2ykxnzqrsc9pwkr76nyjx7gjibni";
           };
           kernelPatches = [];
         } // (args.argsOverride or {}));
