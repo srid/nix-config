@@ -1,9 +1,11 @@
 # Import this to leverage P71 as a builder
 { config, pkgs, ... }:
 
-{
+let 
+  bornagainIp = "192.168.2.127";
+in {
   nix.buildMachines = [ {
-    hostName = "bornagain";
+    hostName = bornagainIp;
     system = "x86_64-linux";
     maxJobs = 4;
     speedFactor = 2;
