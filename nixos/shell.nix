@@ -18,6 +18,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     fzf
+    psmisc  # For killall
     (pkgs.callPackage ../nix/xterm-24bit.nix {})
   ];
 

@@ -110,19 +110,14 @@ in {
     # google-chrome UI lags on x1c7
     # google-chrome
     chromium
-    # ^ Did I mention that I don't believe the firefox hype?
 
     peek
 
     mpv
-    # winamp 
-    qmmp
-
-    psmisc  # For killall
+    qmmp  # winamp like
 
     nixpkgs-master.vscode
-    nodejs-12_x
-
+    nodejs-12_x  # for vscode remote
   ];
 
   services.emacs = {
