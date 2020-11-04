@@ -5,8 +5,8 @@ let
     l = "${pkgs.exa}/bin/exa";
     g = "git";
     t = "tig status";
-    e = "nvim";
-    ee = "fzf | xargs nvim";
+    e = "emacsclient";
+    ee = "fzf | xargs emacsclient";
     download = "aria2c --file-allocation=none --seed-time=0";
     # gotty-sridca = "gotty -a 0.0.0.0 -p 9999 -r"; # To be run from the thebeast wireguard peer only.
     youtube-dl-audio = "youtube-dl --ignore-errors --output \"%(title)s.%(ext)s\" --extract-audio --audio-format mp3";
@@ -17,7 +17,8 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    (pkgs.callPackage ../nix/emacs/xterm-24bit.nix {})
+    fzf
+    (pkgs.callPackage ../nix/xterm-24bit.nix {})
   ];
 
   programs.autojump.enable = true;

@@ -8,12 +8,9 @@
 let
   baseImports = [
     ./git.nix
-    #./shells.nix
   ];
   # For my main development machine only
   devImports = [
-    ./google-cast.nix
-
     ./keybase.nix
 
     # Development
