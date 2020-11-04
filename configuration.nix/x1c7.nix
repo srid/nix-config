@@ -21,6 +21,7 @@ in {
       ../nixos/fonts.nix
       ../nixos/syncthing.nix
       ../nixos/docker.nix
+      ../nixos/shell.nix
 
       ../private-config/caches.nix
     ];
@@ -140,7 +141,7 @@ in {
   users.users.srid = {
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ];
-     shell = pkgs.fish;
+     shell = pkgs.bash;
   };
 
   # This value determines the NixOS release from which the default

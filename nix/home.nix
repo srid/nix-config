@@ -8,7 +8,7 @@
 let
   baseImports = [
     ./git.nix
-    ./shells.nix
+    #./shells.nix
   ];
   # For my main development machine only
   devImports = [
