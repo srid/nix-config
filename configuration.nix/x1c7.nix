@@ -120,11 +120,6 @@ in {
     nodejs-12_x  # for vscode remote
   ];
 
-  services.emacs = {
-    enable = true;
-    package = import ../nixos/emacs.nix { inherit pkgs; };
-  };
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 

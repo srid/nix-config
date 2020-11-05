@@ -5,36 +5,21 @@
 
 { config, pkgs, hostName ? "unknown", ...}:
 
-let
-  baseImports = [
-    ./git.nix
-  ];
-  # For my main development machine only
-  devImports = [
-    ./keybase.nix
-
-    # Development
-    ./haskell.nix
-  ];
-  homeMachine = [
-    ./scripts.nix
-    #./gotty.nix
-    ../private-config/work/aws.nix
-  ];
-in
 {
+  programs.home-manager.enable = true;
+  
   nixpkgs.config.allowUnfree = true;
   home.file.".config/nixpkgs/config.nix".text = ''
     { allowUnfree = true; }
   '';
 
-  programs.home-manager.enable = true;
-
-  imports = if (hostName == "bornagain")
-            then (baseImports ++ devImports ++ homeMachine)
-            else if (hostName == "bebe")
-              then (baseImports ++ devImports)
-              else baseImports;
+  imports = 
+    if (hostName == "bornagain" || hostName == "bebe")
+      then [
+        ./keybase.nix 
+        ./haskell.nix 
+      ]
+      else [];
 
   home.packages = with pkgs; [
     # To track sources 
@@ -45,11 +30,9 @@ in
     file
     jq
     ncdu
-    du-dust
     procs
     sd
     ripgrep
-    tealdeer
     # psmisc  # not on macOS
     tree 
     unzip
@@ -71,6 +54,31 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  programs.ssh = {
+    enable = true;
+    # https://nixos.wiki/wiki/Distributed_build
+    matchBlocks = import ../private-config/ssh-match-blocks.nix;
+  };
+
+  programs.git = {
+    package = pkgs.gitAndTools.gitFull;
+    enable = true;
+    userName = "Sridhar Ratnakumar";
+    userEmail = "srid@srid.ca";
+    aliases = {
+      co = "checkout";
+      ci = "commit";
+      s = "status";
+      st = "status";
+    };
+    extraConfig = {
+      core.editor = "nvim";
+      protocol.keybase.allow = "always";
+      credential.helper = "store --file ~/.git-credentials";
+      pull.rebase = "false";
+    };
   };
 
 }
