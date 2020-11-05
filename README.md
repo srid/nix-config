@@ -1,13 +1,12 @@
-# My Nix configuration
+# My NixOS configuration
 
-## On NixOS
+## Setup
 
-1. First, copy the 'srid' user config to configuration.nix, and activate that nix. We need to do 
-   this before cloning the repo under srid's home directory. 
+1. First, copy the 'srid' user config to `configuration.nix`, and activate that. We need to do this before cloning the repo under srid's home directory.
 
 1. Then, ssh as srid@... and:
 
-```
+```bash
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
 sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
@@ -26,35 +25,21 @@ sudo ln -s $(pwd)/configuration.nix/???.nix /etc/nixos/configuration.nix
 make
 ```
 
-## On macOS, Windows (WSL 2) & Other Linux
+## Installing NixOS on ...
 
-Use this method on macOS, Windows (WSL 2) and other Linux distros (including ChromeOS's crostini container).
-
-1. Install [home-manager](https://github.com/rycee/home-manager)
-1. `ln -s ~/nix-config/nix/home.nix ~/.config/nixpkgs/home.nix`
-1. `mkdir old-profile; mv .bashrc .profile old-profile`
-1. `home-manager switch`
-
-### macOS 
-
-1. Set `fish` as the default shell: `chsh -s $(which fish)`
-2. Teach fish to initialize Nix environment: <https://github.com/NixOS/nix/issues/440>
-
-## Hardware notes
-
-### Thinkpad X1 Carbon Gen 7
+### Thinkpad X1C7
 
 <https://www.srid.ca/f65d38df.html>
 
 ### Thinkpad P71
 
-#### Preparation
 - In BIOS, disable discrete graphics so intel card is used. We can change this post-install.
 - In BIOS, make the USB disk the highest startup priority
+- Follow the NixOS installation manual (choose UEFI), using /dev/nvme0n1 disk
 
-#### Install
-- Follow the NixOS installation manual (choose UEFI), using /dev/nvme0n1 disk)
-- Boot into NixOS and follow the instructions in [nix-config](https://github.com/srid/nix-config) to complete the configuration.
+### Digital Ocean
+
+Use [nixos-infect](https://github.com/elitak/nixos-infect).
 
 ### Kimsufi
 
@@ -65,22 +50,3 @@ Prior to running install.sh, patch the configuration.nix used by it to allow roo
 ### OVH
 
 https://www.srid.ca/137ae172.html
-
-### Digital Ocean
-
-Use [nixos-infect](https://github.com/elitak/nixos-infect).
-
-### Hyper-v
-
-- [Quick Create](https://blogs.windows.com/buildingapps/2018/09/17/run-ubuntu-virtual-machines-made-even-easier-with-hyper-v-quick-create/) a Ubuntu VM
-- Install a fresh copy of NixOS, overwriting Ubuntu.
-  - Mount the existing UEFI partition as `/boot` (instead of creating a new partition)
-- Add a 2nd network that is "internal", and use the IP address of that network to ssh the VM.
-
-## Tips and tricks
-
-### Resizing VM's disk
-
-- Resize the disk using the VM tools
-- Enable `boot.growPartition` and reboot
-- Run `resize2fs` on the root volume to make use of the new disk space

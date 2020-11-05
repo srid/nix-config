@@ -29,9 +29,6 @@ in {
   home-manager.users.srid = (import ../nix/home.nix {
     inherit pkgs config hostName;
   } );
-  home-manager.users.root = (import ../nix/root-home.nix {
-    inherit pkgs config;
-  } );
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
