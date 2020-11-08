@@ -132,6 +132,9 @@ in {
     funprog = 
       let 
         # TODO: properly nixify this
+        # - configure API keys
+        # - specify output dir as cli param
+        # - deal with ./static dir (user_uploads)
         root = "/home/srid/code/zulip-archive";
       in {
         enable = true;
@@ -140,9 +143,8 @@ in {
         after = [ "network-online.target" ];
         environment = {};
         serviceConfig = {
-          # TODO: Properly nixify this
           WorkingDirectory = "${root}";
-          ExecStart = "${root}/result/bin/zulip-archive watch";
+          ExecStart = "${root}/result/bin/zulip-archive -w";
           Restart = "on-abnormal";
           PrivateTmp = true;
           User = "srid";
