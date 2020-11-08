@@ -129,28 +129,6 @@ in {
   };
 
   systemd.services = {
-    funprog = 
-      let 
-        # TODO: properly nixify this
-        # - configure API keys
-        # - specify output dir as cli param
-        # - deal with ./static dir (user_uploads)
-        root = "/home/srid/code/zulip-archive";
-      in {
-        enable = true;
-        description = "funprog";
-        wantedBy = [ "default.target" ];
-        after = [ "network-online.target" ];
-        environment = {};
-        serviceConfig = {
-          WorkingDirectory = "${root}";
-          ExecStart = "${root}/result/bin/zulip-archive -w";
-          Restart = "on-abnormal";
-          PrivateTmp = true;
-          User = "srid";
-        };
-      };
-
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
