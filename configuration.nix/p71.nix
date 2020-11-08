@@ -14,9 +14,9 @@ in {
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
-      # Keep GUI disabled until needed.
-      #./p71/graphics.nix
-      #../nixos/gnome.nix
+      # Disable these, if running as server.
+      ./p71/graphics.nix
+      ../nixos/gnome.nix
 
       ../nixos/tmux.nix
       ../nixos/fonts.nix
