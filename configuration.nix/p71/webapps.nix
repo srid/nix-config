@@ -51,25 +51,6 @@ in
     slackarchive =
       obelisk.obeliskService
         "slackarchive" "7003" (import sources.Taut {});
-    funprog = 
-      let 
-        # TODO: properly nixify this
-        root = "/home/srid/code/zulip-archive";
-      in {
-        enable = true;
-        description = "funprog";
-        wantedBy = [ "default.target" ];
-        after = [ "network-online.target" ];
-        environment = {};
-        serviceConfig = {
-          # TODO: Properly nixify this
-          WorkingDirectory = "${root}";
-          ExecStart = "${root}/result/bin/zulip-archive serve -p 7004";
-          Restart = "on-abnormal";
-          PrivateTmp = true;
-          User = "srid";
-        };
-      };
     github-sponsors = 
       let 
         app = pkgs.callPackage (sources.sponsors-api) {};
