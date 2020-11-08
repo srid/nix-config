@@ -12,6 +12,9 @@
     ormolu
     ghcide
 
+    # For this shit: https://github.com/haskell/haskell-language-server/issues/171#issuecomment-647480950
+    stack
+
     # pkgs.vscode
   ];
 
