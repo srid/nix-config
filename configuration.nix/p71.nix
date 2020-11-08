@@ -84,7 +84,7 @@ in {
       isNormalUser = true;
       uid = 1000;
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
-      shell = pkgs.fish;
+      shell = pkgs.bash;
       openssh.authorizedKeys.keys = [ 
         (builtins.readFile ../private-config/ssh/id_rsa.pub) 
       ];
