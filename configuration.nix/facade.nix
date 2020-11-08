@@ -19,8 +19,8 @@ in
   users.extraUsers = {
     srid = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "lxd" ];
-      shell = pkgs.fish;
+      extraGroups = [ "wheel" ];
+      shell = pkgs.bash;
       openssh.authorizedKeys.keys = [ (builtins.readFile ../private-config/ssh/id_rsa.pub) ];
     };
   };
@@ -104,7 +104,6 @@ in
         port = 7003; 
         basicAuthFile = ../private-config/machine/godzilla/slackarchive.htpasswd;
       };
-      virtualHosts."funprog.srid.ca" = myVhost { port = 7004; };
       virtualHosts."commonmark-wasm.srid.ca" = myVhost { port = 7005; };
 
       virtualHosts."github-sponsors.srid.ca" = myVhost { port = 7006; };
