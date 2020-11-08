@@ -128,6 +128,29 @@ in {
     libinput.enable = true;
   };
 
+  systemd.services = {
+    funprog = 
+      let 
+        # TODO: properly nixify this
+        root = "/home/srid/code/zulip-archive";
+      in {
+        enable = true;
+        description = "funprog";
+        wantedBy = [ "default.target" ];
+        after = [ "network-online.target" ];
+        environment = {};
+        serviceConfig = {
+          # TODO: Properly nixify this
+          WorkingDirectory = "${root}";
+          ExecStart = "${root}/result/bin/zulip-archive watch";
+          Restart = "on-abnormal";
+          PrivateTmp = true;
+          User = "srid";
+        };
+      };
+
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
      isNormalUser = true;
