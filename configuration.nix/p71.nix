@@ -18,6 +18,7 @@ in {
       ./p71/graphics.nix
       ../nixos/gnome.nix
 
+      ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
       ../nixos/docker.nix
@@ -84,7 +85,6 @@ in {
       isNormalUser = true;
       uid = 1000;
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" "lxd" "ipfs" ];
-      shell = pkgs.bash;
       openssh.authorizedKeys.keys = [ 
         (builtins.readFile ../private-config/ssh/id_rsa.pub) 
       ];
