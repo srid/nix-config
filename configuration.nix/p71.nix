@@ -88,6 +88,9 @@ in {
       openssh.authorizedKeys.keys = [ 
         (builtins.readFile ../private-config/ssh/id_rsa.pub) 
       ];
+      packages = with pkgs; [
+        slack
+      ];
     };
     apps = {
       uid = 1001;
