@@ -1,16 +1,26 @@
-all:	nix-switch
+all:	switch
 	@echo
 
-nix-switch:
+switch:
 	sudo nixos-rebuild switch
+
+switch-remote:
+	sudo nixos-rebuild switch -j0
+
+switch-local:
+	sudo nixos-rebuild switch --builders ""
 
 upgrade:
 	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade
 
-upgrade-fast:
+upgrade-remote:
 	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade -j0
+
+upgrade-local:
+	sudo nix-channel --update
+	sudo nixos-rebuild switch --upgrade --builders ""
 
 # Use this if one of the cache is down
 nocache:

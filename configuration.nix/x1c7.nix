@@ -136,6 +136,9 @@ in {
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ];
      shell = pkgs.bash;
+     packages = with pkgs; [
+       slack
+     ];
   };
 
   # This value determines the NixOS release from which the default
