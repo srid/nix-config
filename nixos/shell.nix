@@ -12,6 +12,8 @@ let
     youtube-dl-audio = "youtube-dl --ignore-errors --output \"%(title)s.%(ext)s\" --extract-audio --audio-format mp3";
     cast-video = "${pkgs.catt}/bin/catt -d SridScreen cast";
     cast-audio = "${pkgs.catt}/bin/catt -d SridMini cast";
+    # project tmux
+    pux = "tmux -S $(pwd).tmux attach";
   };
 
 in

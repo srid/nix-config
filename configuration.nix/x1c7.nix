@@ -113,8 +113,7 @@ in {
     mpv
     qmmp  # winamp like
 
-    nixpkgs-master.vscode
-    nodejs-12_x  # for vscode remote
+    vscode
   ];
 
   # Enable the OpenSSH daemon.

@@ -90,6 +90,7 @@ in {
       ];
       packages = with pkgs; [
         slack
+        qmmp  # winamp like
       ];
     };
     apps = {
