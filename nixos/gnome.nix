@@ -16,8 +16,9 @@
   services.flatpak.enable = false;
 
   environment.systemPackages = with pkgs; [
-    # Tweak tool
+    # Apps
     gnome3.gnome-tweaks
+    gnome3.gnome-sound-recorder
     # Extensions
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator

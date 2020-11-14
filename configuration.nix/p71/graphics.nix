@@ -14,6 +14,7 @@
     # Graphics drivers.
     videoDrivers = [ "nvidia" "intel" ];
 
+    # THIS COMMENT IS OUT OF DATE
     # Configuration for high res (4k/5k) monitors that use dual channel.
     # Facts:
     #  - TwinView is automatically enabled in recent nvidia drivers (no need to 
