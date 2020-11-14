@@ -22,6 +22,9 @@
     #  - In the past, nvidiaXineramaInfo/Xinerama must be disabled, otherwise X
     #    will treat the display as two monitors. This doesn't have to be done
     #    anymore.
+    deviceSection = ''
+         Option         "Twinview"   "false"
+    '';
   };
 
   hardware = {
