@@ -16,7 +16,7 @@ in {
       ../nixos/quebec.nix
       ../nixos/nix.nix
       ../nixos/nix-distributed.nix
-      ../nixos/gnome.nix
+      ../nixos/kde.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
       ../nixos/syncthing.nix
@@ -108,7 +108,10 @@ in {
     enable = true;
     layout = "us";
     # Enable touchpad support.
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      naturalScrolling = true;
+    };
   };
 
   systemd.services = {
