@@ -16,7 +16,7 @@ in {
 
       # Disable these, if running as server.
       ./p71/graphics.nix
-      ../nixos/kde.nix
+      ../nixos/gnome.nix
 
       ../nixos/shell.nix
       ../nixos/tmux.nix
