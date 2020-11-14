@@ -24,7 +24,7 @@ in {
 
       ../nixos/docker.nix
       ../nixos/syncthing.nix
-      ../nixos/dropbox.nix
+      ../nixos/syncthing-tray.nix
 
       ../nixos/quebec.nix
       ../nixos/nix.nix
@@ -58,8 +58,7 @@ in {
     firewall = {
       enable = true;
       allowPing = true;
-      # Allow 9000 for tmp stuff
-      allowedTCPPorts = [ 22 9000 ];
+      allowedTCPPorts = [ 22 ];
     };
   };
 

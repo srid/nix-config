@@ -10,7 +10,4 @@ in {
     enable = true;
     openDefaultPorts = true;
   };
-  environment.systemPackages = [
-    pkgs.syncthing-tray
-  ];
 }

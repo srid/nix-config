@@ -13,16 +13,18 @@ in {
       <nixos-hardware/lenovo/thinkpad/x1/7th-gen>
       <home-manager/nixos>
 
+      ../nixos/shell.nix
       ../nixos/quebec.nix
+      ../nixos/fonts.nix
       ../nixos/nix.nix
       ../nixos/nix-distributed.nix
-      ../nixos/kde.nix
+
+      ../nixos/gnome.nix
       ../nixos/tmux.nix
-      ../nixos/fonts.nix
-      ../nixos/dropbox.nix
+
       ../nixos/syncthing.nix
+      ../nixos/syncthing-tray.nix
       ../nixos/docker.nix
-      ../nixos/shell.nix
 
       ../private-config/caches.nix
     ];
