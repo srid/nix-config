@@ -19,6 +19,7 @@ in {
       ../nixos/kde.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
+      ../nixos/dropbox.nix
       ../nixos/syncthing.nix
       ../nixos/docker.nix
       ../nixos/shell.nix

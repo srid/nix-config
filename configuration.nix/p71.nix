@@ -21,12 +21,14 @@ in {
       ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
+
       ../nixos/docker.nix
       ../nixos/syncthing.nix
+      ../nixos/dropbox.nix
 
       ../nixos/quebec.nix
       ../nixos/nix.nix
-      ../nixos/ci.nix
+      # ../nixos/ci.nix
 
       <home-manager/nixos>
     ];
