@@ -1,7 +1,7 @@
 {
   "url": "ssh://git@github.com/SridCircle/ka.git",
-  "rev": "6731c9d38762fecb87839aeb8d7d7806190a3f11",
-  "sha256": "15xkia0l8bmcgq0wn3f3wr4kjl750h4hi1bhr4zh0hn7y1d13bk4",
+  "rev": "e3a25216a08f2043e420514010a4a8bed88fdd95",
+  "sha256": "1b9cx8sa0b5lbsyzbp0n53bz5jwqkdy1rjy4l363n6zf1v2cflrq",
   "private": true,
   "fetchSubmodules": false
 }
