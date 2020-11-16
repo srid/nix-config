@@ -50,15 +50,6 @@ let
         sha256 = "197rp20hngrq7qdlii0ai4vb81dlilah0q1wlil8hv3qcf4az7qr";
       };
     };
-    neuron-vim = pkgs.vimUtils.buildVimPlugin {
-      name = "neuron-vim";
-      src = pkgs.fetchFromGitHub {
-        owner = "fiatjaf";
-        repo = "neuron.vim";
-        rev = "d2fb9b3";
-        sha256 = "1x563d3996zad74p8zzlzpmhmh4r3snjajxb4jjq6wl6k2m80v2v";
-      };
-    };
     mkdx = pkgs.vimUtils.buildVimPlugin {
       name = "mkdx";
       src = pkgs.fetchFromGitHub {
@@ -107,11 +98,9 @@ in
         { name = "vim-which-key"; }
         { name = "vim-sneak"; }
         { name = "mkdx"; }
-        # Fails with no neuron/jq as build-time dependency
-        { name = "neuron-vim"; }
       ];
 
       customRC = 
-        builtins.readFile ./config.vim  + builtins.readFile ./config-coc.vim;
+        builtins.readFile ./config.vim; /*  + builtins.readFile ./config-coc.vim; */
     };
   }
