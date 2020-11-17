@@ -22,11 +22,9 @@
       else [];
 
   home.packages = with pkgs; [
-    # To track sources 
-    niv
-
     # Basic tools
     htop
+    nnn
     file
     jq
     ncdu
@@ -41,7 +39,6 @@
 
     # nvim, and its runtime dependencies
     (callPackage ./nvim {})
-    nodejs  # coc.vim requires it
 
     # Dev tools
     gnumake

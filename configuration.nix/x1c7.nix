@@ -36,7 +36,7 @@ in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Allow non-free firmware, such as for intel wifi
   hardware = {
@@ -100,7 +100,7 @@ in {
     mpv
     qmmp  # winamp like
 
-    vscode
+    nixpkgs-master.vscode
   ];
 
   # Enable the OpenSSH daemon.

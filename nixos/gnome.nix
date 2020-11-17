@@ -25,8 +25,8 @@
   ];
 
   # Fuckin european sleep slut fuck
-  systemd.targets.sleep.enable = true;
-  systemd.targets.suspend.enable = true;
-  systemd.targets.hibernate.enable = false;
-  systemd.targets.hybrid-sleep.enable = false;
+  #systemd.targets.sleep.enable = true;
+  #systemd.targets.suspend.enable = true;
+  #systemd.targets.hibernate.enable = false;
+  #systemd.targets.hybrid-sleep.enable = false;
 }
