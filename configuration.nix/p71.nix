@@ -4,6 +4,7 @@
 
 let 
   hostName = "bornagain";
+  nixpkgs-master = import ../nixos/nixpkgs-master.nix;
 in {
   imports =
     [ /etc/nixos/hardware-configuration.nix
@@ -23,6 +24,7 @@ in {
       ../nixos/fonts.nix
 
       ../nixos/docker.nix
+      ../nixos/redshift.nix
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
 
@@ -73,7 +75,8 @@ in {
 
   environment.systemPackages = with  pkgs; [
     chromium
-    vscode
+
+    nixpkgs-master.vscode
     # Needed for vscode-remote extension per
     # https://nixos.wiki/wiki/Vscode
     nodejs-10_x
