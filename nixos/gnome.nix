@@ -22,5 +22,8 @@
     # Extensions
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
+
+    # For scripting
+    xdotool
   ];
 }
