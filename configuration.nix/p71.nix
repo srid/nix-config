@@ -46,6 +46,8 @@ in {
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = false;
     kernelPackages = pkgs.linuxPackages_latest;
+    # Until https://github.com/NixOS/nixpkgs/pull/102106 is merged
+    kernelParams = [ "msr.allow_writes=on" ];
   };
 
   hardware = {
