@@ -18,7 +18,7 @@
 
   # SSH'ing to bulid machine is done as root; so we must configure passwordless
   # ssh on root, which requires managing root's home directory (via
-  # home-manager)
+  # home-manager). Don't forget to manually set .ssh in root.
   home-manager.users.root = (import ../nix/root-home.nix {
     inherit pkgs config;
   } );

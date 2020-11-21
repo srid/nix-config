@@ -31,7 +31,7 @@
     procs
     sd
     ripgrep
-    # psmisc  # not on macOS
+    psmisc  # not on macOS
     tree 
     unzip
     wget

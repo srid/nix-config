@@ -91,7 +91,7 @@ in
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
-        { name = "coc-nvim"; }
+        # { name = "coc-nvim"; }
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }

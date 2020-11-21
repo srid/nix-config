@@ -4,16 +4,14 @@
   services.xserver = {
     enable = true;
     displayManager.gdm = {
-      enable = true;
+      #enable = true;
       # https://github.com/NixOS/nixpkgs/issues/42053
-      autoSuspend = false;
+      # autoSuspend = false;
     };
     desktopManager.gnome3 = {
       enable = true;
     };
   };
-
-  services.flatpak.enable = false;
 
   environment.systemPackages = with pkgs; [
     # Apps
