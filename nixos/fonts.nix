@@ -12,6 +12,9 @@
       # For fish powerline plugin
       powerline-fonts
       cascadia-code
+
+      # Doom emacs
+      emacs-all-the-icons-fonts
     ];
   };
 }
