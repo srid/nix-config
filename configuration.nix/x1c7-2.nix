@@ -90,6 +90,10 @@ in {
     };
   };
 
+  # Allow non-free firmware, such as for intel wifi
+  hardware = {
+    enableRedistributableFirmware = true;
+  };
   sound.enable = true;
   services.fwupd.enable = true;
 
