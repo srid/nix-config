@@ -1,13 +1,22 @@
 { config, pkgs, ...}:
 
-{
+# See also: nix/i3-config.nix for dotfiles
+let 
+  # Suckless Terminal provides good performance. Just need to increase the
+  # fontsize on retina display.
+  myst = pkgs.writeScriptBin "myst" 
+  ''
+    #!${pkgs.runtimeShell}
+    exec ${pkgs.st}/bin/st -f "monospace:pixelsize=24" $*
+  '';
+in {
   services.xserver = {
     displayManager = {
       defaultSession = "none+i3";
       # sddm.enable = true;
       sessionCommands = ''
-        xrdb -merge ~/.Xresources
-        setxkbmap -option "ctrl:nocaps" 
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
+        ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option "ctrl:nocaps" 
       '';
     };
 
@@ -23,6 +32,10 @@
         xorg.xmodmap
         arandr
         xorg.xdpyinfo
+        # When docking / undocking, use pulsemixer to change the audio output
+        # (of running applications).
+        pulsemixer
+        myst
       ];
     };
   };
