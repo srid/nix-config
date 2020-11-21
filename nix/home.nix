@@ -58,6 +58,7 @@
   programs.ssh = {
     enable = true;
     # https://nixos.wiki/wiki/Distributed_build
+    # TODO: Move to nixos: programs.ssh.knownHosts?
     matchBlocks = import ../private-config/ssh-match-blocks.nix;
   };
 

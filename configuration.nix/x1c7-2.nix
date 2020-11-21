@@ -90,11 +90,20 @@ in {
     };
   };
 
+  # See also nix/ssh.nix
+  programs.ssh = {
+    startAgent = true;
+  };
+
   # Allow non-free firmware, such as for intel wifi
   hardware = {
     enableRedistributableFirmware = true;
   };
+
+  # Sound is trickly. Use alsamixer, and make sure that laptop card is not
+  # muted. Use pulsemixer to switch output device when docking/detaching.
   sound.enable = true;
+
   services.fwupd.enable = true;
 
   users.users.srid = {

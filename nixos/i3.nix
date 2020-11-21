@@ -37,8 +37,6 @@ in {
         xorg.xmodmap
         arandr
         xorg.xdpyinfo
-        # When docking / undocking, use pulsemixer to change the audio output
-        # (of running applications).
         pulsemixer
         # My scripts
         myst
