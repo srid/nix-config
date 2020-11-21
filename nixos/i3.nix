@@ -52,4 +52,11 @@ in {
   services.autorandr = {
     enable = true;
   };
+
+  # For the X1C7 thunderbug crash on wakeup
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    IdleAction=suspend
+    IdleActionSec=40m
+  '';
 }
