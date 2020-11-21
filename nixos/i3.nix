@@ -5,6 +5,10 @@
     displayManager = {
       defaultSession = "none+i3";
       # sddm.enable = true;
+      sessionCommands = ''
+        xrdb -merge ~/.Xresources
+        setxkbmap -option "ctrl:nocaps" 
+      '';
     };
 
     libinput.naturalScrolling = true;

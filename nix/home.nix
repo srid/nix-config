@@ -18,6 +18,7 @@
       then [
         ./keybase.nix 
         ./haskell.nix 
+        ./i3-config.nix
       ]
       else [];
 
