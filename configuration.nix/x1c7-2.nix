@@ -71,10 +71,6 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
   # Set up Wireguard
   networking = {
     firewall = {
@@ -94,11 +90,8 @@ in {
     };
   };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  sound.enable = true;
+  services.fwupd.enable = true;
 
   users.users.srid = {
      isNormalUser = true;

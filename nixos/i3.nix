@@ -9,6 +9,11 @@ let
     #!${pkgs.runtimeShell}
     exec ${pkgs.st}/bin/st -f "monospace:pixelsize=24" $*
   '';
+  screenshot = pkgs.writeScriptBin "screenshot"
+  '' 
+    #!${pkgs.runtimeShell}
+    ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+  '';
 in {
   services.xserver = {
     displayManager = {
@@ -35,7 +40,9 @@ in {
         # When docking / undocking, use pulsemixer to change the audio output
         # (of running applications).
         pulsemixer
+        # My scripts
         myst
+        screenshot
       ];
     };
   };
