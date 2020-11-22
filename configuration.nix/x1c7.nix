@@ -49,7 +49,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   networking.hostName = hostName;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
