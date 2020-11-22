@@ -4,7 +4,7 @@
 # Use as: 
 #   sudo xbacklight -set 40`
 # To set brightness on external monitor:
-#   sudo ddcutil setvcp 10 50
+#   ddcutil setvcp 10 50
 #
 # TODO: make Fn brightness keys work
 {
@@ -34,10 +34,4 @@
   '';
 
   services.acpid.enable = true;
-
-  # https://github.com/FedeDP/Clight
-  # Apparently matches 'ambient brightness' and replaces redshift. Gotta play with it ...
-  services.clight = {
-    enable = true;
-  };
 }
