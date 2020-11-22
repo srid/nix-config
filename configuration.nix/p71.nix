@@ -18,6 +18,9 @@ in {
       # Disable these, if running as server.
       ./p71/graphics.nix
       ../nixos/gnome.nix
+      ../nixos/i3.nix
+      ./x1c7/brightness.nix
+      ./x1c7/touchpad-trackpoint.nix
 
       ../nixos/shell.nix
       ../nixos/tmux.nix
