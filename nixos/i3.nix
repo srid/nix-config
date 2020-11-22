@@ -19,7 +19,12 @@ in {
     displayManager = {
       defaultSession = "none+i3";
       # sddm.enable = true;
-      sessionCommands = ''
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      configFile = ./i3.conf;
+      extraSessionCommands = ''
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
         ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option "ctrl:nocaps" 
 
@@ -27,15 +32,9 @@ in {
         xset s off
         xset -dpms
       '';
-    };
-
-    windowManager.i3 = {
-      enable = true;
       extraPackages = with pkgs; [
         dmenu
         i3status
-        i3lock
-        i3blocks
         arandr
         xorg.xmodmap
         xorg.xdpyinfo
