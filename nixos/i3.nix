@@ -22,6 +22,10 @@ in {
       sessionCommands = ''
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
         ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option "ctrl:nocaps" 
+
+        # Disable turning screen off (cf suspend-crash-workaround.nix)
+        xset s off
+        xset -dpms
       '';
     };
 
@@ -40,6 +44,16 @@ in {
         myst
         screenshot
       ];
+    };
+
+    # Auto-lock
+    xautolock = {
+      enable = true;
+      time = 5; # mins
+
+      # Suspend after sometime (enable this after things are okay)
+      # killtime = 20; # mins
+      # killer = "/run/current-system/systemd/bin/systemctl suspend";
     };
   };
 
