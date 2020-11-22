@@ -35,6 +35,7 @@ in {
       ../private-config/caches.nix
 
       ./x1c7/custom-kernel.nix
+      ./x1c7/brightness.nix
       ./x1c7/wireguard.nix
       ./x1c7/touchpad-trackpoint.nix
       ./x1c7/suspend-crash-workaround.nix
@@ -48,12 +49,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Hoping this fixes screen brightness buttons
-  # EDIT: nope, it doesn't...
-  boot.kernelParams = [
-    "acpi_backlight=vendor"
-    "video.use_native_backlight=1"
-  ];
 
   networking.hostName = hostName;
 

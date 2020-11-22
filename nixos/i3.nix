@@ -35,7 +35,6 @@ in {
         arandr
         xorg.xmodmap
         xorg.xdpyinfo
-        xorg.xbacklight
         pulsemixer
         # My scripts
         myst
