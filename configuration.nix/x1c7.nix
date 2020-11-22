@@ -36,6 +36,8 @@ in {
 
       ./x1c7/custom-kernel.nix
       ./x1c7/wireguard.nix
+      ./x1c7/touchpad-trackpoint.nix
+      ./x1c7/suspend-crash-workaround.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {
