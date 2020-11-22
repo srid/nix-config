@@ -33,6 +33,9 @@ in {
       ../nixos/nix-distributed.nix
 
       ../private-config/caches.nix
+
+      ./x1c7/custom-kernel.nix
+      ./x1c7/wireguard.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {
@@ -42,23 +45,6 @@ in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.kernelPackages = pkgs.linuxPackages_testing;
-  boot.kernelPackages = let
-      customLinuxF = { fetchurl, buildLinux, ... } @ args:
-        buildLinux (args // rec {
-          version = "5.9.9";
-          extraMeta.branch = "5.9";
-          modDirVersion = "${version}";
-
-          src = fetchurl {
-            url = "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
-            sha256 = "1b8zysy0br131ydhc7ycxhh8d88r44xrmkf2q2lffy0jmy3d60m3";
-          };
-          kernelPatches = [];
-        } // (args.argsOverride or {}));
-      customLinux = pkgs.callPackage customLinuxF{};
-    in 
-      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor customLinux);
 
   # Hoping this fixes screen brightness buttons
   # EDIT: nope, it doesn't...
@@ -66,8 +52,6 @@ in {
     "acpi_backlight=vendor"
     "video.use_native_backlight=1"
   ];
-
-  #fileSystems."/".device = "/dev/mapper/crypted";
 
   networking.hostName = hostName;
 
@@ -86,25 +70,6 @@ in {
     wifi.scanRandMacAddress = false;
   };
   */
-
-  # Set up Wireguard
-  networking = {
-    firewall = {
-      enable = true;
-      allowedUDPPorts = [51820];
-    };
-    wireguard.interfaces = {
-      wg0 = {
-        ips = [ "10.100.0.3/24" ];
-        listenPort = 51820;
-        privateKeyFile = "/home/srid/nix-config/private-config/wireguard/x1c7/private";
-        peers = [
-          ../nixos/wireguard/peers/facade.nix
-          ../nixos/wireguard/peers/p71.nix
-        ];
-      };
-    };
-  };
 
   # See also nix/ssh.nix
   programs.ssh = {
