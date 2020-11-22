@@ -23,6 +23,7 @@ in {
 
     windowManager.i3 = {
       enable = true;
+      package = pkgs.i3-gaps;
       configFile = ./i3.conf;
       extraSessionCommands = ''
         ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
