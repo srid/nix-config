@@ -117,6 +117,7 @@ in {
        qmmp
        mpv
        peek
+       pciutils
      ];
   };
 

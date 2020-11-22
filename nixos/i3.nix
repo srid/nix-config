@@ -25,7 +25,13 @@ in {
       '';
     };
 
-    libinput.naturalScrolling = true;
+    libinput = {
+      enable = true;
+      naturalScrolling = true;
+      # Increase touchpad/trackpoint speed. 1.0 is maximum speed.
+      # Changing this value won't take effect until X restart.
+      accelSpeed = "0.5";
+    };
 
     windowManager.i3 = {
       enable = true;
@@ -34,9 +40,10 @@ in {
         i3status
         i3lock
         i3blocks
-        xorg.xmodmap
         arandr
+        xorg.xmodmap
         xorg.xdpyinfo
+        xorg.xbacklight
         pulsemixer
         # My scripts
         myst
