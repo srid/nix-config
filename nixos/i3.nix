@@ -26,7 +26,9 @@ in {
       package = pkgs.i3-gaps;
       configFile = ./i3.conf;
       extraSessionCommands = ''
-        ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+        Xft.dpi: 192
+        EOF
         ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option "ctrl:nocaps" 
 
         # Disable turning screen off (cf suspend-crash-workaround.nix)
