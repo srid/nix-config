@@ -21,6 +21,7 @@ in {
       ./p71/graphics.nix
       ../nixos/gnome.nix
       ../nixos/i3.nix
+      ../nixos/xmonad.nix
       ./x1c7/brightness.nix
       ./x1c7/touchpad-trackpoint.nix
 
