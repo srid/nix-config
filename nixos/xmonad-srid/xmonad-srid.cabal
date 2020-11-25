@@ -9,7 +9,7 @@ extra-source-files: CHANGELOG.md
 executable xmonad-srid
   main-is:          Main.hs
   build-depends:
-    , base            ^>=4.13.0.0
+    , base
     , xmonad
     , xmonad-contrib
 
