@@ -18,7 +18,7 @@ let
 in {
   services.xserver = {
     displayManager = {
-      defaultSession = "none+i3";
+      # defaultSession = "none+i3";
       # sddm.enable = true;
     };
 

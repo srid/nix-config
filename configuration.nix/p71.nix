@@ -20,8 +20,10 @@ in {
       # Disable these, if running as server.
       ./p71/graphics.nix
       ../nixos/gnome.nix
-      ../nixos/i3.nix
+      # ../nixos/i3.nix
       ../nixos/xmonad.nix
+      ../nixos/hidpi.nix
+      ../nixos/swap-ctrl-caps.nix
       ./x1c7/brightness.nix
       ./x1c7/touchpad-trackpoint.nix
 

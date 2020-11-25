@@ -1,17 +1,40 @@
 { config, pkgs, ...}:
 
-{
+let 
+  # Suckless Terminal provides good performance. Just need to increase the
+  # fontsize on retina display.
+  myst = pkgs.writeScriptBin "myst" 
+  ''
+    #!${pkgs.runtimeShell}
+    # Use fc-list to lookup font names
+    exec ${pkgs.st}/bin/st -f "CascadiaCode:pixelsize=26" $*
+  '';
+in {
+  environment.systemPackages = with pkgs; [
+    myst
+    dmenu
+  ];
   services.xserver = {
     displayManager = {
-      defaultSession = "none+i3";
+      defaultSession = "none+xmonad";
     };
-
     windowManager.xmonad = {
       enable = true;
-      extraPackages = with pkgs; [
+      extraPackages = haskellPackages: [
         haskellPackages.xmonad-contrib
       ];
       enableContribAndExtras = true;
+      config = ''
+        import XMonad
+
+        main =
+          xmonad
+            defaultConfig
+              { modMask = mod4Mask, -- Use Super instead of Alt
+                terminal = "myst"
+                -- more changes
+              }
+        '';
     };
 
     # Auto-lock
