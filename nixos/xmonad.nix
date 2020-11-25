@@ -13,6 +13,7 @@ in {
   environment.systemPackages = with pkgs; [
     myst
     dmenu
+    gmrun
   ];
   services.xserver = {
     displayManager = {
@@ -24,7 +25,7 @@ in {
         haskellPackages.xmonad-contrib
       ];
       enableContribAndExtras = true;
-      config = pkgs.lib.readFile ./xmonad/Main.hs;
+      config = pkgs.lib.readFile ./xmonad-srid/Main.hs;
     };
 
     # Auto-lock
