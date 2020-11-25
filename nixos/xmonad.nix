@@ -24,17 +24,7 @@ in {
         haskellPackages.xmonad-contrib
       ];
       enableContribAndExtras = true;
-      config = ''
-        import XMonad
-
-        main =
-          xmonad
-            defaultConfig
-              { modMask = mod4Mask, -- Use Super instead of Alt
-                terminal = "myst"
-                -- more changes
-              }
-        '';
+      config = pkgs.lib.readFile ./xmonad/Main.hs;
     };
 
     # Auto-lock
