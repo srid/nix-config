@@ -12,5 +12,6 @@ executable xmonad-srid
     , base
     , xmonad
     , xmonad-contrib
+    , xmobar
 
   default-language: Haskell2010

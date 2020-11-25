@@ -20,6 +20,7 @@ in {
     screenshot
     dmenu
     gmrun
+    xmobar
   ];
   services.xserver = {
     displayManager = {
