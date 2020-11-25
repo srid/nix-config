@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. First, copy the 'srid' user config to `configuration.nix`, and activate that. We need to do this before cloning the repo under srid's home directory.
+1. First, copy the 'srid' user config to `device`, and activate that. We need to do this before cloning the repo under srid's home directory.
 
 1. Then, ssh as srid@... and:
 
@@ -19,9 +19,9 @@ nix-shell -p git -p vim
 git clone git@github.com:srid/nix-config.git $HOME/nix-config
 cd $HOME/nix-config 
 
-# First, review ./configuration.nix/???.nix
-sudo mv /etc/nixos/configuration.nix /tmp/
-sudo ln -s $(pwd)/configuration.nix/???.nix /etc/nixos/configuration.nix
+# First, review ./hardware/???.nix
+sudo mv /etc/nixos/hardware /tmp/
+sudo ln -s $(pwd)/hardware/???.nix /etc/nixos/configuration.nix
 make
 ```
 

@@ -15,17 +15,17 @@ in {
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
-      ./lg-ultrafine-5k/vertical-line-refresh.nix
+      ./display/lg-ultrafine-5k/hidpi.nix
+      ./display/brightness.nix
+      ./display/lg-ultrafine-5k/vertical-line-refresh.nix
+      ./thinkpad/touchpad-trackpoint.nix
 
       # Disable these, if running as server.
       ./p71/graphics.nix
       ../nixos/gnome.nix
       # ../nixos/i3.nix
       ../nixos/xmonad.nix
-      ../nixos/hidpi.nix
       ../nixos/swap-ctrl-caps.nix
-      ./x1c7/brightness.nix
-      ./x1c7/touchpad-trackpoint.nix
 
       ../nixos/shell.nix
       ../nixos/tmux.nix
