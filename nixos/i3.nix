@@ -7,7 +7,8 @@ let
   myst = pkgs.writeScriptBin "myst" 
   ''
     #!${pkgs.runtimeShell}
-    exec ${pkgs.st}/bin/st -f "monospace:pixelsize=24" $*
+    # Use fc-list to lookup font names
+    exec ${pkgs.st}/bin/st -f "CascadiaCode:pixelsize=26" $*
   '';
   screenshot = pkgs.writeScriptBin "screenshot"
   '' 
