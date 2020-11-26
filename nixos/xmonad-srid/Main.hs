@@ -25,4 +25,4 @@ main =
 
 statusBar =
   -- -dock is necessary for https://github.com/xmonad/xmonad/issues/21
-  dzenWithFlags "-dock"
+  dzenWithFlags "-dock -fn CascadiaCode:pixelsize=26"
