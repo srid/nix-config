@@ -1,17 +1,18 @@
 import qualified Data.Map.Strict as M
 import XMonad
-import XMonad.Hooks.DynamicLog (dzen)
+import XMonad.Config.Desktop (desktopConfig)
+import XMonad.Hooks.DynamicLog (dzenWithFlags)
 import XMonad.Layout.ThreeColumns (ThreeCol (..))
 
 main :: IO ()
 main =
-  xmonad =<< dzen cfg
+  xmonad =<< statusBar cfg
   where
     cfg =
-      def
+      desktopConfig
         { modMask = mod4Mask, -- Use Super instead of Alt
           terminal = "myst",
-          layoutHook = layoutHook def ||| ThreeColMid 1 (3 / 100) (1 / 2),
+          layoutHook = ThreeColMid 1 (3 / 100) (1 / 2) ||| layoutHook def,
           keys = myKeys
         }
     myKeys baseConfig@XConfig {modMask = modKey} =
@@ -21,3 +22,7 @@ main =
             ((modKey, xK_f), spawn "screenshot")
             -- ...
           ]
+
+statusBar =
+  -- -dock is necessary for https://github.com/xmonad/xmonad/issues/21
+  dzenWithFlags "-dock"
