@@ -93,9 +93,6 @@ in {
      packages = with pkgs; [
        slack
        chromium
-       vivaldi
-       vivaldi-ffmpeg-codecs
-       vivaldi-widevine
        vscode
        qmmp
        mpv
