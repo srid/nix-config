@@ -35,6 +35,7 @@ in {
       ../nixos/redshift.nix
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
+      ../nixos/passwordstore.nix
       
       # Remote building (because X1C7 is not the fastest)
       ../nixos/nix-distributed.nix
