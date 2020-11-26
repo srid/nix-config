@@ -8,13 +8,13 @@
   boot.kernelPackages = let
       customLinuxF = { fetchurl, buildLinux, ... } @ args:
         buildLinux (args // rec {
-          version = "5.9.9";
+          version = "5.9.11";
           extraMeta.branch = "5.9";
           modDirVersion = "${version}";
 
           src = fetchurl {
             url = "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
-            sha256 = "1b8zysy0br131ydhc7ycxhh8d88r44xrmkf2q2lffy0jmy3d60m3";
+            sha256 = "0q6jlnigyjjnnxw6l724zv8acgs95s3pafabz4l9jrhhlijhmcjy";
           };
           kernelPatches = [];
         } // (args.argsOverride or {}));

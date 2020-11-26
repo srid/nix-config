@@ -23,6 +23,7 @@ in {
     xmobar
   ];
   services.xserver = {
+    enable = true;
     displayManager = {
       defaultSession = "none+xmonad";
     };

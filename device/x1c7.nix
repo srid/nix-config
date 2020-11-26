@@ -15,6 +15,10 @@ in {
       # home-manager
       <home-manager/nixos>
 
+      ./thinkpad/touchpad-trackpoint.nix
+      ./display/brightness.nix
+      ./display/lg-ultrafine-5k/hidpi.nix
+
       # Essential imports
       ../nixos/nix.nix
       ../nixos/quebec.nix
@@ -22,9 +26,11 @@ in {
       ../nixos/tmux.nix
 
       # Other imports
+      ../nixos/swap-ctrl-caps.nix
       ../nixos/fonts.nix
-      ../nixos/gnome.nix
-      ../nixos/i3.nix
+      #../nixos/gnome.nix
+      # ../nixos/i3.nix
+      ../nixos/xmonad.nix
       ../nixos/redshift.nix
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
@@ -35,10 +41,8 @@ in {
       ../private-config/caches.nix
 
       ./x1c7/custom-kernel.nix
-      ./x1c7/brightness.nix
       ./x1c7/wireguard.nix
-      ./x1c7/touchpad-trackpoint.nix
-      ./x1c7/suspend-crash-workaround.nix
+      # ./x1c7/suspend-crash-workaround.nix
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {
@@ -58,21 +62,16 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  # wifi workarounds for unreliability
-  /*
-  networkmanager = {
+  networking.networkmanager = {
     enable = true;
-    wifi.powersave = false;
-    wifi.scanRandMacAddress = false;
+    #wifi.powersave = false;
+    #wifi.scanRandMacAddress = false;
   };
-  */
 
   # See also nix/ssh.nix
   programs.ssh = {
     startAgent = true;
   };
-
-  programs.light.enable = true;
 
   # Allow non-free firmware, such as for intel wifi
   hardware = {
@@ -91,11 +90,14 @@ in {
 
   users.users.srid = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "docker" ];
+     extraGroups = [ "wheel" "audio" "docker" ];
      shell = pkgs.bash;
      packages = with pkgs; [
        slack
        chromium
+       vivaldi
+       vivaldi-ffmpeg-codecs
+       vivaldi-widevine
        vscode
        qmmp
        mpv
