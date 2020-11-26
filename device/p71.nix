@@ -15,24 +15,25 @@ in {
       ./p71/webapps.nix
       ./p71/nix-serve.nix
 
-      ./display/lg-ultrafine-5k/hidpi.nix
-      ./display/brightness.nix
-      ./display/lg-ultrafine-5k/vertical-line-refresh.nix
       ./thinkpad/touchpad-trackpoint.nix
 
       # Disable these, if running as server.
+      /*
       ./p71/graphics.nix
       ../nixos/gnome.nix
-      # ../nixos/i3.nix
       ../nixos/xmonad.nix
+      ../nixos/redshift.nix
       ../nixos/swap-ctrl-caps.nix
+      ./display/lg-ultrafine-5k/hidpi.nix
+      ./display/brightness.nix
+      ./display/lg-ultrafine-5k/vertical-line-refresh.nix
+      */
 
       ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/fonts.nix
 
       ../nixos/docker.nix
-      ../nixos/redshift.nix
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
 
@@ -89,9 +90,7 @@ in {
     nixpkgs-master.vscode
     # Needed for vscode-remote extension per
     # https://nixos.wiki/wiki/Vscode
-    nodejs-10_x
-
-    steam
+    nodejs-12_x
   ];
 
   users.extraUsers = {
