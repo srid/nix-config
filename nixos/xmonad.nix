@@ -21,6 +21,7 @@ in {
     dmenu
     gmrun
     xmobar
+    dzen2
   ];
   services.xserver = {
     enable = true;

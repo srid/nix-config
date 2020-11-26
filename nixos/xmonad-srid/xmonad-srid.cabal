@@ -13,5 +13,6 @@ executable xmonad-srid
     , xmonad
     , xmonad-contrib
     , xmobar
+    , containers
 
   default-language: Haskell2010
