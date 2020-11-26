@@ -26,6 +26,7 @@ in {
       ../nixos/tmux.nix
 
       # Other imports
+      ../nixos/fucking-basics.nix
       ../nixos/swap-ctrl-caps.nix
       ../nixos/fonts.nix
       #../nixos/gnome.nix
@@ -42,6 +43,7 @@ in {
 
       ./x1c7/custom-kernel.nix
       ./x1c7/wireguard.nix
+      ./x1c7/audio.nix
       # ./x1c7/suspend-crash-workaround.nix
     ];
 
@@ -78,10 +80,6 @@ in {
     enableRedistributableFirmware = true;
   };
 
-  # Sound is trickly. Use alsamixer, and make sure that laptop card is not
-  # muted. Use pulsemixer to switch output device when docking/detaching.
-  sound.enable = true;
-
   services.fwupd.enable = true;
   # typing password is faster than fingerprint touch; leave disabled
   #services.fprintd.enable = true;
@@ -102,7 +100,6 @@ in {
        qmmp
        mpv
        peek
-       pciutils
      ];
   };
 
