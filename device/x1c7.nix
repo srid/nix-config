@@ -18,6 +18,7 @@ in {
       ./thinkpad/touchpad-trackpoint.nix
       ./display/brightness.nix
       ./display/lg-ultrafine-5k/hidpi.nix
+      ./display/plug-n-play.nix
 
       # Essential imports
       ../nixos/nix.nix
@@ -32,6 +33,7 @@ in {
       #../nixos/gnome.nix
       # ../nixos/i3.nix
       ../nixos/xmonad.nix
+      ../nixos/autolock.nix
       ../nixos/redshift.nix
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
