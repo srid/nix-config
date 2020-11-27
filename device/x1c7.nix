@@ -84,10 +84,13 @@ in {
   };
 
   services.fwupd.enable = true;
-  # typing password is faster than fingerprint touch; leave disabled
-  #services.fprintd.enable = true;
-  #security.pam.services.login.fprintAuth = true;
-  #security.pam.services.xscreensaver.fprintAuth = true;
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.xscreensaver.fprintAuth = true;
+
+  services.xserver.displayManager.lightdm = {
+    background = "/home/srid/keybase/public/srid/wallpaper.png";
+  };
 
   users.users.srid = {
      isNormalUser = true;
