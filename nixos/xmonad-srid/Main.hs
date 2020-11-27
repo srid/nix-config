@@ -1,12 +1,19 @@
+{-# LANGUAGE TypeApplications #-}
+
 import qualified Data.Map.Strict as M
+import qualified Data.Text as T
+import Data.Time (getCurrentTime)
+import Data.Time.Format (defaultTimeLocale, formatTime)
+import Text.Read (readMaybe)
 import XMonad
 import XMonad.Config.Desktop (desktopConfig)
-import XMonad.Hooks.DynamicLog (dzenWithFlags)
+import XMonad.Hooks.DynamicLog (PP (..), dzenColor, dzenEscape, dzenPP, shorten, statusBar)
 import XMonad.Layout.ThreeColumns (ThreeCol (..))
+import XMonad.Util.Loggers (Logger, date, dzenColorL, padL)
 
 main :: IO ()
 main =
-  xmonad =<< statusBar cfg
+  xmonad =<< myStatusBar cfg
   where
     cfg =
       desktopConfig
@@ -23,6 +30,44 @@ main =
             -- ...
           ]
 
-statusBar =
-  -- -dock is necessary for https://github.com/xmonad/xmonad/issues/21
-  dzenWithFlags "-dock -fn CascadiaCode:pixelsize=26"
+myStatusBar =
+  statusBar dzenCli pp toggleStrutsKey
+  where
+    -- -dock is necessary for https://github.com/xmonad/xmonad/issues/21
+    -- https://github.com/xmonad/xmonad-contrib/pull/203
+    dzenCli = "dzen2 -dock -fn CascadiaCode:pixelsize=26"
+    pp =
+      dzenPP
+        { -- ppSep = "🔥", Neither unicode, nor emoji work with dzen2
+          ppTitleSanitize =
+            shorten 15 . dzenEscape,
+          ppExtras =
+            [ padL $ pure $ Just "|",
+              battery,
+              padL $ pure $ Just "|",
+              moment
+            ]
+        }
+    toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
+    toggleStrutsKey XConfig {modMask = modm} = (modm, xK_b)
+
+moment :: Logger
+moment = do
+  now <- liftIO getCurrentTime
+  pure $ do
+    pure $ formatTime defaultTimeLocale "%d/%a %R" now
+
+battery :: Logger
+battery = do
+  s <-
+    fmap trim . liftIO . readFile $
+      "/sys/class/power_supply/BAT0/capacity"
+  pure $ do
+    pct <- readMaybe @Int s
+    let fmt
+          | pct < 50 = dzenColor "white" "red"
+          | pct < 75 = dzenColor "white" "orange"
+          | otherwise = id
+    pure $ fmt $ show pct <> "%"
+  where
+    trim = T.unpack . T.strip . T.pack
