@@ -2,14 +2,14 @@
 
 import qualified Data.Map.Strict as M
 import qualified Data.Text as T
-import Data.Time (getCurrentTime)
+import Data.Time (getZonedTime)
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import Text.Read (readMaybe)
 import XMonad
 import XMonad.Config.Desktop (desktopConfig)
 import XMonad.Hooks.DynamicLog (PP (..), dzenColor, dzenEscape, dzenPP, shorten, statusBar)
 import XMonad.Layout.ThreeColumns (ThreeCol (..))
-import XMonad.Util.Loggers (Logger, date, dzenColorL, padL)
+import XMonad.Util.Loggers (Logger, padL)
 
 main :: IO ()
 main =
@@ -53,7 +53,7 @@ myStatusBar =
 
 moment :: Logger
 moment = do
-  now <- liftIO getCurrentTime
+  now <- liftIO getZonedTime
   pure $ do
     pure $ formatTime defaultTimeLocale "%d/%a %R" now
 
@@ -65,8 +65,8 @@ battery = do
   pure $ do
     pct <- readMaybe @Int s
     let fmt
-          | pct < 50 = dzenColor "white" "red"
-          | pct < 75 = dzenColor "white" "orange"
+          | pct < 33 = dzenColor "white" "red"
+          | pct < 66 = dzenColor "white" "orange"
           | otherwise = id
     pure $ fmt $ show pct <> "%"
   where
