@@ -31,7 +31,6 @@ in {
       ../nixos/swap-ctrl-caps.nix
       ../nixos/fonts.nix
       #../nixos/gnome.nix
-      # ../nixos/i3.nix
       ../nixos/xmonad.nix
       ../nixos/autolock.nix
       ../nixos/redshift.nix
@@ -87,6 +86,7 @@ in {
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
   security.pam.services.xscreensaver.fprintAuth = true;
+  security.pam.services.xlock.fprintAuth = true;
 
   services.xserver.displayManager.lightdm = {
     background = "/home/srid/keybase/public/srid/wallpaper.png";
