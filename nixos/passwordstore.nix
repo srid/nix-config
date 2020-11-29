@@ -1,12 +1,15 @@
 { config, pkgs, ...}:
 
 # Storing passwords using `pass` which requires `gpg`
-# TODO: Make this shit work (pinentry nonsense; see issue below)
+# TODO: understand machinary of pass/gpg interaction
+# TODO: find mobile app
 {
+    # Must restart computer, otherwise you may hit this bug:
+    # https://github.com/NixOS/nixpkgs/issues/35464#issuecomment-383894005
     programs.gnupg = {
       agent = {
-        # This SHIT does not work: https://github.com/NixOS/nixpkgs/issues/35464#issuecomment-383894005
         enable = true;
+        # Not sure what this is for; I enabled it to debug gpg issues
         enableExtraSocket = true;
         pinentryFlavor = "curses";
       };
