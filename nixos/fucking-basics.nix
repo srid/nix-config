@@ -4,6 +4,7 @@
 {
   environment.systemPackages = with pkgs; [
     lsof 
+    usbutils
     pciutils
     arandr
   ];

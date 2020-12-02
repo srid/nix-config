@@ -3,7 +3,7 @@
 {
     services.xserver.xautolock = {
       enable = true;
-      time = 5; # mins
+      time = 10; # mins
 
       # Not sure if some modes are the cause of system freeze
       # So deterministically pick one.

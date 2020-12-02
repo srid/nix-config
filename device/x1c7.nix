@@ -57,6 +57,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+
   networking.hostName = hostName;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -65,6 +66,9 @@ in {
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
+  # USB WiFI adapter: https://www.srid.ca/rtl8821cu.html
+  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
+  networking.interfaces.wlp0s20f0u3.useDHCP = true;  # Not sure if this is required
 
   networking.networkmanager = {
     enable = true;
