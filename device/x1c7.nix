@@ -87,10 +87,12 @@ in {
   };
 
   services.fwupd.enable = true;
+  /* Enable this after fixing the login screen shit 
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
   security.pam.services.xscreensaver.fprintAuth = true;
   security.pam.services.xlock.fprintAuth = true;
+  */
 
   services.xserver.displayManager.lightdm = {
     background = "/home/srid/keybase/public/srid/wallpaper.png";
