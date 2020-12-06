@@ -105,6 +105,7 @@ in {
      packages = with pkgs; [
        slack
        chromium
+       firefox
        vscode
        qmmp
        mpv
