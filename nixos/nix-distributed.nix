@@ -4,7 +4,7 @@
 
 {
   nix.buildMachines = [ {
-    hostName = "bornagain";
+    hostName = "thebeast";
     system = "x86_64-linux";
     maxJobs = 4;
     speedFactor = 2;

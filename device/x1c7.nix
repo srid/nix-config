@@ -37,7 +37,7 @@ in {
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
       ../nixos/passwordstore.nix
-      
+
       # Remote building (because X1C7 is not the fastest)
       ../nixos/nix-distributed.nix
 
@@ -56,6 +56,7 @@ in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
 
   networking.hostName = hostName;
@@ -105,7 +106,6 @@ in {
      packages = with pkgs; [
        slack
        chromium
-       firefox
        vscode
        qmmp
        mpv
