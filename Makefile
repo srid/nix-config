@@ -11,15 +11,12 @@ switch-local:
 	sudo nixos-rebuild switch -j auto --builders ""
 
 upgrade:
-	sudo nix-channel --update
 	sudo nixos-rebuild switch -j auto --upgrade
 
 upgrade-remote:
-	sudo nix-channel --update
 	sudo nixos-rebuild switch --upgrade -j0
 
 upgrade-local:
-	sudo nix-channel --update
 	sudo nixos-rebuild switch -j auto --upgrade --builders ""
 
 # Use this if one of the cache is down
