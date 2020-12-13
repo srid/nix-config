@@ -6,6 +6,7 @@
 
 let 
   hostName = "thebeast";
+  nixpkgs-master = import ../nixos/nixpkgs-master.nix;
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -26,9 +27,12 @@ in {
       ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/syncthing.nix
+      ../nixos/server-mode.nix
 
       ../private-config/caches.nix
     ];
+
+  # Lon
 
   home-manager.users.srid = (import ../nixos/home.nix { 
     inherit pkgs config hostName;
@@ -50,10 +54,9 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
-  # Enable the GNOME 3 Desktop Environment.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
+  services.xserver.enable = false;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome3.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
@@ -62,7 +65,11 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    vscode chromium
+    chromium
+    nixpkgs-master.vscode
+    # Needed for vscode-remote extension per
+    # https://nixos.wiki/wiki/Vscode
+    nodejs-12_x
   ];
 
   # List services that you want to enable:
