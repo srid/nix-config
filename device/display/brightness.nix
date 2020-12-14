@@ -20,6 +20,9 @@
     # cf. https://github.com/NixOS/nixpkgs/issues/71102#issuecomment-542818105
     acpilight
 
+    # Alternative to xbacklight
+    brightnessctl
+
     # This works with LG Ultrafine 5k
     ddcutil
   ];
