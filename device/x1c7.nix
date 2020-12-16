@@ -58,6 +58,12 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
+  swapDevices = [
+    { device = "/swapfile";
+      priority = 0;
+      size = 16384;
+    }
+  ];
 
   networking.hostName = hostName;
 
@@ -105,7 +111,7 @@ in {
      shell = pkgs.bash;
      packages = with pkgs; [
        slack
-       chromium
+       google-chrome
        vscode
        qmmp
        mpv
