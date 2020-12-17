@@ -2,10 +2,15 @@
 {-# LANGUAGE TypeApplications #-}
 
 import System.Log.Logger
+  ( Priority (DEBUG),
+    getLogger,
+    saveGlobalLogger,
+    setLevel,
+  )
 import System.Taffybar (startTaffybar)
 import System.Taffybar.Information.CPU (cpuLoad)
-import System.Taffybar.SimpleConfig (SimpleTaffyConfig (endWidgets), defaultSimpleTaffyConfig, startWidgets, toTaffyConfig)
-import System.Taffybar.Widget (defaultWorkspacesConfig, sniTrayNew, workspacesNew)
+import System.Taffybar.SimpleConfig (SimpleTaffyConfig (endWidgets), barHeight, defaultSimpleTaffyConfig, startWidgets, toTaffyConfig)
+import System.Taffybar.Widget (defaultClockConfig, defaultWorkspacesConfig, textClockNewWith, workspacesNew)
 import System.Taffybar.Widget.Generic.Graph (GraphConfig (graphDataColors), defaultGraphConfig, graphLabel)
 import System.Taffybar.Widget.Generic.PollingGraph (pollingGraphNew)
 
@@ -17,13 +22,14 @@ main = do
             graphLabel = Just "cpu"
           }
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
+      clock = textClockNewWith defaultClockConfig
       workspaces = workspacesNew defaultWorkspacesConfig
       simpleConfig =
         defaultSimpleTaffyConfig
           { startWidgets = [workspaces],
-            endWidgets = [sniTrayNew, cpu]
+            endWidgets = [clock, cpu],
+            barHeight = 50
           }
-  logDebug
   startTaffybar $ toTaffyConfig simpleConfig
 
 cpuCallback :: IO [Double]
@@ -31,7 +37,8 @@ cpuCallback = do
   (_, systemLoad, totalLoad) <- cpuLoad
   return [totalLoad, systemLoad]
 
-logDebug = do
+_enableDebugLogging :: IO ()
+_enableDebugLogging = do
   global <- getLogger ""
   saveGlobalLogger $ setLevel DEBUG global
   logger3 <- getLogger "System.Taffybar"
