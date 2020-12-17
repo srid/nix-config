@@ -1,34 +1,33 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications #-}
 
 import qualified Data.Map.Strict as M
-import qualified Data.Text as T
-import Data.Time (getZonedTime)
-import Data.Time.Format (defaultTimeLocale, formatTime)
-import Text.Read (readMaybe)
 import XMonad
-import XMonad.Config.Desktop (desktopConfig)
-import XMonad.Hooks.DynamicLog (PP (..), dzenColor, dzenEscape, dzenPP, shorten, statusBar)
+import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.ManageDocks (ToggleStruts (..), avoidStruts, docks)
 import XMonad.Layout.ThreeColumns (ThreeCol (..))
-import XMonad.Util.Loggers (Logger, padL)
 
 main :: IO ()
-main =
-  xmonad =<< myStatusBar cfg
+main = do
+  xmonad $ docks $ ewmh cfg
   where
     cfg =
-      desktopConfig
+      def
         { modMask = mod4Mask, -- Use Super instead of Alt
           terminal = "myst",
-          layoutHook = ThreeColMid 1 (3 / 100) (1 / 2) ||| layoutHook def,
+          layoutHook = avoidStruts $ ThreeColMid 1 (3 / 100) (1 / 2) ||| layoutHook def,
           keys = myKeys
         }
     myKeys baseConfig@XConfig {modMask = modKey} =
       keys def baseConfig
         <> M.fromList
           [ ((modKey, xK_q), restart "/run/current-system/sw/bin/xmonad" True),
-            ((modKey, xK_f), spawn "screenshot")
+            ((modKey, xK_f), spawn "screenshot"),
+            ((modKey, xK_b), sendMessage ToggleStruts)
             -- ...
           ]
+
+{- old status bar; remove after configuring taffybar
 
 myStatusBar =
   statusBar dzenCli pp toggleStrutsKey
@@ -71,3 +70,5 @@ battery = do
     pure $ fmt $ show pct <> "%"
   where
     trim = T.unpack . T.strip . T.pack
+
+-}
