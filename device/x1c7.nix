@@ -32,6 +32,7 @@ in {
       ../nixos/fonts.nix
       #../nixos/gnome.nix
       ../nixos/xmonad.nix
+      ../nixos/taffybar.nix
       ../nixos/autolock.nix
       ../nixos/redshift.nix
       ../nixos/syncthing.nix
