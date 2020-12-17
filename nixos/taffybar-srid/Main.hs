@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications #-}
 
+import System.Log.Logger
 import System.Taffybar (startTaffybar)
 import System.Taffybar.Information.CPU (cpuLoad)
 import System.Taffybar.SimpleConfig (SimpleTaffyConfig (endWidgets), defaultSimpleTaffyConfig, startWidgets, toTaffyConfig)
@@ -22,9 +23,20 @@ main = do
           { startWidgets = [workspaces],
             endWidgets = [sniTrayNew, cpu]
           }
+  logDebug
   startTaffybar $ toTaffyConfig simpleConfig
 
 cpuCallback :: IO [Double]
 cpuCallback = do
   (_, systemLoad, totalLoad) <- cpuLoad
   return [totalLoad, systemLoad]
+
+logDebug = do
+  global <- getLogger ""
+  saveGlobalLogger $ setLevel DEBUG global
+  logger3 <- getLogger "System.Taffybar"
+  saveGlobalLogger $ setLevel DEBUG logger3
+  logger <- getLogger "System.Taffybar.Widget.Generic.AutoSizeImage"
+  saveGlobalLogger $ setLevel DEBUG logger
+  logger2 <- getLogger "StatusNotifier.Tray"
+  saveGlobalLogger $ setLevel DEBUG logger2
