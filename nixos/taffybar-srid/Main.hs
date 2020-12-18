@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications #-}
 
+import Data.Foldable (traverse_)
+import GI.Gtk.Objects.Widget (Widget)
 import System.Log.Logger
   ( Priority (DEBUG),
     getLogger,
@@ -8,6 +10,7 @@ import System.Log.Logger
     setLevel,
   )
 import System.Taffybar (startTaffybar)
+import System.Taffybar.Context (TaffyIO)
 import System.Taffybar.Information.CPU (cpuLoad)
 import System.Taffybar.SimpleConfig (SimpleTaffyConfig (endWidgets), barHeight, defaultSimpleTaffyConfig, startWidgets, toTaffyConfig)
 import System.Taffybar.Widget (defaultClockConfig, defaultWorkspacesConfig, textClockNewWith, workspacesNew)
@@ -15,35 +18,47 @@ import System.Taffybar.Widget.Generic.Graph (GraphConfig (graphDataColors), defa
 import System.Taffybar.Widget.Generic.PollingGraph (pollingGraphNew)
 
 main :: IO ()
-main = do
-  let cpuCfg =
-        defaultGraphConfig
-          { graphDataColors = [(0, 1, 0, 1), (1, 0, 1, 0.5)],
-            graphLabel = Just "cpu"
-          }
-      cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
-      clock = textClockNewWith defaultClockConfig
-      workspaces = workspacesNew defaultWorkspacesConfig
-      simpleConfig =
-        defaultSimpleTaffyConfig
-          { startWidgets = [workspaces],
-            endWidgets = [clock, cpu],
-            barHeight = 50
-          }
-  startTaffybar $ toTaffyConfig simpleConfig
+main =
+  startTaffybar $ toTaffyConfig cfg
 
-cpuCallback :: IO [Double]
-cpuCallback = do
-  (_, systemLoad, totalLoad) <- cpuLoad
-  return [totalLoad, systemLoad]
+cfg :: SimpleTaffyConfig
+cfg =
+  defaultSimpleTaffyConfig
+    { startWidgets =
+        [ workspacesW
+        ],
+      endWidgets =
+        [ clockW,
+          cpuW
+        ],
+      barHeight = 50
+    }
+
+workspacesW :: TaffyIO Widget
+workspacesW = workspacesNew defaultWorkspacesConfig
+
+clockW :: TaffyIO Widget
+clockW = textClockNewWith defaultClockConfig
+
+cpuW :: TaffyIO Widget
+cpuW = pollingGraphNew cpuCfg 0.5 cpuCallback
+  where
+    cpuCfg =
+      defaultGraphConfig
+        { graphDataColors = [(0, 1, 0, 1), (1, 0, 1, 0.5)],
+          graphLabel = Just "cpu"
+        }
+
+    cpuCallback :: IO [Double]
+    cpuCallback = do
+      (_, systemLoad, totalLoad) <- cpuLoad
+      return [totalLoad, systemLoad]
 
 _enableDebugLogging :: IO ()
 _enableDebugLogging = do
-  global <- getLogger ""
-  saveGlobalLogger $ setLevel DEBUG global
-  logger3 <- getLogger "System.Taffybar"
-  saveGlobalLogger $ setLevel DEBUG logger3
-  logger <- getLogger "System.Taffybar.Widget.Generic.AutoSizeImage"
-  saveGlobalLogger $ setLevel DEBUG logger
-  logger2 <- getLogger "StatusNotifier.Tray"
-  saveGlobalLogger $ setLevel DEBUG logger2
+  traverse_ (saveGlobalLogger . setLevel DEBUG)
+    =<< sequence
+      [ getLogger "",
+        getLogger "System.Taffybar",
+        getLogger "StatusNotifier.Tray"
+      ]
