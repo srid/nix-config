@@ -12,4 +12,9 @@ in {
       Restart = "on-abnormal";
     };
   };
+
+  # Battery widget requires this.
+  services.upower = {
+    enable = true;
+  };
 }
