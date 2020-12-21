@@ -28,6 +28,7 @@ in {
       ../nixos/tmux.nix
       ../nixos/syncthing.nix
       ../nixos/server-mode.nix
+      ../nixos/vscode.nix
 
       ../private-config/caches.nix
     ];
@@ -66,11 +67,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    chromium
-    nixpkgs-master.vscode
-    # Needed for vscode-remote extension per
-    # https://nixos.wiki/wiki/Vscode
-    nodejs-12_x
+    google-chrome
   ];
 
   # List services that you want to enable:

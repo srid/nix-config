@@ -25,6 +25,7 @@ in {
       ../nixos/quebec.nix
       ../nixos/shell.nix
       ../nixos/tmux.nix
+      ../nixos/vscode.nix
 
       # Other imports
       ../nixos/fucking-basics.nix
@@ -113,16 +114,12 @@ in {
      packages = with pkgs; [
        slack
        google-chrome
-       vscode
        qmmp
        mpv
        peek
      ];
   };
 
-  # For vscode to store secrets
-  # Provide org.freedesktop.secrets 
-  services.gnome3.gnome-keyring.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
