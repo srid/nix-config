@@ -14,10 +14,25 @@ let
     #!${pkgs.runtimeShell}
     ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
   '';
+
+  # TODO: abstract this
+  launch-hack = pkgs.writeScriptBin "launch-hack" 
+  ''
+    #!${pkgs.runtimeShell}
+    source ${../bin/launch-hack.sh}
+  '';
+  launch-zk = pkgs.writeScriptBin "launch-zk" 
+  ''
+    #!${pkgs.runtimeShell}
+    source ${../bin/launch-zk.sh}
+  '';
 in {
   environment.systemPackages = with pkgs; [
     myst
     screenshot
+    launch-hack
+    launch-zk
+
     dmenu
     gmrun
     xmobar
