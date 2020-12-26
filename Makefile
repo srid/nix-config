@@ -30,5 +30,5 @@ nocache:
 
 freeupboot:
 	# Delete all but the last two generations
-	sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
+	sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5
 	sudo nixos-rebuild boot

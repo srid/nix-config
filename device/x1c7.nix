@@ -116,6 +116,7 @@ in {
      packages = with pkgs; [
        slack
        google-chrome
+       vivaldi
        qmmp
        mpv
        peek
