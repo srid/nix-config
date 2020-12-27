@@ -30,6 +30,15 @@ in {
       ../nixos/server-mode.nix
       ../nixos/vscode.nix
 
+      ./thinkpad/touchpad-trackpoint.nix
+      ./display/brightness.nix
+      ./display/lg-ultrafine-5k/hidpi.nix
+      ./display/lg-ultrafine-5k/hidpi-xorg.nix
+      ../nixos/xmonad.nix
+      ../nixos/redshift.nix
+      ../nixos/taffybar.nix
+      ../nixos/fonts.nix
+
       ../private-config/caches.nix
     ];
 
@@ -43,6 +52,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+    # Until https://github.com/NixOS/nixpkgs/pull/102106 is merged
+  boot.kernelParams = [ "msr.allow_writes=on" ];
 
   networking = { 
     inherit hostName;
@@ -56,7 +67,7 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
-  services.xserver.enable = false;
+  #services.xserver.enable = false;
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome3.enable = true;
 
