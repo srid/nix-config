@@ -92,10 +92,14 @@ in {
     startAgent = true;
   };
 
-  # Allow non-free firmware, such as for intel wifi
   hardware = {
+    # Allow non-free firmware, such as for intel wifi
     enableRedistributableFirmware = true;
   };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   services.fwupd.enable = true;
   /* Enable this after fixing the login screen shit 
