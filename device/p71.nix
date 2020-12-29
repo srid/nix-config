@@ -37,7 +37,10 @@ in {
       ../nixos/xmonad.nix
       ../nixos/redshift.nix
       ../nixos/taffybar.nix
+      # ../nixos/autolock.nix
       ../nixos/fonts.nix
+
+      ./p71/graphics.nix
 
       ../private-config/caches.nix
     ];
@@ -52,8 +55,43 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-    # Until https://github.com/NixOS/nixpkgs/pull/102106 is merged
+  # Until https://github.com/NixOS/nixpkgs/pull/102106 is merged
   boot.kernelParams = [ "msr.allow_writes=on" ];
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
+
+    # Audio
+    # Use `pactl set-sink-volume 0 +10%` to increase volume.
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+      support32Bit = true;
+      daemon.config = {
+        flat-volumes = "no";
+      };
+    };
+
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    # Bluetooth
+    # https://nixos.wiki/wiki/Bluetooth
+    bluetooth = {
+      enable = true;
+      # For Bose QC 35
+      config = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
+  };
+  services.blueman.enable = true;
 
   networking = { 
     inherit hostName;
