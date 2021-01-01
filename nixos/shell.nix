@@ -30,5 +30,11 @@ in
     inherit shellAliases;
     enableCompletion = true;
     enableLsColors = true; 
+    shellInit = ''
+      # History, sensible defaults
+      HISTFILESIZE=20000
+      shopt -s histappend
+      export HISTCONTROL=ignoredups:erasedups 
+    '';
   };
 }
