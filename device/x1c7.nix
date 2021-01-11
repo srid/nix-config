@@ -75,11 +75,9 @@ in {
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-  # rtl8821cu fails to build on 5.10
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # USB WiFI adapter: https://www.srid.ca/rtl8821cu.html
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
-  # boot.extraModulePackages = [ (pkgs.callPackage ../nixos/rtl8821cu.nix { kernel = pkgs.linuxPackages_latest.kernel; }) ];
   networking.interfaces.wlp0s20f0u3.useDHCP = true;  # Not sure if this is required
 
   networking.networkmanager = {
