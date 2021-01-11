@@ -15,6 +15,10 @@ in
           haskell-language-server
         ]);
     overrides = self: super: with pkgs.haskell.lib; {
-      taffybar = self.callCabal2nix "taffybar" (import ./dep/taffybar/thunk.nix) { inherit (pkgs) gtk3; };
+      taffybar = dontCheck (
+        self.callCabal2nix "taffybar" 
+          (import ./dep/taffybar/thunk.nix) 
+          { inherit (pkgs) gtk3; }
+      );
     };
   }

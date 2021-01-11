@@ -45,7 +45,7 @@ in {
 
       ../private-config/caches.nix
 
-      ./x1c7/custom-kernel.nix
+      # ./x1c7/custom-kernel.nix
       ./x1c7/wireguard.nix
       ./x1c7/audio.nix
       # ./x1c7/suspend-crash-workaround.nix
@@ -76,9 +76,10 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
   # rtl8821cu fails to build on 5.10
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # USB WiFI adapter: https://www.srid.ca/rtl8821cu.html
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
+  # boot.extraModulePackages = [ (pkgs.callPackage ../nixos/rtl8821cu.nix { kernel = pkgs.linuxPackages_latest.kernel; }) ];
   networking.interfaces.wlp0s20f0u3.useDHCP = true;  # Not sure if this is required
 
   networking.networkmanager = {
@@ -120,9 +121,10 @@ in {
      packages = with pkgs; [
        slack
        google-chrome
-       vivaldi
+       brave
+       signal-desktop
        qmmp
-       mpv
+       # mpv -- fails to compile
        peek
      ];
   };

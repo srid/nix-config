@@ -46,8 +46,6 @@
     tmate
     gitAndTools.gh
     tig
-    dhall
-    dhall-lsp-server
   ];
 
   home.sessionVariables = {
