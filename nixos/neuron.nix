@@ -12,7 +12,7 @@ in {
   environment = { };
   serviceConfig = {
     WorkingDirectory = "${notesDir}";
-    ExecStart = "${neuron}/bin/neuron rib -ws 127.0.0.1:${toString port}";
+    ExecStart = "${neuron}/bin/neuron gen -ws 127.0.0.1:${toString port}";
     Restart = "on-abnormal";
     PrivateTmp = true;
     User = "srid";
