@@ -29,6 +29,7 @@ in {
       ../nixos/syncthing.nix
       ../nixos/server-mode.nix
       ../nixos/vscode.nix
+      ../nixos/passwordstore.nix
 
       ./thinkpad/touchpad-trackpoint.nix
       ./display/brightness.nix
@@ -121,12 +122,13 @@ in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; 
+    extraGroups = [ "wheel" "docker" "ipfs" ]; 
   };
 
   environment.systemPackages = with pkgs; [
     google-chrome
     signal-desktop
+    brave
   ];
 
   # List services that you want to enable:
