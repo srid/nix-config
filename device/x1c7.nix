@@ -26,6 +26,7 @@ in {
       ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/vscode.nix
+      ../nixos/passwordstore.nix
 
       # Other imports
       ../nixos/fucking-basics.nix
