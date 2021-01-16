@@ -32,11 +32,13 @@ in {
       ../nixos/fucking-basics.nix
       ../nixos/swap-ctrl-caps.nix
       ../nixos/fonts.nix
-      #../nixos/gnome.nix
-      ../nixos/xmonad.nix
-      ../nixos/taffybar.nix
-      ../nixos/autolock.nix
-      ../nixos/redshift.nix
+
+      ../nixos/gnome.nix
+      #../nixos/xmonad.nix
+      #../nixos/taffybar.nix
+      #../nixos/autolock.nix
+      #../nixos/redshift.nix
+
       ../nixos/syncthing.nix
       ../nixos/syncthing-tray.nix
       ../nixos/passwordstore.nix
@@ -129,6 +131,7 @@ in {
        slack
        google-chrome
        brave
+       epiphany
        signal-desktop
        qmmp
        # mpv -- fails to compile
