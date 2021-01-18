@@ -129,6 +129,9 @@ in {
     google-chrome
     signal-desktop
     brave
+    pulsemixer
+    mpv
+    radicle-upstream
   ];
 
   # List services that you want to enable:
