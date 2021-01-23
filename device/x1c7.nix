@@ -129,7 +129,6 @@ in {
      shell = pkgs.bash;
      packages = with pkgs; [
        slack
-       google-chrome
        brave
        epiphany
        signal-desktop
