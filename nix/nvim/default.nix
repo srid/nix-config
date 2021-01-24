@@ -3,6 +3,9 @@
 { pkgs ? import <nixpkgs> {}, ... }:
 
 let
+  srcs = {
+    mkdx = import ../../dep/mkdx/thunk.nix;
+  };
   # cf. https://nixos.wiki/wiki/Vim#Adding_new_plugins 
   customPlugins = {
     neovim-ghcid = pkgs.vimUtils.buildVimPlugin {
@@ -50,14 +53,10 @@ let
         sha256 = "197rp20hngrq7qdlii0ai4vb81dlilah0q1wlil8hv3qcf4az7qr";
       };
     };
+    # Markdown
     mkdx = pkgs.vimUtils.buildVimPlugin {
       name = "mkdx";
-      src = pkgs.fetchFromGitHub {
-        owner = "SidOfc";
-        repo = "mkdx";
-        rev = "bc7cc40";
-        sha256 = "sha256:1va4cfwpq29z9cfw8l04g0f1wgfc4gqp1gpcn15y997cg61bvlnf";
-      };
+      src = srcs.mkdx;
     };
   };
 in
@@ -91,16 +90,17 @@ in
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
-        # { name = "coc-nvim"; }
+        { name = "coc-nvim"; }
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
         { name = "vim-ormolu"; }
         { name = "vim-which-key"; }
         { name = "vim-sneak"; }
         { name = "mkdx"; }
+        # { name = "neuron-vim"; }
       ];
 
       customRC = 
-        builtins.readFile ./config.vim; /*  + builtins.readFile ./config-coc.vim; */
+        builtins.readFile ./config.vim + builtins.readFile ./config-coc.vim;
     };
   }
