@@ -27,6 +27,7 @@ in {
       ../nixos/tmux.nix
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix
+      ../nixos/ipfs.nix
 
       # Other imports
       ../nixos/fucking-basics.nix
@@ -54,7 +55,7 @@ in {
       # ./x1c7/suspend-crash-workaround.nix
     ];
 
-  home-manager.users.srid = (import ../nix/home.nix {
+  home-manager.users.srid = (import ../nixos/home.nix {
     inherit pkgs config hostName;
   } );
 
@@ -85,8 +86,8 @@ in {
 
   networking.networkmanager = {
     enable = true;
-    #wifi.powersave = false;
-    #wifi.scanRandMacAddress = false;
+    wifi.powersave = false;
+    wifi.scanRandMacAddress = false;
   };
 
   # See also nix/ssh.nix
