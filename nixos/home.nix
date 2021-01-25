@@ -14,6 +14,7 @@
     if (hostName == "thebeast" || hostName == "bebe")
       then [
         ../nix/keybase.nix 
+        #../nix/doom-emacs.nix
       ]
       else [];
 

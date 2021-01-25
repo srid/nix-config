@@ -136,6 +136,7 @@ in {
        qmmp
        mpv
        peek
+       (import ../nixos/emacs.nix { inherit pkgs; })
      ];
   };
 
