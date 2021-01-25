@@ -14,6 +14,7 @@
     if (hostName == "thebeast" || hostName == "bebe")
       then [
         ../nix/keybase.nix 
+        ../nix/emacs.nix
         #../nix/doom-emacs.nix
       ]
       else [];
@@ -66,6 +67,7 @@
       ci = "commit";
       s = "status";
     };
+    ignores = [ "*~" "*.swp" ];
     extraConfig = {
       core.editor = "nvim";
       protocol.keybase.allow = "always";

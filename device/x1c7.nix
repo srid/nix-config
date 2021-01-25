@@ -55,7 +55,7 @@ in {
       # ./x1c7/suspend-crash-workaround.nix
     ];
 
-  home-manager.users.srid = (import ../nixos/home.nix {
+  home-manager.users.srid = (import ../nix/home.nix {
     inherit pkgs config hostName;
   } );
 
@@ -136,7 +136,6 @@ in {
        qmmp
        mpv
        peek
-       (import ../nixos/emacs.nix { inherit pkgs; })
      ];
   };
 

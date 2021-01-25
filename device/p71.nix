@@ -48,7 +48,7 @@ in {
 
   # Lon
 
-  home-manager.users.srid = (import ../nixos/home.nix { 
+  home-manager.users.srid = (import ../nix/home.nix { 
     inherit pkgs config hostName;
   } );
 
