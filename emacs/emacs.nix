@@ -5,10 +5,10 @@
     enable = true;
     extraPackages = epkgs: with epkgs; [
       use-package
-      use-package-ensure-system-package
       # Major modes
       nix-mode
-      markdown-mode
+      haskell-mode
+      # markdown-mode
       # Git
       magit
       # UX beauty
@@ -20,7 +20,7 @@
       prescient
       selectrum-prescient
       # Project
-      # projectile
+      projectile
       #treemacs
       #treemacs-projectile
       #treemacs-evil

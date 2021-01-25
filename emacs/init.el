@@ -18,7 +18,6 @@
 (setq package-archives nil)
 (package-initialize)
 (require 'use-package)
-(use-package use-package-ensure-system-package :ensure t)
 
 ;; Setup our custom file for local state
 (setq custom-file "~/.emacs.d/custom.el")
@@ -70,7 +69,17 @@
   (evil-leader/set-key
    "bd" 'kill-buffer
    "fs" 'save-buffer
+   "pf" 'projectile-find-file
+   "pp" 'projectile-switch-project
    "w" evil-window-map
    )
   )
 
+(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
+
+(use-package markdown-mode
+  :config
+  (setq markdown-enable-wiki-links t)
+  (setq markdown-wiki-link-search-subdirectories t)
+  (setq markdown-wiki-link-search-parent-directories t)
+  (setq markdown-link-space-sub-char " "))
