@@ -69,8 +69,8 @@
   (evil-leader/set-key
    "bd" 'kill-buffer
    "fs" 'save-buffer
-   "pf" 'projectile-find-file
-   "pp" 'projectile-switch-project
+   "pf" 'project-find-file
+   "pp" 'project-switch-project
    "w" evil-window-map
    )
   )

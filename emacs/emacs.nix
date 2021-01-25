@@ -20,7 +20,8 @@
       prescient
       selectrum-prescient
       # Project
-      projectile
+      project
+      #projectile
       #treemacs
       #treemacs-projectile
       #treemacs-evil
