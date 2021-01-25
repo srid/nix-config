@@ -16,15 +16,18 @@
       doom-modeline
       doom-themes
       # UX behaviours
-      avy
-      which-key
-      projectile
+      selectrum
+      prescient
+      selectrum-prescient
       # Project
+      # projectile
       #treemacs
       #treemacs-projectile
       #treemacs-evil
       # VI
       evil
+      evil-leader
+      which-key
     ];
   };
 
