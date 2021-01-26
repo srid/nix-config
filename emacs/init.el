@@ -68,6 +68,7 @@
   (global-evil-leader-mode)
   (evil-leader/set-key
    "bd" 'kill-buffer
+   "bb" 'consult-buffer
    "fs" 'save-buffer
    "pf" 'project-find-file
    "pp" 'project-switch-project
