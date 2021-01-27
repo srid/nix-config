@@ -53,6 +53,7 @@
   :config
   (selectrum-prescient-mode +1)
   )
+(use-package consult)
 
 ;; VI
 (use-package evil
@@ -77,6 +78,7 @@
    "pp" 'project-switch-project
    "gg" 'magit-status
    "w" evil-window-map
+   "m" markdown-mode-style-map
    )
   )
 
@@ -91,29 +93,38 @@
 (load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
 (use-package markdown-mode
   :config
-  (setq markdown-enable-wiki-links t)
-  (setq markdown-wiki-link-search-subdirectories t)
-  (setq markdown-wiki-link-search-parent-directories t)
-  (setq markdown-link-space-sub-char " ")
   ;; TODO: Use `neuron -d $project-root query --cached` to find IDs
   (setq sample-links
 	'("touch" "touch_start" "for" "foreach"))
   (defun neuron-wiki-link-completion-at-point ()
     (interactive)
     (let* (
+	 (neuronRoot (project-root (project-current)))
          (bds (bounds-of-thing-at-point 'symbol))
          (start (car bds))
          (end (cdr bds)))
     (list start end sample-links . nil )))
-  (define-derived-mode neuron-mode markdown-mode "Neuron"
+  (define-derived-mode neuron-mode gfm-mode "Neuron"
     "Major mode for editing neuron Markdown notes"
+    (setq
+     markdown-enable-wiki-links t
+     markdown-wiki-link-search-subdirectories t
+     markdown-wiki-link-search-parent-directories t
+     markdown-link-space-sub-char " "
+     markdown-make-gfm-checkboxes-buttons t
+     markdown-fontify-code-blocks-natively t
+     markdown-asymmetric-header t
+     markdown-italic-underscore t
+    )
     (add-hook
      'completion-at-point-functions
      'neuron-wiki-link-completion-at-point nil 'local)
-    (defvar neuron-mode-map nil "Keymap for `neuron-mode'.")
-    (progn
-      (setq neuron-mode-map (make-sparse-keymap))
-      (define-key neuron-mode-map (kbd "TAB") #'complete-symbol))
+    (defvar neuron-mode-map
+      (let ((map (make-sparse-keymap)))
+	(set-keymap-parent map gfm-mode-map)
+	(define-key neuron-mode-map (kbd "TAB") #'complete-symbol)
+	map)
+      "Keymap for `neuron-mode'.")
     (use-local-map neuron-mode-map)
     )
   )

@@ -27,6 +27,7 @@ in {
       ../nixos/tmux.nix
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix
+      ../nixos/protonvpn.nix
       # ../nixos/ipfs.nix -- leaving disabled, to spare cpu cycles
 
       # Other imports
@@ -136,7 +137,6 @@ in {
        qmmp
        mpv
        peek
-       protonvpn-cli  # TODO: wrap in systemd service
      ];
   };
 
