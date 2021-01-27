@@ -30,18 +30,17 @@ in {
       ../nixos/server-mode.nix
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix
-
-      ./thinkpad/touchpad-trackpoint.nix
-      ./display/brightness.nix
-      ./display/lg-ultrafine-5k/hidpi.nix
-      ./display/lg-ultrafine-5k/hidpi-xorg.nix
-      ../nixos/xmonad.nix
-      ../nixos/redshift.nix
-      ../nixos/taffybar.nix
-      # ../nixos/autolock.nix
       ../nixos/fonts.nix
 
-      ./p71/graphics.nix
+      #./thinkpad/touchpad-trackpoint.nix
+      #./display/brightness.nix
+      #./display/lg-ultrafine-5k/hidpi.nix
+      #./display/lg-ultrafine-5k/hidpi-xorg.nix
+      #../nixos/xmonad.nix
+      #../nixos/redshift.nix
+      #../nixos/taffybar.nix
+      # ../nixos/autolock.nix
+      # ./p71/graphics.nix
 
       ../private-config/caches.nix
     ];
