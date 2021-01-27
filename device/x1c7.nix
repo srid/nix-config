@@ -136,6 +136,7 @@ in {
        qmmp
        mpv
        peek
+       protonvpn-cli  # TODO: wrap in systemd service
      ];
   };
 

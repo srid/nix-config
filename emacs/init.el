@@ -1,3 +1,5 @@
+;; NOTE: All instances of `use-package` in this file will be processed by Nix (see ./emacs.nix) to automatically install the referenced packages when installing Emacs itself via home-manager. Thus, to "add" a package, we only need to insert the corresponding `use-package` expression in this file.
+
 ;; Sane defaults
 (setq
  inhibit-startup-message t
@@ -25,6 +27,7 @@
   (write-region "" nil custom-file))
 (load-file custom-file)
 
+;; Doom Themes
 (use-package all-the-icons)
 (use-package doom-themes
     :after all-the-icons
@@ -37,6 +40,7 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
+;; Essential UX 
 (use-package selectrum
   :config
   (selectrum-mode +1)
@@ -54,14 +58,12 @@
 (use-package evil
   :config
   (evil-mode))
-
 (use-package which-key
   :defer 0.1
   :init
   :config
   (which-key-mode +1)
   )
-  
 (use-package evil-leader
   :config
   (evil-leader/set-leader "<SPC>")
@@ -78,11 +80,40 @@
    )
   )
 
-(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
+;; Project management
+(use-package project)
 
+;; Programming language modes & tools
+(use-package nix-mode)
+(use-package haskell-mode)
+(use-package magit)
+
+(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
 (use-package markdown-mode
   :config
   (setq markdown-enable-wiki-links t)
   (setq markdown-wiki-link-search-subdirectories t)
   (setq markdown-wiki-link-search-parent-directories t)
-  (setq markdown-link-space-sub-char " "))
+  (setq markdown-link-space-sub-char " ")
+  ;; TODO: Use `neuron -d $project-root query --cached` to find IDs
+  (setq sample-links
+	'("touch" "touch_start" "for" "foreach"))
+  (defun neuron-wiki-link-completion-at-point ()
+    (interactive)
+    (let* (
+         (bds (bounds-of-thing-at-point 'symbol))
+         (start (car bds))
+         (end (cdr bds)))
+    (list start end sample-links . nil )))
+  (define-derived-mode neuron-mode markdown-mode "Neuron"
+    "Major mode for editing neuron Markdown notes"
+    (add-hook
+     'completion-at-point-functions
+     'neuron-wiki-link-completion-at-point nil 'local)
+    (defvar neuron-mode-map nil "Keymap for `neuron-mode'.")
+    (progn
+      (setq neuron-mode-map (make-sparse-keymap))
+      (define-key neuron-mode-map (kbd "TAB") #'complete-symbol))
+    (use-local-map neuron-mode-map)
+    )
+  )
