@@ -4,8 +4,8 @@
    services.xserver.libinput = {
       enable = true;
       # macOS like behaviour
-      naturalScrolling = true;
+      touchpad.naturalScrolling = true;
       # Tap to click
-      tapping = true;
+      touchpad.tapping = true;
     };
 }
