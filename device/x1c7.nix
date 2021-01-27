@@ -27,7 +27,7 @@ in {
       ../nixos/tmux.nix
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix
-      ../nixos/ipfs.nix
+      # ../nixos/ipfs.nix -- leaving disabled, to spare cpu cycles
 
       # Other imports
       ../nixos/fucking-basics.nix

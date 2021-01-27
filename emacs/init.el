@@ -69,9 +69,11 @@
   (evil-leader/set-key
    "bd" 'kill-buffer
    "bb" 'consult-buffer
+   "`" 'evil-switch-to-windows-last-buffer
    "fs" 'save-buffer
    "pf" 'project-find-file
    "pp" 'project-switch-project
+   "gg" 'magit-status
    "w" evil-window-map
    )
   )

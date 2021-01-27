@@ -69,6 +69,7 @@
     };
     ignores = [ "*~" "*.swp" ];
     extraConfig = {
+      init.defaultBranch = "master";
       core.editor = "nvim";
       protocol.keybase.allow = "always";
       credential.helper = "store --file ~/.git-credentials";
