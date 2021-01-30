@@ -34,15 +34,17 @@ in {
       ../nixos/protonvpn.nix
       ../nixos/ipfs.nix
 
-      #./thinkpad/touchpad-trackpoint.nix
-      #./display/brightness.nix
-      #./display/lg-ultrafine-5k/hidpi.nix
-      #./display/lg-ultrafine-5k/hidpi-xorg.nix
+      # Leaving graphics enabled for build cache
+      ./thinkpad/touchpad-trackpoint.nix
+      ./display/brightness.nix
+      ./display/lg-ultrafine-5k/hidpi.nix
+      ./display/lg-ultrafine-5k/hidpi-xorg.nix
+      ../nixos/gnome.nix
       #../nixos/xmonad.nix
       #../nixos/redshift.nix
       #../nixos/taffybar.nix
       # ../nixos/autolock.nix
-      # ./p71/graphics.nix
+      ./p71/graphics.nix
 
       ../private-config/caches.nix
     ];
