@@ -78,7 +78,7 @@
    "pp" 'project-switch-project
    "gg" 'magit-status
    "w" evil-window-map
-   "m" markdown-mode-style-map
+   ;; "m" markdown-mode-style-map
    )
   )
 
@@ -86,11 +86,13 @@
 (use-package project)
 
 ;; Programming language modes & tools
+(use-package magit)
 (use-package nix-mode)
 (use-package haskell-mode)
-(use-package magit)
+(use-package ormolu
+ :hook (haskell-mode . ormolu-format-on-save-mode))
 
-(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
+
 (use-package markdown-mode
   :config
   ;; TODO: Use `neuron -d $project-root query --cached` to find IDs

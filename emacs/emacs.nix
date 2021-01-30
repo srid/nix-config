@@ -17,5 +17,10 @@
     };
   };
 
+  # Packages used by use-package of init.el
+  home.packages = with pkgs; [
+    ormolu
+  ];
+
   services.emacs.enable = true;
 }
