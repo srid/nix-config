@@ -45,6 +45,7 @@ in {
       #../nixos/taffybar.nix
       # ../nixos/autolock.nix
       ./p71/graphics.nix
+      ./p71/wireguard.nix
 
       ../private-config/caches.nix
     ];
