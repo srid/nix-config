@@ -32,6 +32,7 @@ in {
       ../nixos/passwordstore.nix
       ../nixos/fonts.nix
       ../nixos/protonvpn.nix
+      ../nixos/ipfs.nix
 
       #./thinkpad/touchpad-trackpoint.nix
       #./display/brightness.nix
