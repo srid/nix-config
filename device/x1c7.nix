@@ -28,6 +28,7 @@ in {
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix
       ../nixos/protonvpn.nix
+      ../nixos/docker.nix
       # ../nixos/ipfs.nix -- leaving disabled, to spare cpu cycles
 
       # Other imports
