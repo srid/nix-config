@@ -93,40 +93,45 @@
  :hook (haskell-mode . ormolu-format-on-save-mode))
 
 
-(use-package markdown-mode
-  :config
-  ;; TODO: Use `neuron -d $project-root query --cached` to find IDs
-  (setq sample-links
-	'("touch" "touch_start" "for" "foreach"))
-  (defun neuron-wiki-link-completion-at-point ()
-    (interactive)
-    (let* (
-	 (neuronRoot (project-root (project-current)))
-         (bds (bounds-of-thing-at-point 'symbol))
-         (start (car bds))
-         (end (cdr bds)))
-    (list start end sample-links . nil )))
-  (define-derived-mode neuron-mode gfm-mode "Neuron"
-    "Major mode for editing neuron Markdown notes"
-    (setq
-     markdown-enable-wiki-links t
-     markdown-wiki-link-search-subdirectories t
-     markdown-wiki-link-search-parent-directories t
-     markdown-link-space-sub-char " "
-     markdown-make-gfm-checkboxes-buttons t
-     markdown-fontify-code-blocks-natively t
-     markdown-asymmetric-header t
-     markdown-italic-underscore t
-    )
-    (add-hook
-     'completion-at-point-functions
-     'neuron-wiki-link-completion-at-point nil 'local)
-    (defvar neuron-mode-map
-      (let ((map (make-sparse-keymap)))
-	(set-keymap-parent map gfm-mode-map)
-	(define-key neuron-mode-map (kbd "TAB") #'complete-symbol)
-	map)
-      "Keymap for `neuron-mode'.")
-    (use-local-map neuron-mode-map)
-    )
-  )
+(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
+(require 'markdown-mode)
+(setq markdown-enable-wiki-links t)
+(setq markdown-link-space-sub-char " ")
+(setq markdown-wiki-link-search-type '(project))
+;; (use-package markdown-mode
+;;   :config
+;;   ;; TODO: Use `neuron -d $project-root query --cached` to find IDs
+;;   (setq sample-links
+;; 	'("touch" "touch_start" "for" "foreach"))
+;;   (defun neuron-wiki-link-completion-at-point ()
+;;     (interactive)
+;;     (let* (
+;; 	 (neuronRoot (project-root (project-current)))
+;;          (bds (bounds-of-thing-at-point 'symbol))
+;;          (start (car bds))
+;;          (end (cdr bds)))
+;;     (list start end sample-links . nil )))
+;;   (define-derived-mode neuron-mode gfm-mode "Neuron"
+;;     "Major mode for editing neuron Markdown notes"
+;;     (setq
+;;      markdown-enable-wiki-links t
+;;      markdown-wiki-link-search-subdirectories t
+;;      markdown-wiki-link-search-parent-directories t
+;;      markdown-link-space-sub-char " "
+;;      markdown-make-gfm-checkboxes-buttons t
+;;      markdown-fontify-code-blocks-natively t
+;;      markdown-asymmetric-header t
+;;      markdown-italic-underscore t
+;;     )
+;;     (add-hook
+;;      'completion-at-point-functions
+;;      'neuron-wiki-link-completion-at-point nil 'local)
+;;     (defvar neuron-mode-map
+;;       (let ((map (make-sparse-keymap)))
+;; 	(set-keymap-parent map gfm-mode-map)
+;; 	(define-key neuron-mode-map (kbd "TAB") #'complete-symbol)
+;; 	map)
+;;       "Keymap for `neuron-mode'.")
+;;     (use-local-map neuron-mode-map)
+;;     )
+;;   )
