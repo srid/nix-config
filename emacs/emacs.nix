@@ -12,10 +12,6 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
-    /* package = pkgs.emacsWithPackagesFromUsePackage {
-      config = ./init.el;
-      alwaysEnsure = true;
-    }; */
   };
 
   # Packages used by use-package of init.el
@@ -24,5 +20,8 @@
     cmake
   ];
 
-  # services.emacs.enable = true;
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
 }

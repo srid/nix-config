@@ -135,9 +135,11 @@ in {
        brave
        epiphany
        signal-desktop
+       tdesktop
        qmmp
        mpv
        peek
+       python
      ];
   };
 

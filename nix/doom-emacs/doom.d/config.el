@@ -59,11 +59,15 @@
 (setq markdown-enable-wiki-links t)
 (setq markdown-link-space-sub-char " ")
 (setq markdown-wiki-link-search-type '(project))
-(defun daily-note
+(defun daily-note ()
   (interactive)
   ;; Of course, it is probably better to ask emanote for this.
   (find-file (f-join (cdr (project-current t))
-    (concat (format-time-string "%Y-%m-%d") ".md"))))
+                     (concat (format-time-string "%Y-%m-%d") ".md"))))
+
+(map! :leader
+      (:prefix-map ("n" . "note")
+        :desc "Open daily note" "t" #'daily-note))
 
 (use-package! ormolu
  :hook (haskell-mode . ormolu-format-on-save-mode)
