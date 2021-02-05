@@ -17,11 +17,17 @@
   # Packages used by use-package of init.el
   home.packages = with pkgs; [
     ormolu
+    sqlite
+
+    # For doom-emacs to compile vterm
+    # https://github.com/hlissner/doom-emacs/issues/2065
     cmake
+    gcc
+    libtool
   ];
 
   services.emacs = {
-    enable = true;
+    enable = false;
     package = pkgs.emacs;
   };
 }

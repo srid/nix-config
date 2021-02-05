@@ -47,7 +47,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "emacsclient";
   };
 
   programs.ssh = {

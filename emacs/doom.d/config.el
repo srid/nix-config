@@ -54,7 +54,7 @@
 ;; they are implemented.
 
 ;; WIP: until markdown-mode PR is merged
-(load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
+;; (load "/home/srid/nix-config/dep/markdown-mode/markdown-mode.el")
 (require 'markdown-mode)
 (setq markdown-enable-wiki-links t)
 (setq markdown-link-space-sub-char " ")
@@ -62,12 +62,18 @@
 (defun daily-note ()
   (interactive)
   ;; Of course, it is probably better to ask emanote for this.
-  (find-file (f-join (cdr (project-current t))
-                     (concat (format-time-string "%Y-%m-%d") ".md"))))
+  (find-file
+   (f-join (cdr (project-current t))
+           (concat (format-time-string "%Y-%m-%d") ".md"))))
 
-(map! :leader
-      (:prefix-map ("n" . "note")
-        :desc "Open daily note" "t" #'daily-note))
+(map!
+  :leader
+  (:prefix-map
+   ("n" . "note")
+   :desc "Open daily note" "t" #'daily-note
+   :desc "Open wiki-link" "o" #'markdown-follow-thing-at-point
+   ))
+
 
 (use-package! ormolu
  :hook (haskell-mode . ormolu-format-on-save-mode)
