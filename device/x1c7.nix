@@ -23,7 +23,6 @@ in {
       # Essential imports
       ../nixos/nix.nix
       ../nixos/quebec.nix
-      ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/vscode.nix
       ../nixos/passwordstore.nix

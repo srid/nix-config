@@ -1,7 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ...}:
 
-let
-  shellAliases = {
+{
     l = "${pkgs.exa}/bin/exa";
     g = "git";
     t = "tig status";
@@ -14,27 +13,4 @@ let
     cast-audio = "${pkgs.catt}/bin/catt -d SridMini cast";
     # project tmux
     pux = "tmux -S $(pwd).tmux attach";
-  };
-
-in
-{
-  environment.systemPackages = with pkgs; [
-    fzf
-    psmisc  # For killall
-    (pkgs.callPackage ../nix/xterm-24bit.nix {})
-  ];
-
-  programs.autojump.enable = true;
-
-  programs.bash = {
-    inherit shellAliases;
-    enableCompletion = true;
-    enableLsColors = true; 
-    shellInit = ''
-      # History, sensible defaults
-      HISTFILESIZE=20000
-      shopt -s histappend
-      export HISTCONTROL=ignoredups:erasedups 
-    '';
-  };
 }

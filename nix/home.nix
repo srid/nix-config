@@ -44,11 +44,22 @@
     tmate
     gitAndTools.gh
     tig
+
+    fzf
+    psmisc  # For killall
+    (pkgs.callPackage ./xterm-24bit.nix {})
   ];
 
   home.sessionVariables = {
     EDITOR = "emacsclient";
   };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = import ./shellAliases.nix { inherit pkgs; };
+  };
+
+  programs.autojump.enable = true;
 
   programs.ssh = {
     enable = true;
@@ -66,6 +77,7 @@
       co = "checkout";
       ci = "commit";
       s = "status";
+      st = "status";
     };
     ignores = [ "*~" "*.swp" ];
     extraConfig = {

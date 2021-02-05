@@ -24,7 +24,6 @@ in {
       ../nixos/quebec.nix
       ../nixos/fucking-basics.nix
       ../nixos/swap-ctrl-caps.nix
-      ../nixos/shell.nix
       ../nixos/tmux.nix
       ../nixos/syncthing.nix
       ../nixos/server-mode.nix
