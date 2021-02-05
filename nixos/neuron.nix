@@ -1,4 +1,4 @@
-{ description, notesDir, port, ... }:
+{ description, notesDir, ... }:
 
 # To read log output, I recommend:
 #   journalctl -o cat -fu $description
@@ -12,7 +12,7 @@ in {
   environment = { };
   serviceConfig = {
     WorkingDirectory = "${notesDir}";
-    ExecStart = "${neuron}/bin/neuron gen -ws 127.0.0.1:${toString port}";
+    ExecStart = "${neuron}/bin/neuron gen -w";
     Restart = "always";
     PrivateTmp = true;
     User = "srid";

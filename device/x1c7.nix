@@ -118,14 +118,6 @@ in {
     background = "/home/srid/keybase/public/srid/wallpaper.png";
   };
 
-  systemd.services = let 
-    neuronSrv = description: notesDir: port: import ../nixos/neuron.nix { 
-      inherit pkgs description notesDir port; 
-    };
-  in {
-    neuron-zk = neuronSrv "neuron-zk" "/home/srid/Documents/zk" 9000; 
-  };
-
   users.users.srid = {
      isNormalUser = true;
      extraGroups = [ "wheel" "audio" "docker" ];

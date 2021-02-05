@@ -114,15 +114,6 @@ in {
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome3.enable = true;
 
-  systemd.services = let 
-    neuronSrv = description: notesDir: port: import ../nixos/neuron.nix { 
-      inherit pkgs description notesDir port; 
-    };
-  in {
-    neuron-zk = neuronSrv "neuron-zk" "/home/srid/Documents/zk" 9000; 
-  };
-
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
     isNormalUser = true;
