@@ -27,7 +27,6 @@ in {
       ../nixos/tmux.nix
       ../nixos/syncthing.nix
       ../nixos/server-mode.nix
-      ../nixos/vscode.nix
       ../nixos/passwordstore.nix
       ../nixos/fonts.nix
       ../nixos/protonvpn.nix
@@ -61,6 +60,9 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # Until https://github.com/NixOS/nixpkgs/pull/102106 is merged
   boot.kernelParams = [ "msr.allow_writes=on" ];
+  # If xserver is not enabled, the default for this goes down. Increase it here. VSCode requires it. 
+  # https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
+  boot.kernel.sysctl."fs.inotify.max_user_watches" = 524288;
 
   hardware = {
     enableRedistributableFirmware = true;

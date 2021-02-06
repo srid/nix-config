@@ -14,6 +14,7 @@
     if (hostName == "thebeast" || hostName == "bebe")
       then [
         ../nix/keybase.nix 
+        ../nix/vscode.nix 
         ../emacs/emacs.nix
         #../nix/doom-emacs.nix
       ]
@@ -29,7 +30,6 @@
     procs
     sd
     ripgrep
-    psmisc  # not on macOS
     tree 
     unzip
     wget
@@ -48,6 +48,7 @@
     fzf
     psmisc  # For killall
     (pkgs.callPackage ./xterm-24bit.nix {})
+
   ];
 
   home.sessionVariables = {
@@ -82,7 +83,7 @@
     ignores = [ "*~" "*.swp" ];
     extraConfig = {
       init.defaultBranch = "master";
-      core.editor = "nvim";
+      core.editor = "nano";
       protocol.keybase.allow = "always";
       credential.helper = "store --file ~/.git-credentials";
       pull.rebase = "false";

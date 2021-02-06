@@ -24,7 +24,6 @@ in {
       ../nixos/nix.nix
       ../nixos/quebec.nix
       ../nixos/tmux.nix
-      ../nixos/vscode.nix
       ../nixos/passwordstore.nix
       ../nixos/protonvpn.nix
       ../nixos/docker.nix
@@ -112,10 +111,6 @@ in {
   #security.pam.services.login.fprintAuth = true;
   #security.pam.services.xscreensaver.fprintAuth = true;
   #security.pam.services.xlock.fprintAuth = true;
-
-  services.xserver.displayManager.lightdm = {
-    background = "/home/srid/keybase/public/srid/wallpaper.png";
-  };
 
   users.users.srid = {
      isNormalUser = true;
