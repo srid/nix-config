@@ -35,6 +35,7 @@
     wget
     youtube-dl
     cachix
+    ffmpeg
 
     # nvim, and its runtime dependencies
     (callPackage ../nix/nvim {})

@@ -82,7 +82,7 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # USB WiFI adapter: https://www.srid.ca/rtl8821cu.html
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
-  networking.interfaces.wlp0s20f0u3.useDHCP = true;  # Not sure if this is required
+  # networking.interfaces.wlp0s20f0u3.useDHCP = true;  # Not sure if this is required
 
   networking.networkmanager = {
     enable = true;
