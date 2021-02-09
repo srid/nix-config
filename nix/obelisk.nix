@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
 let
-  # Dedicated user for running internet-exposed services.
-  srvUser = "apps";
-
-  obeliskService = name: port: obApp:
+  obeliskService = name: port: user: obApp:
     let
       obAppWithConfig = pkgs.runCommand "${name}-service" {}
         ''
@@ -24,7 +21,7 @@ let
         ExecStart = "${obAppWithConfig}/backend -p ${port}";
         Restart = "on-abnormal";
         PrivateTmp = true;
-        User = srvUser;
+        User = user;
       };
     };
 in

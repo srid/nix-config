@@ -98,10 +98,13 @@ in {
     };
   };
   services.blueman.enable = true;
+  services.openssh.enable = true;
 
   networking = { 
     inherit hostName;
     networkmanager.enable = true;
+    firewall.enable = true;
+    firewall.allowedTCPPorts = [ 22 ];
   };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -111,9 +114,14 @@ in {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
-  #services.xserver.enable = false;
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome3.enable = true;
+  systemd.services =  
+    let 
+      obelisk = import ../nix/obelisk.nix { inherit pkgs; };
+    in {
+      "emanote-Documents-zk" = 
+        obelisk.obeliskService 
+          "emanote-Documents-zk" "7102" "srid" (import ../dep/emanote {});
+    };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
@@ -122,31 +130,12 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    google-chrome
     signal-desktop
     brave
     pulsemixer
     mpv
-    radicle-upstream
   ];
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  systemd.services =  
-    let 
-      obelisk = import ../nix/obelisk.nix { inherit pkgs; };
-    in {
-      emanote-zk.srid.ca = 
-        obelisk.obeliskService 
-          "emanote-zk.srid.ca" "8000" (import ../dep/emanote {});
-    };
-
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
