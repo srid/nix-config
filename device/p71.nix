@@ -135,6 +135,15 @@ in {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  systemd.services =  
+    let 
+      obelisk = import ../nix/obelisk.nix { inherit pkgs; };
+    in {
+      emanote-zk.srid.ca = 
+        obelisk.obeliskService 
+          "emanote-zk.srid.ca" "8000" (import ../dep/emanote {});
+    };
+
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
