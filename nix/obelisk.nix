@@ -19,7 +19,7 @@ let
       serviceConfig = {
         WorkingDirectory = "${obAppWithConfig}";
         ExecStart = "${obAppWithConfig}/backend -p ${port}";
-        Restart = "on-abnormal";
+        Restart = "on-failure";
         PrivateTmp = true;
         User = user;
       };
