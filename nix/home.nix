@@ -15,7 +15,7 @@
       then [
         ../nix/keybase.nix 
         ../nix/vscode.nix 
-        ../emacs/emacs.nix
+        #../emacs/emacs.nix
         #../nix/doom-emacs.nix
       ]
       else [];
@@ -50,6 +50,7 @@
     psmisc  # For killall
     (pkgs.callPackage ./xterm-24bit.nix {})
 
+    radicle-upstream
   ];
 
   home.sessionVariables = {
