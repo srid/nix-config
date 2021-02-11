@@ -32,7 +32,7 @@ in {
       ../nixos/protonvpn.nix
       ../nixos/ipfs.nix
 
-      # Leaving graphics enabled for build cache
+      # Graphics
       ./thinkpad/touchpad-trackpoint.nix
       ./display/brightness.nix
       ./display/lg-ultrafine-5k/hidpi.nix
@@ -121,6 +121,9 @@ in {
       "emanote-Documents-zk" = 
         obelisk.obeliskService 
           "emanote-Documents-zk" "7102" "srid" (import ../dep/emanote {});
+      "emanote-Documents-oldzk" = 
+        obelisk.obeliskService 
+          "emanote-Documents-oldzk" "7103" "srid" (import ../dep/emanote {});
     };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -134,6 +137,7 @@ in {
     brave
     pulsemixer
     mpv
+    radicle-upstream
   ];
 
 

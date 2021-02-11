@@ -126,6 +126,7 @@ in {
        mpv
        peek
        python
+       radicle-upstream
      ];
   };
 

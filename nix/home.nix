@@ -49,8 +49,6 @@
     fzf
     psmisc  # For killall
     (pkgs.callPackage ./xterm-24bit.nix {})
-
-    radicle-upstream
   ];
 
   home.sessionVariables = {
