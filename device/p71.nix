@@ -126,14 +126,17 @@ in {
           "emanote-Documents-oldzk" "7103" "srid" (import ../dep/emanote {});
     };
 
+  virtualisation.lxd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "ipfs" ]; 
+    extraGroups = [ "wheel" "docker" "lxd" "ipfs" ]; 
   };
 
   environment.systemPackages = with pkgs; [
     signal-desktop
+    tdesktop
     brave
     pulsemixer
     mpv
