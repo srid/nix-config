@@ -18,7 +18,9 @@
         #../emacs/emacs.nix
         #../nix/doom-emacs.nix
       ]
-      else [];
+      else [
+        ../nix/vscode.nix
+      ];
 
   home.packages = with pkgs; [
     # Basic tools
