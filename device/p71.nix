@@ -18,7 +18,7 @@ in {
       # Pull in hardware specific modules when relevant
       <nixos-hardware/common/pc/ssd>
 
-      <home-manager/nixos>
+      ((import ../dep/home-manager/thunk.nix) + "/nixos")
 
       ../nixos/nix.nix
       ../nixos/quebec.nix

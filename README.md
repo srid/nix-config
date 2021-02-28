@@ -9,7 +9,6 @@
 ```bash
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
-sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --update
 
 ssh-keygen  # then, add to Github
@@ -29,7 +28,7 @@ make
 
 ### Thinkpad X1C7
 
-<https://www.srid.ca/f65d38df.html>
+https://www.srid.ca/x1c7-install
 
 ### Thinkpad P71
 

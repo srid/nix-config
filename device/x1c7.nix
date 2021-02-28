@@ -12,8 +12,9 @@ in {
       <nixos-hardware/lenovo/thinkpad>
       <nixos-hardware/lenovo/thinkpad/x1>
       <nixos-hardware/lenovo/thinkpad/x1/7th-gen>
+
       # home-manager
-      <home-manager/nixos>
+      ((import ../dep/home-manager/thunk.nix) + "/nixos")
 
       ./thinkpad/touchpad-trackpoint.nix
       ./display/brightness.nix

@@ -38,6 +38,7 @@
     youtube-dl
     cachix
     ffmpeg
+    dmenu
 
     # nvim, and its runtime dependencies
     (callPackage ../nix/nvim {})
@@ -90,6 +91,15 @@
       credential.helper = "store --file ~/.git-credentials";
       pull.rebase = "false";
     };
+  };
+
+  programs.rofi = {
+    enable = true;
+    font = "Monospace 24"; /* For larger DPIs */
+    padding = 10;
+    theme = "Paper";
+    # Uhh, https://github.com/davatorium/rofi/pull/1074
+    # terminal = "${pkgs.gnome3.gnome_terminal}/bin/gnome-terminal";
   };
 
 }

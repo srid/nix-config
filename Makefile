@@ -10,13 +10,16 @@ switch-remote:
 switch-local:
 	sudo nixos-rebuild switch -j auto --builders ""
 
-upgrade:
+update-deps:
+	nix-thunk update dep/home-manager
+
+upgrade:	update-deps
 	sudo nixos-rebuild switch -j auto --upgrade
 
-upgrade-remote:
+upgrade-remote:	update-deps
 	sudo nixos-rebuild switch --upgrade -j0
 
-upgrade-local:
+upgrade-local:	update-deps
 	sudo nixos-rebuild switch -j auto --upgrade --builders ""
 
 # Use this if one of the cache is down
