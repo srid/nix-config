@@ -97,7 +97,7 @@
     enable = true;
     font = "Monospace 24"; /* For larger DPIs */
     padding = 10;
-    theme = "Paper";
+    theme = "fancy";
     # Uhh, https://github.com/davatorium/rofi/pull/1074
     # terminal = "${pkgs.gnome3.gnome_terminal}/bin/gnome-terminal";
   };
