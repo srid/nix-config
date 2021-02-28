@@ -31,6 +31,7 @@ in {
       ../nixos/fonts.nix
       ../nixos/protonvpn.nix
       ../nixos/ipfs.nix
+      ../nixos/docker.nix
 
       # Graphics
       ./thinkpad/touchpad-trackpoint.nix
@@ -90,7 +91,7 @@ in {
     bluetooth = {
       enable = true;
       # For Bose QC 35
-      config = {
+      settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
         };
@@ -138,9 +139,11 @@ in {
     signal-desktop
     tdesktop
     brave
+    # google-chrome -- evil browser makes itself default behind the scenes
+    firefox
     pulsemixer
     mpv
-    radicle-upstream
+    steam
   ];
 
 
