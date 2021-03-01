@@ -114,7 +114,6 @@ in {
     enableGC = true;
   };
 
-
   # Use this only in GNOME/gdm
   #services.fprintd.enable = true;
   #security.pam.services.login.fprintAuth = true;

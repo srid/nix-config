@@ -27,40 +27,35 @@ in
       ];
 
   home.packages = with pkgs; [
-    # Basic tools
-    htop
-    nnn
+    cachix
+    dmenu
+    ffmpeg
     file
+    fzf
+    gitAndTools.gh
+    gnumake
+    htop
     jq
-    ncdu
-    procs
-    sd
+    ncdu  # CLI disk usage analyzer
+    psmisc  # For killall
     ripgrep
+    sd
+    term
+    tig
+    tmate
     tree 
     unzip
     wget
     youtube-dl
-    cachix
-    ffmpeg
-    dmenu
-    term
 
     # nvim, and its runtime dependencies
     (callPackage ./nvim {})
-
-    # Dev tools
-    gnumake
-    tmate
-    gitAndTools.gh
-    tig
-
-    fzf
-    psmisc  # For killall
     (pkgs.callPackage ./xterm-24bit.nix {})
+
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacsclient";
+    EDITOR = "nvim";
   };
 
   programs.bash = {
