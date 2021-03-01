@@ -53,6 +53,9 @@ in {
       ./x1c7/wireguard.nix
       ./x1c7/audio.nix
       # ./x1c7/suspend-crash-workaround.nix
+
+      # ipfs-cluster
+      # (builtins.fetchurl "https://raw.githubusercontent.com/NixOS/nixpkgs/70f514bb3d38c93922a700e120ee8bff08a81c47/nixos/modules/services/network-filesystems/ipfs-cluster.nix")
     ];
 
   home-manager.users.srid = (import ../nix/home.nix {

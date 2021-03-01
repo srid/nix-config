@@ -2,6 +2,10 @@
 
 { config, pkgs, hostName ? "unknown", ...}:
 
+let 
+  term = import ./myst.nix { inherit pkgs; };
+  termBin = "${term}/bin/myst";
+in
 {
   programs.home-manager.enable = true;
   
@@ -39,9 +43,10 @@
     cachix
     ffmpeg
     dmenu
+    term
 
     # nvim, and its runtime dependencies
-    (callPackage ../nix/nvim {})
+    (callPackage ./nvim {})
 
     # Dev tools
     gnumake
@@ -100,6 +105,7 @@
     theme = "fancy";
     # Uhh, https://github.com/davatorium/rofi/pull/1074
     # terminal = "${pkgs.gnome3.gnome_terminal}/bin/gnome-terminal";
+    terminal = termBin;
   };
 
 }

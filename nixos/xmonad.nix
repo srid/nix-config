@@ -1,14 +1,6 @@
 { config, pkgs, ...}:
 
 let 
-  # Suckless Terminal provides good performance. Just need to increase the
-  # fontsize on retina display.
-  myst = pkgs.writeScriptBin "myst" 
-  ''
-    #!${pkgs.runtimeShell}
-    # Use fc-list to lookup font names
-    exec ${pkgs.st}/bin/st -f "CascadiaCode:pixelsize=26" $*
-  '';
   screenshot = pkgs.writeScriptBin "screenshot"
   '' 
     #!${pkgs.runtimeShell}
@@ -28,7 +20,7 @@ let
   '';
 in {
   environment.systemPackages = with pkgs; [
-    myst
+    (import ../nix/myst.nix { inherit pkgs; })
     screenshot
     launch-hack
     launch-zk
