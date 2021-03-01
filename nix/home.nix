@@ -90,7 +90,7 @@ in
       st = "status";
       b = "branch";
       p = "pull --rebase";
-      P = "push";
+      pu = "push";
     };
     ignores = [ "*~" "*.swp" ];
     extraConfig = {
