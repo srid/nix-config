@@ -58,6 +58,16 @@ let
       name = "mkdx";
       src = srcs.mkdx;
     };
+    neuron-vim = pkgs.vimUtils.buildVimPlugin {
+      name = "neuron-vim";
+      src = ../../dep/neuron-v2.vim;
+      /* src = pkgs.fetchFromGitHub {
+        owner = "chiefnoah";
+        repo = "neuron-v2.vim";
+        rev = "675ea7db754ea4686d8a2f454827d0fc4986876e";
+        sha256 = "sha256:0k5lrh6k9d4r5408bxqv5ain2kk34pdwx6cpk4amjhzh2hj000kz";
+      }; */
+    };
   };
 in
   with pkgs; neovim.override {
@@ -89,7 +99,7 @@ in
         { name = "tslime"; }
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
-        { name = "neovim-ghcid"; }
+        # { name = "neovim-ghcid"; }
         { name = "coc-nvim"; }
         { name = "vim-airline"; }
         { name = "dhall-vim"; }
@@ -97,7 +107,7 @@ in
         { name = "vim-which-key"; }
         { name = "vim-sneak"; }
         { name = "mkdx"; }
-        # { name = "neuron-vim"; }
+        { name = "neuron-vim"; }
       ];
 
       customRC = 
