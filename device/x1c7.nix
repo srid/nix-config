@@ -28,7 +28,6 @@ in {
       ../nixos/passwordstore.nix
       ../nixos/protonvpn.nix
       ../nixos/docker.nix
-      # ../nixos/ipfs.nix -- leaving disabled, to spare cpu cycles
 
       # Other imports
       ../nixos/fucking-basics.nix
@@ -106,6 +105,12 @@ in {
   services.blueman.enable = true;
 
   services.fwupd.enable = true;
+
+  services.ipfs = {
+    enable = true;
+    enableGC = true;
+  };
+
 
   # Use this only in GNOME/gdm
   #services.fprintd.enable = true;

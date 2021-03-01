@@ -30,7 +30,6 @@ in {
       ../nixos/passwordstore.nix
       ../nixos/fonts.nix
       ../nixos/protonvpn.nix
-      ../nixos/ipfs.nix
       ../nixos/docker.nix
 
       # Graphics
@@ -100,6 +99,13 @@ in {
   };
   services.blueman.enable = true;
   services.openssh.enable = true;
+
+  services.ipfs = {
+    enable = true;
+    user = "srid"; # TODO: undo
+    # Expose, for wireguard
+    # gatewayAddress = "/ip4/0.0.0.0/tcp/8080";
+  };
 
   networking = { 
     inherit hostName;
