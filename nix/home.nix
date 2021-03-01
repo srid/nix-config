@@ -85,8 +85,12 @@ in
     aliases = {
       co = "checkout";
       ci = "commit";
+      cia = "commit --amend";
       s = "status";
       st = "status";
+      b = "branch";
+      p = "pull --rebase";
+      P = "push";
     };
     ignores = [ "*~" "*.swp" ];
     extraConfig = {
