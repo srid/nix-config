@@ -37,12 +37,12 @@ in {
       ./display/brightness.nix
       ./display/lg-ultrafine-5k/hidpi.nix
       ./display/lg-ultrafine-5k/hidpi-xorg.nix
-      ../nixos/gnome.nix
+      #../nixos/gnome.nix
       #../nixos/xmonad.nix
       #../nixos/redshift.nix
       #../nixos/taffybar.nix
       # ../nixos/autolock.nix
-      ./p71/graphics.nix
+      #./p71/graphics.nix
       ./p71/wireguard.nix
 
       ../private-config/caches.nix
