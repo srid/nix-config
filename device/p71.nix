@@ -135,6 +135,27 @@ in {
 
   virtualisation.lxd.enable = true;
 
+  # 1. Login as root, and launch tmux
+  # 2. Connect to VPN: `protonvpn c --fastest` (Setup once with `protonvpn init`)
+  # 3. Login as user: `su - user`
+  # 4. ...
+  # 5. Profit!1!!
+  containers.vpn = { 
+    config =  { config, pkgs, ... }: {
+      environment.systemPackages = with pkgs; [
+        protonvpn-cli
+        youtube-dl
+        aria
+        tmux
+      ];
+      users.extraUsers.user = {
+        isNormalUser = true;
+        uid = 1000;
+        shell = pkgs.fish;
+      };
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.srid = {
     isNormalUser = true;

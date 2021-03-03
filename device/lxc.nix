@@ -1,5 +1,5 @@
 # A bare configuration.nix, with LXC specific stuff, for use with LXD
-# https://www.srid.ca/2012301.html#running-nixos-in-lxd
+# https://www.srid.ca/lxc-nixos
 #
 # To initialize the container:
 #   - cp /run/current-system/configuration.nix /etc/nixos/
@@ -83,7 +83,10 @@ in
     wheelNeedsPassword = false;
   };
 
-  environment.systemPackages = [ pkgs.tmux ];
+  environment.systemPackages = with pkgs; [ 
+    tmux
+    neovim
+  ];
 
   # Allow SSH based login
   services.openssh = {
@@ -96,10 +99,11 @@ in
     interfaces.eth0.useDHCP = true;
   };
 
-  users.extraUsers.app = {
+  users.extraUsers.srid = {
     isNormalUser = true;
     uid = 1000;
     shell = pkgs.bash;
+    extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
       sridKey
     ];
@@ -109,7 +113,7 @@ in
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "20.09"; # Did you read the comment?
 
   # copy the configuration.nix into /run/current-system/configuration.nix
   system.copySystemConfiguration = true;
