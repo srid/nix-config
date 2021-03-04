@@ -110,7 +110,7 @@ in {
   services.fwupd.enable = true;
 
   services.ipfs = {
-    enable = true;
+    enable = false;
     enableGC = true;
   };
 
