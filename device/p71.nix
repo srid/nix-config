@@ -107,6 +107,10 @@ in {
     # gatewayAddress = "/ip4/0.0.0.0/tcp/8080";
   };
 
+  services.netdata = {
+    enable = true;
+  };
+
   networking = { 
     inherit hostName;
     networkmanager.enable = true;
