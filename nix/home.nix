@@ -38,6 +38,7 @@ in
     htop
     jq
     ncdu  # CLI disk usage analyzer
+    powershell
     psmisc  # For killall
     ripgrep
     sd
