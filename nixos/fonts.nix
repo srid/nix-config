@@ -15,6 +15,8 @@
 
       # Doom emacs
       emacs-all-the-icons-fonts
+      fira-code
+      fira-code-symbols
     ];
   };
 }
