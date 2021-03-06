@@ -9,7 +9,9 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacsWithPackages (epkgs: [
+      epkgs.emacs-libvterm
+    ]);
   };
 
   home.packages = with pkgs; [
@@ -27,6 +29,6 @@
   # Not using this, yet.
   services.emacs = {
     enable = false;
-    package = pkgs.emacs;
+    # package = pkgs.emacs;
   };
 }

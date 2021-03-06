@@ -48,6 +48,7 @@ in
     tree 
     unzip
     wget
+    wirelesstools
     youtube-dl
 
     # nvim, and its runtime dependencies
