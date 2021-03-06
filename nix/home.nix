@@ -27,6 +27,7 @@ in
       ];
 
   home.packages = with pkgs; [
+    bat
     cachix
     dmenu
     ffmpeg
@@ -59,6 +60,14 @@ in
   };
 
   programs.bash = {
+    enable = true;
+    shellAliases = 
+      (import ./shellAliases.nix { inherit pkgs; })
+      // {
+        pux = "sh -c \"tmux -S $(pwd).tmux attach\"";
+      };
+  };
+  programs.fish = {
     enable = true;
     shellAliases = import ./shellAliases.nix { inherit pkgs; };
   };
