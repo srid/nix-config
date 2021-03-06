@@ -4,9 +4,7 @@
   # https://github.com/nix-community/emacs-overlay
   # TODO: Make this a channel?
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    }))
+    (import (import ../dep/emacs-overlay/thunk.nix))
   ];
 
   programs.emacs = {
@@ -14,8 +12,8 @@
     package = pkgs.emacs;
   };
 
-  # Packages used by use-package of init.el
   home.packages = with pkgs; [
+    # Packages used by use-package of init.el
     ormolu
     sqlite
 
@@ -26,6 +24,7 @@
     libtool
   ];
 
+  # Not using this, yet.
   services.emacs = {
     enable = false;
     package = pkgs.emacs;

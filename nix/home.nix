@@ -19,7 +19,7 @@ in
       then [
         ../nix/keybase.nix 
         ../nix/vscode.nix 
-        #../emacs/emacs.nix
+        ../emacs/emacs.nix
         #../nix/doom-emacs.nix
       ]
       else [
