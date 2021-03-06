@@ -39,7 +39,7 @@ set nowritebackup
 nmap ; :
 
 "C-x as a shortcut for exiting Goyo, save the file and exit Vim altogether
-":map <C-X> <ESC>:x<CR>:x<CR>
+:map <C-X> <ESC>:x<CR>:x<CR>
 
 "Mouse
 "-------------------------
