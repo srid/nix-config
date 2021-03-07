@@ -137,8 +137,6 @@ in {
           "emanote-Documents-oldzk" "7103" "srid" (import ../dep/emanote {});
     };
 
-  virtualisation.lxd.enable = true;
-
   # 1. Login as root, and launch tmux
   # 2. Connect to VPN: `protonvpn c --fastest` (Setup once with `protonvpn init`)
   # 3. Login as user: `su - user`

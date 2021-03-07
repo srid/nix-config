@@ -80,3 +80,5 @@
  :bind
  (:map haskell-mode-map
    ("C-c r" . ormolu-format-buffer)))
+
+(xterm-mouse-mode)
