@@ -155,7 +155,7 @@ in {
       users.extraUsers.user = {
         isNormalUser = true;
         uid = 1000;
-        shell = pkgs.fish;
+        shell = pkgs.powershell;
       };
     };
   };

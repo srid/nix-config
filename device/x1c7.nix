@@ -123,7 +123,7 @@ in {
   users.users.srid = {
      isNormalUser = true;
      extraGroups = [ "wheel" "audio" "docker" ];
-     shell = pkgs.fish;
+     shell = pkgs.powershell;
      packages = with pkgs; [
        slack
        brave

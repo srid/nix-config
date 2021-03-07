@@ -10,7 +10,7 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackages (epkgs: [
-      epkgs.emacs-libvterm
+      epkgs.vterm
     ]);
   };
 
@@ -18,6 +18,9 @@
     # Packages used by use-package of init.el
     ormolu
     sqlite
+
+    # For markdown preview
+    pandoc
 
     # For doom-emacs to compile vterm
     # https://github.com/hlissner/doom-emacs/issues/2065
