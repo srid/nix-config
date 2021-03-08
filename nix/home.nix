@@ -42,6 +42,7 @@ in
     psmisc  # For killall
     ripgrep
     sd
+    starship
     term
     tig
     tmate
@@ -68,6 +69,9 @@ in
       // {
         pux = "sh -c \"tmux -S $(pwd).tmux attach\"";
       };
+    bashrcExtra = ''
+      eval "$(starship init bash)"
+    '';
   };
   programs.fish = {
     enable = true;

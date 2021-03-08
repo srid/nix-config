@@ -4,10 +4,13 @@
    fonts = {
     enableDefaultFonts = true;
 
-    # NOTE: Some fonts may break colour emojis in Chrome
-    # cf. https://github.com/NixOS/nixpkgs/issues/69073#issuecomment-621982371
     fonts = with pkgs; [
+      # NOTE: Some fonts may break colour emojis in Chrome
+      # cf. https://github.com/NixOS/nixpkgs/issues/69073#issuecomment-621982371
+      # If this happens , keep noto-fonts-emoji and try disabling others (nerdfonts, etc.)
       noto-fonts-emoji
+
+      nerdfonts
 
       # For fish powerline plugin
       powerline-fonts
@@ -15,8 +18,6 @@
 
       # Doom emacs
       emacs-all-the-icons-fonts
-      fira-code
-      fira-code-symbols
     ];
   };
 }
