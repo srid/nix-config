@@ -2,6 +2,8 @@
 Set-Alias g git
 Set-Alias t tig
 
+$Env:EDITOR = "nvim"
+
 # coloured ls
 Function LsColor {
     /run/current-system/sw/bin/ls --color @Args

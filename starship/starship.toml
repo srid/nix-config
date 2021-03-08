@@ -1,5 +1,3 @@
-add_newline = false
-
 [character]
 success_symbol = "[](bold green)"
 error_symbol = "[✗](bold red) "
@@ -8,7 +6,6 @@ error_symbol = "[✗](bold red) "
 command = "neuron query --cached --zettels | jq .[].Path | wc -l"
 files = ["neuron.dhall"]
 format = " [$output]($style) notes"
-
 
 # https://starship.rs/presets/#nerd-font-symbols
 
