@@ -2,6 +2,6 @@
   "owner": "nix-community",
   "repo": "home-manager",
   "private": false,
-  "rev": "abc9d96d19e2c8a7f3a32b74894dc16ba4c25df0",
-  "sha256": "074snnbcsvxvlqqg4m54x6443hlh1z932sk9h8sv45d0gqxcp8nc"
+  "rev": "57a7e5e2c53de58215fdac1910470bef36dd30cd",
+  "sha256": "0cgjai6l1j73h6mwgndcyha7wy6am2vwd25274lffzqzrs0n1ac9"
 }
