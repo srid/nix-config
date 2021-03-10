@@ -153,7 +153,6 @@ in {
       users.extraUsers.user = {
         isNormalUser = true;
         uid = 1000;
-        shell = pkgs.powershell;
       };
     };
   };
@@ -162,6 +161,7 @@ in {
   users.users.srid = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "lxd" "ipfs" ]; 
+    shell = pkgs.powershell;
   };
 
   environment.systemPackages = with pkgs; [

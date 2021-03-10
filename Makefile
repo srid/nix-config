@@ -12,6 +12,8 @@ switch-local:
 
 update-deps:
 	nix-thunk update dep/home-manager
+	nix-thunk update dep/neuron
+	nix-thunk update dep/emanote
 
 upgrade:	update-deps
 	sudo nixos-rebuild switch -j auto --upgrade
