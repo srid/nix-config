@@ -73,10 +73,10 @@ in
       eval "$(starship init bash)"
     '';
   };
-  programs.fish = {
-    enable = true;
-    shellAliases = import ./shellAliases.nix { inherit pkgs; };
-  };
+  #programs.fish = {
+  #  enable = true;
+  #  shellAliases = import ./shellAliases.nix { inherit pkgs; };
+  #};
 
   programs.autojump.enable = true;
 
