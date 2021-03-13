@@ -26,7 +26,7 @@ in {
       ../nixos/swap-ctrl-caps.nix
       ../nixos/tmux.nix
       ../nixos/syncthing.nix
-      ../nixos/server-mode.nix
+      #../nixos/server-mode.nix
       ../nixos/passwordstore.nix
       ../nixos/fonts.nix
       ../nixos/protonvpn.nix
@@ -37,12 +37,12 @@ in {
       ./display/brightness.nix
       ./display/lg-ultrafine-5k/hidpi.nix
       ./display/lg-ultrafine-5k/hidpi-xorg.nix
-      #../nixos/gnome.nix
+      ../nixos/gnome.nix
       #../nixos/xmonad.nix
       #../nixos/redshift.nix
       #../nixos/taffybar.nix
       # ../nixos/autolock.nix
-      #./p71/graphics.nix
+      ./p71/graphics.nix
       ./p71/wireguard.nix
 
       ../private-config/caches.nix
@@ -143,6 +143,11 @@ in {
   # 4. ...
   # 5. Profit!1!!
   containers.vpn = { 
+    autoStart = true;
+    ## interfaces = ["wlp4s0"];
+    hostBridge = "br9";
+    localAddress = "192.168.2.100";
+    bindMounts = { "/files" = { hostPath = "/home/srid/Downloads"; isReadOnly = false; }; };
     config =  { config, pkgs, ... }: {
       environment.systemPackages = with pkgs; [
         protonvpn-cli
@@ -150,6 +155,22 @@ in {
         aria
         tmux
       ];
+      networking = {
+        bridges = {
+          br9 = {
+            interfaces = [ "enp0s31f6" ];
+          };
+        };
+
+        interfaces = {
+          br9.ipv4.addresses = [
+            { address = "192.168.2.100"; prefixLength = 24; }
+          ];
+        };
+
+        #nameservers = [ "192.168.50.253" "192.168.10.254" ];
+        #defaultGateway = { address = "192.168.10.254"; interface = "br0"; };
+      };
       users.extraUsers.user = {
         isNormalUser = true;
         uid = 1000;
