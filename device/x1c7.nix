@@ -106,11 +106,12 @@ in {
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  services.openssh.enable = true;
 
   services.fwupd.enable = true;
 
   services.ipfs = {
-    enable = false;
+    enable = true;
     enableGC = true;
   };
 

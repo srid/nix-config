@@ -1,11 +1,16 @@
-[character]
-success_symbol = "[](bold green)"
-error_symbol = "[✗](bold red) "
+#[character]
+#success_symbol = "[](bold green)"
+#error_symbol = "[✗](bold red) "
 
 [custom.neuron]
 command = "neuron query --cached --zettels | jq .[].Path | wc -l"
 files = ["neuron.dhall"]
-format = " [$output]($style) notes"
+format = "[$output]($style) notes "
+
+#[custom.shell]
+#command = "Get-Process -Id $PID | select ProcessName"
+#when = "Get-Process -Id $PID | select ProcessName"
+#format = "[$output]($style) shell "
 
 # https://starship.rs/presets/#nerd-font-symbols
 
