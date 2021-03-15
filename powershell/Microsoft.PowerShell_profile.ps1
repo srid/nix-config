@@ -1,6 +1,7 @@
 # Git aliases
 Set-Alias g git
 Set-Alias t tig
+Set-Alias j z
 
 $Env:EDITOR = "nvim"
 
