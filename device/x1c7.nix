@@ -45,7 +45,7 @@ in {
       ../nixos/passwordstore.nix
 
       # Remote building (because X1C7 is not the fastest)
-      ../nixos/nix-distributed.nix
+      # ../nixos/nix-distributed.nix
 
       ../private-config/caches.nix
 
@@ -136,6 +136,8 @@ in {
        peek
        python
        albert
+       obsidian
+       dotnet-sdk_5
      ];
   };
 

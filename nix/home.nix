@@ -60,6 +60,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
   };
 
   programs.bash = {
@@ -71,11 +72,12 @@ in
       };
     bashrcExtra = ''
       eval "$(starship init bash)"
+      export PATH="$PATH:/home/srid/.dotnet/tools"
     '';
   };
   #programs.fish = {
   #  enable = true;
-  #  shellAliases = import ./shellAliases.nix { inherit pkgs; };
+  #  shellAliases = import ./shellAliases.nix { inherit pkgs; /bash};
   #};
 
   programs.autojump.enable = true;
