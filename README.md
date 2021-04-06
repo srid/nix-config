@@ -28,7 +28,7 @@ make
 
 ### Thinkpad X1C7
 
-https://www.srid.ca/x1c7-install
+https://notes.srid.ca/x1c7-install
 
 ### Thinkpad P71
 
