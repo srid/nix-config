@@ -1,5 +1,7 @@
 # My NixOS configuration
 
+**DEPRECATED**: See https://github.com/srid/nixos-config which uses flakes and is simple.
+
 ## Setup
 
 1. First, copy the 'srid' user config to `device`, and activate that. We need to do this before cloning the repo under srid's home directory.
